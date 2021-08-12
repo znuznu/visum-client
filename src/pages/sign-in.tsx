@@ -1,10 +1,11 @@
 import React from 'react';
+import Headline from '../components/Headline';
 
 const SignIn = () => {
   return (
-    <div>
-      <p>Visum is so incredible, now you can see the text</p>
-    </div>
+    <>
+      <Headline />
+    </>
   );
 };
 

@@ -2,7 +2,7 @@ interface Breakpoints {
   s: string;
   m: string;
   l: string;
-  xl: string;
+  // xl: string;
 }
 
 interface Colors {
@@ -23,13 +23,13 @@ interface Theme {
 }
 
 const breakpoints: Breakpoints = {
-  s: 'FILLpx' as const,
-  m: 'FILLpx' as const,
-  l: 'FILLpx' as const,
-  xl: 'FILLpx' as const
+  s: '300px' as const,
+  m: '700px' as const,
+  l: '1433px' as const
+  // xl: 'FILLpx' as const
 };
 
-export const sith: Theme = {
+export const sithTheme: Theme = {
   name: 'sith',
   breakpoints,
   colors: {
