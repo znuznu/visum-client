@@ -1,7 +1,7 @@
 import React from 'react';
-import styled, { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 
-import SignIn from './pages/sign-in';
+import SignInPage from './pages/SignInPage';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
 import { sithTheme } from './styles/theme';
@@ -14,7 +14,7 @@ const App = () => {
       <Router>
         <Switch>
           <Route path="/sign-in">
-            <SignIn />
+            <SignInPage />
           </Route>
           <Route path="*">
             <Redirect to="/sign-in" />

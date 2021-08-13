@@ -29,10 +29,6 @@ const Title = styled.h1`
   @media screen and (max-width: ${({ theme }) => theme.breakpoints.l}) {
     font-size: 72px;
   }
-
-  @media screen and (max-width: ${({ theme }) => theme.breakpoints.m}) {
-    font-size: 55px;
-  }
 `;
 
 const ClapperIcon = styled(MoviesAndTv)`
@@ -42,11 +38,6 @@ const ClapperIcon = styled(MoviesAndTv)`
   @media screen and (max-width: ${({ theme }) => theme.breakpoints.l}) {
     width: 72px;
     min-width: 72px;
-  }
-
-  @media screen and (max-width: ${({ theme }) => theme.breakpoints.m}) {
-    width: 55px;
-    min-width: 55px;
   }
 `;
 
@@ -58,11 +49,6 @@ const ReelIcon = styled(Movie2)`
     width: 72px;
     min-width: 72px;
   }
-
-  @media screen and (max-width: ${({ theme }) => theme.breakpoints.m}) {
-    width: 55px;
-    min-width: 55px;
-  }
 `;
 
 const CameraIcon = styled(CameraMovie)`
@@ -72,11 +58,6 @@ const CameraIcon = styled(CameraMovie)`
   @media screen and (max-width: ${({ theme }) => theme.breakpoints.l}) {
     width: 72px;
     min-width: 72px;
-  }
-
-  @media screen and (max-width: ${({ theme }) => theme.breakpoints.m}) {
-    width: 55px;
-    min-width: 55px;
   }
 `;
 

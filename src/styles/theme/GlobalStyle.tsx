@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
   #root {
     display: flex;
     flex-direction: column;
-    background: #181a1b;
+    background: #000;
   }
   
   @font-face {
