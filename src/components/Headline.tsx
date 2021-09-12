@@ -19,7 +19,7 @@ const Titles = styled.div`
 `;
 
 const Title = styled.h1`
-  font-family: 'Archivo';
+  font-family: ${(props) => props.theme.fonts.logo};
   margin: 0;
   padding: 0 0.5rem;
   text-align: center;

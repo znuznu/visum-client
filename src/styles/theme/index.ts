@@ -14,12 +14,23 @@ interface Colors {
       color: string;
     };
   };
+  status: {
+    error: string;
+    warning: string;
+    success: string;
+    info: string;
+  };
 }
 
+interface Fonts {
+  logo: string;
+  main: string;
+}
 interface Theme {
   name: string;
   breakpoints: Breakpoints;
   colors: Colors;
+  fonts: Fonts;
 }
 
 const breakpoints: Breakpoints = {
@@ -40,6 +51,13 @@ export const sithTheme: Theme = {
         bg: '#fffffff',
         color: '#000000'
       }
+    },
+    status: {
+      error: 'red',
+      warning: 'orange',
+      success: 'green',
+      info: 'blue'
     }
-  }
+  },
+  fonts: { logo: 'Archivo', main: 'Oswald' }
 };
