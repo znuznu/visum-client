@@ -1,9 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useFormik } from 'formik';
+import { useMutation } from 'react-query';
+import HttpService from '../../services/http';
 
+import { API_URL } from '../../config';
 import Button from '../common/Button';
 import Input from '../common/Input';
+import { SignInRequestBody, SignInResponseBody } from './models';
 
 const StyledForm = styled.form`
   display: flex;
@@ -35,6 +39,21 @@ const validate = (values: FormValues) => {
 };
 
 const SignInForm = () => {
+  const mutation = useMutation(
+    (body: SignInRequestBody) =>
+      HttpService.post(`${API_URL}/api/accounts/sign-in`, {
+        json: body
+      }).json<SignInResponseBody>(),
+    {
+      onError: () => {
+        console.log('Oops.');
+      },
+      onSuccess: () => {
+        console.log(mutation.data?.token);
+      }
+    }
+  );
+
   const formik = useFormik<FormValues>({
     initialValues: {
       username: '',
@@ -42,7 +61,7 @@ const SignInForm = () => {
     },
     validate,
     onSubmit: (values) => {
-      console.log(values);
+      mutation.mutate(values);
     }
   });
 

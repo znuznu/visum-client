@@ -7,6 +7,7 @@ import { API_URL } from '../../config';
 import Button from '../common/Button';
 import Input from '../common/Input';
 import HttpService from '../../services/http';
+import { SignUpRequestBody } from './models';
 
 const StyledForm = styled.form`
   display: flex;
@@ -56,14 +57,15 @@ const validate = (values: FormValues) => {
 
 const SignUpForm = () => {
   const mutation = useMutation(
-    (account: FormValues) =>
-      HttpService.post(`${API_URL}/api/accounts/sign-up`, { json: account }),
+    (body: SignUpRequestBody) =>
+      HttpService.post(`${API_URL}/api/accounts/sign-up`, { json: body }),
     {
       onError: () => {
-        console.log('aie');
+        console.log('Oops.');
       },
       onSuccess: () => {
-        console.log('yes!');
+        // TODO redirect to sign in page
+        console.log('Success.');
       }
     }
   );
