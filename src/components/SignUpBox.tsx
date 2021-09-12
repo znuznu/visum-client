@@ -29,7 +29,7 @@ const Content = styled.div`
   flex-direction: column;
 `;
 
-const SignInBox = () => {
+const SignUpBox = () => {
   const history = useHistory();
 
   const goToHome = () => {
@@ -38,14 +38,16 @@ const SignInBox = () => {
 
   return (
     <Container>
-      <Title>Sign in</Title>
+      <Title>Sign up</Title>
       <Content>
         <Input label={'Username'} type={'text'} />
         <Input label={'Password'} type={'password'} />
-        <Button onClick={goToHome}>{'Log In'}</Button>
+        <Input label={'Password confirmation'} type={'password'} />
+        <Input label={'Registration key'} type={'text'} />
+        <Button onClick={goToHome}>{'Sign up'}</Button>
       </Content>
     </Container>
   );
 };
 
-export default SignInBox;
+export default SignUpBox;
