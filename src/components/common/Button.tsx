@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const StyledButton = styled.button`
   font-size: 22px;
-  font-family: 'Oswald';
+  font-family: ${(props) => props.theme.fonts.main};
   text-transform: uppercase;
   width: 120px;
   margin: auto;
@@ -17,13 +17,14 @@ const StyledButton = styled.button`
 `;
 
 interface ButtonProps {
-  onClick: ReactEventHandler;
+  onClick?: ReactEventHandler;
   name?: string;
+  type?: 'button' | 'submit' | 'reset';
 }
 
-const Button = ({ onClick, name, children }: PropsWithChildren<ButtonProps>) => {
+const Button = ({ onClick, name, type, children }: PropsWithChildren<ButtonProps>) => {
   return (
-    <StyledButton onClick={onClick} name={name}>
+    <StyledButton type={type} name={name} onClick={onClick}>
       {children}
     </StyledButton>
   );

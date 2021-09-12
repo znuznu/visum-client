@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 
-import Button from './common/Button';
-import Input from './common/Input';
+import Button from '../common/Button';
+import Input from '../common/Input';
+import SignUpForm from './Form';
 
 const Container = styled.div`
   display: flex;
@@ -19,17 +20,12 @@ const Container = styled.div`
 `;
 
 const Title = styled.h1`
-  font-family: 'Oswald';
+  font-family: ${(props) => props.theme.fonts.main};
   text-transform: uppercase;
   margin: 0 auto 2rem;
 `;
 
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const SignInBox = () => {
+const SignUpBox = () => {
   const history = useHistory();
 
   const goToHome = () => {
@@ -38,14 +34,10 @@ const SignInBox = () => {
 
   return (
     <Container>
-      <Title>Sign in</Title>
-      <Content>
-        <Input label={'Username'} type={'text'} />
-        <Input label={'Password'} type={'password'} />
-        <Button onClick={goToHome}>{'Log In'}</Button>
-      </Content>
+      <Title>Sign up</Title>
+      <SignUpForm />
     </Container>
   );
 };
 
-export default SignInBox;
+export default SignUpBox;
