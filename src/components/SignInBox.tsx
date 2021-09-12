@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
+import Button from './common/Button';
 
 const Container = styled.div`
   display: flex;
@@ -42,22 +44,13 @@ const Input = styled.input`
   width: auto;
 `;
 
-const Button = styled.button`
-  font-size: 22px;
-  font-family: 'Oswald';
-  text-transform: uppercase;
-  width: 120px;
-  margin: auto;
-  border: none;
-  color: ${(props) => props.theme.colors.primary};
-  background-color: ${(props) => props.theme.colors.secondary};
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
 const SignInBox = () => {
+  const history = useHistory();
+
+  const goToHome = () => {
+    history.push(`home`);
+  };
+
   return (
     <Container>
       <Title>Sign in</Title>
@@ -66,7 +59,7 @@ const SignInBox = () => {
         <Input />
         <Label> Password </Label>
         <Input type={'password'} />
-        <Button>Log In</Button>
+        <Button onClick={goToHome}>{'Log In'}</Button>
       </Content>
     </Container>
   );
