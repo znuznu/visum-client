@@ -2,7 +2,7 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 import { sithTheme } from './styles/theme';
 import GlobalStyle from './styles/theme/GlobalStyle';
@@ -16,14 +16,10 @@ const App = () => {
       <ThemeProvider theme={sithTheme}>
         <GlobalStyle />
         <Router>
-          <Switch>
-            <Route path="/sign">
-              <SignPage />
-            </Route>
-            <Route path="*">
-              <Redirect to="/sign" />
-            </Route>
-          </Switch>
+          <Routes>
+            <Route path="/sign" element={<SignPage />} />
+            <Route path="*" element={<Navigate to="/sign" />} />
+          </Routes>
         </Router>
       </ThemeProvider>
     </QueryClientProvider>
