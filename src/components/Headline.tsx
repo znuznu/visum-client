@@ -7,13 +7,13 @@ import { CameraMovie } from '@styled-icons/boxicons-solid';
 
 const Container = styled.div`
   display: flex;
-  background: ${(props) => props.theme.colors.primary};
+  background: ${(props) => props.theme.colors.main};
 `;
 
 const Titles = styled.div`
   display: flex;
   flex-wrap: nowrap;
-  color: ${(props) => props.theme.colors.secondary};
+  color: ${(props) => props.theme.colors.primary};
   overflow: hidden;
   white-space: nowrap;
 `;

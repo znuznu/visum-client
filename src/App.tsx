@@ -2,12 +2,11 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-import SignInPage from './pages/SignInPage';
-import SignUpPage from './pages/SignUpPage';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
 import { sithTheme } from './styles/theme';
 import GlobalStyle from './styles/theme/GlobalStyle';
+import SignPage from './pages/SignPage';
 
 const queryClient = new QueryClient();
 
@@ -18,14 +17,11 @@ const App = () => {
         <GlobalStyle />
         <Router>
           <Switch>
-            <Route path="/sign-in">
-              <SignInPage />
-            </Route>
-            <Route path="/sign-up">
-              <SignUpPage />
+            <Route path="/sign">
+              <SignPage />
             </Route>
             <Route path="*">
-              <Redirect to="/sign-in" />
+              <Redirect to="/sign" />
             </Route>
           </Switch>
         </Router>
