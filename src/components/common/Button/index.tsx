@@ -1,20 +1,5 @@
 import React, { PropsWithChildren, ReactEventHandler } from 'react';
-import styled from 'styled-components';
-
-const StyledButton = styled.button`
-  font-size: 22px;
-  font-family: ${(props) => props.theme.fonts.main};
-  text-transform: uppercase;
-  width: 120px;
-  margin: auto;
-  border: none;
-  color: ${(props) => props.theme.colors.primary};
-  background-color: ${(props) => props.theme.colors.secondary};
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
+import StyledButton from './style';
 
 interface ButtonProps {
   onClick?: ReactEventHandler;

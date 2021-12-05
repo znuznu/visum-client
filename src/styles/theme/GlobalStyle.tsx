@@ -13,7 +13,8 @@ const GlobalStyle = createGlobalStyle`
   #root {
     display: flex;
     flex-direction: column;
-    background: #000;
+    background: rgb(9,46,48);
+    background: linear-gradient(320deg, rgba(9,46,48,1) 0%, rgba(21,23,24,1) 25%, rgba(21,23,24,1) 75%, rgba(44,34,78,1) 100%);
   }
   
   @font-face {

@@ -1,18 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
 import { useFormik } from 'formik';
 import { useMutation } from 'react-query';
 import HttpService from '../../services/http';
 
-import { API_URL } from '../../config';
+import { API_URL, JWT_TOKEN_KEY } from '../../config';
 import Button from '../common/Button';
 import Input from '../common/Input';
 import { SignInRequestBody, SignInResponseBody } from './models';
-
-const StyledForm = styled.form`
-  display: flex;
-  flex-direction: column;
-`;
+import StyledForm from './style';
+import { SimpleLocalStorageService } from '../../services/simpleLocalStorage';
 
 interface FormValues {
   username: string;
@@ -39,17 +35,19 @@ const validate = (values: FormValues) => {
 };
 
 const SignInForm = () => {
-  const mutation = useMutation(
+  const signInMutation = useMutation(
     (body: SignInRequestBody) =>
       HttpService.post(`${API_URL}/api/accounts/sign-in`, {
         json: body
       }).json<SignInResponseBody>(),
     {
       onError: () => {
+        // TODO #1
         console.log('Oops.');
       },
-      onSuccess: () => {
-        console.log(mutation.data?.token);
+      onSuccess: (data) => {
+        SimpleLocalStorageService.setItem(JWT_TOKEN_KEY, data.token);
+        // TODO redirect to home
       }
     }
   );
@@ -61,7 +59,7 @@ const SignInForm = () => {
     },
     validate,
     onSubmit: (values) => {
-      mutation.mutate(values);
+      signInMutation.mutate(values);
     }
   });
 
@@ -89,7 +87,7 @@ const SignInForm = () => {
         }
         {...formik.getFieldProps('password')}
       />
-      <Button type={'submit'}>{'Log In'}</Button>
+      <Button type={'submit'}>{'Sign in'}</Button>
     </StyledForm>
   );
 };

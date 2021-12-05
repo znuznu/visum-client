@@ -1,28 +1,6 @@
 import React, { ReactEventHandler } from 'react';
-import styled from 'styled-components';
-import InputError from './InputError';
-
-const StyledLabel = styled.label`
-  font-family: ${(props) => props.theme.fonts.main};
-  font-size: 22px;
-  text-transform: uppercase;
-`;
-
-const StyledInput = styled.input`
-  font-size: 22px;
-  background-color: ${(props) => props.theme.colors.primary};
-  border: none;
-  border-bottom: 1px solid ${(props) => props.theme.colors.secondary};
-  font-family: ${(props) => props.theme.fonts.main};
-  color: ${(props) => props.theme.colors.secondary};
-  width: auto;
-`;
-
-const InputBlock = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 2rem;
-`;
+import InputError from '../InputError';
+import { InputBlock, StyledInput, StyledLabel } from './style';
 
 interface InputProps {
   id: string;

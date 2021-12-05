@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import { useFormik } from 'formik';
 import { useMutation } from 'react-query';
 
@@ -8,11 +7,7 @@ import Button from '../common/Button';
 import Input from '../common/Input';
 import HttpService from '../../services/http';
 import { SignUpRequestBody } from './models';
-
-const StyledForm = styled.form`
-  display: flex;
-  flex-direction: column;
-`;
+import StyledForm from './style';
 
 interface FormValues {
   username: string;
@@ -64,7 +59,6 @@ const SignUpForm = () => {
         console.log('Oops.');
       },
       onSuccess: () => {
-        // TODO redirect to sign in page
         console.log('Success.');
       }
     }
@@ -85,7 +79,7 @@ const SignUpForm = () => {
 
   return (
     <>
-      {/* TODO Handle properly */}
+      {/* TODO #1 */}
       {mutation.isError ? <div>An error occurred</div> : null}
 
       <StyledForm onSubmit={formik.handleSubmit}>
