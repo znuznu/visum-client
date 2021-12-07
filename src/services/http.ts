@@ -1,5 +1,7 @@
 import ky from 'ky';
 
+// TODO move it to a hooks
+
 export interface ResponsePromise extends Promise<Response> {
   arrayBuffer: () => Promise<ArrayBuffer>;
   blob: () => Promise<Blob>;

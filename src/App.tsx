@@ -7,6 +7,9 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { sithTheme } from './styles/theme';
 import GlobalStyle from './styles/theme/GlobalStyle';
 import SignPage from './pages/SignPage';
+import Guard from './components/core/Guard';
+import { AuthProvider } from './providers/AuthProvider';
+import HomePage from './pages/HomePage';
 
 const queryClient = new QueryClient();
 
@@ -14,13 +17,23 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={sithTheme}>
-        <GlobalStyle />
-        <Router>
-          <Routes>
-            <Route path="/sign" element={<SignPage />} />
-            <Route path="*" element={<Navigate to="/sign" />} />
-          </Routes>
-        </Router>
+        <AuthProvider>
+          <GlobalStyle />
+          <Router>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <Guard>
+                    <HomePage />
+                  </Guard>
+                }
+              />
+              <Route path="/sign" element={<SignPage />} />
+              <Route path="*" element={<Navigate to="/sign" />} />
+            </Routes>
+          </Router>
+        </AuthProvider>
       </ThemeProvider>
     </QueryClientProvider>
   );

@@ -3,12 +3,13 @@ import { useFormik } from 'formik';
 import { useMutation } from 'react-query';
 import HttpService from '../../services/http';
 
-import { API_URL, JWT_TOKEN_KEY } from '../../config';
+import { API_URL } from '../../config';
 import Button from '../common/Button';
 import Input from '../common/Input';
 import { SignInRequestBody, SignInResponseBody } from './models';
 import StyledForm from './style';
-import { SimpleLocalStorageService } from '../../services/simpleLocalStorage';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../providers/AuthProvider';
 
 interface FormValues {
   username: string;
@@ -35,6 +36,9 @@ const validate = (values: FormValues) => {
 };
 
 const SignInForm = () => {
+  const navigate = useNavigate();
+  const auth = useAuth();
+
   const signInMutation = useMutation(
     (body: SignInRequestBody) =>
       HttpService.post(`${API_URL}/api/accounts/sign-in`, {
@@ -45,9 +49,9 @@ const SignInForm = () => {
         // TODO #1
         console.log('Oops.');
       },
-      onSuccess: (data) => {
-        SimpleLocalStorageService.setItem(JWT_TOKEN_KEY, data.token);
-        // TODO redirect to home
+      onSuccess: (data, variables) => {
+        auth.signIn(variables.username, data.token);
+        navigate('/');
       }
     }
   );
