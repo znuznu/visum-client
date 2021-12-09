@@ -14,7 +14,7 @@ const StyledTabsList = styled(TabsPrimitive.List)`
 
 const StyledTabsTrigger = styled(TabsPrimitive.Trigger)`
   align-items: center;
-  border-bottom: 1px solid ${(props) => props.theme.colors.border};
+  border-bottom: 1px solid ${(props) => props.theme.colors.border.secondary};
   flex: 1;
   justify-content: center;
   padding: 1rem;
@@ -27,8 +27,8 @@ const StyledTabsTrigger = styled(TabsPrimitive.Trigger)`
     border-top-right-radius: 4px;
   }
   &[data-state='active'] {
-    color: ${(props) => props.theme.colors.secondary};
-    border-bottom: 1px solid ${(props) => props.theme.colors.secondary};
+    color: ${(props) => props.theme.colors.text.secondary};
+    border-bottom: 1px solid ${(props) => props.theme.colors.border.primary};
   }
   &[data-state='inactive'] {
     opacity: 0.5;
