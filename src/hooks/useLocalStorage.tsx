@@ -13,7 +13,7 @@ const useLocalStorage = (key: string, defaultValue?: string) => {
 
   const deleteItem = () => {
     setStoredValue(undefined);
-    window.localStorage.deleteItem(key);
+    window.localStorage.removeItem(key);
   };
 
   return [item, setItem, deleteItem];

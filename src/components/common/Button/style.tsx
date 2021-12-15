@@ -1,19 +1,40 @@
 import styled from 'styled-components';
+import { StyleProps } from '../../system/system.types';
 
-const StyledButton = styled.button`
+export type ButtonStyleProps = Pick<
+  StyleProps,
+  | 'margin'
+  | 'padding'
+  | 'border'
+  | 'borderRadius'
+  | 'width'
+  | 'height'
+  | 'cursor'
+  | 'position'
+  | 'top'
+  | 'bottom'
+  | 'right'
+  | 'left'
+>;
+
+const StyledButton = styled.button<ButtonStyleProps>`
   background-color: ${(props) => props.theme.colors.button.main.bg};
-  border: none;
-  border-radius: 4px;
+  border: ${(props) => props.border ?? 'none'};
+  border-radius: ${(props) => props.borderRadius ?? '4px'};
   color: ${(props) => props.theme.colors.button.main.color};
   font-size: ${(props) => props.theme.fontSizes.button};
   font-family: ${(props) => props.theme.fonts.main};
-  font-weight: 900;
-  margin: auto;
-  padding: 0.4rem;
-  width: auto;
+  margin: ${(props) => props.margin ?? 'auto'};
+  padding: ${(props) => props.padding ?? '0.4rem'};
+  width: ${(props) => props.width ?? 'auto'};
+  position: ${(props) => props.position ?? 'unset'};
+  top: ${(props) => props.top ?? 'unset'};
+  bottom: ${(props) => props.bottom ?? 'unset'};
+  right: ${(props) => props.right ?? 'unset'};
+  left: ${(props) => props.left ?? 'unset'};
 
   &:hover {
-    cursor: pointer;
+    cursor: ${(props) => props.cursor ?? 'pointer'};
     color: ${(props) => props.theme.colors.button.main.color};
     background-color: ${(props) => props.theme.colors.button.main.bgHover};
   }
