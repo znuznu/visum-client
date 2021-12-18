@@ -108,7 +108,7 @@ const SignUpForm = () => {
         <Input
           id={'confirmPassword'}
           label={'Password confirmation'}
-          type={'confirmPassword'}
+          type={'password'}
           error={
             formik.touched.confirmPassword && formik.errors.confirmPassword
               ? formik.errors.confirmPassword

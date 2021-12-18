@@ -4,14 +4,13 @@ const StyledShellContent = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
-  // TODO change
+  height: auto;
   color: white;
+  padding-left: 250px;
 
   @media screen and (max-width: ${(props) => props.theme.breakpoints.sidebar}) {
-    position: fixed;
-    top: 58px;
     z-index: 0;
+    padding: 53px 0 0;
   }
 `;
 

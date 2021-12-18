@@ -5,6 +5,10 @@ import { MoviesAndTv } from '@styled-icons/fluentui-system-filled';
 import { Movie2 } from '@styled-icons/remix-fill';
 import { CameraMovie } from '@styled-icons/boxicons-solid';
 
+/**
+ * TODO remove
+ */
+
 const Container = styled.div`
   display: flex;
   background: ${(props) => props.theme.colors.main};

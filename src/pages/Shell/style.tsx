@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const StyledShell = styled.div`
   display: flex;
   background-color: ${(props) => props.theme.colors.main};
-  height: 100%;
+  height: auto;
 
   @media screen and (max-width: ${(props) => props.theme.breakpoints.sidebar}) {
     flex-direction: column;

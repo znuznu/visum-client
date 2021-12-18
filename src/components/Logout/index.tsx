@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import React from 'react';
 import { useAuth } from '../../providers/AuthProvider';
 import Button from '../common/Button';
 import { StyledLogout } from './style';

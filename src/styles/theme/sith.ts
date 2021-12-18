@@ -1,4 +1,4 @@
-import { mauveDark, slateDark, violetDark, redDark } from '@radix-ui/colors';
+import { mauveDark, slateDark, violetDark, redDark, grayDark } from '@radix-ui/colors';
 
 import { Theme } from '.';
 import { breakpoints } from './breakpoints';
@@ -10,9 +10,10 @@ export const sithTheme: Theme = {
   colors: {
     main: mauveDark.mauve1,
     primary: mauveDark.mauve12,
-    secondary: 'red',
+    secondary: violetDark.violet11,
+    tertiary: grayDark.gray11,
     border: {
-      primary: violetDark.violet11,
+      primary: violetDark.violet8,
       secondary: mauveDark.mauve5
     },
     button: {
@@ -46,6 +47,10 @@ export const sithTheme: Theme = {
       bg: 'none',
       bgHover: 'none',
       thumb: mauveDark.mauve5
+    },
+    tooltip: {
+      bg: violetDark.violet4,
+      bgBorder: violetDark.violet8
     }
   },
   fonts: { logo: 'Archivo', main: 'Open Sans' },
@@ -58,6 +63,8 @@ export const sithTheme: Theme = {
       item: '16px'
     },
     text: '16px',
-    visum: '24px'
+    visum: '24px',
+    tooltip: '11px',
+    l: '20px'
   }
 };

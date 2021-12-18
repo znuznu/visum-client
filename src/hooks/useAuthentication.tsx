@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { JWT_TOKEN_KEY } from '../config';
 import jwt from 'jsonwebtoken';
 import useLocalStorage from './useLocalStorage';
@@ -32,15 +32,7 @@ const useAuthentication = () => {
     setUsername(null);
   };
 
-  useEffect(() => {
-    const unsubscribe = () => {
-      signOut();
-    };
-
-    return unsubscribe;
-  }, []);
-
-  return { isAuthenticated, signIn, signOut, username };
+  return { isAuthenticated, signIn, signOut, username, jwtToken };
 };
 
 export default useAuthentication;

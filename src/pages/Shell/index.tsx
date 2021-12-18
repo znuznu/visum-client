@@ -1,7 +1,6 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import Sidebar from '../../components/Sidebar';
-import Home from '../Home';
 import Content from './Content';
 import StyledShell from './style';
 
@@ -10,9 +9,7 @@ const Shell = () => {
     <StyledShell>
       <Sidebar />
       <Content>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
+        <Outlet />
       </Content>
     </StyledShell>
   );

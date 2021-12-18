@@ -12,7 +12,7 @@ const Sign = () => {
     if (isAuthenticated()) {
       navigate('/');
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, navigate]);
 
   return (
     <StyledSignContainer>
