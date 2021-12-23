@@ -2,11 +2,14 @@ import { mauveDark, slateDark, violetDark, redDark, grayDark } from '@radix-ui/c
 
 import { Theme } from '.';
 import { breakpoints } from './breakpoints';
+import { fonts, fontSizes } from './fonts';
 
 // Dark theme is dead, long live the Sith theme
 export const sithTheme: Theme = {
-  name: 'sith',
+  name: 'sith' as const,
   breakpoints,
+  fonts,
+  fontSizes,
   colors: {
     main: mauveDark.mauve1,
     primary: mauveDark.mauve12,
@@ -52,19 +55,5 @@ export const sithTheme: Theme = {
       bg: violetDark.violet4,
       bgBorder: violetDark.violet8
     }
-  },
-  fonts: { logo: 'Archivo', main: 'Open Sans' },
-  fontSizes: {
-    button: '16px',
-    input: '16px',
-    label: '16px',
-    sidebar: {
-      title: '12px',
-      item: '16px'
-    },
-    text: '16px',
-    visum: '24px',
-    tooltip: '11px',
-    l: '20px'
   }
 };

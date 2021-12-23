@@ -5,7 +5,6 @@ const StyledSidebar = styled.div`
   flex-direction: column;
   background-color: ${(props) => props.theme.colors.main};
   box-shadow: 0 0 0 1px ${(props) => props.theme.colors.border.secondary};
-  font-size: ${(props) => props.theme.fontSizes.visum};
   font-family: ${(props) => props.theme.fonts.main};
   width: 250px;
   min-width: 250px;
