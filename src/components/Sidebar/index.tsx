@@ -6,7 +6,7 @@ import SidebarMenu from './SidebarMenu';
 import SidebarMenuSection from './SidebarMenuSection';
 import SidebarMenuSectionTitle from './SidebarMenuSectionTitle';
 import StyledSidebar from './style';
-import StyledSeparator from '../common/Separator/style';
+import { Separator } from '../common/Separator';
 import SidebarMenuItemLink from './SidebarMenuItemLink';
 import SidebarMenuItem from './SidebarMenuItem';
 import Logout from '../Logout';
@@ -50,13 +50,13 @@ const Sidebar = () => {
             <SidebarMenuItemLink href={'/directors'} text={'Directors'} />
             <SidebarMenuItemLink href={'/genres'} text={'Genres'} />
           </SidebarMenuSection>
-          <StyledSeparator decorative />
+          <Separator decorative />
           <SidebarMenuSection>
             <SidebarMenuSectionTitle value={'Statistics'} />
             <SidebarMenuItemLink href={'/stats/all-time'} text={'All-time'} />
             <SidebarMenuItemLink href={'/stats/year'} text={'Per year'} />
           </SidebarMenuSection>
-          <StyledSeparator decorative />
+          <Separator decorative />
           <SidebarMenuSection>
             <SidebarMenuSectionTitle value={'Settings'} />
             <SidebarMenuItem>

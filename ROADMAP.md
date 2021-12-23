@@ -1,7 +1,8 @@
 ## Refactor
 
+- [x] Export the Radix components StyledXXX as XXX
 - [ ] Wait for the toast of Radix in order to display (some, like 403) errors in a sexy way (see TODO #1)
-- [ ] Export the Radix components StyledXXX as XXX
+- [ ] Refacto the menu with the Radix component (when it's released)
 - [ ] Use xxs / xs / xs ... for font sizes
 
 ## Features

@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import * as SwitchPrimitive from '@radix-ui/react-switch';
 
+// TODO use it
+
 const StyledSwitch = styled(SwitchPrimitive.Root)`
   all: unset;
   width: 42px;

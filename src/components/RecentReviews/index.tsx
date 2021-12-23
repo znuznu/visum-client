@@ -9,7 +9,7 @@ import HttpService from '../../services/http';
 import { StyledReviews, StyledRecentReviews, StyledTitle } from './style';
 import { ReviewFromPage } from '../../models/reviews';
 import PageReview from '../PageReview';
-import StyledSeparator from '../common/Separator/style';
+import { Separator } from '../common/Separator';
 
 export type RecentReviewsProps = {
   limit: number;
@@ -57,7 +57,7 @@ const RecentReviews = ({ limit }: RecentReviewsProps) => {
           {data?.content.map((review, index) => (
             <li key={`recent-review-${review.id}`}>
               <PageReview key={`recent-review-${review.id}`} review={review} />
-              {index !== data.content.length - 1 && <StyledSeparator />}
+              {index !== data.content.length - 1 && <Separator />}
             </li>
           ))}
         </StyledReviews>
