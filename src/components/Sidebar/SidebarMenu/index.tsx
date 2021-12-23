@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react';
 import {
-  StyledScrollAreaScrollbar,
-  StyledScrollAreaViewport,
-  StyledThumb
-} from '../../common/ScrollArea/style';
+  ScrollAreaScrollbar,
+  ScrollAreaViewport,
+  ScrollAreaThumb
+} from '../../common/ScrollArea';
 import StyledMenu from './style';
 
 type SidebarMenuProps = {
@@ -13,10 +13,10 @@ type SidebarMenuProps = {
 const SidebarMenu = ({ children }: SidebarMenuProps) => {
   return (
     <StyledMenu>
-      <StyledScrollAreaViewport>{children}</StyledScrollAreaViewport>
-      <StyledScrollAreaScrollbar>
-        <StyledThumb />
-      </StyledScrollAreaScrollbar>
+      <ScrollAreaViewport>{children}</ScrollAreaViewport>
+      <ScrollAreaScrollbar>
+        <ScrollAreaThumb />
+      </ScrollAreaScrollbar>
     </StyledMenu>
   );
 };

@@ -4,23 +4,23 @@ import { TabsContent } from '@radix-ui/react-tabs';
 import SignInForm from '../SignInForm';
 import Container from './style';
 import SignUpForm from '../SignUpForm';
-import { StyledTabs, StyledTabsList, StyledTabsTrigger } from '../common/Tabs/style';
+import { Tabs, TabsList, TabsTrigger } from '../common/Tabs';
 
 const SignBox = () => {
   return (
     <Container>
-      <StyledTabs defaultValue="signInTab">
-        <StyledTabsList aria-label="Sign in/up">
-          <StyledTabsTrigger value="signInTab">Sign in</StyledTabsTrigger>
-          <StyledTabsTrigger value="signUpTab">Sign up</StyledTabsTrigger>
-        </StyledTabsList>
+      <Tabs defaultValue="signInTab">
+        <TabsList aria-label="Sign in/up">
+          <TabsTrigger value="signInTab">Sign in</TabsTrigger>
+          <TabsTrigger value="signUpTab">Sign up</TabsTrigger>
+        </TabsList>
         <TabsContent value="signInTab">
           <SignInForm />
         </TabsContent>
         <TabsContent value="signUpTab">
           <SignUpForm />
         </TabsContent>
-      </StyledTabs>
+      </Tabs>
     </Container>
   );
 };

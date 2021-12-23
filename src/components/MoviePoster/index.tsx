@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Tooltip, TooltipTrigger } from '../common/Tooltip';
-import { StyledTooltipArrow, StyledTooltipContent } from '../common/Tooltip/style';
+import { TooltipArrow, TooltipContent } from '../common/Tooltip';
 
 import { StyledEmptyPoster, StyledNoPosterIcon, StyledPoster } from './style';
 import { AccessibleIcon } from '../common/AccessibleIcon';
@@ -32,10 +32,10 @@ const MoviePoster = ({ id, metadata, title, releaseDate }: MoviePosterProps) => 
           )}
         </Link>
       </TooltipTrigger>
-      <StyledTooltipContent>
+      <TooltipContent>
         {title} ({releaseDate})
-        <StyledTooltipArrow />
-      </StyledTooltipContent>
+        <TooltipArrow />
+      </TooltipContent>
     </Tooltip>
   );
 };
