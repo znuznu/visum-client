@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const StyledLabel = styled.label`
   font-family: ${(props) => props.theme.fonts.main};
   font-weight: 300;
-  font-size: ${(props) => props.theme.fontSizes.label};
+  font-size: ${(props) => props.theme.fontSizes.m};
   color: ${(props) => props.theme.colors.primary};
   margin-bottom: 0.5rem;
 `;
@@ -14,7 +14,7 @@ const StyledInput = styled.input`
   border-radius: 4px;
   color: ${(props) => props.theme.colors.text.primary};
   font-family: ${(props) => props.theme.fonts.main};
-  font-size: ${(props) => props.theme.fontSizes.input};
+  font-size: ${(props) => props.theme.fontSizes.m};
   padding: 0 0.3rem;
   width: auto;
 `;

@@ -4,7 +4,7 @@ const StyledSidebarMenuItemLink = styled.a`
   border-radius: 5px;
   color: ${(props) => props.theme.colors.text.primary};
   font-family: ${(props) => props.theme.fonts.main};
-  font-size: ${(props) => props.theme.fontSizes.sidebar.item};
+  font-size: ${(props) => props.theme.fontSizes.m};
   font-family: ${(props) => props.theme.fonts.main};
   text-decoration: none;
   margin: 0 0.6rem;

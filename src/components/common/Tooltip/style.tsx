@@ -26,7 +26,7 @@ const StyledTooltipContent = styled(TooltipPrimitive.Content)`
   border-radius: 4px;
   box-shadow: 0 0 0 1px ${(props) => props.theme.colors.tooltip.bgBorder};
   color: ${(props) => props.theme.colors.text.secondary};
-  font-size: ${(props) => props.theme.fontSizes.tooltip};
+  font-size: 11px;
   font-family: ${(props) => props.theme.fonts.main};
   padding: 0.4rem;
   width: auto;

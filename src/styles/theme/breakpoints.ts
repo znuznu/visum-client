@@ -10,6 +10,5 @@ export const breakpoints: Breakpoints = {
   s: '450px' as const,
   m: '700px' as const,
   l: '1433px' as const,
-  // xl: 'FILLpx' as const
   sidebar: '1024px' as const
 };
