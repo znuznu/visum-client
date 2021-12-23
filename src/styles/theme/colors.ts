@@ -12,7 +12,13 @@ export interface Colors {
       bg: string;
       bgHover: string;
       color: string;
+      bgDisabled: string;
     };
+  };
+  checkbox: {
+    border: string;
+    bgHover: string;
+    indicator: string;
   };
   sidebar: {
     bg: string;

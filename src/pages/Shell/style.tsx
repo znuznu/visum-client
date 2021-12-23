@@ -5,7 +5,7 @@ const StyledShell = styled.div`
   background-color: ${(props) => props.theme.colors.main};
   height: auto;
 
-  @media screen and (max-width: ${(props) => props.theme.breakpoints.sidebar}) {
+  @media screen and (max-width: ${(props) => props.theme.breakpoints.m}) {
     flex-direction: column;
   }
 `;

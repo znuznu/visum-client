@@ -6,6 +6,27 @@ interface BorderProps {
   borderRadius?: string;
 }
 
+interface FlexProps {
+  flex?:
+    | string
+    | 'auto'
+    | 'content'
+    | 'fit-content'
+    | 'max-content'
+    | 'min-content'
+    | 'none';
+  flexDirection?: 'column' | 'column-reverse' | 'row' | 'row-reverse';
+  flexShrink?: string | number;
+}
+
+interface GridProps {
+  gap?: string;
+  rowGap?: string;
+  columnGap?: string;
+  rowSize?: string;
+  columnSize?: string;
+}
+
 interface LayoutProps {
   display?: 'flex' | 'block';
   width?: string;
@@ -33,6 +54,13 @@ interface SpaceProps {
 export interface StyleProps
   extends BorderProps,
     InteractivityProps,
+    FlexProps,
+    GridProps,
     LayoutProps,
     PositionProps,
     SpaceProps {}
+
+export interface HTMLAttributes {
+  id?: string;
+  name?: string;
+}

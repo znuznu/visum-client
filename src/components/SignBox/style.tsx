@@ -8,7 +8,7 @@ const Container = styled.div`
   width: 350px;
   padding: 2rem;
 
-  @media screen and (max-width: ${({ theme }) => theme.breakpoints.m}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints.s}) {
     width: auto;
   }
 `;

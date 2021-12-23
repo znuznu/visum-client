@@ -14,15 +14,16 @@ export type MoviePosterProps = {
   metadata: {
     posterUrl?: string;
   };
+  width?: string;
 };
 
-const MoviePoster = ({ id, metadata, title, releaseDate }: MoviePosterProps) => {
+const MoviePoster = ({ id, metadata, title, releaseDate, width }: MoviePosterProps) => {
   return (
     <Tooltip>
       <TooltipTrigger asChild>
         <Link to={`/movie/${id}`}>
           {metadata?.posterUrl ? (
-            <StyledPoster src={metadata.posterUrl} />
+            <StyledPoster src={metadata.posterUrl} width={width} />
           ) : (
             <StyledEmptyPoster>
               <AccessibleIcon label="No movie">

@@ -1,30 +1,46 @@
 import React, { ReactEventHandler } from 'react';
 import InputError from '../InputError';
-import { InputBlock, StyledInput, StyledLabel } from './style';
+import { InputBlock, InputStyleProps, StyledInput, StyledLabel } from './style';
 
-interface InputProps {
+interface InputProps extends InputStyleProps {
   id: string;
-  label: string;
+  label?: string;
   type: string;
   value?: string;
   name?: string;
   error?: string;
-  onChange: ReactEventHandler;
-  onBlur: ReactEventHandler;
+  placeholder?: string;
+  onChange?: ReactEventHandler;
+  onInput?: ReactEventHandler;
+  onBlur?: ReactEventHandler;
 }
 
-const Input = ({ id, name, label, type, value, error, onChange, onBlur }: InputProps) => {
+const Input = ({
+  id,
+  name,
+  label,
+  type,
+  value,
+  error,
+  placeholder,
+  onChange,
+  onBlur,
+  onInput,
+  margin
+}: InputProps) => {
   return (
     <>
-      <StyledLabel>{label}</StyledLabel>
-      <InputBlock>
+      {label && <StyledLabel>{label}</StyledLabel>}
+      <InputBlock margin={margin}>
         <StyledInput
           id={id}
           name={name}
           type={type}
+          placeholder={placeholder}
+          value={value}
           onChange={onChange}
           onBlur={onBlur}
-          value={value}
+          onInput={onInput}
         />
         {error ? <InputError>{error}</InputError> : null}
       </InputBlock>

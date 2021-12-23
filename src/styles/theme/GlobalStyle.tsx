@@ -16,6 +16,11 @@ const GlobalStyle = createGlobalStyle`
   #root {
     display: flex;
     flex-direction: column;
+    
+    background-color: ${(props) => {
+      // @ts-ignore
+      return props.theme.colors.main;
+    }};
   }
 
   a {

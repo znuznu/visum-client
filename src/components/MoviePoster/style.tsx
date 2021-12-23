@@ -1,10 +1,14 @@
 import { EyeNoneIcon } from '@radix-ui/react-icons';
 import styled from 'styled-components';
 
-const StyledPoster = styled.img`
+type StyledPosterProps = {
+  width?: string;
+};
+
+const StyledPoster = styled.img<StyledPosterProps>`
   background-color: ${(props) => props.theme.colors.primary};
   border-radius: 5px;
-  width: 150px;
+  width: ${(props) => props.width ?? '100%'};
   box-shadow: 0 0 0 1px ${(props) => props.theme.colors.border.secondary};
 
   &:hover {

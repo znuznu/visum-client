@@ -23,8 +23,14 @@ export const sithTheme: Theme = {
       main: {
         bg: mauveDark.mauve3,
         bgHover: mauveDark.mauve4,
-        color: mauveDark.mauve12
+        color: mauveDark.mauve12,
+        bgDisabled: mauveDark.mauve2
       }
+    },
+    checkbox: {
+      border: violetDark.violet7,
+      bgHover: violetDark.violet5,
+      indicator: violetDark.violet11
     },
     sidebar: {
       bg: mauveDark.mauve1,

@@ -7,11 +7,4 @@ const StyledTitle = styled.h2`
   font-family: ${(props) => props.theme.fonts.main};
 `;
 
-const StyledMovieGrid = styled.div`
-  display: grid;
-  gap: 0.5rem;
-  grid-template-columns: repeat(auto-fill, 150px [col-start]);
-  padding: 0;
-`;
-
-export { StyledTitle, StyledRecentMovies, StyledMovieGrid };
+export { StyledTitle, StyledRecentMovies };

@@ -92,6 +92,7 @@ const SignUpForm = () => {
               ? formik.errors.username
               : undefined
           }
+          margin={'0 0 2rem 0'}
           {...formik.getFieldProps('username')}
         />
         <Input
@@ -103,6 +104,7 @@ const SignUpForm = () => {
               ? formik.errors.password
               : undefined
           }
+          margin={'0 0 2rem 0'}
           {...formik.getFieldProps('password')}
         />
         <Input
@@ -114,6 +116,7 @@ const SignUpForm = () => {
               ? formik.errors.confirmPassword
               : undefined
           }
+          margin={'0 0 2rem 0'}
           {...formik.getFieldProps('confirmPassword')}
         />
         <Input
@@ -125,6 +128,7 @@ const SignUpForm = () => {
               ? formik.errors.registrationKey
               : undefined
           }
+          margin={'0 0 2rem 0'}
           {...formik.getFieldProps('registrationKey')}
         />
         <Button type="submit">{'Sign up'}</Button>

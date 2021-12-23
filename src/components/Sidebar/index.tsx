@@ -14,8 +14,7 @@ import useWindowSize from '../../hooks/useWindowSize';
 import SidebarHeader from './SidebarHeader';
 import Button from '../common/Button';
 import { AccessibleIcon } from '../common/AccessibleIcon';
-
-const SIDEBAR_BREAKPOINT = 1024;
+import { M_BREAKPOINT_IN_PIXEL } from '../../styles/theme/breakpoints';
 
 const Sidebar = () => {
   const windowSize = useWindowSize();
@@ -25,11 +24,11 @@ const Sidebar = () => {
     <StyledSidebar>
       <SidebarHeader>
         <SidebarHeaderLogo>Visum</SidebarHeaderLogo>
-        {windowSize.width < SIDEBAR_BREAKPOINT ? (
+        {windowSize.width < M_BREAKPOINT_IN_PIXEL ? (
           <Button
             onClick={() => setHideMenu(!hideMenu)}
             margin={'auto 1rem auto 0'}
-            padding={'0.3rem 0.5rem'}
+            padding={'0.5rem'}
             position={'fixed'}
             top={'13px'}
             right={'0'}
@@ -40,7 +39,7 @@ const Sidebar = () => {
           </Button>
         ) : null}
       </SidebarHeader>
-      {windowSize.width < SIDEBAR_BREAKPOINT && hideMenu ? null : (
+      {windowSize.width < M_BREAKPOINT_IN_PIXEL && hideMenu ? null : (
         <SidebarMenu>
           <SidebarMenuSection>
             <SidebarMenuSectionTitle value={'Content'} />
