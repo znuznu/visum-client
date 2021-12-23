@@ -11,7 +11,7 @@ interface AuthContext {
 const authContext = createContext<AuthContext>({
   isAuthenticated: () => false,
   username: null,
-  signIn: (username, token) => {},
+  signIn: () => {},
   signOut: () => {}
 });
 

@@ -1,7 +1,5 @@
 import ky from 'ky';
 
-// TODO move it to a hooks
-
 export interface ResponsePromise extends Promise<Response> {
   arrayBuffer: () => Promise<ArrayBuffer>;
   blob: () => Promise<Blob>;
@@ -10,12 +8,12 @@ export interface ResponsePromise extends Promise<Response> {
   text: () => Promise<string>;
 }
 
-export declare type HTTPMethod = 'get' | 'post' | 'put' | 'patch' | 'head' | 'delete';
+export declare type HttpMethod = 'get' | 'post' | 'put' | 'patch' | 'head' | 'delete';
 
 export type SearchParamsOption = Record<string, string> | URLSearchParams | undefined;
 
 export interface Options extends Omit<RequestInit, 'headers'> {
-  method?: HTTPMethod;
+  method?: HttpMethod;
   headers?: HeadersInit;
   json?: unknown;
   parseJson?: (text: string) => unknown;
@@ -27,6 +25,10 @@ export interface Options extends Omit<RequestInit, 'headers'> {
 class HttpService {
   static post(url: URL | string | Request, options?: Options): ResponsePromise {
     return ky.post(url, options);
+  }
+
+  static get(url: URL | string | Request, options?: Options): ResponsePromise {
+    return ky.get(url, options);
   }
 }
 

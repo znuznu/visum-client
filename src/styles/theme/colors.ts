@@ -2,6 +2,7 @@ export interface Colors {
   main: string;
   primary: string;
   secondary: string;
+  tertiary: string;
   border: {
     primary: string;
     secondary: string;
@@ -21,6 +22,10 @@ export interface Colors {
       bgPressed: string;
       color: string;
     };
+  };
+  tooltip: {
+    bg: string;
+    bgBorder: string;
   };
   status: {
     error: string;

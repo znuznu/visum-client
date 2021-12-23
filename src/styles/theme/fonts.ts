@@ -13,4 +13,6 @@ export interface Sizes {
   };
   text: string;
   visum: string;
+  tooltip: string;
+  l: string;
 }

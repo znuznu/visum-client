@@ -10,6 +10,9 @@ import SignPage from './pages/Sign';
 import Guard from './components/common/Guard';
 import { AuthProvider } from './providers/AuthProvider';
 import Shell from './pages/Shell';
+import Home from './pages/Home';
+import Movies from './pages/Movies';
+import Movie from './pages/Movie';
 
 const queryClient = new QueryClient();
 
@@ -28,7 +31,11 @@ const App = () => {
                     <Shell />
                   </Guard>
                 }
-              />
+              >
+                <Route path="" element={<Home />} />
+                <Route path="movies" element={<Movies />} />
+                <Route path="movie/:movieId" element={<Movie />} />
+              </Route>
               <Route path="/sign" element={<SignPage />} />
               <Route path="*" element={<Navigate to="/sign" />} />
             </Routes>

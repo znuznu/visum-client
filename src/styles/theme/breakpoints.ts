@@ -7,7 +7,7 @@ export interface Breakpoints {
 }
 
 export const breakpoints: Breakpoints = {
-  s: '300px' as const,
+  s: '450px' as const,
   m: '700px' as const,
   l: '1433px' as const,
   // xl: 'FILLpx' as const

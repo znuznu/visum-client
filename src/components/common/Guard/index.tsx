@@ -5,7 +5,7 @@ import { useAuth } from '../../../providers/AuthProvider';
 const Guard = ({ children }: { children: ReactElement }) => {
   const { isAuthenticated } = useAuth();
 
-  return isAuthenticated!() ? children : <Navigate to="/sign" replace />;
+  return isAuthenticated() ? children : <Navigate to="/sign" replace />;
 };
 
 export default Guard;

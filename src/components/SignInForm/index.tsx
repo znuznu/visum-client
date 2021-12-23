@@ -45,9 +45,9 @@ const SignInForm = () => {
         json: body
       }).json<SignInResponseBody>(),
     {
-      onError: () => {
+      onError: (error) => {
         // TODO #1
-        console.log('Oops.');
+        console.log(error);
       },
       onSuccess: (data, variables) => {
         auth.signIn(variables.username, data.token);
