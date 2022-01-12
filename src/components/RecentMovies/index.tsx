@@ -6,9 +6,10 @@ import useAuthentication from '../../hooks/useAuthentication';
 import useGenericHttpError from '../../hooks/useGenericHttpError';
 import { Page } from '../../models/page';
 import HttpService from '../../services/http';
-import { StyledMovieGrid, StyledRecentMovies, StyledTitle } from './style';
+import { StyledRecentMovies, StyledTitle } from './style';
 import MoviePoster from '../MoviePoster';
 import { MovieFromPage } from '../../models/movies';
+import { Grid } from '../common/Grid';
 
 export type RecentMoviesProps = {
   limit: number;
@@ -52,11 +53,11 @@ const RecentMovies = ({ limit }: RecentMoviesProps) => {
     <StyledRecentMovies>
       <StyledTitle>Recently added</StyledTitle>
       {data?.content.length ? (
-        <StyledMovieGrid>
+        <Grid gap={'0.5rem'} columnSize={'150px'}>
           {data?.content.map((movie) => (
             <MoviePoster key={`recent-movie-${movie.id}`} {...movie} />
           ))}
-        </StyledMovieGrid>
+        </Grid>
       ) : (
         // TODO style
         <p>No recently added movies found.</p>

@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import { StyleProps } from '../../system/system.types';
+
+export type InputStyleProps = Pick<StyleProps, 'margin'>;
 
 const StyledLabel = styled.label`
   font-family: ${(props) => props.theme.fonts.main};
@@ -19,10 +22,10 @@ const StyledInput = styled.input`
   width: auto;
 `;
 
-const InputBlock = styled.div`
+const InputBlock = styled.div<InputStyleProps>`
   display: flex;
   flex-direction: column;
-  margin-bottom: 2rem;
+  margin: ${(props) => props.margin ?? 0};
 `;
 
 export { StyledLabel, StyledInput, InputBlock };

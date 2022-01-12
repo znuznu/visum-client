@@ -5,6 +5,7 @@ interface ButtonProps extends ButtonStyleProps {
   onClick?: ReactEventHandler;
   name?: string;
   type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
 }
 
 const Button = ({
@@ -23,7 +24,8 @@ const Button = ({
   top,
   bottom,
   left,
-  right
+  right,
+  disabled
 }: PropsWithChildren<ButtonProps>) => {
   const styleProps: ButtonStyleProps = {
     margin,
@@ -41,7 +43,13 @@ const Button = ({
   };
 
   return (
-    <StyledButton type={type} name={name} onClick={onClick} {...styleProps}>
+    <StyledButton
+      disabled={disabled}
+      type={type}
+      name={name}
+      onClick={onClick}
+      {...styleProps}
+    >
       {children}
     </StyledButton>
   );

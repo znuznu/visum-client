@@ -6,7 +6,6 @@ const StyledTitle = styled.a`
   color: ${(props) => props.theme.colors.secondary};
   font-family: ${(props) => props.theme.fonts.logo};
   font-size: ${(props) => props.theme.fontSizes.l};
-  font-weight: 900;
 
   &:hover {
     color: ${(props) => props.theme.colors.secondary};
@@ -25,7 +24,7 @@ const StyledHeader = styled.div`
 const StyledHeaderLeft = styled.div`
   display: flex;
 
-  @media screen and (max-width: ${({ theme }) => theme.breakpoints.s}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints.xs}) {
     flex-direction: column;
   }
 `;
@@ -35,7 +34,7 @@ const StyledReleaseDate = styled.span`
   margin: 0 0 0 0.5rem;
   color: ${(props) => props.theme.colors.tertiary};
 
-  @media screen and (max-width: ${({ theme }) => theme.breakpoints.s}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints.xs}) {
     margin: 0;
   }
 `;
@@ -56,7 +55,7 @@ const StyledContent = styled.div`
 const StyledFooter = styled.p`
   color: ${(props) => props.theme.colors.tertiary};
   font-family: ${(props) => props.theme.fonts.main};
-  font-size: 12px;
+  font-size: ${(props) => props.theme.fontSizes.xs};
   margin: auto 0 0 auto;
 `;
 

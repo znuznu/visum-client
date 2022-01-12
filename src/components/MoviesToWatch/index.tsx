@@ -7,8 +7,9 @@ import useGenericHttpError from '../../hooks/useGenericHttpError';
 import { MovieFromPage } from '../../models/movies';
 import { Page } from '../../models/page';
 import HttpService from '../../services/http';
+import { Grid } from '../common/Grid';
 import MoviePoster from '../MoviePoster';
-import { StyledMovieGrid, StyledTitle } from '../RecentMovies/style';
+import { StyledTitle } from '../RecentMovies/style';
 import { StyledMoviesToWatch } from './style';
 
 type MoviesToWatchProps = {
@@ -53,11 +54,11 @@ const MoviesToWatch = ({ limit }: MoviesToWatchProps) => {
     <StyledMoviesToWatch>
       <StyledTitle>To watch</StyledTitle>
       {data?.content.length ? (
-        <StyledMovieGrid>
+        <Grid gap={'0.5rem'} columnSize={'150px'}>
           {data?.content.map((movie) => (
             <MoviePoster key={`to-watch-movie-${movie.id}`} {...movie} />
           ))}
-        </StyledMovieGrid>
+        </Grid>
       ) : (
         // TODO style
         <p>No movies to watch found.</p>

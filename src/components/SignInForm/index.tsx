@@ -78,6 +78,7 @@ const SignInForm = () => {
             ? formik.errors.username
             : undefined
         }
+        margin={'0 0 2rem 0'}
         {...formik.getFieldProps('username')}
       />
       <Input
@@ -89,6 +90,7 @@ const SignInForm = () => {
             ? formik.errors.password
             : undefined
         }
+        margin={'0 0 2rem 0'}
         {...formik.getFieldProps('password')}
       />
       <Button type={'submit'}>{'Sign in'}</Button>

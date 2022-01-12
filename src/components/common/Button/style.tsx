@@ -18,7 +18,10 @@ export type ButtonStyleProps = Pick<
 >;
 
 const StyledButton = styled.button<ButtonStyleProps>`
-  background-color: ${(props) => props.theme.colors.button.main.bg};
+  background-color: ${(props) =>
+    props.disabled
+      ? props.theme.colors.button.main.bgDisabled
+      : props.theme.colors.button.main.bg};
   border: ${(props) => props.border ?? 'none'};
   border-radius: ${(props) => props.borderRadius ?? '4px'};
   color: ${(props) => props.theme.colors.button.main.color};
@@ -33,10 +36,17 @@ const StyledButton = styled.button<ButtonStyleProps>`
   right: ${(props) => props.right ?? 'unset'};
   left: ${(props) => props.left ?? 'unset'};
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   &:hover {
-    cursor: ${(props) => props.cursor ?? 'pointer'};
+    cursor: ${(props) => (props.disabled ? 'default' : props.cursor ?? 'pointer')};
     color: ${(props) => props.theme.colors.button.main.color};
-    background-color: ${(props) => props.theme.colors.button.main.bgHover};
+    background-color: ${(props) =>
+      props.disabled
+        ? props.theme.colors.button.main.bgDisabled
+        : props.theme.colors.button.main.bgHover};
   }
 `;
 
