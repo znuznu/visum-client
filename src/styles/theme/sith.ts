@@ -1,4 +1,4 @@
-import { mauveDark, slateDark, violetDark, redDark, grayDark } from '@radix-ui/colors';
+import { mauveDark, slateDark, indigoDark, redDark, grayDark } from '@radix-ui/colors';
 
 import { Theme } from '.';
 import { breakpoints } from './breakpoints';
@@ -13,10 +13,10 @@ export const sithTheme: Theme = {
   colors: {
     main: mauveDark.mauve1,
     primary: mauveDark.mauve12,
-    secondary: violetDark.violet11,
+    secondary: indigoDark.indigo11,
     tertiary: grayDark.gray11,
     border: {
-      primary: violetDark.violet8,
+      primary: indigoDark.indigo8,
       secondary: mauveDark.mauve5
     },
     button: {
@@ -28,17 +28,17 @@ export const sithTheme: Theme = {
       }
     },
     checkbox: {
-      border: violetDark.violet7,
-      bgHover: violetDark.violet5,
-      indicator: violetDark.violet11
+      border: indigoDark.indigo7,
+      bgHover: indigoDark.indigo5,
+      indicator: indigoDark.indigo11
     },
     sidebar: {
       bg: mauveDark.mauve1,
       title: slateDark.slate11,
       hover: {
-        bg: violetDark.violet4,
-        bgPressed: violetDark.violet5,
-        color: violetDark.violet11
+        bg: indigoDark.indigo4,
+        bgPressed: indigoDark.indigo5,
+        color: indigoDark.indigo11
       }
     },
     status: {
@@ -50,7 +50,7 @@ export const sithTheme: Theme = {
     },
     text: {
       primary: 'white',
-      secondary: violetDark.violet11
+      secondary: indigoDark.indigo11
     },
     scrollbar: {
       bg: 'none',
@@ -58,8 +58,8 @@ export const sithTheme: Theme = {
       thumb: mauveDark.mauve5
     },
     tooltip: {
-      bg: violetDark.violet4,
-      bgBorder: violetDark.violet8
+      bg: indigoDark.indigo4,
+      bgBorder: indigoDark.indigo8
     }
   }
 };
