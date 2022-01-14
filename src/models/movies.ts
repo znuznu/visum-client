@@ -9,3 +9,8 @@ export interface MovieFromPage {
   isFavorite: boolean;
   isToWatch: boolean;
 }
+
+export interface Movie {
+  id: number;
+  title: string;
+}

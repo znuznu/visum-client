@@ -11,8 +11,8 @@ import Guard from './components/common/Guard';
 import { AuthProvider } from './providers/AuthProvider';
 import Shell from './pages/Shell';
 import Home from './pages/Home';
-import Movies from './pages/Movies';
-import Movie from './pages/Movie';
+import Films from './pages/Films';
+import Film from './pages/Film';
 
 const queryClient = new QueryClient();
 
@@ -33,8 +33,8 @@ const App = () => {
                 }
               >
                 <Route path="" element={<Home />} />
-                <Route path="movies" element={<Movies />} />
-                <Route path="movie/:movieId" element={<Movie />} />
+                <Route path="films" element={<Films />} />
+                <Route path="film/:movieId" element={<Film />} />
               </Route>
               <Route path="/sign" element={<SignPage />} />
               <Route path="*" element={<Navigate to="/sign" />} />

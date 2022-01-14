@@ -21,12 +21,12 @@ const MoviePoster = ({ id, metadata, title, releaseDate, width }: MoviePosterPro
   return (
     <Tooltip>
       <TooltipTrigger asChild>
-        <Link to={`/movie/${id}`}>
+        <Link to={`/film/${id}`}>
           {metadata?.posterUrl ? (
             <StyledPoster src={metadata.posterUrl} width={width} />
           ) : (
             <StyledEmptyPoster>
-              <AccessibleIcon label="No movie">
+              <AccessibleIcon label="No film">
                 <StyledNoPosterIcon />
               </AccessibleIcon>
             </StyledEmptyPoster>

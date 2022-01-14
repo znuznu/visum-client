@@ -28,27 +28,32 @@ const buildSearchQuery = (title: string, isFavorite: boolean, isToWatch: boolean
   return query;
 };
 
-const fetchMovies = async (
-  jwtToken: string,
-  offset: number,
-  title: string,
-  isFavorite: boolean,
-  isToWatch: boolean
-) => {
-  const query = buildSearchQuery(title, isFavorite, isToWatch);
+// TODO move outside here when a new components needs it
+interface PageSearchParams {
+  sort: string;
+  search: string;
+  limit: number;
+  offset: number;
+}
 
-  return HttpService.get(`${API_URL}/api/movies`, {
-    headers: { Authorization: `Bearer ${jwtToken}` },
+// TODO move outside here when a new components needs it
+const fetchPage = async <T extends unknown>(
+  resource: string,
+  headers: Record<string, string>,
+  params: PageSearchParams
+): Promise<Page<T>> => {
+  return HttpService.get(`${API_URL}/api/${resource}`, {
+    headers,
     searchParams: {
-      sort: 'releaseDate,DESC',
-      search: query,
-      limit: '30',
-      offset: offset.toString()
+      sort: params.sort,
+      search: params.search,
+      limit: params.limit.toString(),
+      offset: params.offset.toString()
     }
-  }).json<Page<MovieFromPage>>();
+  }).json<Page<T>>();
 };
 
-const Movies = () => {
+const Films = () => {
   const { jwtToken } = useAuthentication();
   const { setHttpError } = useGenericHttpError(undefined);
   const [page, setPage] = useState<Page<MovieFromPage>>({
@@ -67,7 +72,17 @@ const Movies = () => {
 
   const { isLoading, isError, data } = useQuery(
     ['getMovies', page.current, search, isFavorite, isToWatch],
-    () => fetchMovies(jwtToken, offset, search, isFavorite, isToWatch),
+    () =>
+      fetchPage<MovieFromPage>(
+        'movies',
+        { authorization: `Bearer ${jwtToken}` },
+        {
+          sort: 'releaseDate,DESC',
+          search: buildSearchQuery(search, isFavorite, isToWatch),
+          limit: 30,
+          offset: offset
+        }
+      ),
     {
       onError: (error: HTTPError) => {
         setHttpError(error);
@@ -98,7 +113,7 @@ const Movies = () => {
         <Input
           id={'Search'}
           type={'text'}
-          placeholder={'Movie title...'}
+          placeholder={'Film title...'}
           value={search}
           onInput={(e) => {
             setOffset(0);
@@ -111,7 +126,7 @@ const Movies = () => {
               setOffset(0);
               favorite(!isFavorite);
             }}
-            ariaLabel={'Favorite movie'}
+            ariaLabel={'Favorite film'}
             id={'favorite'}
             label={'Favorite'}
           />
@@ -120,7 +135,7 @@ const Movies = () => {
               setOffset(0);
               toWatch(!isToWatch);
             }}
-            ariaLabel={'Movie to watch'}
+            ariaLabel={'Film to watch'}
             id={'toWatch'}
             label={'To watch'}
             margin={'0 0 0 0.6rem'}
@@ -144,4 +159,4 @@ const Movies = () => {
   );
 };
 
-export default Movies;
+export default Films;
