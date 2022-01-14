@@ -26,9 +26,7 @@ const Film = () => {
     {
       onError: (error: HTTPError) => {
         setHttpError(error);
-      },
-      retry: false,
-      keepPreviousData: true
+      }
     }
   );
 

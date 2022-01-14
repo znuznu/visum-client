@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const StyledMovies = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 1.5rem;
 
   max-width: ${({ theme }) => theme.breakpoints.m};
 `;
