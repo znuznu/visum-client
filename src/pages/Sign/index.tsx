@@ -16,7 +16,6 @@ const Sign = () => {
 
   return (
     <StyledSignContainer>
-      {/* TODO add logo */}
       <SignBox />
     </StyledSignContainer>
   );

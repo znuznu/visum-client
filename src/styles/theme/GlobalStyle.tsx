@@ -11,6 +11,15 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     height: 100%;
+
+    font-size: 100%;
+
+    @media screen and (max-width: ${({ theme }) => {
+      //@ts-ignore
+      return theme.breakpoints.m;
+    }}) {
+      font-size: 90%;
+    }
   }
 
   #root {

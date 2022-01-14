@@ -9,14 +9,16 @@ export interface Sizes {
   m: string;
   l: string;
   xl: string;
+  xxxl: string;
 }
 
 export const fonts: Fonts = { logo: 'Archivo', main: 'Open Sans' };
 
 export const fontSizes: Sizes = {
-  xs: '12px' as const,
-  s: '14px' as const,
-  m: '16px' as const,
-  l: '20px' as const,
-  xl: '24px' as const
+  xs: '0.75rem' as const,
+  s: '0.875rem' as const,
+  m: '1rem' as const,
+  l: '1.25rem' as const,
+  xl: '1.5rem' as const,
+  xxxl: '3rem' as const
 };

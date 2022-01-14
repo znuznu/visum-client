@@ -1,11 +1,19 @@
+import { ExitIcon } from '@radix-ui/react-icons';
 import styled from 'styled-components';
 
-export const StyledLogout = styled.div`
+const StyledLogout = styled.div`
   display: flex;
   margin: 0 0.6rem;
   padding: 0.3rem 0.7rem;
 `;
 
-export const StyledLogoutText = styled.span`
+const StyledLogoutText = styled.span`
   margin-right: 0.5rem;
 `;
+
+const StyledExitIcon = styled(ExitIcon)`
+  width: 0.937rem;
+  height: 0.937rem;
+`;
+
+export { StyledLogout, StyledLogoutText, StyledExitIcon };

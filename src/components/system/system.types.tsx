@@ -17,6 +17,13 @@ interface FlexProps {
     | 'none';
   flexDirection?: 'column' | 'column-reverse' | 'row' | 'row-reverse';
   flexShrink?: string | number;
+  justifyContent?:
+    | 'space-around'
+    | 'space-between'
+    | 'space-evenly'
+    | 'left'
+    | 'normal'
+    | 'right';
 }
 
 interface GridProps {

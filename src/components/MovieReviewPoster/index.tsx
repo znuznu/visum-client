@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { AccessibleIcon } from '../common/AccessibleIcon';
-import { StyledEmptyPoster, StyledNoPosterIcon, StyledPoster } from './style';
+import EmptyPoster from '../EmptyPoster';
+import Poster from '../Poster';
 
 export type MoviePosterProps = {
   id: number;
@@ -13,15 +13,11 @@ export type MoviePosterProps = {
 
 const MovieReviewPoster = ({ id, metadata }: MoviePosterProps) => {
   return (
-    <Link to={`/movie/${id}`}>
+    <Link to={`/film/${id}`}>
       {metadata?.posterUrl ? (
-        <StyledPoster src={metadata.posterUrl} />
+        <Poster posterUrl={metadata.posterUrl} width={'100px'} height={'150px'} />
       ) : (
-        <StyledEmptyPoster>
-          <AccessibleIcon label="No movie">
-            <StyledNoPosterIcon />
-          </AccessibleIcon>
-        </StyledEmptyPoster>
+        <EmptyPoster width={'100px'} height={'150px'} iconSize={'50px'} />
       )}
     </Link>
   );

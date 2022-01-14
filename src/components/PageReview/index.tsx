@@ -1,15 +1,14 @@
 import React from 'react';
 import { Flex } from '../common/Flex';
 import MovieReviewPoster from '../MovieReviewPoster';
+import { StyledFooter, StyledText } from '../ReadonlyReview/style';
 import {
   StyledContent,
-  StyledFooter,
   StyledGrade,
   StyledHeader,
   StyledHeaderLeft,
   StyledPageReview,
   StyledReleaseDate,
-  StyledText,
   StyledTitle
 } from './style';
 
@@ -39,7 +38,7 @@ const PageReview = ({ review }: PageReviewProps) => {
         <StyledContent>
           <StyledHeader>
             <StyledHeaderLeft>
-              <StyledTitle href={`/movie/${review.movie.id}`}>
+              <StyledTitle href={`/film/${review.movie.id}`}>
                 {review.movie.title}
               </StyledTitle>
               <StyledReleaseDate>{review.movie.releaseDate}</StyledReleaseDate>

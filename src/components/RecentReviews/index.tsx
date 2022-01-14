@@ -1,15 +1,14 @@
 import React from 'react';
 import { HTTPError } from 'ky';
 import { useQuery } from 'react-query';
-import { API_URL } from '../../config';
 import useAuthentication from '../../hooks/useAuthentication';
 import useGenericHttpError from '../../hooks/useGenericHttpError';
-import { Page } from '../../models/page';
-import HttpService from '../../services/http';
-import { StyledReviews, StyledRecentReviews, StyledTitle } from './style';
+import { StyledReviews, StyledRecentReviews } from './style';
 import { ReviewFromPage } from '../../models/reviews';
 import PageReview from '../PageReview';
 import { Separator } from '../common/Separator';
+import { StyledTitle } from '../RecentMovies/style';
+import { fetchPage } from '../../services/api/page';
 
 export type RecentReviewsProps = {
   limit: number;
@@ -22,15 +21,16 @@ const RecentReviews = ({ limit }: RecentReviewsProps) => {
   const { isLoading, isError, data } = useQuery(
     'getRecentReviews',
     () =>
-      HttpService.get(`${API_URL}/api/reviews/movies`, {
-        headers: { Authorization: `Bearer ${jwtToken}` },
-        searchParams: {
+      fetchPage<ReviewFromPage>(
+        'reviews/movies',
+        { Authorization: `Bearer ${jwtToken}` },
+        {
           sort: 'updateDate,DESC',
           search: 'content=%%',
-          limit: limit.toString(),
-          offset: '0'
+          limit: limit,
+          offset: 0
         }
-      }).json<Page<ReviewFromPage>>(),
+      ),
     {
       onError: (error: HTTPError) => {
         setHttpError(error);

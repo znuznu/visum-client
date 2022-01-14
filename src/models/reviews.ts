@@ -13,3 +13,14 @@ export interface ReviewFromPage {
   creationDate: string;
   updateDate: string;
 }
+
+export interface Review {
+  id: number;
+  content: string;
+  // TODO Date
+  updateDate: string;
+  // TODO Date
+  creationDate: string;
+  grade: number;
+  movieId: number;
+}

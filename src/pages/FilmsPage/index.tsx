@@ -5,13 +5,12 @@ import Checkbox from '../../components/common/Checkbox';
 import { Grid } from '../../components/common/Grid';
 import Input from '../../components/common/Input';
 import Paginator from '../../components/common/Paginator';
-import MoviePoster from '../../components/MoviePoster';
-import { API_URL } from '../../config';
+import PosterWithTooltip from '../../components/PosterWithTooltip';
 import useAuthentication from '../../hooks/useAuthentication';
 import useGenericHttpError from '../../hooks/useGenericHttpError';
 import { MovieFromPage } from '../../models/movies';
 import { Page } from '../../models/page';
-import HttpService from '../../services/http';
+import { fetchPage } from '../../services/api/page';
 import { StyledMovies, StyledOptions, StyledSearchBar } from './style';
 
 const buildSearchQuery = (title: string, isFavorite: boolean, isToWatch: boolean) => {
@@ -28,32 +27,7 @@ const buildSearchQuery = (title: string, isFavorite: boolean, isToWatch: boolean
   return query;
 };
 
-// TODO move outside here when a new components needs it
-interface PageSearchParams {
-  sort: string;
-  search: string;
-  limit: number;
-  offset: number;
-}
-
-// TODO move outside here when a new components needs it
-const fetchPage = async <T extends unknown>(
-  resource: string,
-  headers: Record<string, string>,
-  params: PageSearchParams
-): Promise<Page<T>> => {
-  return HttpService.get(`${API_URL}/api/${resource}`, {
-    headers,
-    searchParams: {
-      sort: params.sort,
-      search: params.search,
-      limit: params.limit.toString(),
-      offset: params.offset.toString()
-    }
-  }).json<Page<T>>();
-};
-
-const Films = () => {
+const FilmsPage = () => {
   const { jwtToken } = useAuthentication();
   const { setHttpError } = useGenericHttpError(undefined);
   const [page, setPage] = useState<Page<MovieFromPage>>({
@@ -147,7 +121,7 @@ const Films = () => {
           <Paginator page={data} onPageChange={handlePageChange} />
           <Grid gap={'0.5rem'} columnSize={'100px'} margin={'0.5rem 0 1.5rem'}>
             {data?.content.map((movie) => (
-              <MoviePoster key={`recent-movie-${movie.id}`} {...movie} />
+              <PosterWithTooltip key={`recent-movie-${movie.id}`} {...movie} />
             ))}
           </Grid>
         </>
@@ -159,4 +133,4 @@ const Films = () => {
   );
 };
 
-export default Films;
+export default FilmsPage;
