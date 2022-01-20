@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const StyledRecentReviews = styled.div``;
 
 const StyledTitle = styled.h2`
-  color: ${(props) => props.theme.colors.text.primary};
+  color: ${(props) => props.theme.colors.tertiary};
   font-family: ${(props) => props.theme.fonts.main};
 `;
 
@@ -12,11 +12,6 @@ const StyledReviews = styled.ul`
   flex-direction: column;
   list-style: none;
   padding: 0;
-  width: 800px;
-
-  @media screen and (max-width: ${({ theme }) => theme.breakpoints.l}) {
-    width: auto;
-  }
 `;
 
 export { StyledTitle, StyledRecentReviews, StyledReviews };

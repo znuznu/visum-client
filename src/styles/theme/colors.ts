@@ -22,7 +22,6 @@ export interface Colors {
   };
   sidebar: {
     bg: string;
-    title: string;
     hover: {
       bg: string;
       bgPressed: string;

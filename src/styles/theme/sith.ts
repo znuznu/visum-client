@@ -1,4 +1,12 @@
-import { mauveDark, slateDark, indigoDark, redDark, grayDark } from '@radix-ui/colors';
+import {
+  mauveDark,
+  indigoDark,
+  redDark,
+  grayDark,
+  orangeDark,
+  grassDark,
+  blueDark
+} from '@radix-ui/colors';
 
 import { Theme } from '.';
 import { breakpoints } from './breakpoints';
@@ -34,7 +42,6 @@ export const sithTheme: Theme = {
     },
     sidebar: {
       bg: mauveDark.mauve1,
-      title: slateDark.slate11,
       hover: {
         bg: indigoDark.indigo4,
         bgPressed: indigoDark.indigo5,
@@ -44,9 +51,9 @@ export const sithTheme: Theme = {
     status: {
       // TODO
       error: redDark.red11,
-      warning: 'orange',
-      success: 'green',
-      info: 'blue'
+      warning: orangeDark.orange9,
+      success: grassDark.grass9,
+      info: blueDark.blue9
     },
     text: {
       primary: 'white',

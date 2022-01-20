@@ -39,12 +39,6 @@ const StyledReleaseDate = styled.span`
   }
 `;
 
-const StyledText = styled.p`
-  font-family: ${(props) => props.theme.fonts.main};
-  margin: 1rem 0;
-  white-space: pre-wrap;
-`;
-
 const StyledContent = styled.div`
   display: flex;
   flex-direction: column;
@@ -52,16 +46,9 @@ const StyledContent = styled.div`
   width: 100%;
 `;
 
-const StyledFooter = styled.p`
-  color: ${(props) => props.theme.colors.tertiary};
-  font-family: ${(props) => props.theme.fonts.main};
-  font-size: ${(props) => props.theme.fontSizes.xs};
-  margin: auto 0 0 auto;
-`;
-
 const StyledGrade = styled.span`
   color: ${(props) => props.theme.colors.primary};
-  font-size: 48px;
+  font-size: ${(props) => props.theme.fontSizes.xxxl};
   font-family: ${(props) => props.theme.fonts.logo};
   margin: 0 0 0 1rem;
 `;
@@ -70,10 +57,8 @@ export {
   StyledContent,
   StyledHeader,
   StyledHeaderLeft,
-  StyledFooter,
   StyledGrade,
   StyledPageReview,
   StyledReleaseDate,
-  StyledText,
   StyledTitle
 };

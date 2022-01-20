@@ -44,7 +44,7 @@ const Sidebar = () => {
           <SidebarMenuSection>
             <SidebarMenuSectionTitle value={'Content'} />
             <SidebarMenuItemLink href={'/'} text={'Home'} />
-            <SidebarMenuItemLink href={'/movies'} text={'Movies'} />
+            <SidebarMenuItemLink href={'/films'} text={'Films'} />
             <SidebarMenuItemLink href={'/actors'} text={'Actors'} />
             <SidebarMenuItemLink href={'/directors'} text={'Directors'} />
             <SidebarMenuItemLink href={'/genres'} text={'Genres'} />

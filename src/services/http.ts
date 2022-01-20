@@ -30,6 +30,14 @@ class HttpService {
   static get(url: URL | string | Request, options?: Options): ResponsePromise {
     return ky.get(url, options);
   }
+
+  static put(url: URL | string | Request, options?: Options): ResponsePromise {
+    return ky.put(url, options);
+  }
+
+  static delete(url: URL | string | Request, options?: Options): ResponsePromise {
+    return ky.delete(url, options);
+  }
 }
 
 export default HttpService;

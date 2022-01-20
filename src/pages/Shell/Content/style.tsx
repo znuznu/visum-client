@@ -1,16 +1,19 @@
 import styled from 'styled-components';
 
 const StyledShellContent = styled.div`
+  color: white;
   display: flex;
   flex-direction: column;
   width: 100%;
   height: auto;
-  color: white;
-  padding-left: 250px;
+  margin-left: 250px;
+  padding: 0 1.5rem;
 
   @media screen and (max-width: ${(props) => props.theme.breakpoints.m}) {
     z-index: 0;
-    padding: 53px 0 0;
+    margin: 53px 0 0;
+    padding: 0 1rem;
+    width: auto;
   }
 `;
 

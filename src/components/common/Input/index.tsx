@@ -1,4 +1,4 @@
-import React, { ReactEventHandler } from 'react';
+import React, { ChangeEventHandler, FocusEventHandler, ReactEventHandler } from 'react';
 import InputError from '../InputError';
 import { InputBlock, InputStyleProps, StyledInput, StyledLabel } from './style';
 
@@ -10,9 +10,11 @@ interface InputProps extends InputStyleProps {
   name?: string;
   error?: string;
   placeholder?: string;
-  onChange?: ReactEventHandler;
+  onChange?: ChangeEventHandler;
   onInput?: ReactEventHandler;
-  onBlur?: ReactEventHandler;
+  onBlur?: FocusEventHandler;
+  min?: number;
+  max?: number;
 }
 
 const Input = ({
@@ -26,7 +28,9 @@ const Input = ({
   onChange,
   onBlur,
   onInput,
-  margin
+  margin,
+  min,
+  max
 }: InputProps) => {
   return (
     <>
@@ -41,6 +45,8 @@ const Input = ({
           onChange={onChange}
           onBlur={onBlur}
           onInput={onInput}
+          min={min}
+          max={max}
         />
         {error ? <InputError>{error}</InputError> : null}
       </InputBlock>

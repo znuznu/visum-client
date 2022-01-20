@@ -5,13 +5,12 @@ import Checkbox from '../../components/common/Checkbox';
 import { Grid } from '../../components/common/Grid';
 import Input from '../../components/common/Input';
 import Paginator from '../../components/common/Paginator';
-import MoviePoster from '../../components/MoviePoster';
-import { API_URL } from '../../config';
+import PosterWithTooltip from '../../components/PosterWithTooltip';
 import useAuthentication from '../../hooks/useAuthentication';
 import useGenericHttpError from '../../hooks/useGenericHttpError';
 import { MovieFromPage } from '../../models/movies';
 import { Page } from '../../models/page';
-import HttpService from '../../services/http';
+import { fetchPage } from '../../services/api/page';
 import { StyledMovies, StyledOptions, StyledSearchBar } from './style';
 
 const buildSearchQuery = (title: string, isFavorite: boolean, isToWatch: boolean) => {
@@ -28,27 +27,7 @@ const buildSearchQuery = (title: string, isFavorite: boolean, isToWatch: boolean
   return query;
 };
 
-const fetchMovies = async (
-  jwtToken: string,
-  offset: number,
-  title: string,
-  isFavorite: boolean,
-  isToWatch: boolean
-) => {
-  const query = buildSearchQuery(title, isFavorite, isToWatch);
-
-  return HttpService.get(`${API_URL}/api/movies`, {
-    headers: { Authorization: `Bearer ${jwtToken}` },
-    searchParams: {
-      sort: 'releaseDate,DESC',
-      search: query,
-      limit: '30',
-      offset: offset.toString()
-    }
-  }).json<Page<MovieFromPage>>();
-};
-
-const Movies = () => {
+const FilmsPage = () => {
   const { jwtToken } = useAuthentication();
   const { setHttpError } = useGenericHttpError(undefined);
   const [page, setPage] = useState<Page<MovieFromPage>>({
@@ -67,7 +46,17 @@ const Movies = () => {
 
   const { isLoading, isError, data } = useQuery(
     ['getMovies', page.current, search, isFavorite, isToWatch],
-    () => fetchMovies(jwtToken, offset, search, isFavorite, isToWatch),
+    () =>
+      fetchPage<MovieFromPage>(
+        'movies',
+        { authorization: `Bearer ${jwtToken}` },
+        {
+          sort: 'releaseDate,DESC',
+          search: buildSearchQuery(search, isFavorite, isToWatch),
+          limit: 30,
+          offset: offset
+        }
+      ),
     {
       onError: (error: HTTPError) => {
         setHttpError(error);
@@ -98,7 +87,7 @@ const Movies = () => {
         <Input
           id={'Search'}
           type={'text'}
-          placeholder={'Movie title...'}
+          placeholder={'Film title...'}
           value={search}
           onInput={(e) => {
             setOffset(0);
@@ -111,7 +100,7 @@ const Movies = () => {
               setOffset(0);
               favorite(!isFavorite);
             }}
-            ariaLabel={'Favorite movie'}
+            ariaLabel={'Favorite film'}
             id={'favorite'}
             label={'Favorite'}
           />
@@ -120,7 +109,7 @@ const Movies = () => {
               setOffset(0);
               toWatch(!isToWatch);
             }}
-            ariaLabel={'Movie to watch'}
+            ariaLabel={'Film to watch'}
             id={'toWatch'}
             label={'To watch'}
             margin={'0 0 0 0.6rem'}
@@ -132,7 +121,7 @@ const Movies = () => {
           <Paginator page={data} onPageChange={handlePageChange} />
           <Grid gap={'0.5rem'} columnSize={'100px'} margin={'0.5rem 0 1.5rem'}>
             {data?.content.map((movie) => (
-              <MoviePoster key={`recent-movie-${movie.id}`} {...movie} />
+              <PosterWithTooltip key={`recent-movie-${movie.id}`} {...movie} />
             ))}
           </Grid>
         </>
@@ -144,4 +133,4 @@ const Movies = () => {
   );
 };
 
-export default Movies;
+export default FilmsPage;

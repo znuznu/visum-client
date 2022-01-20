@@ -1,19 +1,20 @@
 import React from 'react';
 import { HTTPError } from 'ky';
 import { useQuery } from 'react-query';
-import { API_URL } from '../../config';
 import useAuthentication from '../../hooks/useAuthentication';
 import useGenericHttpError from '../../hooks/useGenericHttpError';
-import { Page } from '../../models/page';
-import HttpService from '../../services/http';
-import { StyledRecentMovies, StyledTitle } from './style';
-import MoviePoster from '../MoviePoster';
+import { StyledLink, StyledRecentMovies, StyledTitle } from './style';
+import PosterWithTooltip from '../PosterWithTooltip';
 import { MovieFromPage } from '../../models/movies';
 import { Grid } from '../common/Grid';
+import { fetchPage } from '../../services/api/page';
+import { Flex } from '../common/Flex';
 
 export type RecentMoviesProps = {
   limit: number;
 };
+
+const colSize = '100px';
 
 const RecentMovies = ({ limit }: RecentMoviesProps) => {
   const { jwtToken } = useAuthentication();
@@ -22,15 +23,16 @@ const RecentMovies = ({ limit }: RecentMoviesProps) => {
   const { isLoading, isError, data } = useQuery(
     'getRecentlyAddedMovies',
     () =>
-      HttpService.get(`${API_URL}/api/movies`, {
-        headers: { Authorization: `Bearer ${jwtToken}` },
-        searchParams: {
+      fetchPage<MovieFromPage>(
+        'movies',
+        { Authorization: `Bearer ${jwtToken}` },
+        {
           sort: 'creationDate,DESC',
           search: 'title=%%',
-          limit: limit.toString(),
-          offset: '0'
+          limit: limit,
+          offset: 0
         }
-      }).json<Page<MovieFromPage>>(),
+      ),
     {
       onError: (error: HTTPError) => {
         setHttpError(error);
@@ -51,11 +53,18 @@ const RecentMovies = ({ limit }: RecentMoviesProps) => {
 
   return (
     <StyledRecentMovies>
-      <StyledTitle>Recently added</StyledTitle>
+      <Flex justifyContent={'space-between'}>
+        <StyledTitle>Recently added</StyledTitle>
+        <StyledLink to={'/films'}>More</StyledLink>
+      </Flex>
       {data?.content.length ? (
-        <Grid gap={'0.5rem'} columnSize={'150px'}>
+        <Grid gap={'0.5rem'} columnSize={colSize}>
           {data?.content.map((movie) => (
-            <MoviePoster key={`recent-movie-${movie.id}`} {...movie} />
+            <PosterWithTooltip
+              key={`recent-movie-${movie.id}`}
+              {...movie}
+              width={colSize}
+            />
           ))}
         </Grid>
       ) : (

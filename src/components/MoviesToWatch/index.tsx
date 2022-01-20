@@ -7,14 +7,17 @@ import useGenericHttpError from '../../hooks/useGenericHttpError';
 import { MovieFromPage } from '../../models/movies';
 import { Page } from '../../models/page';
 import HttpService from '../../services/http';
+import { Flex } from '../common/Flex';
 import { Grid } from '../common/Grid';
-import MoviePoster from '../MoviePoster';
+import PosterWithTooltip from '../PosterWithTooltip';
 import { StyledTitle } from '../RecentMovies/style';
-import { StyledMoviesToWatch } from './style';
+import { StyledLink, StyledMoviesToWatch } from './style';
 
 type MoviesToWatchProps = {
   limit: number;
 };
+
+const colSize = '100px';
 
 const MoviesToWatch = ({ limit }: MoviesToWatchProps) => {
   const { jwtToken } = useAuthentication();
@@ -52,11 +55,18 @@ const MoviesToWatch = ({ limit }: MoviesToWatchProps) => {
 
   return (
     <StyledMoviesToWatch>
-      <StyledTitle>To watch</StyledTitle>
+      <Flex justifyContent={'space-between'}>
+        <StyledTitle>To watch</StyledTitle>
+        <StyledLink to={'/films'}>More</StyledLink>
+      </Flex>
       {data?.content.length ? (
-        <Grid gap={'0.5rem'} columnSize={'150px'}>
+        <Grid gap={'0.5rem'} columnSize={colSize}>
           {data?.content.map((movie) => (
-            <MoviePoster key={`to-watch-movie-${movie.id}`} {...movie} />
+            <PosterWithTooltip
+              key={`to-watch-movie-${movie.id}`}
+              width={colSize}
+              {...movie}
+            />
           ))}
         </Grid>
       ) : (
