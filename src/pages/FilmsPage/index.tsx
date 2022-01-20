@@ -121,7 +121,15 @@ const FilmsPage = () => {
           <Paginator page={data} onPageChange={handlePageChange} />
           <Grid gap={'0.5rem'} columnSize={'100px'} margin={'0.5rem 0 1.5rem'}>
             {data?.content.map((movie) => (
-              <PosterWithTooltip key={`recent-movie-${movie.id}`} {...movie} />
+              <PosterWithTooltip
+                key={`recent-movie-${movie.id}`}
+                width={'100px'}
+                height={'150px'}
+                id={movie.id}
+                title={movie.title}
+                posterUrl={movie.metadata.posterUrl}
+                releaseDate={movie.releaseDate}
+              />
             ))}
           </Grid>
         </>
