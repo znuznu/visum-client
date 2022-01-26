@@ -62,8 +62,12 @@ const RecentMovies = ({ limit }: RecentMoviesProps) => {
           {data?.content.map((movie) => (
             <PosterWithTooltip
               key={`recent-movie-${movie.id}`}
-              {...movie}
+              id={movie.id}
+              title={movie.title}
+              posterUrl={movie.metadata.posterUrl}
+              releaseDate={movie.releaseDate}
               width={colSize}
+              height={'150px'}
             />
           ))}
         </Grid>

@@ -22,6 +22,7 @@ const slideLeftAndFade = keyframes`
 `;
 
 const StyledTooltipContent = styled(TooltipPrimitive.Content)`
+  display: flex;
   background-color: ${(props) => props.theme.colors.tooltip.bg};
   border-radius: 4px;
   box-shadow: 0 0 0 1px ${(props) => props.theme.colors.tooltip.bgBorder};

@@ -9,6 +9,7 @@ export interface Sizes {
   m: string;
   l: string;
   xl: string;
+  xxl: string;
   xxxl: string;
 }
 
@@ -20,5 +21,6 @@ export const fontSizes: Sizes = {
   m: '1rem' as const,
   l: '1.25rem' as const,
   xl: '1.5rem' as const,
+  xxl: '2.5rem' as const,
   xxxl: '3rem' as const
 };

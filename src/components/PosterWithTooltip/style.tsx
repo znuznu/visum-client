@@ -1,3 +1,4 @@
+import { StarFilledIcon } from '@radix-ui/react-icons';
 import styled from 'styled-components';
 import EmptyPoster from '../EmptyPoster';
 import { StyledPoster } from '../Poster/style';
@@ -16,4 +17,11 @@ const StyledEmptyPosterWithTooltip = styled(EmptyPoster)`
   }
 `;
 
-export { StyledPosterWithTooltip, StyledEmptyPosterWithTooltip };
+const GradeIcon = styled(StarFilledIcon)`
+  width: 0.8rem;
+  height: 0.8rem;
+  color: inherit;
+  margin: auto 0 auto 2px;
+`;
+
+export { StyledPosterWithTooltip, StyledEmptyPosterWithTooltip, GradeIcon };

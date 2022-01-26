@@ -65,7 +65,11 @@ const MoviesToWatch = ({ limit }: MoviesToWatchProps) => {
             <PosterWithTooltip
               key={`to-watch-movie-${movie.id}`}
               width={colSize}
-              {...movie}
+              height={'150px'}
+              id={movie.id}
+              title={movie.title}
+              posterUrl={movie.metadata.posterUrl}
+              releaseDate={movie.releaseDate}
             />
           ))}
         </Grid>

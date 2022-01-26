@@ -13,6 +13,7 @@ import Shell from './pages/Shell';
 import HomePage from './pages/HomePage';
 import FilmsPage from './pages/FilmsPage';
 import FilmPage from './pages/FilmPage';
+import AllTimeStatisticsPage from './pages/AllTimeStatisticsPage';
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const App = () => {
                 <Route path="" element={<HomePage />} />
                 <Route path="films" element={<FilmsPage />} />
                 <Route path="film/:movieId" element={<FilmPage />} />
+                <Route path="stats/all-time" element={<AllTimeStatisticsPage />} />
               </Route>
               <Route path="/sign" element={<SignPage />} />
               <Route path="*" element={<Navigate to="/sign" />} />
