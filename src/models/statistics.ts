@@ -1,4 +1,4 @@
-export interface DecadeMovie {
+export interface StatsMovie {
   id: number;
   title: string;
   releaseDate: string;

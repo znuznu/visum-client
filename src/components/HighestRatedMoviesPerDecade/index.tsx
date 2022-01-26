@@ -2,13 +2,14 @@ import React from 'react';
 import { Flex } from '../common/Flex';
 import { Grid } from '../common/Grid';
 import PosterWithTooltip from '../PosterWithTooltip';
-import { DecadeMovie } from '../../models/statistics';
+import { StatsMovie } from '../../models/statistics';
 import StatisticsSectionHeader from '../StatisticsSectionHeader';
 import { StyledDecade, StyledYear } from './style';
 import { Pair } from '../../models/utils';
+import { NoData } from '../NoData';
 
 interface HighestRatedMoviesPerDecadeProps {
-  decades: Pair<number, DecadeMovie[]>[];
+  decades: Pair<number, StatsMovie[]>[];
 }
 
 const colSize = '80px';
@@ -38,8 +39,7 @@ const HighestRatedMoviesPerDecade = ({ decades }: HighestRatedMoviesPerDecadePro
           </StyledDecade>
         ))
       ) : (
-        // TODO style
-        <p>No decades found.</p>
+        <NoData>No decades found.</NoData>
       )}
     </Flex>
   );

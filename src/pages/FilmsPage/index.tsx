@@ -5,6 +5,8 @@ import Checkbox from '../../components/common/Checkbox';
 import { Grid } from '../../components/common/Grid';
 import Input from '../../components/common/Input';
 import Paginator from '../../components/common/Paginator';
+import ErrorText from '../../components/ErrorText';
+import { NoData } from '../../components/NoData';
 import PosterWithTooltip from '../../components/PosterWithTooltip';
 import useAuthentication from '../../hooks/useAuthentication';
 import useGenericHttpError from '../../hooks/useGenericHttpError';
@@ -72,8 +74,7 @@ const FilmsPage = () => {
   }
 
   if (isError) {
-    // TODO style
-    return <p>Something wrent wrong. Please reload.</p>;
+    return <ErrorText />;
   }
 
   const handlePageChange = (page: Page<MovieFromPage>) => {
@@ -134,8 +135,7 @@ const FilmsPage = () => {
           </Grid>
         </>
       ) : (
-        // TODO style
-        <p>No movies found.</p>
+        <NoData>No movies found.</NoData>
       )}
     </StyledMovies>
   );

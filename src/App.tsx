@@ -14,6 +14,7 @@ import HomePage from './pages/HomePage';
 import FilmsPage from './pages/FilmsPage';
 import FilmPage from './pages/FilmPage';
 import AllTimeStatisticsPage from './pages/AllTimeStatisticsPage';
+import PerYearStatisticsPage from './pages/PerYearStatisticsPage';
 
 const queryClient = new QueryClient();
 
@@ -37,6 +38,10 @@ const App = () => {
                 <Route path="films" element={<FilmsPage />} />
                 <Route path="film/:movieId" element={<FilmPage />} />
                 <Route path="stats/all-time" element={<AllTimeStatisticsPage />} />
+                <Route path="stats/year">
+                  <Route path="" element={<PerYearStatisticsPage />} />
+                  <Route path=":year" element={<PerYearStatisticsPage />} />
+                </Route>
               </Route>
               <Route path="/sign" element={<SignPage />} />
               <Route path="*" element={<Navigate to="/sign" />} />

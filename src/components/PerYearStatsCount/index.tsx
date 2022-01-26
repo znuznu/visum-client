@@ -1,14 +1,14 @@
 import React from 'react';
 import {
-  StyledAllTimeStatsCount,
   StyledCount,
   StyledEntity,
-  StyledStatsCount
+  StyledStatsCount,
+  StyledPerYearStatsCount
 } from './style';
 
-interface AllTimeStatsCountProps {
+interface PerYearStatsCountProps {
   totalRuntimeInHours: number;
-  reviewCount: number;
+  reviewsWrittenCount: number;
   movieCount: number;
 }
 
@@ -26,18 +26,18 @@ const StatsCount = ({ count, entity }: StatsCountProps) => {
   );
 };
 
-const AllTimeStatsCount = ({
+const PerYearStatsCount = ({
   totalRuntimeInHours,
-  reviewCount,
+  reviewsWrittenCount,
   movieCount
-}: AllTimeStatsCountProps) => {
+}: PerYearStatsCountProps) => {
   return (
-    <StyledAllTimeStatsCount>
+    <StyledPerYearStatsCount>
       <StatsCount count={totalRuntimeInHours} entity={'hours'} />
-      <StatsCount count={reviewCount} entity={'reviews'} />
+      <StatsCount count={reviewsWrittenCount} entity={'reviews written'} />
       <StatsCount count={movieCount} entity={'films'} />
-    </StyledAllTimeStatsCount>
+    </StyledPerYearStatsCount>
   );
 };
 
-export default AllTimeStatsCount;
+export default PerYearStatsCount;

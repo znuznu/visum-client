@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import { Pair } from '../../models/utils';
 import StatisticsSectionHeader from '../StatisticsSectionHeader';
 import { Flex } from '../common/Flex';
@@ -9,10 +9,11 @@ import {
   StyledBarDetails,
   StyledGrid
 } from './style';
+import { NoData } from '../NoData';
 
 interface BreakdownChartsProps {
-  perLanguage: Pair<string, number>[];
-  perGenre: Pair<string, number>[];
+  perLanguage?: Pair<string, number>[];
+  perGenre?: Pair<string, number>[];
 }
 
 export const getCeilPercentage = (max: number, x: number) => {
@@ -28,20 +29,18 @@ const BarValue = ({ count, percentage }: { count: number; percentage: number }) 
 };
 
 const CountCharts = ({ movieCount }: { movieCount: Pair<string, number>[] }) => {
-  const [maxValue] = useState(movieCount[0].value);
-
   return (
     <StyledGrid>
-      {movieCount.map((movieCount) => {
+      {movieCount.map((count) => {
         return (
           // TODO this wrapper should be replaced by a link to a
           // diary containing all films related to the resource itself
           // (eg: genre, language, production)
-          <Fragment key={`${movieCount.key}`}>
-            <StyledBarLabel>{movieCount.key}</StyledBarLabel>
+          <Fragment key={`${count.key}`}>
+            <StyledBarLabel>{count.key}</StyledBarLabel>
             <BarValue
-              count={movieCount.value}
-              percentage={getCeilPercentage(maxValue, movieCount.value)}
+              count={count.value}
+              percentage={getCeilPercentage(movieCount[0].value, count.value)}
             />
           </Fragment>
         );
@@ -50,13 +49,34 @@ const CountCharts = ({ movieCount }: { movieCount: Pair<string, number>[] }) => 
   );
 };
 
-const BreakdownCharts = ({ perLanguage, perGenre }: BreakdownChartsProps) => {
+enum ChartContentType {
+  GENRE = 'genres',
+  LANGUAGE = 'languages'
+}
+
+const buildTitle = (types: ChartContentType[]): string => {
+  return types.join(', ');
+};
+
+const propsToContentType: Record<string, ChartContentType> = {
+  perGenre: ChartContentType.GENRE,
+  perLanguage: ChartContentType.LANGUAGE
+};
+
+const BreakdownCharts = (props: BreakdownChartsProps) => {
   return (
     <Flex flexDirection={'column'} margin={'0 0 1rem 0'}>
-      <StatisticsSectionHeader title={'Genres, original language'} />
+      <StatisticsSectionHeader
+        title={buildTitle(
+          Object.keys(props).map((property) => propsToContentType[property])
+        )}
+      />
+      {!props.perGenre?.length && !props.perLanguage?.length ? (
+        <NoData>No data.</NoData>
+      ) : null}
       <StyledBreakdownCharts>
-        <CountCharts movieCount={perGenre} />
-        <CountCharts movieCount={perLanguage} />
+        {props.perGenre && <CountCharts movieCount={props.perGenre} />}
+        {props.perLanguage && <CountCharts movieCount={props.perLanguage} />}
       </StyledBreakdownCharts>
     </Flex>
   );

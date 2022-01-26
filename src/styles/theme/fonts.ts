@@ -11,6 +11,7 @@ export interface Sizes {
   xl: string;
   xxl: string;
   xxxl: string;
+  xxxxl: string;
 }
 
 export const fonts: Fonts = { logo: 'Archivo', main: 'Open Sans' };
@@ -22,5 +23,6 @@ export const fontSizes: Sizes = {
   l: '1.25rem' as const,
   xl: '1.5rem' as const,
   xxl: '2.5rem' as const,
-  xxxl: '3rem' as const
+  xxxl: '3rem' as const,
+  xxxxl: '5rem' as const
 };

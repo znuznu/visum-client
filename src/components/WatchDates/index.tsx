@@ -5,6 +5,7 @@ import useAuthentication from '../../hooks/useAuthentication';
 import { WatchDate } from '../../models/watchDate';
 import { deleteWatchDate, fetchWatchDates } from '../../services/api/history';
 import { Flex } from '../common/Flex';
+import ErrorText from '../ErrorText';
 import { RemoveIcon, StyledNoWatchDates, StyledWatchDate } from './style';
 
 interface WatchDatesProps {
@@ -47,8 +48,7 @@ const WatchDates = ({ movieId }: WatchDatesProps) => {
   }
 
   if (isError) {
-    // TODO style
-    return <p>Something wrent wrong. Please reload.</p>;
+    return <ErrorText />;
   }
 
   return (

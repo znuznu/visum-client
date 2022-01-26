@@ -9,6 +9,8 @@ import { MovieFromPage } from '../../models/movies';
 import { Grid } from '../common/Grid';
 import { fetchPage } from '../../services/api/page';
 import { Flex } from '../common/Flex';
+import { NoData } from '../NoData';
+import ErrorText from '../ErrorText';
 
 export type RecentMoviesProps = {
   limit: number;
@@ -47,8 +49,7 @@ const RecentMovies = ({ limit }: RecentMoviesProps) => {
   }
 
   if (isError) {
-    // TODO style
-    return <p>Something wrent wrong. Please reload.</p>;
+    return <ErrorText />;
   }
 
   return (
@@ -72,8 +73,7 @@ const RecentMovies = ({ limit }: RecentMoviesProps) => {
           ))}
         </Grid>
       ) : (
-        // TODO style
-        <p>No recently added movies found.</p>
+        <NoData>No recently added movies found.</NoData>
       )}
     </StyledRecentMovies>
   );

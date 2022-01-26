@@ -9,16 +9,11 @@ import { fetchMovie } from '../../services/api/movie';
 import { deleteReview } from '../../services/api/review';
 import { AccessibleIcon } from '../common/AccessibleIcon';
 import { Flex } from '../common/Flex';
+import ErrorText from '../ErrorText';
+import { NoData } from '../NoData';
 import ReadonlyReview from '../ReadonlyReview';
 import ReviewForm from '../ReviewForm';
-import {
-  RemoveIcon,
-  StyledTitle,
-  EditIcon,
-  CancelIcon,
-  Edit2Icon,
-  StyledNoReviewYet
-} from './style';
+import { RemoveIcon, StyledTitle, EditIcon, CancelIcon, Edit2Icon } from './style';
 
 interface EditableReviewProps {
   // The Movie ID of the one we want to handle the Review
@@ -65,8 +60,7 @@ const EditableReview = ({ movieId }: EditableReviewProps) => {
   }
 
   if (isError) {
-    // TODO style
-    return <p>Something wrent wrong. Please reload.</p>;
+    return <ErrorText />;
   }
 
   return (
@@ -99,9 +93,7 @@ const EditableReview = ({ movieId }: EditableReviewProps) => {
       ) : review ? (
         <ReadonlyReview review={review} />
       ) : (
-        <StyledNoReviewYet>
-          No review yet, click on the icon above to add one.
-        </StyledNoReviewYet>
+        <NoData>No review yet, click on the icon above to add one.</NoData>
       )}
     </Flex>
   );
