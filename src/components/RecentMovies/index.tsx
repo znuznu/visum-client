@@ -11,6 +11,7 @@ import { fetchPage } from '../../services/api/page';
 import { Flex } from '../common/Flex';
 import { NoData } from '../NoData';
 import ErrorText from '../ErrorText';
+import { Link } from 'react-router-dom';
 
 export type RecentMoviesProps = {
   limit: number;
@@ -61,15 +62,15 @@ const RecentMovies = ({ limit }: RecentMoviesProps) => {
       {data?.content.length ? (
         <Grid gap={'0.5rem'} columnSize={colSize}>
           {data?.content.map((movie) => (
-            <PosterWithTooltip
-              key={`recent-movie-${movie.id}`}
-              id={movie.id}
-              title={movie.title}
-              posterUrl={movie.metadata.posterUrl}
-              releaseDate={movie.releaseDate}
-              width={colSize}
-              height={'150px'}
-            />
+            <Link to={`film/${movie.id}`} key={`recent-movie-${movie.id}`}>
+              <PosterWithTooltip
+                title={movie.title}
+                posterUrl={movie.metadata.posterUrl}
+                releaseDate={movie.releaseDate}
+                width={colSize}
+                height={'150px'}
+              />
+            </Link>
           ))}
         </Grid>
       ) : (

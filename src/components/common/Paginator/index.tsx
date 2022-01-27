@@ -4,11 +4,12 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons';
 import { Page } from '../../../models/page';
 import Button from '../Button';
 import { StyledPageSize, StyledPaginator, StyledRangeLabel } from './style';
+import { getPageRangeLabel } from './helpers';
 
 export type PaginatorPage = {
   // Current page, starting at 0
   current: number;
-  // The number of elements in the current page
+  // The number of requested elements per page
   size: number;
   // The number of total elements within all pages
   totalElements: number;
@@ -18,33 +19,21 @@ export type PaginatorPage = {
   first: boolean;
   // Whether this page is the last one
   last: boolean;
+  // The page content
+  content: any[];
 };
 
 type PaginatorProps = {
   page: PaginatorPage;
   onPageChange: (page: Page<any>) => void;
+  currentStartIndex: number;
 };
 
-const getPageRangeLabel = (page: PaginatorPage) => {
-  if (page.current === 0) {
-    return `1 - ${page.totalElements > page.size ? page.size : page.totalElements} of ${
-      page.totalElements
-    }`;
-  }
-
-  const upperBound =
-    (page.current + 1) * page.size <= page.totalElements
-      ? (page.current + 1) * page.size
-      : page.totalElements;
-
-  return `${page.size * page.current + 1} - ${upperBound} of ${page.totalElements}`;
-};
-
-const Paginator = ({ page, onPageChange }: PaginatorProps) => {
+const Paginator = ({ page, onPageChange, currentStartIndex }: PaginatorProps) => {
   return (
     <StyledPaginator>
       <StyledPageSize>Items per page {page.size}</StyledPageSize>
-      <StyledRangeLabel>{getPageRangeLabel(page)}</StyledRangeLabel>
+      <StyledRangeLabel>{getPageRangeLabel(page, currentStartIndex)}</StyledRangeLabel>
       {
         <Button
           disabled={page.first}
@@ -77,7 +66,7 @@ const Paginator = ({ page, onPageChange }: PaginatorProps) => {
               totalElements: page.totalElements,
               totalPages: page.totalPages,
               first: false,
-              last: page.current === page.totalPages - 1,
+              last: page.current === page.totalPages - (currentStartIndex ? 0 : 1),
               content: []
             })
           }

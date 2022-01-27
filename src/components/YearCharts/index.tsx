@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTheme } from 'styled-components';
-import { Pair } from '../../models/utils';
+import { Pair } from '../../models/helpers';
 import { Flex } from '../common/Flex';
 import StatisticsSectionHeader from '../StatisticsSectionHeader';
 

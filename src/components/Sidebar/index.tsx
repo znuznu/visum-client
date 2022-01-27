@@ -42,8 +42,12 @@ const Sidebar = () => {
       {windowSize.width < M_BREAKPOINT_IN_PIXEL && hideMenu ? null : (
         <SidebarMenu>
           <SidebarMenuSection>
-            <SidebarMenuSectionTitle value={'Content'} />
             <SidebarMenuItemLink href={'/'} text={'Home'} />
+            <SidebarMenuItemLink href={'/discover'} text={'Discover'} />
+          </SidebarMenuSection>
+          <Separator decorative />
+          <SidebarMenuSection>
+            <SidebarMenuSectionTitle value={'Content'} />
             <SidebarMenuItemLink href={'/films'} text={'Films'} />
             <SidebarMenuItemLink href={'/actors'} text={'Actors'} />
             <SidebarMenuItemLink href={'/directors'} text={'Directors'} />

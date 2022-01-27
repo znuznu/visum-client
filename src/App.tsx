@@ -15,6 +15,7 @@ import FilmsPage from './pages/FilmsPage';
 import FilmPage from './pages/FilmPage';
 import AllTimeStatisticsPage from './pages/AllTimeStatisticsPage';
 import PerYearStatisticsPage from './pages/PerYearStatisticsPage';
+import DiscoverPage from './pages/DiscoverPage';
 
 const queryClient = new QueryClient();
 
@@ -42,6 +43,7 @@ const App = () => {
                   <Route path="" element={<PerYearStatisticsPage />} />
                   <Route path=":year" element={<PerYearStatisticsPage />} />
                 </Route>
+                <Route path="discover" element={<DiscoverPage />} />
               </Route>
               <Route path="/sign" element={<SignPage />} />
               <Route path="*" element={<Navigate to="/sign" />} />

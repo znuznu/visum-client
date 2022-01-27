@@ -1,7 +1,7 @@
 import React from 'react';
 import { HTTPError } from 'ky';
 import { useQuery } from 'react-query';
-import { useNavigate, useParams } from 'react-router';
+import { useParams } from 'react-router';
 import useAuthentication from '../../hooks/useAuthentication';
 
 import { fetchYearStatistics } from '../../services/api/statistics';

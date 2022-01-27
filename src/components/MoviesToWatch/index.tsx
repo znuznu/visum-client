@@ -1,6 +1,7 @@
 import { HTTPError } from 'ky';
 import React from 'react';
 import { useQuery } from 'react-query';
+import { Link } from 'react-router-dom';
 import { API_URL } from '../../config';
 import useAuthentication from '../../hooks/useAuthentication';
 import useGenericHttpError from '../../hooks/useGenericHttpError';
@@ -63,15 +64,15 @@ const MoviesToWatch = ({ limit }: MoviesToWatchProps) => {
       {data?.content.length ? (
         <Grid gap={'0.5rem'} columnSize={colSize}>
           {data?.content.map((movie) => (
-            <PosterWithTooltip
-              key={`to-watch-movie-${movie.id}`}
-              width={colSize}
-              height={'150px'}
-              id={movie.id}
-              title={movie.title}
-              posterUrl={movie.metadata.posterUrl}
-              releaseDate={movie.releaseDate}
-            />
+            <Link to={`/film/${movie.id}`} key={`to-watch-movie-${movie.id}`}>
+              <PosterWithTooltip
+                width={colSize}
+                height={'150px'}
+                title={movie.title}
+                posterUrl={movie.metadata.posterUrl}
+                releaseDate={movie.releaseDate}
+              />
+            </Link>
           ))}
         </Grid>
       ) : (
