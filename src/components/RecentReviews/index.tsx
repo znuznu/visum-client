@@ -9,6 +9,8 @@ import PageReview from '../PageReview';
 import { Separator } from '../common/Separator';
 import { StyledTitle } from '../RecentMovies/style';
 import { fetchPage } from '../../services/api/page';
+import { NoData } from '../NoData';
+import ErrorText from '../ErrorText';
 
 export type RecentReviewsProps = {
   limit: number;
@@ -45,8 +47,7 @@ const RecentReviews = ({ limit }: RecentReviewsProps) => {
   }
 
   if (isError) {
-    // TODO style
-    return <p>Something wrent wrong. Please reload.</p>;
+    return <ErrorText />;
   }
 
   return (
@@ -62,8 +63,7 @@ const RecentReviews = ({ limit }: RecentReviewsProps) => {
           ))}
         </StyledReviews>
       ) : (
-        // TODO style
-        <p>No recent reviews.</p>
+        <NoData>No recentl reviews found.</NoData>
       )}
     </StyledRecentReviews>
   );

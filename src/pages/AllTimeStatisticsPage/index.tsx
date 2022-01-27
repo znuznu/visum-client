@@ -8,6 +8,7 @@ import HighestRatedMoviesPerDecade from '../../components/HighestRatedMoviesPerD
 import { StyledAllTimeStatistics } from './style';
 import BreakdownCharts from '../../components/BreakdownCharts';
 import YearCharts from '../../components/YearCharts';
+import ErrorText from '../../components/ErrorText';
 
 const AllTimeStatisticsPage = () => {
   const { jwtToken } = useAuthentication();
@@ -28,8 +29,7 @@ const AllTimeStatisticsPage = () => {
   }
 
   if (isError) {
-    // TODO style
-    return <p>Something wrent wrong. Please reload.</p>;
+    return <ErrorText />;
   }
 
   return (

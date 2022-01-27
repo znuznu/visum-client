@@ -10,6 +10,7 @@ import useAuthentication from '../../hooks/useAuthentication';
 import useGenericHttpError from '../../hooks/useGenericHttpError';
 import { Movie } from '../../models/movies';
 import { fetchMovie, updateMovie } from '../../services/api/movie';
+import ErrorText from '../ErrorText';
 import WatchDates from '../WatchDates';
 import {
   StyledPeople,
@@ -80,8 +81,7 @@ const Film = ({ movieId }: FilmProps) => {
   }
 
   if (isError) {
-    // TODO style
-    return <p>Something wrent wrong. Please reload.</p>;
+    return <ErrorText />;
   }
 
   return (

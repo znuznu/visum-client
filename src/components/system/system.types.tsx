@@ -23,7 +23,8 @@ interface FlexProps {
     | 'space-evenly'
     | 'left'
     | 'normal'
-    | 'right';
+    | 'right'
+    | 'center';
 }
 
 interface GridProps {

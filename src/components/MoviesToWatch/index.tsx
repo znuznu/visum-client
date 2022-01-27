@@ -9,6 +9,8 @@ import { Page } from '../../models/page';
 import HttpService from '../../services/http';
 import { Flex } from '../common/Flex';
 import { Grid } from '../common/Grid';
+import ErrorText from '../ErrorText';
+import { NoData } from '../NoData';
 import PosterWithTooltip from '../PosterWithTooltip';
 import { StyledTitle } from '../RecentMovies/style';
 import { StyledLink, StyledMoviesToWatch } from './style';
@@ -49,8 +51,7 @@ const MoviesToWatch = ({ limit }: MoviesToWatchProps) => {
   }
 
   if (isError) {
-    // TODO style
-    return <p>Something wrent wrong. Please reload.</p>;
+    return <ErrorText />;
   }
 
   return (
@@ -74,8 +75,7 @@ const MoviesToWatch = ({ limit }: MoviesToWatchProps) => {
           ))}
         </Grid>
       ) : (
-        // TODO style
-        <p>No movies to watch found.</p>
+        <NoData>No movies to watch found.</NoData>
       )}
     </StyledMoviesToWatch>
   );

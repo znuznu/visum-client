@@ -1,5 +1,5 @@
 import { API_URL } from '../../config';
-import { DecadeMovie } from '../../models/statistics';
+import { StatsMovie } from '../../models/statistics';
 import { Pair } from '../../models/utils';
 import HttpService from '../http';
 
@@ -12,7 +12,7 @@ export interface FetchAllTimeStatisticsResponseBody {
     perGenre: Pair<string, number>[];
     perOriginalLanguage: Pair<string, number>[];
   };
-  highestRatedMoviesPerDecade: Pair<number, DecadeMovie[]>[];
+  highestRatedMoviesPerDecade: Pair<number, StatsMovie[]>[];
 }
 
 export const fetchAllTimeStatistics = async (
@@ -21,4 +21,24 @@ export const fetchAllTimeStatistics = async (
   return HttpService.get(`${API_URL}/api/statistics/years`, {
     headers
   }).json<FetchAllTimeStatisticsResponseBody>();
+};
+
+export interface FetchYearStatisticsResponseBody {
+  movieCount: number;
+  reviewCount: number;
+  totalRuntimeInHours: number;
+  highestRatedMovies: {
+    released: StatsMovie[];
+    older: StatsMovie[];
+  };
+  movieCountPerGenre: Pair<string, number>[];
+}
+
+export const fetchYearStatistics = async (
+  headers: Record<string, string>,
+  year: number
+): Promise<FetchYearStatisticsResponseBody> => {
+  return HttpService.get(`${API_URL}/api/statistics/years/${year}`, {
+    headers
+  }).json<FetchYearStatisticsResponseBody>();
 };

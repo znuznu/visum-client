@@ -56,9 +56,4 @@ const RemoveIcon = styled(TrashIcon)`
   }
 `;
 
-const StyledNoReviewYet = styled.p`
-  margin: 0;
-  font-style: italic;
-`;
-
-export { StyledTitle, CancelIcon, EditIcon, Edit2Icon, RemoveIcon, StyledNoReviewYet };
+export { StyledTitle, CancelIcon, EditIcon, Edit2Icon, RemoveIcon };
