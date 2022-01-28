@@ -1,6 +1,7 @@
 import { HTTPError } from 'ky';
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
+import { Link } from 'react-router-dom';
 import Checkbox from '../../components/common/Checkbox';
 import { Grid } from '../../components/common/Grid';
 import Input from '../../components/common/Input';
@@ -119,23 +120,23 @@ const FilmsPage = () => {
       </StyledSearchBar>
       {data?.content.length ? (
         <>
-          <Paginator page={data} onPageChange={handlePageChange} />
+          <Paginator page={data} onPageChange={handlePageChange} currentStartIndex={0} />
           <Grid gap={'0.5rem'} columnSize={'100px'} margin={'0.5rem 0 1.5rem'}>
             {data?.content.map((movie) => (
-              <PosterWithTooltip
-                key={`recent-movie-${movie.id}`}
-                width={'100px'}
-                height={'150px'}
-                id={movie.id}
-                title={movie.title}
-                posterUrl={movie.metadata.posterUrl}
-                releaseDate={movie.releaseDate}
-              />
+              <Link to={`/film/${movie.id}`} key={`movie-${movie.id}`}>
+                <PosterWithTooltip
+                  width={'100px'}
+                  height={'150px'}
+                  title={movie.title}
+                  posterUrl={movie.metadata.posterUrl}
+                  releaseDate={movie.releaseDate}
+                />
+              </Link>
             ))}
           </Grid>
         </>
       ) : (
-        <NoData>No movies found.</NoData>
+        <NoData>No films found.</NoData>
       )}
     </StyledMovies>
   );

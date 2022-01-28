@@ -1,6 +1,6 @@
 import { API_URL } from '../../config';
 import { StatsMovie } from '../../models/statistics';
-import { Pair } from '../../models/utils';
+import { Pair } from '../../models/helpers';
 import HttpService from '../http';
 
 export interface FetchAllTimeStatisticsResponseBody {

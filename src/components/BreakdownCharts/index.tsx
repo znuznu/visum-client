@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Pair } from '../../models/utils';
+import { Pair } from '../../models/helpers';
 import StatisticsSectionHeader from '../StatisticsSectionHeader';
 import { Flex } from '../common/Flex';
 import {

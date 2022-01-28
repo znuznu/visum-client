@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Flex } from '../common/Flex';
 import { Tooltip, TooltipTrigger } from '../common/Tooltip';
 import { TooltipArrow, TooltipContent } from '../common/Tooltip';
@@ -11,7 +10,6 @@ import {
 } from './style';
 
 export type PosterWithTooltipProps = {
-  id: number;
   title: string;
   releaseDate: string;
   posterUrl?: string;
@@ -19,7 +17,6 @@ export type PosterWithTooltipProps = {
 } & StyledPosterProps;
 
 const PosterWithTooltip = ({
-  id,
   posterUrl,
   title,
   releaseDate,
@@ -30,17 +27,15 @@ const PosterWithTooltip = ({
   return (
     <Tooltip>
       <TooltipTrigger asChild>
-        <Link to={`/film/${id}`}>
-          {posterUrl ? (
-            <StyledPosterWithTooltip src={posterUrl} width={width} />
-          ) : (
-            <StyledEmptyPosterWithTooltip
-              width={width ?? '150px'}
-              height={height ?? '225px'}
-              iconSize={'50px'}
-            />
-          )}
-        </Link>
+        {posterUrl ? (
+          <StyledPosterWithTooltip src={posterUrl} width={width} />
+        ) : (
+          <StyledEmptyPosterWithTooltip
+            width={width ?? '150px'}
+            height={height ?? '225px'}
+            iconSize={'50px'}
+          />
+        )}
       </TooltipTrigger>
       <TooltipContent>
         {title} ({releaseDate}){' '}
