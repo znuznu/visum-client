@@ -17,6 +17,8 @@ import AllTimeStatisticsPage from './pages/AllTimeStatisticsPage';
 import PerYearStatisticsPage from './pages/PerYearStatisticsPage';
 import DiscoverPage from './pages/DiscoverPage';
 import TmdbFilmPage from './pages/TmdbFilmPage';
+import DirectorsPage from './pages/DirectorsPage';
+import ActorsPage from './pages/ActorsPage';
 
 const queryClient = new QueryClient();
 
@@ -37,16 +39,30 @@ const App = () => {
                 }
               >
                 <Route path="" element={<HomePage />} />
+
                 <Route path="films" element={<FilmsPage />} />
                 <Route path="film/:movieId" element={<FilmPage />} />
+
                 <Route path="stats/all-time" element={<AllTimeStatisticsPage />} />
+
                 <Route path="stats/year">
                   <Route path="" element={<PerYearStatisticsPage />} />
                   <Route path=":year" element={<PerYearStatisticsPage />} />
                 </Route>
+
                 <Route path="discover" element={<DiscoverPage />} />
+
                 <Route path="tmdb/film/:tmdbId" element={<TmdbFilmPage />} />
+
+                <Route path="directors">
+                  <Route path="" element={<DirectorsPage />} />
+                </Route>
+
+                <Route path="actors">
+                  <Route path="" element={<ActorsPage />} />
+                </Route>
               </Route>
+
               <Route path="/sign" element={<SignPage />} />
               <Route path="*" element={<Navigate to="/sign" />} />
             </Routes>
