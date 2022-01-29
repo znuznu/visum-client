@@ -90,7 +90,7 @@ const DirectorsPage = () => {
           {data.content.map((person, index) => {
             return (
               <Fragment key={`director-${person.id}`}>
-                <Link to={`${person.id}`}>
+                <Link to={`/director/${person.id}`}>
                   <StyledPerson>
                     {person.name} {person.forename}
                   </StyledPerson>

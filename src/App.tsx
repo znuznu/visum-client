@@ -19,6 +19,8 @@ import DiscoverPage from './pages/DiscoverPage';
 import TmdbFilmPage from './pages/TmdbFilmPage';
 import DirectorsPage from './pages/DirectorsPage';
 import ActorsPage from './pages/ActorsPage';
+import DirectorPage from './pages/DirectorPage';
+import ActorPage from './pages/ActorPage';
 
 const queryClient = new QueryClient();
 
@@ -54,13 +56,11 @@ const App = () => {
 
                 <Route path="tmdb/film/:tmdbId" element={<TmdbFilmPage />} />
 
-                <Route path="directors">
-                  <Route path="" element={<DirectorsPage />} />
-                </Route>
+                <Route path="directors" element={<DirectorsPage />} />
+                <Route path="director/:id" element={<DirectorPage />} />
 
-                <Route path="actors">
-                  <Route path="" element={<ActorsPage />} />
-                </Route>
+                <Route path="actors" element={<ActorsPage />} />
+                <Route path="actor/:id" element={<ActorPage />} />
               </Route>
 
               <Route path="/sign" element={<SignPage />} />

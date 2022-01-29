@@ -51,7 +51,6 @@ const Sidebar = () => {
             <SidebarMenuItemLink href={'/films'} text={'Films'} />
             <SidebarMenuItemLink href={'/actors'} text={'Actors'} />
             <SidebarMenuItemLink href={'/directors'} text={'Directors'} />
-            <SidebarMenuItemLink href={'/genres'} text={'Genres'} />
           </SidebarMenuSection>
           <Separator decorative />
           <SidebarMenuSection>

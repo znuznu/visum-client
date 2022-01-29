@@ -5,6 +5,7 @@ import { StyledPoster } from '../../components/Poster/style';
 const StyledFilm = styled.div`
   display: flex;
   margin: 1rem 0 0 0;
+
   max-width: ${({ theme }) => theme.breakpoints.s};
 `;
 

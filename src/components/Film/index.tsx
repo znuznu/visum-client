@@ -84,7 +84,7 @@ const Film = ({ movieId }: FilmProps) => {
         <MovieActionsPanel
           isFavorite={movie?.isFavorite!}
           isToWatch={movie?.isToWatch!}
-          movieId={movie!.id}
+          movieId={movie?.id!}
           onFavorite={() => {}}
         />
       </div>
