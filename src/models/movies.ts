@@ -1,5 +1,5 @@
 import { Genre } from './genre';
-import { People } from './people';
+import { Person } from './person';
 import { Review } from './reviews';
 
 export interface MovieFromPage {
@@ -19,8 +19,8 @@ export interface Movie {
   title: string;
   // TODO Date
   releaseDate: string;
-  actors: People[];
-  directors: People[];
+  actors: Person[];
+  directors: Person[];
   genres: Genre[];
   review?: Review;
   // TODO Date
