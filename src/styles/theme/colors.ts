@@ -43,4 +43,7 @@ export interface Colors {
     secondary: string;
   };
   scrollbar: { bg: string; bgHover: string; thumb: string };
+  tmdb: { primary: string };
 }
+
+export const tmdbPrimaryColor = '#90cea1';

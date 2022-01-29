@@ -13,8 +13,8 @@ const StyledLink = styled.a`
   border-bottom: 1px solid ${(props) => props.theme.colors.tertiary};
 
   &:hover {
-    color: #90cea1;
-    border-bottom: 1px solid #90cea1;
+    color: ${(props) => props.theme.colors.tmdb.primary};
+    border-bottom: 1px solid ${(props) => props.theme.colors.tmdb.primary};
   }
 `;
 

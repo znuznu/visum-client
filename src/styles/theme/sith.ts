@@ -10,6 +10,7 @@ import {
 
 import { Theme } from '.';
 import { breakpoints } from './breakpoints';
+import { tmdbPrimaryColor } from './colors';
 import { fonts, fontSizes } from './fonts';
 
 // Dark theme is dead, long live the Sith theme
@@ -67,6 +68,9 @@ export const sithTheme: Theme = {
     tooltip: {
       bg: indigoDark.indigo4,
       bgBorder: indigoDark.indigo8
+    },
+    tmdb: {
+      primary: tmdbPrimaryColor
     }
   }
 };

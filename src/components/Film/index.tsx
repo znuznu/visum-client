@@ -11,9 +11,10 @@ import useGenericHttpError from '../../hooks/useGenericHttpError';
 import { Movie } from '../../models/movies';
 import { fetchMovie, updateMovie } from '../../services/api/movie';
 import ErrorText from '../ErrorText';
+import FilmDetails from '../FilmDetails';
 import WatchDates from '../WatchDates';
 import {
-  StyledPeople,
+  StyledPerson,
   StyledLink,
   StyledMovieTitle,
   StyledOverview,
@@ -23,21 +24,9 @@ import {
   StyledMovieContent,
   StyledSectionContent,
   StyledSection,
-  StyledDetailsTable,
-  StyledDetailsBody,
-  StyledDetailsRow,
-  StyledDetailsData,
   StyledFilm,
   StyledResponsivePoster
 } from './style';
-
-const formatNumberWithSpace = (n: number): string => {
-  if (n <= 0) {
-    return n.toString();
-  }
-
-  return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-};
 
 interface FilmProps {
   movieId: number;
@@ -105,7 +94,7 @@ const Film = ({ movieId }: FilmProps) => {
           <StyledReleaseDate>{movie?.releaseDate} </StyledReleaseDate>
         </Flex>
         <Flex>
-          <StyledPeople>
+          <StyledPerson>
             directed by{' '}
             {movie?.directors.map((director, index) => {
               return (
@@ -117,12 +106,12 @@ const Film = ({ movieId }: FilmProps) => {
                 </Fragment>
               );
             })}
-          </StyledPeople>
+          </StyledPerson>
         </Flex>
         <StyledTagline>{movie?.metadata.tagline}</StyledTagline>
         <StyledOverview>{movie?.metadata.overview}</StyledOverview>
 
-        <Separator />
+        <Separator decorative />
 
         <StyledSection>
           <StyledSectionTitle>Cast</StyledSectionTitle>
@@ -140,7 +129,7 @@ const Film = ({ movieId }: FilmProps) => {
           </StyledSectionContent>
         </StyledSection>
 
-        <Separator />
+        <Separator decorative />
 
         <StyledSection>
           <StyledSectionTitle>Genres</StyledSectionTitle>
@@ -156,42 +145,21 @@ const Film = ({ movieId }: FilmProps) => {
           </StyledSectionContent>
         </StyledSection>
 
-        <Separator />
+        <Separator decorative />
 
         <StyledSectionTitle>Watch dates</StyledSectionTitle>
         <WatchDates movieId={movieId} />
 
-        <Separator />
+        <Separator decorative />
 
-        <StyledSection>
-          <StyledSectionTitle>Details</StyledSectionTitle>
-          <StyledDetailsTable>
-            <StyledDetailsBody>
-              <StyledDetailsRow>
-                <StyledDetailsData>Budget</StyledDetailsData>
-                <StyledDetailsData>
-                  {formatNumberWithSpace(movie?.metadata.budget ?? 0)}$
-                </StyledDetailsData>
-              </StyledDetailsRow>
-              <StyledDetailsRow>
-                <StyledDetailsData>Revenue</StyledDetailsData>
-                <StyledDetailsData>
-                  {formatNumberWithSpace(movie?.metadata.revenue ?? 0)}$
-                </StyledDetailsData>
-              </StyledDetailsRow>
-              <StyledDetailsRow>
-                <StyledDetailsData>Runtime</StyledDetailsData>
-                <StyledDetailsData>{movie?.metadata.runtime} min</StyledDetailsData>
-              </StyledDetailsRow>
-              <StyledDetailsRow>
-                <StyledDetailsData>Language</StyledDetailsData>
-                <StyledDetailsData>{movie?.metadata.originalLanguage}</StyledDetailsData>
-              </StyledDetailsRow>
-            </StyledDetailsBody>
-          </StyledDetailsTable>
-        </StyledSection>
+        <FilmDetails
+          runtimeInMinutes={movie?.metadata.runtime}
+          originalLanguage={movie?.metadata.originalLanguage}
+          revenue={movie?.metadata.revenue}
+          budget={movie?.metadata.budget}
+        />
 
-        <Separator />
+        <Separator decorative />
 
         {<EditableReview movieId={movie?.id!} />}
       </StyledMovieContent>
