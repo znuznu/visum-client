@@ -27,3 +27,49 @@ export const updateMovie = async (
     json: movie
   }).json<UpdateMovieResponseBody>();
 };
+
+export interface CreateMovieRequestBody {
+  title: string;
+  releaseDate: string;
+  isFavorite: boolean;
+  isToWatch: boolean;
+  actors: {
+    name: string;
+    forename: string;
+  }[];
+  directors: {
+    name: string;
+    forename: string;
+  }[];
+  genres: {
+    type: string;
+  }[];
+  metadata: {
+    tmdbId: number;
+    imdbId: string;
+    originalLanguage: string;
+    tagline: string;
+    overview: string;
+    budget: number;
+    revenue: number;
+    runtime: number;
+    posterUrl: string;
+  };
+}
+
+export interface CreateMovieResponseBody {
+  // For now, we just need the id to redirect the user to the
+  // newly created movie but other fields can be found inside
+  // the response
+  id: number;
+}
+
+export const createMovie = async (
+  headers: Record<string, string>,
+  movie: CreateMovieRequestBody
+): Promise<CreateMovieResponseBody> => {
+  return HttpService.post(`${API_URL}/api/movies`, {
+    headers,
+    json: movie
+  }).json<CreateMovieResponseBody>();
+};

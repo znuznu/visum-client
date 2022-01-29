@@ -23,14 +23,6 @@ const StyledMovieTitle = styled.h1`
   font-family: ${(props) => props.theme.fonts.logo};
   font-size: ${(props) => props.theme.fontSizes.xl};
   margin: 0;
-
-  &:hover {
-    color: ${(props) => props.theme.colors.secondary};
-  }
-
-  &:visited {
-    color: ${(props) => props.theme.colors.secondary};
-  }
 `;
 
 const StyledLink = styled(Link)`
@@ -54,7 +46,7 @@ const StyledReleaseDate = styled.p`
   margin: auto 0 auto 0.5rem;
 `;
 
-const StyledPeople = styled.p`
+const StyledPerson = styled.p`
   color: ${(props) => props.theme.colors.tertiary};
   font-family: inherit;
   font-size: inherit;
@@ -107,31 +99,9 @@ const StyledMovieContent = styled.div`
   margin-left: 1rem;
 `;
 
-const StyledDetailsTable = styled.table`
-  font-family: ${(props) => props.theme.fonts.main};
-  font-size: ${(props) => props.theme.fontSizes.s};
-  width: 200px;
-  border-spacing: 0rem;
-`;
-
-const StyledDetailsBody = styled.tbody`
-  margin: 0;
-`;
-
-const StyledDetailsRow = styled.tr``;
-
-const StyledDetailsData = styled.td`
-  align-items: center;
-  color: ${(props) => props.theme.colors.primary};
-
-  &:last-child {
-    color: ${(props) => props.theme.colors.tertiary};
-  }
-`;
-
 export {
   StyledFilm,
-  StyledPeople,
+  StyledPerson,
   StyledMovieTitle,
   StyledLink,
   StyledReleaseDate,
@@ -142,9 +112,5 @@ export {
   StyledMovieContent,
   StyledSectionContent,
   StyledSection,
-  StyledDetailsBody,
-  StyledDetailsTable,
-  StyledDetailsRow,
-  StyledDetailsData,
   StyledResponsivePoster
 };

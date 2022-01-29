@@ -16,6 +16,7 @@ import FilmPage from './pages/FilmPage';
 import AllTimeStatisticsPage from './pages/AllTimeStatisticsPage';
 import PerYearStatisticsPage from './pages/PerYearStatisticsPage';
 import DiscoverPage from './pages/DiscoverPage';
+import TmdbFilmPage from './pages/TmdbFilmPage';
 
 const queryClient = new QueryClient();
 
@@ -44,6 +45,7 @@ const App = () => {
                   <Route path=":year" element={<PerYearStatisticsPage />} />
                 </Route>
                 <Route path="discover" element={<DiscoverPage />} />
+                <Route path="tmdb/film/:tmdbId" element={<TmdbFilmPage />} />
               </Route>
               <Route path="/sign" element={<SignPage />} />
               <Route path="*" element={<Navigate to="/sign" />} />
