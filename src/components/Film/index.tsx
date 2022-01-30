@@ -1,6 +1,8 @@
-import { HTTPError } from 'ky';
 import React, { Fragment, useState } from 'react';
-import { useMutation, useQuery } from 'react-query';
+import { HTTPError } from 'ky';
+
+import { useQuery } from 'react-query';
+import { useNavigate } from 'react-router';
 import { Flex } from '../../components/common/Flex';
 import { Separator } from '../../components/common/Separator';
 import EditableReview from '../../components/EditableReview';
@@ -9,7 +11,7 @@ import MovieActionsPanel from '../../components/MovieActionsPanel';
 import useAuthentication from '../../hooks/useAuthentication';
 import useGenericHttpError from '../../hooks/useGenericHttpError';
 import { Movie } from '../../models/movies';
-import { fetchMovie, updateMovie } from '../../services/api/movie';
+import { fetchMovie } from '../../services/api/movie';
 import ErrorText from '../ErrorText';
 import FilmDetails from '../FilmDetails';
 import WatchDates from '../WatchDates';
@@ -33,6 +35,7 @@ interface FilmProps {
 }
 
 const Film = ({ movieId }: FilmProps) => {
+  const navigate = useNavigate();
   const { jwtToken } = useAuthentication();
   const { setHttpError } = useGenericHttpError(undefined);
   const [movie, setMovie] = useState<Movie | undefined>(undefined);
@@ -50,19 +53,9 @@ const Film = ({ movieId }: FilmProps) => {
     }
   );
 
-  // TODO API not ready, we should probably expose 'favorite' and 'shouldWatch' endpoints
-  // eslint-disable-next-line
-  const updateMovieMutation = useMutation(
-    () => updateMovie({ authorization: `Bearer ${jwtToken}` }, {}, movie!.id),
-    {
-      onSuccess: (data) => {
-        // setMovie(data);
-      },
-      onError: (error: HTTPError) => {
-        setHttpError(error);
-      }
-    }
-  );
+  const redirectToFilmsPage = () => {
+    navigate('/films');
+  };
 
   if (isLoading) {
     // TODO spinner
@@ -85,7 +78,19 @@ const Film = ({ movieId }: FilmProps) => {
           isFavorite={movie?.isFavorite!}
           isToWatch={movie?.isToWatch!}
           movieId={movie?.id!}
-          onFavorite={() => {}}
+          onFavorite={() => {
+            setMovie({ ...movie!, isFavorite: true });
+          }}
+          onRemoveFavorite={() => {
+            setMovie({ ...movie!, isFavorite: false });
+          }}
+          onAddToWatchlist={() => {
+            setMovie({ ...movie!, isToWatch: true });
+          }}
+          onRemoveFromWatchlist={() => {
+            setMovie({ ...movie!, isToWatch: false });
+          }}
+          onDelete={redirectToFilmsPage}
         />
       </div>
       <StyledMovieContent>

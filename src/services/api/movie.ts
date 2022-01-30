@@ -2,12 +2,6 @@ import { API_URL } from '../../config';
 import { Movie } from '../../models/movies';
 import HttpService from '../http';
 
-// TODO
-export interface UpdateMovieResponseBody {}
-
-// TODO
-export interface UpdateMovieRequestBody {}
-
 export const fetchMovie = async (
   headers: Record<string, string>,
   id: number
@@ -15,17 +9,6 @@ export const fetchMovie = async (
   return HttpService.get(`${API_URL}/api/movies/${id}`, {
     headers
   }).json<Movie>();
-};
-
-export const updateMovie = async (
-  headers: Record<string, string>,
-  movie: UpdateMovieRequestBody,
-  movieId: number
-): Promise<UpdateMovieResponseBody> => {
-  return HttpService.put(`${API_URL}/api/movies/${movieId}`, {
-    headers,
-    json: movie
-  }).json<UpdateMovieResponseBody>();
 };
 
 export interface CreateMovieRequestBody {
@@ -72,4 +55,49 @@ export const createMovie = async (
     headers,
     json: movie
   }).json<CreateMovieResponseBody>();
+};
+
+export const markMovieAsFavorite = async (
+  headers: Record<string, string>,
+  movieId: number
+): Promise<void> => {
+  return HttpService.put(`${API_URL}/api/movies/${movieId}/favorite`, {
+    headers
+  }).json<void>();
+};
+
+export const removeMovieFromFavorite = async (
+  headers: Record<string, string>,
+  movieId: number
+): Promise<void> => {
+  return HttpService.delete(`${API_URL}/api/movies/${movieId}/favorite`, {
+    headers
+  }).json<void>();
+};
+
+export const addMovieToWatchlist = async (
+  headers: Record<string, string>,
+  movieId: number
+): Promise<void> => {
+  return HttpService.put(`${API_URL}/api/movies/${movieId}/watchlist`, {
+    headers
+  }).json<void>();
+};
+
+export const removeMovieFromWatchlist = async (
+  headers: Record<string, string>,
+  movieId: number
+): Promise<void> => {
+  return HttpService.delete(`${API_URL}/api/movies/${movieId}/watchlist`, {
+    headers
+  }).json<void>();
+};
+
+export const deleteMovie = async (
+  headers: Record<string, string>,
+  movieId: number
+): Promise<void> => {
+  return HttpService.delete(`${API_URL}/api/movies/${movieId}`, {
+    headers
+  }).json<void>();
 };
