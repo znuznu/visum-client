@@ -7,6 +7,7 @@ import StatisticsSectionHeader from '../StatisticsSectionHeader';
 import {
   Chart as ChartJS,
   LinearScale,
+  LineController,
   CategoryScale,
   BarElement,
   PointElement,
@@ -24,6 +25,7 @@ interface YearChartsProps {
 }
 
 ChartJS.register(
+  LineController,
   LinearScale,
   CategoryScale,
   BarElement,
