@@ -38,7 +38,7 @@ const PageReview = ({ review }: PageReviewProps) => {
         <StyledContent>
           <StyledHeader>
             <StyledHeaderLeft>
-              <StyledTitle href={`/film/${review.movie.id}`}>
+              <StyledTitle to={`/film/${review.movie.id}`}>
                 {review.movie.title}
               </StyledTitle>
               <StyledReleaseDate>{review.movie.releaseDate}</StyledReleaseDate>

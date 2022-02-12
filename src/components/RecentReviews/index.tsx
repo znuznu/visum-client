@@ -63,7 +63,7 @@ const RecentReviews = ({ limit }: RecentReviewsProps) => {
           ))}
         </StyledReviews>
       ) : (
-        <NoData>No recentl reviews found.</NoData>
+        <NoData>No recent reviews found.</NoData>
       )}
     </StyledRecentReviews>
   );

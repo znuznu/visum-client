@@ -6,7 +6,7 @@ type SidebarHeaderLogoProps = {
 };
 
 const SidebarHeaderLogo = ({ children }: SidebarHeaderLogoProps) => {
-  return <StyledTitle href={'/'}>{children}</StyledTitle>;
+  return <StyledTitle to={'/'}>{children}</StyledTitle>;
 };
 
 export default SidebarHeaderLogo;
