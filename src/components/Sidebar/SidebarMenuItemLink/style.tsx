@@ -1,8 +1,17 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const StyledSidebarMenuItemLink = styled.a`
+type StyledSidebarMenuItemLinkProps = {
+  $isActive: boolean;
+};
+
+const StyledSidebarMenuItemLink = styled(Link)<StyledSidebarMenuItemLinkProps>`
   border-radius: 5px;
-  color: ${(props) => props.theme.colors.text.primary};
+  color: ${(props) => {
+    return props.$isActive
+      ? props.theme.colors.sidebar.hover.color
+      : props.theme.colors.text.primary;
+  }};
   font-family: ${(props) => props.theme.fonts.main};
   font-size: ${(props) => props.theme.fontSizes.m};
   font-family: ${(props) => props.theme.fonts.main};
@@ -13,16 +22,6 @@ const StyledSidebarMenuItemLink = styled.a`
   &:hover {
     color: ${(props) => props.theme.colors.sidebar.hover.color};
     background-color: ${(props) => props.theme.colors.sidebar.hover.bg};
-  }
-
-  &:focus {
-    color: ${(props) => props.theme.colors.sidebar.hover.color};
-    background-color: ${(props) => props.theme.colors.sidebar.hover.bgPressed};
-  }
-
-  &:active {
-    color: ${(props) => props.theme.colors.sidebar.hover.color};
-    background-color: ${(props) => props.theme.colors.sidebar.hover.bgPressed};
   }
 `;
 

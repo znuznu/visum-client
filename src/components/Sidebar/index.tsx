@@ -42,21 +42,21 @@ const Sidebar = () => {
       {windowSize.width < M_BREAKPOINT_IN_PIXEL && hideMenu ? null : (
         <SidebarMenu>
           <SidebarMenuSection>
-            <SidebarMenuItemLink href={'/'} text={'Home'} />
-            <SidebarMenuItemLink href={'/discover'} text={'Discover'} />
+            <SidebarMenuItemLink to={'/'} text={'Home'} />
+            <SidebarMenuItemLink to={'/discover'} text={'Discover'} />
           </SidebarMenuSection>
           <Separator decorative />
           <SidebarMenuSection>
             <SidebarMenuSectionTitle value={'Content'} />
-            <SidebarMenuItemLink href={'/films'} text={'Films'} />
-            <SidebarMenuItemLink href={'/actors'} text={'Actors'} />
-            <SidebarMenuItemLink href={'/directors'} text={'Directors'} />
+            <SidebarMenuItemLink to={'/films'} text={'Films'} />
+            <SidebarMenuItemLink to={'/actors'} text={'Actors'} />
+            <SidebarMenuItemLink to={'/directors'} text={'Directors'} />
           </SidebarMenuSection>
           <Separator decorative />
           <SidebarMenuSection>
             <SidebarMenuSectionTitle value={'Statistics'} />
-            <SidebarMenuItemLink href={'/stats/all-time'} text={'All-time'} />
-            <SidebarMenuItemLink href={'/stats/year'} text={'Per year'} />
+            <SidebarMenuItemLink to={'/stats/all-time'} text={'All-time'} />
+            <SidebarMenuItemLink to={'/stats/year'} text={'Per year'} />
           </SidebarMenuSection>
           <Separator decorative />
           <SidebarMenuSection>

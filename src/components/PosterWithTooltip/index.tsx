@@ -37,7 +37,7 @@ const PosterWithTooltip = ({
           />
         )}
       </TooltipTrigger>
-      <TooltipContent>
+      <TooltipContent side={'top'}>
         {title} ({releaseDate}){' '}
         {grade && (
           <Flex margin={'0 0 0 0.5rem'}>
