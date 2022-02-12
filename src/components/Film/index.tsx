@@ -166,7 +166,7 @@ const Film = ({ movieId }: FilmProps) => {
 
         <Separator decorative />
 
-        {<EditableReview movieId={movie?.id!} />}
+        {<EditableReview movieId={movieId} />}
       </StyledMovieContent>
     </StyledFilm>
   );
