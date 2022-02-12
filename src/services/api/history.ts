@@ -21,3 +21,24 @@ export const deleteWatchDate = async (
     headers
   }).json<void>();
 };
+
+type CreateWatchDateRequestBody = {
+  movieId: number;
+  viewingDate: string;
+};
+
+type CreateWatchDateResponseBody = {
+  id: number;
+  movieId: number;
+  viewingDate: string;
+};
+
+export const addWatchDate = async (
+  headers: Record<string, string>,
+  body: CreateWatchDateRequestBody
+): Promise<CreateWatchDateResponseBody> => {
+  return HttpService.post(`${API_URL}/api/history`, {
+    headers,
+    json: body
+  }).json<CreateWatchDateResponseBody>();
+};
