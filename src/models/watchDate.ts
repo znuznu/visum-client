@@ -1,5 +1,5 @@
 export interface WatchDate {
   id: number;
-  viewingDate: Date;
+  viewingDate: string;
   movieId: number;
 }

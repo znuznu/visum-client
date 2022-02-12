@@ -152,7 +152,6 @@ const Film = ({ movieId }: FilmProps) => {
 
         <Separator decorative />
 
-        <StyledSectionTitle>Watch dates</StyledSectionTitle>
         <WatchDates movieId={movieId} />
 
         <Separator decorative />
@@ -166,7 +165,7 @@ const Film = ({ movieId }: FilmProps) => {
 
         <Separator decorative />
 
-        {<EditableReview movieId={movieId} />}
+        <EditableReview movieId={movieId} />
       </StyledMovieContent>
     </StyledFilm>
   );
