@@ -3,6 +3,10 @@ import styled from 'styled-components';
 
 const StyledPersonMovie = styled.div`
   display: flex;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const StyledMovieTitle = styled(Link)`

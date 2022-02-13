@@ -5,7 +5,7 @@ const StyledName = styled.h1`
   font-family: ${(props) => props.theme.fonts.logo};
   font-size: ${(props) => props.theme.fontSizes.xxl};
 
-  margin-top: 0;
+  margin: 0 0 1.25rem 0;
 `;
 
 export { StyledName };

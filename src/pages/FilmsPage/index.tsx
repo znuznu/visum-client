@@ -3,9 +3,11 @@ import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import Checkbox from '../../components/common/Checkbox';
+import { Flex } from '../../components/common/Flex';
 import { Grid } from '../../components/common/Grid';
 import Input from '../../components/common/Input';
 import Paginator from '../../components/common/Paginator';
+import { Select } from '../../components/common/Select';
 import ErrorText from '../../components/ErrorText';
 import { NoData } from '../../components/NoData';
 import PosterWithTooltip from '../../components/PosterWithTooltip';
@@ -14,7 +16,7 @@ import useGenericHttpError from '../../hooks/useGenericHttpError';
 import { MovieFromPage } from '../../models/movies';
 import { Page } from '../../models/page';
 import { fetchPage } from '../../services/api/page';
-import { StyledMovies, StyledOptions, StyledSearchBar } from './style';
+import { StyledMovies, StyledOptions, StyledSearchBar, StyledSelectLabel } from './style';
 
 const buildSearchQuery = (title: string, isFavorite: boolean, isToWatch: boolean) => {
   let query = `title=%${title}%`;
@@ -44,17 +46,18 @@ const FilmsPage = () => {
   });
   const [offset, setOffset] = useState(0);
   const [search, setSearch] = useState('');
+  const [sort, setSort] = useState('releaseDate,DESC');
   const [isFavorite, favorite] = useState(false);
   const [isToWatch, toWatch] = useState(false);
 
   const { isLoading, isError, data } = useQuery(
-    ['getMovies', page.current, search, isFavorite, isToWatch],
+    ['getMovies', page.current, search, isFavorite, isToWatch, sort],
     () =>
       fetchPage<MovieFromPage>(
         'movies',
         { authorization: `Bearer ${jwtToken}` },
         {
-          sort: 'releaseDate,DESC',
+          sort,
           search: buildSearchQuery(search, isFavorite, isToWatch),
           limit: 30,
           offset: offset
@@ -81,6 +84,10 @@ const FilmsPage = () => {
   const handlePageChange = (page: Page<MovieFromPage>) => {
     setPage(page);
     setOffset(page.size * page.current);
+  };
+
+  const handleSelectChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSort(event.target.value);
   };
 
   return (
@@ -114,8 +121,16 @@ const FilmsPage = () => {
             ariaLabel={'Film to watch'}
             id={'toWatch'}
             label={'To watch'}
-            margin={'0 0 0 0.6rem'}
           />
+          <Flex>
+            <StyledSelectLabel>Sort by</StyledSelectLabel>
+            <Select onChange={handleSelectChange}>
+              <option value="title,ASC">A-Z</option>
+              <option value="title,DESC">Z-A</option>
+              <option value="releaseDate,ASC">Oldest</option>
+              <option value="releaseDate,DESC">Newest</option>
+            </Select>
+          </Flex>
         </StyledOptions>
       </StyledSearchBar>
       {data?.content.length ? (

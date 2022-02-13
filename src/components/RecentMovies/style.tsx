@@ -8,6 +8,7 @@ const StyledTitle = styled.h2`
   font-family: ${(props) => props.theme.fonts.main};
   font-size: ${(props) => props.theme.fontSizes.m};
   text-transform: uppercase;
+  margin: 1rem 0;
 `;
 
 const StyledLink = styled(Link)`
@@ -19,6 +20,7 @@ const StyledLink = styled(Link)`
 
   &:hover {
     color: ${(props) => props.theme.colors.secondary};
+    cursor: pointer;
   }
 `;
 

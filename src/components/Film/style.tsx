@@ -33,10 +33,10 @@ const StyledLink = styled(Link)`
   margin: 0;
   padding: 0;
   text-decoration: none;
-  font-weight: 900;
 
   &:hover {
     color: ${(props) => props.theme.colors.secondary};
+    cursor: pointer;
   }
 `;
 
@@ -52,6 +52,7 @@ const StyledPerson = styled.p`
   font-family: inherit;
   font-size: inherit;
   white-space: pre-wrap;
+  margin: 0.9rem 0;
 `;
 
 const StyledTagline = styled.span`
@@ -59,12 +60,14 @@ const StyledTagline = styled.span`
   font-family: inherit;
   font-size: inherit;
   text-transform: uppercase;
+  margin: 0.9rem 0;
 `;
 
 const StyledOverview = styled.p`
   color: ${(props) => props.theme.colors.primary};
   font-family: inherit;
   font-size: inherit;
+  margin: 0.9rem 0 0;
 `;
 
 const StyledCast = styled.p`

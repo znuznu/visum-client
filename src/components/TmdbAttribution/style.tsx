@@ -15,6 +15,7 @@ const StyledLink = styled.a`
   &:hover {
     color: ${(props) => props.theme.colors.tmdb.primary};
     border-bottom: 1px solid ${(props) => props.theme.colors.tmdb.primary};
+    cursor: pointer;
   }
 `;
 

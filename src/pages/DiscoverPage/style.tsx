@@ -13,6 +13,7 @@ const StyledTitle = styled.h1`
   font-family: ${(props) => props.theme.fonts.logo};
   font-size: ${(props) => props.theme.fontSizes.xxxl};
   text-align: center;
+  margin: 1rem 0;
 `;
 
 const StyledForm = styled.form`
