@@ -32,6 +32,7 @@ const StyledFilmTitle = styled.a`
 
   &:hover {
     color: ${(props) => props.theme.colors.tmdb.primary};
+    cursor: pointer;
   }
 
   &:visited {
