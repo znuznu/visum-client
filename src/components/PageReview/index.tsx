@@ -32,15 +32,13 @@ type PageReviewProps = {
 
 const PageReview = ({ review }: PageReviewProps) => {
   return (
-    <StyledPageReview>
+    <StyledPageReview to={`/film/${review.movie.id}`}>
       <Flex>
         <MovieReviewPoster {...review.movie} />
         <StyledContent>
           <StyledHeader>
             <StyledHeaderLeft>
-              <StyledTitle to={`/film/${review.movie.id}`}>
-                {review.movie.title}
-              </StyledTitle>
+              <StyledTitle>{review.movie.title}</StyledTitle>
               <StyledReleaseDate>{review.movie.releaseDate}</StyledReleaseDate>
             </StyledHeaderLeft>
             <StyledGrade>{review.grade}</StyledGrade>

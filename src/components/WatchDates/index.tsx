@@ -26,7 +26,6 @@ const WatchDates = ({ movieId }: WatchDatesProps) => {
     () => fetchWatchDates({ authorization: `Bearer ${jwtToken}` }, movieId),
     {
       onSuccess: (data: WatchDate[]) => {
-        console.log(data);
         setWatchDates(data);
       },
       onError: (error: HTTPError) => {

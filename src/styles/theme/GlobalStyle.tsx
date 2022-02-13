@@ -7,6 +7,42 @@ import OpenSans from '../fonts/open-sans/open-sans-v27-latin-regular.woff';
 import OpenSans2 from '../fonts/open-sans/open-sans-v27-latin-regular.woff2';
 
 const GlobalStyle = createGlobalStyle`
+  /*** The new CSS Reset - version 1.2.0 (last updated 23.7.2021) ***/
+
+  *:where(:not(iframe, canvas, img, svg, video):not(svg *)) {
+    all: unset;
+    display: revert;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  ol,
+  ul {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+  }  
+
+  table {
+    border-collapse: collapse;
+  }
+
+  textarea {
+    white-space: revert;
+  }
+
+  select::-ms-expand {
+    display: none;
+  }
+
+  /*** CSS Reset end */
+
   html, body, #root {
     padding: 0;
     margin: 0;
@@ -30,10 +66,6 @@ const GlobalStyle = createGlobalStyle`
       // @ts-ignore
       return props.theme.colors.main;
     }};
-  }
-
-  a {
-    text-decoration: none;
   }
   
   @font-face {

@@ -25,10 +25,22 @@ const StyledOptions = styled.div`
   display: flex;
   margin-left: 1rem;
 
+  & > :not(:last-child) {
+    margin-right: 1rem;
+  }
+
   @media screen and (max-width: ${({ theme }) => theme.breakpoints.s}) {
     margin-top: 0.5rem;
     margin-left: 0;
   }
 `;
 
-export { StyledMovies, StyledTitle, StyledOptions, StyledSearchBar };
+const StyledSelectLabel = styled.span`
+  color: ${(props) => props.theme.colors.text.primary};
+  font-family: ${(props) => props.theme.fonts.main};
+  font-size: ${(props) => props.theme.fontSizes.s};
+  flex-shrink: 0;
+  margin: auto 0.5rem auto 0;
+`;
+
+export { StyledMovies, StyledTitle, StyledOptions, StyledSearchBar, StyledSelectLabel };

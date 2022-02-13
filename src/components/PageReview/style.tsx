@@ -1,20 +1,23 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const StyledPageReview = styled.div``;
-
-const StyledTitle = styled(Link)`
-  color: ${(props) => props.theme.colors.secondary};
-  font-family: ${(props) => props.theme.fonts.logo};
-  font-size: ${(props) => props.theme.fontSizes.l};
-
+const StyledPageReview = styled(Link)`
   &:hover {
-    color: ${(props) => props.theme.colors.secondary};
+    cursor: pointer;
   }
 
   &:visited {
-    color: ${(props) => props.theme.colors.secondary};
+    color: ${(props) => {
+      // @ts-ignore
+      return props.theme.colors.primary;
+    }};
   }
+`;
+
+const StyledTitle = styled.h2`
+  color: ${(props) => props.theme.colors.secondary};
+  font-family: ${(props) => props.theme.fonts.logo};
+  font-size: ${(props) => props.theme.fontSizes.l};
 `;
 
 const StyledHeader = styled.div`

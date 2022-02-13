@@ -12,6 +12,7 @@ const StyledLink = styled(Link)`
 
   &:hover {
     color: ${(props) => props.theme.colors.secondary};
+    cursor: pointer;
   }
 `;
 

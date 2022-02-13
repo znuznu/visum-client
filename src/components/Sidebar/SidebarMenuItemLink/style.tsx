@@ -22,6 +22,7 @@ const StyledSidebarMenuItemLink = styled(Link)<StyledSidebarMenuItemLinkProps>`
   &:hover {
     color: ${(props) => props.theme.colors.sidebar.hover.color};
     background-color: ${(props) => props.theme.colors.sidebar.hover.bg};
+    cursor: pointer;
   }
 `;
 
