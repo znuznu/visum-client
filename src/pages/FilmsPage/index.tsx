@@ -52,7 +52,7 @@ const FilmsPage = () => {
   const [isToWatch, toWatch] = useState(searchParams.get('isToWatch') === 'true');
 
   const { isLoading, isError, data } = useQuery(
-    ['getMovies', page.current, search, isFavorite, isToWatch, sort],
+    ['getMovies', page.current, search, isFavorite, isToWatch, sort, offset],
     () => {
       return fetchPage<MovieFromPage>(
         'movies',
@@ -61,7 +61,7 @@ const FilmsPage = () => {
           sort,
           search: buildSearchQuery(search, isFavorite, isToWatch),
           limit: 30,
-          offset: offset
+          offset
         }
       );
     },

@@ -60,7 +60,6 @@ const Paginator = ({ page, onPageChange, currentStartIndex }: PaginatorProps) =>
           disabled={page.last}
           margin={'0 0 0 0.5rem'}
           onClick={() => {
-            console.log(page);
             onPageChange({
               current: page.current + 1,
               size: page.size,
