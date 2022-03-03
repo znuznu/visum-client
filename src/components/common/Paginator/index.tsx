@@ -59,7 +59,8 @@ const Paginator = ({ page, onPageChange, currentStartIndex }: PaginatorProps) =>
         <Button
           disabled={page.last}
           margin={'0 0 0 0.5rem'}
-          onClick={() =>
+          onClick={() => {
+            console.log(page);
             onPageChange({
               current: page.current + 1,
               size: page.size,
@@ -68,8 +69,8 @@ const Paginator = ({ page, onPageChange, currentStartIndex }: PaginatorProps) =>
               first: false,
               last: page.current === page.totalPages - (currentStartIndex ? 0 : 1),
               content: []
-            })
-          }
+            });
+          }}
         >
           <AccessibleIcon label={'Next page'}>
             <ChevronRightIcon />
