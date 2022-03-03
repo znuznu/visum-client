@@ -1,7 +1,7 @@
 import { HTTPError } from 'ky';
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import Checkbox from '../../components/common/Checkbox';
 import { Flex } from '../../components/common/Flex';
 import { Grid } from '../../components/common/Grid';
@@ -44,16 +44,17 @@ const FilmsPage = () => {
     last: true,
     content: []
   });
+  const [searchParams, setSearchParams] = useSearchParams();
   const [offset, setOffset] = useState(0);
   const [search, setSearch] = useState('');
   const [sort, setSort] = useState('releaseDate,DESC');
-  const [isFavorite, favorite] = useState(false);
-  const [isToWatch, toWatch] = useState(false);
+  const [isFavorite, favorite] = useState(searchParams.get('isFavorite') === 'true');
+  const [isToWatch, toWatch] = useState(searchParams.get('isToWatch') === 'true');
 
   const { isLoading, isError, data } = useQuery(
     ['getMovies', page.current, search, isFavorite, isToWatch, sort],
-    () =>
-      fetchPage<MovieFromPage>(
+    () => {
+      return fetchPage<MovieFromPage>(
         'movies',
         { authorization: `Bearer ${jwtToken}` },
         {
@@ -62,7 +63,8 @@ const FilmsPage = () => {
           limit: 30,
           offset: offset
         }
-      ),
+      );
+    },
     {
       onError: (error: HTTPError) => {
         setHttpError(error);
@@ -83,6 +85,10 @@ const FilmsPage = () => {
 
   const handlePageChange = (page: Page<MovieFromPage>) => {
     setPage(page);
+    setSearchParams({
+      isFavorite: String(isFavorite),
+      isToWatch: String(isToWatch)
+    });
     setOffset(page.size * page.current);
   };
 
@@ -99,28 +105,46 @@ const FilmsPage = () => {
           placeholder={'Film title...'}
           value={search}
           onInput={(e) => {
+            setSearchParams({
+              isFavorite: String(isFavorite),
+              isToWatch: String(isToWatch)
+            });
+
             setOffset(0);
             setSearch(`${(e.target as HTMLTextAreaElement).value}`);
           }}
+          margin={'auto 0'}
         />
         <StyledOptions>
           <Checkbox
             onClick={() => {
+              setSearchParams({
+                isFavorite: String(!isFavorite),
+                isToWatch: String(isToWatch)
+              });
+
               setOffset(0);
               favorite(!isFavorite);
             }}
             ariaLabel={'Favorite film'}
             id={'favorite'}
             label={'Favorite'}
+            isChecked={isFavorite}
           />
           <Checkbox
             onClick={() => {
+              setSearchParams({
+                isFavorite: String(isFavorite),
+                isToWatch: String(!isToWatch)
+              });
+
               setOffset(0);
               toWatch(!isToWatch);
             }}
             ariaLabel={'Film to watch'}
             id={'toWatch'}
             label={'To watch'}
+            isChecked={isToWatch}
           />
           <Flex>
             <StyledSelectLabel>Sort by</StyledSelectLabel>

@@ -59,7 +59,7 @@ const MoviesToWatch = ({ limit }: MoviesToWatchProps) => {
     <StyledMoviesToWatch>
       <Flex justifyContent={'space-between'}>
         <StyledTitle>To watch</StyledTitle>
-        <StyledLink to={'/films'}>More</StyledLink>
+        <StyledLink to={'/films?isToWatch=true'}>More</StyledLink>
       </Flex>
       {data?.content.length ? (
         <Grid gap={'0.5rem'} columnSize={colSize}>
