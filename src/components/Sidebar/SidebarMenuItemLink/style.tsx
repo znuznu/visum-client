@@ -26,4 +26,10 @@ const StyledSidebarMenuItemLink = styled(Link)<StyledSidebarMenuItemLinkProps>`
   }
 `;
 
-export default StyledSidebarMenuItemLink;
+const StyledSidebarMenuItemLinkIcon = styled.span`
+  height: auto;
+  vertical-align: middle;
+  margin: auto 0.5rem auto 0;
+`;
+
+export { StyledSidebarMenuItemLink, StyledSidebarMenuItemLinkIcon };

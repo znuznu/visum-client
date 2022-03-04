@@ -1,8 +1,8 @@
 import {
   EyeClosedIcon,
   EyeOpenIcon,
-  StarFilledIcon,
-  StarIcon,
+  HeartFilledIcon,
+  HeartIcon,
   TrashIcon
 } from '@radix-ui/react-icons';
 import styled from 'styled-components';
@@ -25,7 +25,7 @@ const StyledMovieActionsPanel = styled.div`
   }
 `;
 
-const FavoriteFilledIcon = styled(StarFilledIcon)`
+const FavoriteFilledIcon = styled(HeartFilledIcon)`
   width: 1.5rem;
   height: 1.5rem;
   color: ${(props) => props.theme.colors.status.warning};
@@ -35,7 +35,7 @@ const FavoriteFilledIcon = styled(StarFilledIcon)`
   }
 `;
 
-const FavoriteIcon = styled(StarIcon)`
+const FavoriteIcon = styled(HeartIcon)`
   width: 1.5rem;
   height: 1.5rem;
   color: ${(props) => props.theme.colors.text.primary};
