@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledSignContainer = styled.div`
-  /* TODO extract it in the Sith theme */
+  /* TODO extract it in the theme */
   background: rgb(9, 46, 48);
   background: linear-gradient(
     320deg,

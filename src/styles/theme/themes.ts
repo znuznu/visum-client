@@ -1,11 +1,18 @@
 import {
-  mauveDark,
+  blue,
+  blueDark,
+  indigo,
   indigoDark,
-  redDark,
+  gray,
   grayDark,
-  orangeDark,
+  grass,
   grassDark,
-  blueDark
+  mauve,
+  mauveDark,
+  orange,
+  orangeDark,
+  red,
+  redDark
 } from '@radix-ui/colors';
 
 import { Theme } from '.';
@@ -13,9 +20,8 @@ import { breakpoints } from './breakpoints';
 import { tmdbPrimaryColor } from './colors';
 import { fonts, fontSizes } from './fonts';
 
-// Dark theme is dead, long live the Sith theme
-export const sithTheme: Theme = {
-  name: 'sith' as const,
+export const darkTheme: Theme = {
+  name: 'dark' as const,
   breakpoints,
   fonts,
   fontSizes,
@@ -57,7 +63,7 @@ export const sithTheme: Theme = {
       info: blueDark.blue9
     },
     text: {
-      primary: 'white',
+      primary: grayDark.gray12,
       secondary: indigoDark.indigo11
     },
     scrollbar: {
@@ -68,6 +74,67 @@ export const sithTheme: Theme = {
     tooltip: {
       bg: indigoDark.indigo4,
       bgBorder: indigoDark.indigo8
+    },
+    tmdb: {
+      primary: tmdbPrimaryColor
+    }
+  }
+};
+
+export const lightTheme: Theme = {
+  name: 'light' as const,
+  breakpoints,
+  fonts,
+  fontSizes,
+  colors: {
+    main: mauve.mauve1,
+    primary: mauve.mauve12,
+    secondary: indigo.indigo11,
+    tertiary: gray.gray11,
+    border: {
+      primary: indigo.indigo8,
+      secondary: mauve.mauve5
+    },
+    button: {
+      main: {
+        bg: mauve.mauve3,
+        bgHover: mauve.mauve4,
+        color: mauve.mauve12,
+        bgDisabled: mauve.mauve2
+      }
+    },
+    checkbox: {
+      border: indigo.indigo7,
+      bgHover: indigo.indigo5,
+      indicator: indigo.indigo11
+    },
+    sidebar: {
+      bg: mauve.mauve1,
+      hover: {
+        bg: indigo.indigo4,
+        bgPressed: indigo.indigo5,
+        color: indigo.indigo11
+      }
+    },
+    status: {
+      // TODO
+      error: red.red11,
+      warning: orange.orange9,
+      success: grass.grass9,
+      info: blue.blue9
+    },
+    text: {
+      primary: gray.gray12,
+      secondary: indigo.indigo11
+    },
+    scrollbar: {
+      bg: 'none',
+      bgHover: 'none',
+      thumb: mauve.mauve5
+    },
+    tooltip: {
+      bg: indigo.indigo4,
+      bgBorder: indigo.indigo8
     },
     tmdb: {
       primary: tmdbPrimaryColor

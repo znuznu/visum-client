@@ -15,6 +15,7 @@ import SidebarHeader from './SidebarHeader';
 import Button from '../common/Button';
 import { AccessibleIcon } from '../common/AccessibleIcon';
 import { M_BREAKPOINT_IN_PIXEL } from '../../styles/theme/breakpoints';
+import ThemeSwitcher from '../ThemeSwitcher';
 
 const Sidebar = () => {
   const windowSize = useWindowSize();
@@ -43,7 +44,7 @@ const Sidebar = () => {
         <SidebarMenu>
           <SidebarMenuSection>
             <SidebarMenuItemLink to={'/'} text={'Home'} />
-            <SidebarMenuItemLink to={'/discover'} text={'Discover'} />
+            <SidebarMenuItemLink to={'/discovery'} text={'Discovery'} />
           </SidebarMenuSection>
           <Separator decorative />
           <SidebarMenuSection>
@@ -61,6 +62,10 @@ const Sidebar = () => {
           <Separator decorative />
           <SidebarMenuSection>
             <SidebarMenuSectionTitle value={'Settings'} />
+            <SidebarMenuItem>
+              <ThemeSwitcher />
+            </SidebarMenuItem>
+            <Separator decorative />
             <SidebarMenuItem>
               <Logout />
             </SidebarMenuItem>

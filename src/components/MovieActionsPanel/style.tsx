@@ -38,6 +38,7 @@ const FavoriteFilledIcon = styled(StarFilledIcon)`
 const FavoriteIcon = styled(StarIcon)`
   width: 1.5rem;
   height: 1.5rem;
+  color: ${(props) => props.theme.colors.text.primary};
 
   &:hover {
     cursor: pointer;
@@ -48,6 +49,7 @@ const FavoriteIcon = styled(StarIcon)`
 const ToWatchIcon = styled(EyeClosedIcon)`
   width: 1.5rem;
   height: 1.5rem;
+  color: ${(props) => props.theme.colors.text.primary};
 
   &:hover {
     cursor: pointer;
