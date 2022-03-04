@@ -127,8 +127,14 @@ const TmdbFilm = ({ id }: { id: number }) => {
               onClick={toggleFavorite}
               label={'Favorite'}
               ariaLabel={'Favorite'}
+              id={'Favorite'}
             />
-            <Checkbox onClick={toggleToWatch} label={'To watch'} ariaLabel={'To watch'} />
+            <Checkbox
+              onClick={toggleToWatch}
+              label={'To watch'}
+              ariaLabel={'To watch'}
+              id={'To watch'}
+            />
           </StyledCheckboxes>
           <Button
             margin={' 1rem auto 0'}

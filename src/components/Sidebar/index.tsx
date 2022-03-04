@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import { HamburgerMenuIcon } from '@radix-ui/react-icons';
+import {
+  GlobeIcon,
+  HamburgerMenuIcon,
+  HomeIcon,
+  PersonIcon
+} from '@radix-ui/react-icons';
+
+import { BsCameraReels } from 'react-icons/bs';
+import { AiOutlineBarChart, AiOutlineLineChart } from 'react-icons/ai';
 
 import SidebarHeaderLogo from './SidebarHeaderLogo';
 import SidebarMenu from './SidebarMenu';
@@ -43,21 +51,77 @@ const Sidebar = () => {
       {windowSize.width < M_BREAKPOINT_IN_PIXEL && hideMenu ? null : (
         <SidebarMenu>
           <SidebarMenuSection>
-            <SidebarMenuItemLink to={'/'} text={'Home'} />
-            <SidebarMenuItemLink to={'/discovery'} text={'Discovery'} />
+            <SidebarMenuItemLink
+              to={'/'}
+              text={'Home'}
+              icon={
+                <AccessibleIcon label={'Home'}>
+                  <HomeIcon />
+                </AccessibleIcon>
+              }
+            />
+            <SidebarMenuItemLink
+              to={'/discovery'}
+              text={'Discovery'}
+              icon={
+                <AccessibleIcon label={'Discovery'}>
+                  <GlobeIcon />
+                </AccessibleIcon>
+              }
+            />
           </SidebarMenuSection>
           <Separator decorative />
           <SidebarMenuSection>
             <SidebarMenuSectionTitle value={'Content'} />
-            <SidebarMenuItemLink to={'/films'} text={'Films'} />
-            <SidebarMenuItemLink to={'/actors'} text={'Actors'} />
-            <SidebarMenuItemLink to={'/directors'} text={'Directors'} />
+            <SidebarMenuItemLink
+              to={'/films'}
+              text={'Films'}
+              icon={
+                <AccessibleIcon label={'Films'}>
+                  <BsCameraReels />
+                </AccessibleIcon>
+              }
+            />
+            <SidebarMenuItemLink
+              to={'/actors'}
+              text={'Actors'}
+              icon={
+                <AccessibleIcon label={'Actors'}>
+                  <PersonIcon />
+                </AccessibleIcon>
+              }
+            />
+            <SidebarMenuItemLink
+              to={'/directors'}
+              text={'Directors'}
+              icon={
+                <AccessibleIcon label={'Directors'}>
+                  <PersonIcon />
+                </AccessibleIcon>
+              }
+            />
           </SidebarMenuSection>
           <Separator decorative />
           <SidebarMenuSection>
             <SidebarMenuSectionTitle value={'Statistics'} />
-            <SidebarMenuItemLink to={'/stats/all-time'} text={'All-time'} />
-            <SidebarMenuItemLink to={'/stats/year'} text={'Per year'} />
+            <SidebarMenuItemLink
+              to={'/stats/all-time'}
+              text={'All-time'}
+              icon={
+                <AccessibleIcon label={'All-time stats'}>
+                  <AiOutlineBarChart />
+                </AccessibleIcon>
+              }
+            />
+            <SidebarMenuItemLink
+              to={'/stats/year'}
+              text={'Per year'}
+              icon={
+                <AccessibleIcon label={'Stats per year'}>
+                  <AiOutlineLineChart />
+                </AccessibleIcon>
+              }
+            />
           </SidebarMenuSection>
           <Separator decorative />
           <SidebarMenuSection>
