@@ -38,7 +38,7 @@ export const validate = (values: FormValues) => {
   return errors;
 };
 
-const DiscoverPage = () => {
+const DiscoveryPage = () => {
   const { jwtToken } = useAuthentication();
   const { setHttpError } = useGenericHttpError(undefined);
   const [page, setPage] = useState<Page<TmdbPageMovie>>({
@@ -143,4 +143,4 @@ const DiscoverPage = () => {
   );
 };
 
-export default DiscoverPage;
+export default DiscoveryPage;

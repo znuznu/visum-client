@@ -56,6 +56,11 @@ const GlobalStyle = createGlobalStyle`
     }}) {
       font-size: 90%;
     }
+
+    background-color: ${(props) => {
+      // @ts-ignore
+      return props.theme.colors.main;
+    }}; 
   }
 
   #root {
