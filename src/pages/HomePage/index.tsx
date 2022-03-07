@@ -11,8 +11,8 @@ const TO_WATCH_LIMIT = 18;
 const HomePage = () => {
   return (
     <StyledHome>
-      <MoviesToWatch limit={TO_WATCH_LIMIT} />
       <RecentMovies limit={MOVIE_LIMIT} />
+      <MoviesToWatch limit={TO_WATCH_LIMIT} />
       <RecentReviews limit={REVIEW_LIMIT} />
     </StyledHome>
   );

@@ -17,8 +17,18 @@ import {
 
 import { Theme } from '.';
 import { breakpoints } from './breakpoints';
-import { tmdbPrimaryColor } from './colors';
+import { favoriteIconColor, tmdbPrimaryColor, watchIconColor } from './colors';
 import { fonts, fontSizes } from './fonts';
+
+const sharedColor = {
+  tmdb: {
+    primary: tmdbPrimaryColor
+  },
+  icons: {
+    favorite: favoriteIconColor,
+    watch: watchIconColor
+  }
+};
 
 export const darkTheme: Theme = {
   name: 'dark' as const,
@@ -75,9 +85,7 @@ export const darkTheme: Theme = {
       bg: indigoDark.indigo4,
       bgBorder: indigoDark.indigo8
     },
-    tmdb: {
-      primary: tmdbPrimaryColor
-    }
+    ...sharedColor
   }
 };
 
@@ -136,8 +144,6 @@ export const lightTheme: Theme = {
       bg: indigo.indigo4,
       bgBorder: indigo.indigo8
     },
-    tmdb: {
-      primary: tmdbPrimaryColor
-    }
+    ...sharedColor
   }
 };

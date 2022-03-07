@@ -11,7 +11,7 @@ import Input from '../../components/common/Input';
 import Paginator from '../../components/common/Paginator';
 import ErrorText from '../../components/ErrorText';
 import { NoData } from '../../components/NoData';
-import PosterWithTooltip from '../../components/PosterWithTooltip';
+import PosterTooltip from '../../components/PosterTooltip';
 import useAuthentication from '../../hooks/useAuthentication';
 import useGenericHttpError from '../../hooks/useGenericHttpError';
 import { Page } from '../../models/page';
@@ -124,13 +124,7 @@ const DiscoveryPage = () => {
           <Grid gap={'0.5rem'} columnSize={'100px'} margin={'0.5rem 0 1.5rem'}>
             {data?.content.map((movie: TmdbPageMovie) => (
               <Link to={`/tmdb/film/${movie.tmdbId}`} key={`tmdb-film-${movie.tmdbId}`}>
-                <PosterWithTooltip
-                  width={'100px'}
-                  height={'150px'}
-                  title={movie.title}
-                  posterUrl={movie.posterUrl}
-                  releaseDate={movie.releaseDate}
-                />
+                <PosterTooltip width={'100px'} height={'150px'} movie={movie} />
               </Link>
             ))}
           </Grid>

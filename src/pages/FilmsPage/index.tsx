@@ -10,7 +10,7 @@ import Paginator from '../../components/common/Paginator';
 import { Select } from '../../components/common/Select';
 import ErrorText from '../../components/ErrorText';
 import { NoData } from '../../components/NoData';
-import PosterWithTooltip from '../../components/PosterWithTooltip';
+import PosterTooltip from '../../components/PosterTooltip';
 import useAuthentication from '../../hooks/useAuthentication';
 import useGenericHttpError from '../../hooks/useGenericHttpError';
 import { MovieFromPage } from '../../models/movies';
@@ -163,12 +163,17 @@ const FilmsPage = () => {
           <Grid gap={'0.5rem'} columnSize={'100px'} margin={'0.5rem 0 1.5rem'}>
             {data?.content.map((movie) => (
               <Link to={`/film/${movie.id}`} key={`movie-${movie.id}`}>
-                <PosterWithTooltip
+                <PosterTooltip
                   width={'100px'}
                   height={'150px'}
-                  title={movie.title}
-                  posterUrl={movie.metadata.posterUrl}
-                  releaseDate={movie.releaseDate}
+                  movie={{
+                    title: movie.title,
+                    posterUrl: movie.metadata.posterUrl,
+                    releaseDate: movie.releaseDate,
+                    isFavorite: movie.isFavorite,
+                    isToWatch: movie.isToWatch
+                  }}
+                  showMetadata
                 />
               </Link>
             ))}

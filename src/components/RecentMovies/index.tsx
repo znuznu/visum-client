@@ -4,7 +4,7 @@ import { useQuery } from 'react-query';
 import useAuthentication from '../../hooks/useAuthentication';
 import useGenericHttpError from '../../hooks/useGenericHttpError';
 import { StyledLink, StyledRecentMovies, StyledTitle } from './style';
-import PosterWithTooltip from '../PosterWithTooltip';
+import PosterTooltip from '../PosterTooltip';
 import { MovieFromPage } from '../../models/movies';
 import { Grid } from '../common/Grid';
 import { fetchPage } from '../../services/api/page';
@@ -63,12 +63,17 @@ const RecentMovies = ({ limit }: RecentMoviesProps) => {
         <Grid gap={'0.5rem'} columnSize={colSize}>
           {data?.content.map((movie) => (
             <Link to={`film/${movie.id}`} key={`recent-movie-${movie.id}`}>
-              <PosterWithTooltip
-                title={movie.title}
-                posterUrl={movie.metadata.posterUrl}
-                releaseDate={movie.releaseDate}
+              <PosterTooltip
+                movie={{
+                  title: movie.title,
+                  posterUrl: movie.metadata.posterUrl,
+                  releaseDate: movie.releaseDate,
+                  isFavorite: movie.isFavorite,
+                  isToWatch: movie.isToWatch
+                }}
                 width={colSize}
                 height={'150px'}
+                showMetadata
               />
             </Link>
           ))}

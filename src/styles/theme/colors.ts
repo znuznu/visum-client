@@ -1,3 +1,5 @@
+import { red, grass } from '@radix-ui/colors';
+
 export interface Colors {
   main: string;
   primary: string;
@@ -44,6 +46,12 @@ export interface Colors {
   };
   scrollbar: { bg: string; bgHover: string; thumb: string };
   tmdb: { primary: string };
+  icons: {
+    favorite: string;
+    watch: string;
+  };
 }
 
 export const tmdbPrimaryColor = '#90cea1';
+export const favoriteIconColor = red.red11;
+export const watchIconColor = grass.grass11;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Flex } from '../common/Flex';
 import { Grid } from '../common/Grid';
-import PosterWithTooltip from '../PosterWithTooltip';
+import PosterTooltip from '../PosterTooltip';
 import { StatsMovie } from '../../models/statistics';
 import StatisticsSectionHeader from '../StatisticsSectionHeader';
 import { StyledDecade, StyledYear } from './style';
@@ -26,14 +26,7 @@ const HighestRatedMoviesPerDecade = ({ decades }: HighestRatedMoviesPerDecadePro
             <Grid gap={'0.5rem'} columnSize={colSize}>
               {decade.value.map((movie) => (
                 <Link to={`/film/${movie.id}`} key={`decade-movie-${movie.id}`}>
-                  <PosterWithTooltip
-                    width={colSize}
-                    height={'120px'}
-                    title={movie.title}
-                    posterUrl={movie.posterUrl}
-                    releaseDate={movie.releaseDate}
-                    grade={movie.grade}
-                  />
+                  <PosterTooltip width={colSize} height={'120px'} movie={movie} />
                 </Link>
               ))}
             </Grid>

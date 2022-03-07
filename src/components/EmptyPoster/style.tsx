@@ -7,7 +7,7 @@ export type EmptyPosterStyleProps = {
 };
 
 export type EmptyPosterIconStyleProps = {
-  iconSize: string;
+  $iconSize: string;
 };
 
 const StyledEmptyPoster = styled.div.attrs<EmptyPosterStyleProps>((props) => ({
@@ -24,8 +24,8 @@ const StyledEmptyPoster = styled.div.attrs<EmptyPosterStyleProps>((props) => ({
 
 const StyledNoPosterIcon = styled(EyeNoneIcon).attrs<EmptyPosterIconStyleProps>(
   (props) => ({
-    width: props.iconSize ?? '50px',
-    height: props.iconSize ?? '50px'
+    width: props.$iconSize ?? '50px',
+    height: props.$iconSize ?? '50px'
   })
 )<EmptyPosterIconStyleProps>`
   color: ${(props) => props.theme.colors.border.secondary};

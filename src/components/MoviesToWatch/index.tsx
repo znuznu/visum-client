@@ -12,7 +12,7 @@ import { Flex } from '../common/Flex';
 import { Grid } from '../common/Grid';
 import ErrorText from '../ErrorText';
 import { NoData } from '../NoData';
-import PosterWithTooltip from '../PosterWithTooltip';
+import PosterTooltip from '../PosterTooltip';
 import { StyledTitle } from '../RecentMovies/style';
 import { StyledLink, StyledMoviesToWatch } from './style';
 
@@ -65,12 +65,17 @@ const MoviesToWatch = ({ limit }: MoviesToWatchProps) => {
         <Grid gap={'0.5rem'} columnSize={colSize}>
           {data?.content.map((movie) => (
             <Link to={`/film/${movie.id}`} key={`to-watch-movie-${movie.id}`}>
-              <PosterWithTooltip
+              <PosterTooltip
                 width={colSize}
                 height={'150px'}
-                title={movie.title}
-                posterUrl={movie.metadata.posterUrl}
-                releaseDate={movie.releaseDate}
+                movie={{
+                  title: movie.title,
+                  posterUrl: movie.metadata.posterUrl,
+                  releaseDate: movie.releaseDate,
+                  isFavorite: movie.isFavorite,
+                  isToWatch: movie.isToWatch
+                }}
+                showMetadata
               />
             </Link>
           ))}
