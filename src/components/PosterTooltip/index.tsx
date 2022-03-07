@@ -46,28 +46,30 @@ const PosterTooltip = ({
   return (
     <Tooltip>
       <TooltipTrigger asChild>
-        <StyledPosterContent
-          onMouseEnter={handleOver}
-          onMouseLeave={handleOut}
-          width={width ?? '150px'}
-          height={height ?? 'auto'}
-        >
-          {posterUrl ? (
-            <Poster posterUrl={posterUrl} width={width} height={height} />
-          ) : (
-            <EmptyPoster
-              width={width ?? '150px'}
-              height={height ?? '225px'}
-              iconSize={'50px'}
-            />
-          )}
-          {showMetadata && isHovered && (
-            <StyledUserMetadata>
-              {isFavorite ? <FavoriteIcon /> : <NotFavoriteIcon />}
-              {isToWatch ? <ToWatchIcon /> : <NotToWatchIcon />}
-            </StyledUserMetadata>
-          )}
-        </StyledPosterContent>
+        <div>
+          <StyledPosterContent
+            onMouseEnter={handleOver}
+            onMouseLeave={handleOut}
+            width={width ?? '150px'}
+            height={'auto'}
+          >
+            {posterUrl ? (
+              <Poster posterUrl={posterUrl} width={width} height={height} />
+            ) : (
+              <EmptyPoster
+                width={width ?? '150px'}
+                height={height ?? '225px'}
+                iconSize={'50px'}
+              />
+            )}
+            {showMetadata && isHovered && (
+              <StyledUserMetadata>
+                {isFavorite ? <FavoriteIcon /> : <NotFavoriteIcon />}
+                {isToWatch ? <ToWatchIcon /> : <NotToWatchIcon />}
+              </StyledUserMetadata>
+            )}
+          </StyledPosterContent>
+        </div>
       </TooltipTrigger>
       <TooltipContent side={'top'}>
         {title} ({releaseDate}){' '}
