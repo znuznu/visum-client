@@ -20,7 +20,7 @@ import { breakpoints } from './breakpoints';
 import { favoriteIconColor, tmdbPrimaryColor, watchIconColor } from './colors';
 import { fonts, fontSizes } from './fonts';
 
-const sharedColor = {
+const sharedColors = {
   tmdb: {
     primary: tmdbPrimaryColor
   },
@@ -58,7 +58,6 @@ export const darkTheme: Theme = {
       indicator: indigoDark.indigo11
     },
     sidebar: {
-      bg: mauveDark.mauve1,
       hover: {
         bg: indigoDark.indigo4,
         bgPressed: indigoDark.indigo5,
@@ -85,7 +84,12 @@ export const darkTheme: Theme = {
       bg: indigoDark.indigo4,
       bgBorder: indigoDark.indigo8
     },
-    ...sharedColor
+    select: {
+      item: {
+        bgHover: indigoDark.indigo4
+      }
+    },
+    ...sharedColors
   }
 };
 
@@ -117,7 +121,6 @@ export const lightTheme: Theme = {
       indicator: indigo.indigo11
     },
     sidebar: {
-      bg: mauve.mauve1,
       hover: {
         bg: indigo.indigo4,
         bgPressed: indigo.indigo5,
@@ -144,6 +147,11 @@ export const lightTheme: Theme = {
       bg: indigo.indigo4,
       bgBorder: indigo.indigo8
     },
-    ...sharedColor
+    select: {
+      item: {
+        bgHover: indigo.indigo4
+      }
+    },
+    ...sharedColors
   }
 };

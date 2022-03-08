@@ -35,12 +35,4 @@ const StyledOptions = styled.div`
   }
 `;
 
-const StyledSelectLabel = styled.span`
-  color: ${(props) => props.theme.colors.text.primary};
-  font-family: ${(props) => props.theme.fonts.main};
-  font-size: ${(props) => props.theme.fontSizes.s};
-  flex-shrink: 0;
-  margin: auto 0.5rem auto 0;
-`;
-
-export { StyledMovies, StyledTitle, StyledOptions, StyledSearchBar, StyledSelectLabel };
+export { StyledMovies, StyledTitle, StyledOptions, StyledSearchBar };
