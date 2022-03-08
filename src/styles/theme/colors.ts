@@ -23,7 +23,6 @@ export interface Colors {
     indicator: string;
   };
   sidebar: {
-    bg: string;
     hover: {
       bg: string;
       bgPressed: string;
@@ -49,6 +48,11 @@ export interface Colors {
   icons: {
     favorite: string;
     watch: string;
+  };
+  select: {
+    item: {
+      bgHover: string;
+    };
   };
 }
 

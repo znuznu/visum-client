@@ -28,7 +28,7 @@ const StyledMovieActionsPanel = styled.div`
 const FavoriteFilledIcon = styled(HeartFilledIcon)`
   width: 1.5rem;
   height: 1.5rem;
-  color: ${(props) => props.theme.colors.status.warning};
+  color: ${(props) => props.theme.colors.icons.favorite};
 
   &:hover {
     cursor: pointer;
@@ -42,7 +42,7 @@ const FavoriteIcon = styled(HeartIcon)`
 
   &:hover {
     cursor: pointer;
-    color: ${(props) => props.theme.colors.status.warning};
+    color: ${(props) => props.theme.colors.icons.favorite};
   }
 `;
 
@@ -53,14 +53,14 @@ const ToWatchIcon = styled(EyeClosedIcon)`
 
   &:hover {
     cursor: pointer;
-    color: ${(props) => props.theme.colors.status.success};
+    color: ${(props) => props.theme.colors.icons.watch};
   }
 `;
 
 const ToWatchFilledIcon = styled(EyeOpenIcon)`
   width: 1.5rem;
   height: 1.5rem;
-  color: ${(props) => props.theme.colors.status.success};
+  color: ${(props) => props.theme.colors.icons.watch};
 
   &:hover {
     cursor: pointer;

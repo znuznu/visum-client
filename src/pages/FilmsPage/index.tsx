@@ -7,7 +7,6 @@ import { Flex } from '../../components/common/Flex';
 import { Grid } from '../../components/common/Grid';
 import Input from '../../components/common/Input';
 import Paginator from '../../components/common/Paginator';
-import { Select } from '../../components/common/Select';
 import ErrorText from '../../components/ErrorText';
 import { NoData } from '../../components/NoData';
 import PosterTooltip from '../../components/PosterTooltip';
@@ -16,7 +15,29 @@ import useGenericHttpError from '../../hooks/useGenericHttpError';
 import { MovieFromPage } from '../../models/movies';
 import { Page } from '../../models/page';
 import { fetchPage } from '../../services/api/page';
-import { StyledMovies, StyledOptions, StyledSearchBar, StyledSelectLabel } from './style';
+import { StyledMovies, StyledOptions, StyledSearchBar } from './style';
+import {
+  SelectScrollUpButton,
+  Select,
+  SelectContent,
+  SelectIcon,
+  SelectValue,
+  SelectViewport,
+  SelectGroup,
+  SelectLabel,
+  SelectItem,
+  SelectItemText,
+  SelectItemIndicator,
+  SelectSeparator,
+  SelectScrollDownButton,
+  SelectTrigger
+} from '../../components/common/Select';
+import {
+  CheckIcon,
+  ChevronDownIcon,
+  ChevronUpIcon
+} from '../../components/common/Select/style';
+import { Label } from '../../components/common/Label';
 
 const buildSearchQuery = (title: string, isFavorite: boolean, isToWatch: boolean) => {
   let query = `title=%${title}%`;
@@ -92,8 +113,8 @@ const FilmsPage = () => {
     setOffset(page.size * page.current);
   };
 
-  const handleSelectChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSort(event.target.value);
+  const handleSelectChange = (value: string) => {
+    setSort(value);
   };
 
   return (
@@ -147,12 +168,61 @@ const FilmsPage = () => {
             isChecked={isToWatch}
           />
           <Flex>
-            <StyledSelectLabel>Sort by</StyledSelectLabel>
-            <Select onChange={handleSelectChange}>
-              <option value="title,ASC">A-Z</option>
-              <option value="title,DESC">Z-A</option>
-              <option value="releaseDate,ASC">Oldest</option>
-              <option value="releaseDate,DESC">Newest</option>
+            <Label margin={'auto 0.4rem auto 0'} htmlFor={'sort-by'}>
+              Sort by
+            </Label>
+            <Select defaultValue="title,ASC" onValueChange={handleSelectChange}>
+              <SelectTrigger aria-label="Sort by" id={'sort-by'}>
+                <SelectValue />
+                <SelectIcon>
+                  <ChevronDownIcon />
+                </SelectIcon>
+              </SelectTrigger>
+              <SelectContent>
+                <SelectScrollUpButton>
+                  <ChevronUpIcon />
+                </SelectScrollUpButton>
+
+                <SelectViewport>
+                  <SelectGroup>
+                    <SelectLabel>Title</SelectLabel>
+                    <SelectItem value="title,ASC">
+                      <SelectItemText>A-Z</SelectItemText>
+                      <SelectItemIndicator>
+                        <CheckIcon />
+                      </SelectItemIndicator>
+                    </SelectItem>
+                    <SelectItem value="title,DESC">
+                      <SelectItemText>Z-A</SelectItemText>
+                      <SelectItemIndicator>
+                        <CheckIcon />
+                      </SelectItemIndicator>
+                    </SelectItem>
+                  </SelectGroup>
+
+                  <SelectSeparator />
+
+                  <SelectGroup>
+                    <SelectLabel>Release date</SelectLabel>
+                    <SelectItem value="releaseDate,ASC">
+                      <SelectItemText>Oldest</SelectItemText>
+                      <SelectItemIndicator>
+                        <CheckIcon />
+                      </SelectItemIndicator>
+                    </SelectItem>
+                    <SelectItem value="releaseDate,DESC">
+                      <SelectItemText>Newest</SelectItemText>
+                      <SelectItemIndicator>
+                        <CheckIcon />
+                      </SelectItemIndicator>
+                    </SelectItem>
+                  </SelectGroup>
+                </SelectViewport>
+
+                <SelectScrollDownButton>
+                  <ChevronDownIcon />
+                </SelectScrollDownButton>
+              </SelectContent>
             </Select>
           </Flex>
         </StyledOptions>
