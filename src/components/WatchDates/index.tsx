@@ -8,6 +8,8 @@ import {
   deleteWatchDate,
   fetchWatchDates
 } from '../../services/api/history';
+import { AccessibleIcon } from '../common/AccessibleIcon';
+import Button from '../common/Button';
 import { Flex } from '../common/Flex';
 import ErrorText from '../ErrorText';
 import { StyledSectionTitle } from '../Film/style';
@@ -76,22 +78,40 @@ const WatchDates = ({ movieId }: WatchDatesProps) => {
     <Flex flexDirection={'column'}>
       <Flex justifyContent={'space-between'}>
         <StyledSectionTitle>Watch dates</StyledSectionTitle>
-        <AddIcon
+        <Button
           onClick={() => {
             addMutation.mutate({ viewingDate: formatToVisumDate(new Date()) });
           }}
-        />
+          margin={'0 0 0 auto'}
+          variant={'ghost'}
+        >
+          <AccessibleIcon label="Add date">
+            <AddIcon />
+          </AccessibleIcon>
+        </Button>
       </Flex>
       {watchDates.length ? (
         watchDates.map((watchDate, index) => {
           return (
             <Flex key={`watchDate-${watchDate.id}`}>
-              <StyledWatchDate>{watchDate.viewingDate ?? 'No date'}</StyledWatchDate>
-              <RemoveIcon
+              <StyledWatchDate>
+                {watchDate.viewingDate
+                  ? new Intl.DateTimeFormat('locale', { dateStyle: 'full' }).format(
+                      new Date(watchDate.viewingDate)
+                    )
+                  : 'No date'}{' '}
+              </StyledWatchDate>
+              <Button
                 onClick={() => {
                   deleteMutation.mutate({ watchDateId: watchDate.id, index });
                 }}
-              />
+                margin={'0 0 0 auto'}
+                variant={'ghost'}
+              >
+                <AccessibleIcon label="Remove date">
+                  <RemoveIcon />
+                </AccessibleIcon>
+              </Button>
             </Flex>
           );
         })

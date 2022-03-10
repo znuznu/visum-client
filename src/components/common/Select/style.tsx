@@ -18,10 +18,6 @@ const StyledTrigger = styled(SelectPrimitive.SelectTrigger)`
   font-family: ${(props) => props.theme.fonts.main};
   background-color: ${(props) => props.theme.colors.main};
   border: 1px solid ${(props) => props.theme.colors.border.secondary};
-
-  &:focus {
-    box-shadow: 0 0 0 1px ${(props) => props.theme.colors.sidebar.hover.color};
-  }
 `;
 
 const StyledContent = styled(SelectPrimitive.Content)`
@@ -54,7 +50,7 @@ const StyledItem = styled(SelectPrimitive.Item)`
   }
 
   &:focus {
-    color: ${(props) => props.theme.colors.sidebar.hover.color};
+    color: ${(props) => props.theme.colors.secondary};
     background-color: ${(props) => props.theme.colors.select.item.bgHover};
   }
 `;

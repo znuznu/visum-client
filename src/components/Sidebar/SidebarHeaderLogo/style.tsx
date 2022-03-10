@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledTitle = styled(Link)`
-  color: ${(props) => props.theme.colors.button.main.color};
+  color: ${(props) => props.theme.colors.button.default.color};
   font-size: ${(props) => props.theme.fontSizes.xl};
   font-family: ${(props) => props.theme.fonts.logo};
   text-align: center;
@@ -12,7 +12,6 @@ const StyledTitle = styled(Link)`
 
   &:hover {
     cursor: pointer;
-    color: ${(props) => props.theme.colors.button.main.color};
   }
 `;
 

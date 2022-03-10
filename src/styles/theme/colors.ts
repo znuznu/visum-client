@@ -1,5 +1,13 @@
 import { red, grass } from '@radix-ui/colors';
 
+type ButtonColor = {
+  color: string;
+  colorHover: string;
+  bg: string;
+  bgHover: string;
+  bgDisabled: string;
+};
+
 export interface Colors {
   main: string;
   primary: string;
@@ -10,12 +18,8 @@ export interface Colors {
     secondary: string;
   };
   button: {
-    main: {
-      bg: string;
-      bgHover: string;
-      color: string;
-      bgDisabled: string;
-    };
+    default: ButtonColor;
+    ghost: ButtonColor;
   };
   checkbox: {
     border: string;

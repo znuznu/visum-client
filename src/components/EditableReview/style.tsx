@@ -13,45 +13,25 @@ const StyledTitle = styled.h2`
 const CancelIcon = styled(ResetIcon)`
   width: 1.3rem;
   height: 1.3rem;
-  color: ${(props) => props.theme.colors.tertiary};
-
-  &:hover {
-    cursor: pointer;
-    color: ${(props) => props.theme.colors.status.warning};
-  }
 `;
 
 const EditIcon = styled(Pencil1Icon)`
   width: 1.3rem;
   height: 1.3rem;
-  color: ${(props) => props.theme.colors.tertiary};
   margin-right: 0.2rem;
-
-  &:hover {
-    cursor: pointer;
-    color: ${(props) => props.theme.colors.secondary};
-  }
 `;
 
 const Edit2Icon = styled(Pencil2Icon)`
   width: 1.3rem;
   height: 1.3rem;
-  color: ${(props) => props.theme.colors.tertiary};
   margin-right: 0.2rem;
-
-  &:hover {
-    cursor: pointer;
-    color: ${(props) => props.theme.colors.secondary};
-  }
 `;
 
 const RemoveIcon = styled(TrashIcon)`
   width: 1.3rem;
   height: 1.3rem;
-  color: ${(props) => props.theme.colors.tertiary};
 
   &:hover {
-    cursor: pointer;
     color: ${(props) => props.theme.colors.status.error};
   }
 `;

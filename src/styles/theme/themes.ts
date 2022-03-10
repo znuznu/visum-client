@@ -45,11 +45,19 @@ export const darkTheme: Theme = {
       secondary: mauveDark.mauve5
     },
     button: {
-      main: {
-        bg: mauveDark.mauve3,
-        bgHover: mauveDark.mauve4,
+      default: {
         color: mauveDark.mauve12,
+        colorHover: mauveDark.mauve12,
+        bg: mauveDark.mauve3,
+        bgHover: indigoDark.indigo4,
         bgDisabled: mauveDark.mauve2
+      },
+      ghost: {
+        bg: 'none',
+        bgHover: 'none',
+        bgDisabled: mauveDark.mauve2,
+        color: grayDark.gray11,
+        colorHover: indigoDark.indigo11
       }
     },
     checkbox: {
@@ -108,10 +116,18 @@ export const lightTheme: Theme = {
       secondary: mauve.mauve5
     },
     button: {
-      main: {
+      default: {
+        color: mauve.mauve12,
+        colorHover: mauve.mauve12,
         bg: mauve.mauve3,
         bgHover: mauve.mauve4,
-        color: mauve.mauve12,
+        bgDisabled: mauve.mauve2
+      },
+      ghost: {
+        bg: 'none',
+        bgHover: 'none',
+        color: gray.gray11,
+        colorHover: indigo.indigo11,
         bgDisabled: mauve.mauve2
       }
     },

@@ -25,7 +25,8 @@ const Button = ({
   bottom,
   left,
   right,
-  disabled
+  disabled,
+  variant = 'default'
 }: PropsWithChildren<ButtonProps>) => {
   const styleProps: ButtonStyleProps = {
     margin,
@@ -39,7 +40,8 @@ const Button = ({
     top,
     bottom,
     left,
-    right
+    right,
+    variant
   };
 
   return (
