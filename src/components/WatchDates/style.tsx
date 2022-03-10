@@ -7,7 +7,7 @@ const StyledNoWatchDates = styled.p`
 `;
 
 const StyledWatchDate = styled.span`
-  color: ${(props) => props.theme.colors.button.main.color};
+  color: ${(props) => props.theme.colors.button.default.color};
   font-size: ${(props) => props.theme.fontSizes.s};
   font-family: ${(props) => props.theme.fonts.main};
 `;
@@ -26,13 +26,6 @@ const RemoveIcon = styled(TrashIcon)`
 const AddIcon = styled(PlusIcon)`
   width: 1.3rem;
   height: 1.3rem;
-  color: ${(props) => props.theme.colors.tertiary};
-  margin-right: 0.2rem;
-
-  &:hover {
-    cursor: pointer;
-    color: ${(props) => props.theme.colors.secondary};
-  }
 `;
 
 export { StyledNoWatchDates, StyledWatchDate, RemoveIcon, AddIcon };

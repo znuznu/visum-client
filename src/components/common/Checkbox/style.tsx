@@ -21,10 +21,6 @@ const StyledCheckbox = styled(CheckboxPrimitive.Root)`
     border-color: ${(props) => props.theme.colors.checkbox.border};
     cursor: pointer;
   }
-
-  &:focus {
-    box-shadow: 0 0 0 1px ${(props) => props.theme.colors.secondary};
-  }
 `;
 
 const StyledCheckboxIndicator = styled(CheckboxPrimitive.Indicator)`

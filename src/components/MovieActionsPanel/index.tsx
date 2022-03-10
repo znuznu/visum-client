@@ -10,6 +10,7 @@ import {
 } from '../../services/api/movie';
 
 import { AccessibleIcon } from '../common/AccessibleIcon';
+import Button from '../common/Button';
 import {
   FavoriteFilledIcon,
   FavoriteIcon,
@@ -110,30 +111,42 @@ const MovieActionsPanel = ({
   return (
     <StyledMovieActionsPanel>
       {isFavorite ? (
-        <AccessibleIcon label="Set the movie as non-favorite">
-          <FavoriteFilledIcon
-            onClick={() => removeFromFavoriteMutation.mutate(movieId)}
-          />
-        </AccessibleIcon>
+        <Button
+          onClick={() => removeFromFavoriteMutation.mutate(movieId)}
+          variant={'ghost'}
+        >
+          <AccessibleIcon label="Set the movie as non-favorite">
+            <FavoriteFilledIcon />
+          </AccessibleIcon>
+        </Button>
       ) : (
-        <AccessibleIcon label="Set the movie as a favorite">
-          <FavoriteIcon onClick={() => addToFavoriteMutation.mutate(movieId)} />
-        </AccessibleIcon>
+        <Button onClick={() => addToFavoriteMutation.mutate(movieId)} variant={'ghost'}>
+          <AccessibleIcon label="Set the movie as a favorite">
+            <FavoriteIcon />
+          </AccessibleIcon>
+        </Button>
       )}
       {isToWatch ? (
-        <AccessibleIcon label="Remove from the watchlist">
-          <ToWatchFilledIcon
-            onClick={() => removeFromWatchlistMutation.mutate(movieId)}
-          />
-        </AccessibleIcon>
+        <Button
+          onClick={() => removeFromWatchlistMutation.mutate(movieId)}
+          variant={'ghost'}
+        >
+          <AccessibleIcon label="Remove from the watchlist">
+            <ToWatchFilledIcon />
+          </AccessibleIcon>
+        </Button>
       ) : (
-        <AccessibleIcon label="Add to the watchlist">
-          <ToWatchIcon onClick={() => addToWatchlistMutation.mutate(movieId)} />
-        </AccessibleIcon>
+        <Button onClick={() => addToWatchlistMutation.mutate(movieId)} variant={'ghost'}>
+          <AccessibleIcon label="Add to the watchlist">
+            <ToWatchIcon />
+          </AccessibleIcon>
+        </Button>
       )}
-      <AccessibleIcon label="Remove the film">
-        <RemoveIcon onClick={() => deleteMutation.mutate(movieId)} />
-      </AccessibleIcon>
+      <Button onClick={() => deleteMutation.mutate(movieId)} variant={'ghost'}>
+        <AccessibleIcon label="Remove the film">
+          <RemoveIcon />
+        </AccessibleIcon>
+      </Button>
     </StyledMovieActionsPanel>
   );
 };

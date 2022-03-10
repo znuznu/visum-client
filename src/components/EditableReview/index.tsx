@@ -8,6 +8,7 @@ import { Review } from '../../models/reviews';
 import { fetchMovie } from '../../services/api/movie';
 import { deleteReview } from '../../services/api/review';
 import { AccessibleIcon } from '../common/AccessibleIcon';
+import Button from '../common/Button';
 import { Flex } from '../common/Flex';
 import ErrorText from '../ErrorText';
 import { NoData } from '../NoData';
@@ -69,22 +70,34 @@ const EditableReview = ({ movieId }: EditableReviewProps) => {
         <StyledTitle>Review</StyledTitle>
         <Flex>
           {isEdited ? (
-            <AccessibleIcon label="Cancel edit">
-              <CancelIcon onClick={toggleEdit} />
-            </AccessibleIcon>
+            <Button onClick={toggleEdit} margin={'0 0 0 auto'} variant={'ghost'}>
+              <AccessibleIcon label="Cancel edit">
+                <CancelIcon />
+              </AccessibleIcon>
+            </Button>
           ) : review ? (
             <Flex>
-              <AccessibleIcon label="Edit the review">
-                <EditIcon onClick={toggleEdit} />
-              </AccessibleIcon>
-              <AccessibleIcon label="Remove the review">
-                <RemoveIcon onClick={() => deleteReviewMutation.mutate()} />
-              </AccessibleIcon>
+              <Button onClick={toggleEdit} margin={'0 0 0 auto'} variant={'ghost'}>
+                <AccessibleIcon label="Edit the review">
+                  <EditIcon />
+                </AccessibleIcon>
+              </Button>
+              <Button
+                onClick={() => deleteReviewMutation.mutate()}
+                margin={'0 0 0 auto'}
+                variant={'ghost'}
+              >
+                <AccessibleIcon label="Remove the review">
+                  <RemoveIcon />
+                </AccessibleIcon>
+              </Button>
             </Flex>
           ) : (
-            <AccessibleIcon label="Edit the review">
-              <Edit2Icon onClick={toggleEdit} />
-            </AccessibleIcon>
+            <Button onClick={toggleEdit} margin={'0 0 0 auto'} variant={'ghost'}>
+              <AccessibleIcon label="Edit the review">
+                <Edit2Icon />
+              </AccessibleIcon>
+            </Button>
           )}
         </Flex>
       </Flex>

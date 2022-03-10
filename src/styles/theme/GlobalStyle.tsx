@@ -71,6 +71,13 @@ const GlobalStyle = createGlobalStyle`
       // @ts-ignore
       return props.theme.colors.main;
     }};
+
+     *:focus {
+      outline: 2px solid ${(props) => {
+        // @ts-ignore
+        return props.theme.colors.secondary;
+      }};
+    }
   }
   
   @font-face {

@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import { StyleProps } from '../../system/system.types';
 
-export type ButtonStyleProps = Pick<
+export type ButtonStyleProps = {
+  variant?: 'default' | 'ghost';
+} & Pick<
   StyleProps,
   | 'margin'
   | 'padding'
@@ -18,10 +20,27 @@ export type ButtonStyleProps = Pick<
 >;
 
 const StyledButton = styled.button<ButtonStyleProps>`
-  background-color: ${(props) => props.theme.colors.button.main.bg};
+  ${(props) => {
+    const variant = props.variant ?? 'default';
+
+    return `
+          color: ${props.theme.colors.button[variant].color};
+          background-color: ${props.theme.colors.button[variant].bg};
+
+          &:hover {
+            cursor: ${props.disabled ? 'default' : props.cursor ?? 'pointer'};
+            color: ${props.theme.colors.button[variant].colorHover};
+            background-color: ${props.theme.colors.button[variant].bgHover};
+          }
+
+          &:disabled {
+            background-color: ${props.theme.colors.button[variant].bgDisabled};
+          }
+        `;
+  }}
+
   border: ${(props) => props.border ?? 'none'};
   border-radius: ${(props) => props.borderRadius ?? '4px'};
-  color: ${(props) => props.theme.colors.button.main.color};
   font-size: ${(props) => props.theme.fontSizes.m};
   font-family: ${(props) => props.theme.fonts.main};
   margin: ${(props) => props.margin ?? 'auto'};
@@ -36,20 +55,6 @@ const StyledButton = styled.button<ButtonStyleProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  &:hover {
-    cursor: ${(props) => (props.disabled ? 'default' : props.cursor ?? 'pointer')};
-    color: ${(props) => props.theme.colors.button.main.color};
-    background-color: ${(props) => props.theme.colors.button.main.bgHover};
-  }
-
-  &:disabled {
-    background-color: ${(props) => props.theme.colors.button.main.bgDisabled};
-
-    &:hover {
-      background-color: ${(props) => props.theme.colors.button.main.bgDisabled};
-    }
-  }
 `;
 
 export default StyledButton;
