@@ -49,7 +49,7 @@ export const darkTheme: Theme = {
         color: mauveDark.mauve12,
         colorHover: mauveDark.mauve12,
         bg: mauveDark.mauve3,
-        bgHover: indigoDark.indigo4,
+        bgHover: mauveDark.mauve4,
         bgDisabled: mauveDark.mauve2
       },
       ghost: {

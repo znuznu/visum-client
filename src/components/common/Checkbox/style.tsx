@@ -1,4 +1,5 @@
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
+import { CheckIcon as RadixCheckIcon } from '@radix-ui/react-icons';
 import styled from 'styled-components';
 import { StyleProps } from '../../system/system.types';
 
@@ -19,13 +20,15 @@ const StyledCheckbox = styled(CheckboxPrimitive.Root)`
   &:hover {
     background-color: ${(props) => props.theme.colors.checkbox.bgHover};
     border-color: ${(props) => props.theme.colors.checkbox.border};
-    cursor: pointer;
   }
 `;
 
 const StyledCheckboxIndicator = styled(CheckboxPrimitive.Indicator)`
   color: ${(props) => props.theme.colors.checkbox.indicator};
-  margin: auto 0;
 `;
 
-export { StyledCheckbox, StyledCheckboxIndicator };
+const CheckIcon = styled(RadixCheckIcon)`
+  margin-top: 5px;
+`;
+
+export { StyledCheckbox, StyledCheckboxIndicator, CheckIcon };

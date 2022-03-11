@@ -1,6 +1,10 @@
 import React, { ReactEventHandler } from 'react';
-import { CheckIcon } from '@radix-ui/react-icons';
-import { CheckboxStyleProps, StyledCheckbox, StyledCheckboxIndicator } from './style';
+import {
+  CheckboxStyleProps,
+  CheckIcon,
+  StyledCheckbox,
+  StyledCheckboxIndicator
+} from './style';
 import { AccessibleIcon } from '../AccessibleIcon';
 import { Flex } from '../Flex';
 import { Label } from '../Label';
