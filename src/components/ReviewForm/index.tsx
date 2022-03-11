@@ -12,7 +12,7 @@ import {
 import Button from '../common/Button';
 import Input from '../common/Input';
 import TextArea from '../common/TextArea';
-import StyledForm from '../SignInForm/style';
+import { StyledForm } from '../SignBox/SignInForm/style';
 import { validate } from './validate';
 
 export interface FormValues {

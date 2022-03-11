@@ -1,9 +1,9 @@
 import React from 'react';
 import { TabsContent } from '@radix-ui/react-tabs';
 
-import SignInForm from '../SignInForm';
 import Container from './style';
-import SignUpForm from '../SignUpForm';
+import SignInForm from './SignInForm';
+import SignUpForm from './SignUpForm';
 import { Tabs, TabsList, TabsTrigger } from '../common/Tabs';
 
 const SignBox = () => {

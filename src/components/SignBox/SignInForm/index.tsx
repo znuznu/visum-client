@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import { useMutation } from 'react-query';
 
-import Button from '../common/Button';
-import Input from '../common/Input';
-import StyledForm from './style';
+import Button from '../../common/Button';
+import Input from '../../common/Input';
+import { StyledForm } from './style';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../providers/AuthProvider';
+import { useAuth } from '../../../providers/AuthProvider';
 import { validate } from './validate';
-import { signIn, SignInRequestBody } from '../../services/api/sign';
+import { signIn, SignInRequestBody } from '../../../services/api/sign';
+import HttpError from '../../common/HttpError';
+import { VisumHttpError } from '../../../errors/errors';
 
 export interface FormValues {
   username: string;
@@ -16,17 +18,17 @@ export interface FormValues {
 }
 
 const SignInForm = () => {
-  const navigate = useNavigate();
   const auth = useAuth();
+  const navigate = useNavigate();
+  const [requestError, setRequestError] = useState<VisumHttpError | undefined>(undefined);
 
   const signInMutation = useMutation((body: SignInRequestBody) => signIn(body), {
-    onError: (error) => {
-      // TODO #1
-      console.log(error);
-    },
     onSuccess: (data, variables) => {
       auth.signIn(variables.username, data.token);
       navigate('/');
+    },
+    onError: (error: VisumHttpError) => {
+      setRequestError(error);
     }
   });
 
@@ -43,6 +45,13 @@ const SignInForm = () => {
 
   return (
     <StyledForm onSubmit={formik.handleSubmit}>
+      {signInMutation.isError && (
+        <HttpError
+          error={requestError!}
+          margin={'0 0 1rem'}
+          overridingMessage={'Wrong credentials.'}
+        />
+      )}
       <Input
         id={'username'}
         label={'Username'}
