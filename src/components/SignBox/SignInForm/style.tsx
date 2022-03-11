@@ -5,4 +5,4 @@ const StyledForm = styled.form`
   flex-direction: column;
 `;
 
-export default StyledForm;
+export { StyledForm };

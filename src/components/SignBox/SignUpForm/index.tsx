@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import { useMutation } from 'react-query';
 
-import Button from '../common/Button';
-import Input from '../common/Input';
+import Button from '../../common/Button';
+import Input from '../../common/Input';
 import StyledForm from './style';
 import { validate } from './validate';
-import { signUp, SignUpRequestBody } from '../../services/api/sign';
+import { signUp, SignUpRequestBody } from '../../../services/api/sign';
+import HttpError from '../../common/HttpError';
+import { VisumHttpError } from '../../../errors/errors';
 
 export interface FormValues {
   username: string;
@@ -16,9 +18,10 @@ export interface FormValues {
 }
 
 const SignUpForm = () => {
-  const mutation = useMutation((body: SignUpRequestBody) => signUp(body), {
-    onError: () => {
-      console.log('Oops.');
+  const [requestError, setRequestError] = useState<VisumHttpError | undefined>(undefined);
+  const signUpMutation = useMutation((body: SignUpRequestBody) => signUp(body), {
+    onError: (error: VisumHttpError) => {
+      setRequestError(error);
     },
     onSuccess: () => {
       console.log('Success.');
@@ -34,16 +37,20 @@ const SignUpForm = () => {
     },
     validate,
     onSubmit: (values) => {
-      mutation.mutate(values);
+      signUpMutation.mutate(values);
     }
   });
 
   return (
     <>
-      {/* TODO #1 */}
-      {mutation.isError ? <div>An error occurred</div> : null}
-
       <StyledForm onSubmit={formik.handleSubmit}>
+        {signUpMutation.isError && (
+          <HttpError
+            error={requestError!}
+            margin={'0 0 1rem'}
+            overridingMessage={'Wrong credentials.'}
+          />
+        )}
         <Input
           id={'username'}
           label={'Username'}
