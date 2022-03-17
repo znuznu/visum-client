@@ -34,7 +34,7 @@ const Sidebar = () => {
     <StyledSidebar>
       <SidebarHeader>
         <SidebarHeaderLogo>Visum</SidebarHeaderLogo>
-        {windowSize.width < M_BREAKPOINT_IN_PIXEL ? (
+        {windowSize.width <= M_BREAKPOINT_IN_PIXEL ? (
           <Button
             onClick={() => setHideMenu(!hideMenu)}
             margin={'auto 1rem auto 0'}
@@ -49,7 +49,7 @@ const Sidebar = () => {
           </Button>
         ) : null}
       </SidebarHeader>
-      {windowSize.width < M_BREAKPOINT_IN_PIXEL && hideMenu ? null : (
+      {windowSize.width <= M_BREAKPOINT_IN_PIXEL && hideMenu ? null : (
         <SidebarMenu>
           <SidebarMenuSection>
             <SidebarMenuItemLink
