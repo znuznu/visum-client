@@ -16,10 +16,11 @@ import AllTimeStatisticsPage from './pages/AllTimeStatisticsPage';
 import PerYearStatisticsPage from './pages/PerYearStatisticsPage';
 import DiscoveryPage from './pages/DiscoveryPage';
 import TmdbFilmPage from './pages/TmdbFilmPage';
-import DirectorsPage from './pages/DirectorsPage';
 import ActorsPage from './pages/ActorsPage';
-import DirectorPage from './pages/DirectorPage';
+import DirectorsPage from './pages/DirectorsPage';
 import ActorPage from './pages/ActorPage';
+import DirectorPage from './pages/DirectorPage';
+import DiaryPage from './pages/DiaryPage';
 import ThemeContext from './providers/ThemeProvider';
 import useTheme from './hooks/useTheme';
 
@@ -68,6 +69,8 @@ const App = () => {
                   </Route>
 
                   <Route path="discovery" element={<DiscoveryPage />} />
+
+                  <Route path="diary" element={<DiaryPage />} />
 
                   <Route path="tmdb/film/:tmdbId" element={<TmdbFilmPage />} />
 

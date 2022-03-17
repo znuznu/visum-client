@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {
+  CalendarIcon,
   GlobeIcon,
   HamburgerMenuIcon,
   HomeIcon,
@@ -66,6 +67,15 @@ const Sidebar = () => {
               icon={
                 <AccessibleIcon label={'Discovery'}>
                   <GlobeIcon />
+                </AccessibleIcon>
+              }
+            />
+            <SidebarMenuItemLink
+              to={'/diary'}
+              text={'Diary'}
+              icon={
+                <AccessibleIcon label={'Diary'}>
+                  <CalendarIcon />
                 </AccessibleIcon>
               }
             />
