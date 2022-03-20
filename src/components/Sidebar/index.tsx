@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {
+  CalendarIcon,
   GlobeIcon,
   HamburgerMenuIcon,
   HomeIcon,
@@ -33,7 +34,7 @@ const Sidebar = () => {
     <StyledSidebar>
       <SidebarHeader>
         <SidebarHeaderLogo>Visum</SidebarHeaderLogo>
-        {windowSize.width < M_BREAKPOINT_IN_PIXEL ? (
+        {windowSize.width <= M_BREAKPOINT_IN_PIXEL ? (
           <Button
             onClick={() => setHideMenu(!hideMenu)}
             margin={'auto 1rem auto 0'}
@@ -48,7 +49,7 @@ const Sidebar = () => {
           </Button>
         ) : null}
       </SidebarHeader>
-      {windowSize.width < M_BREAKPOINT_IN_PIXEL && hideMenu ? null : (
+      {windowSize.width <= M_BREAKPOINT_IN_PIXEL && hideMenu ? null : (
         <SidebarMenu>
           <SidebarMenuSection>
             <SidebarMenuItemLink
@@ -66,6 +67,15 @@ const Sidebar = () => {
               icon={
                 <AccessibleIcon label={'Discovery'}>
                   <GlobeIcon />
+                </AccessibleIcon>
+              }
+            />
+            <SidebarMenuItemLink
+              to={'/diary'}
+              text={'Diary'}
+              icon={
+                <AccessibleIcon label={'Diary'}>
+                  <CalendarIcon />
                 </AccessibleIcon>
               }
             />
