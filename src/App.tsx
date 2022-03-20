@@ -24,6 +24,7 @@ import DirectorPage from './pages/DirectorPage';
 import DiaryPage from './pages/DiaryPage';
 import ThemeContext from './providers/ThemeProvider';
 import useTheme from './hooks/useTheme';
+import { API_URL } from './config';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -34,7 +35,7 @@ const queryClient = new QueryClient({
 });
 
 const apolloClient = new ApolloClient({
-  uri: 'http://localhost:8080/graphql',
+  uri: `${API_URL}/graphql`,
   cache: new InMemoryCache()
 });
 
