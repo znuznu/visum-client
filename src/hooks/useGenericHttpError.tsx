@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { HTTPError } from 'ky';
+
 import useAuthentication from './useAuthentication';
 
 const useGenericHttpError = (error?: HTTPError) => {

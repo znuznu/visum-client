@@ -1,4 +1,3 @@
-import { API_URL } from '../../config';
 import { Page } from '../../models/page';
 import { TmdbMovie, TmdbPageMovie } from '../../models/tmdb';
 import HttpService from '../http';
@@ -12,7 +11,7 @@ export const searchTmdbMovie = async (
   headers: Record<string, string>,
   params: PageSearchParams
 ): Promise<Page<TmdbPageMovie>> => {
-  return HttpService.get(`${API_URL}/api/tmdb/movies/search`, {
+  return HttpService.get(`tmdb/movies/search`, {
     headers,
     searchParams: {
       pageNumber: params.pageNumber.toString(),
@@ -25,7 +24,7 @@ export const fetchTmdbMovie = async (
   headers: Record<string, string>,
   tmdbId: number
 ): Promise<TmdbMovie> => {
-  return HttpService.get(`${API_URL}/api/tmdb/movies/${tmdbId}`, {
+  return HttpService.get(`tmdb/movies/${tmdbId}`, {
     headers
   }).json<TmdbMovie>();
 };

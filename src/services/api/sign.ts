@@ -1,4 +1,3 @@
-import { API_URL } from '../../config';
 import HttpService from '../http';
 
 export interface SignInRequestBody {
@@ -17,11 +16,11 @@ export interface SignUpRequestBody {
 }
 
 export const signUp = async (body: SignUpRequestBody) => {
-  return HttpService.post(`${API_URL}/api/accounts/sign-up`, { json: body });
+  return HttpService.post(`accounts/sign-up`, { json: body });
 };
 
 export const signIn = async (body: SignInRequestBody): Promise<SignInResponseBody> => {
-  return HttpService.post(`${API_URL}/api/accounts/sign-in`, {
+  return HttpService.post(`accounts/sign-in`, {
     json: body
   }).json<SignInResponseBody>();
 };

@@ -1,4 +1,3 @@
-import { API_URL } from '../../config';
 import { Review } from '../../models/reviews';
 import HttpService from '../http';
 
@@ -26,7 +25,7 @@ export const createReview = async (
   headers: Record<string, string>,
   body: CreateReviewRequestBody
 ) => {
-  return HttpService.post(`${API_URL}/api/reviews/movies`, {
+  return HttpService.post(`reviews/movies`, {
     headers,
     json: body
   }).json<CreateReviewResponseBody>();
@@ -37,7 +36,7 @@ export const updateReview = async (
   body: UpdateReviewRequestBody,
   reviewId: number
 ): Promise<UpdateReviewResponseBody> => {
-  return HttpService.put(`${API_URL}/api/reviews/${reviewId}/movies`, {
+  return HttpService.put(`reviews/${reviewId}/movies`, {
     headers,
     json: body
   }).json<UpdateReviewResponseBody>();
@@ -49,7 +48,7 @@ export const fetchReview = async (
   headers: Record<string, string>,
   id: string
 ): Promise<Review> => {
-  return HttpService.get(`${API_URL}/api/movies/${id}/reviews`, {
+  return HttpService.get(`movies/${id}/reviews`, {
     headers
   }).json<Review>();
 };
@@ -58,7 +57,7 @@ export const deleteReview = async (
   headers: Record<string, string>,
   id: string
 ): Promise<void> => {
-  return HttpService.delete(`${API_URL}/api/reviews/${id}/movies`, {
+  return HttpService.delete(`reviews/${id}/movies`, {
     headers
   }).json<void>();
 };

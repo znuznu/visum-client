@@ -1,4 +1,3 @@
-import { API_URL } from '../../config';
 import { WatchDate } from '../../models/watchDate';
 import HttpService from '../http';
 
@@ -8,7 +7,7 @@ export const fetchWatchDates = async (
   headers: Record<string, string>,
   movieId: number
 ): Promise<WatchDatesResponseBody> => {
-  return HttpService.get(`${API_URL}/api/history/movies/${movieId}`, {
+  return HttpService.get(`history/movies/${movieId}`, {
     headers
   }).json<WatchDatesResponseBody>();
 };
@@ -17,7 +16,7 @@ export const deleteWatchDate = async (
   headers: Record<string, string>,
   watchDateId: number
 ): Promise<void> => {
-  return HttpService.delete(`${API_URL}/api/history/${watchDateId}/movies`, {
+  return HttpService.delete(`history/${watchDateId}/movies`, {
     headers
   }).json<void>();
 };
@@ -37,7 +36,7 @@ export const addWatchDate = async (
   headers: Record<string, string>,
   body: CreateWatchDateRequestBody
 ): Promise<CreateWatchDateResponseBody> => {
-  return HttpService.post(`${API_URL}/api/history`, {
+  return HttpService.post(`history`, {
     headers,
     json: body
   }).json<CreateWatchDateResponseBody>();

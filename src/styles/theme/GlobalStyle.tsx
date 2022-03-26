@@ -3,8 +3,11 @@ import { createGlobalStyle } from 'styled-components';
 import Archivo from '../fonts/archivo/archivo-v8-latin.woff';
 import Archivo2 from '../fonts/archivo/archivo-v8-latin.woff2';
 
-import OpenSans from '../fonts/open-sans/open-sans-v27-latin-regular.woff';
-import OpenSans2 from '../fonts/open-sans/open-sans-v27-latin-regular.woff2';
+import OpenSansRegular from '../fonts/open-sans/open-sans-v27-latin-regular.woff';
+import OpenSansRegularWoff2 from '../fonts/open-sans/open-sans-v27-latin-regular.woff2';
+
+import OpenSans700 from '../fonts/open-sans/open-sans-v28-latin-700.woff';
+import OpenSans700Woff2 from '../fonts/open-sans/open-sans-v28-latin-700.woff2';
 
 const GlobalStyle = createGlobalStyle`
   /*** The new CSS Reset - version 1.2.0 (last updated 23.7.2021) ***/
@@ -91,9 +94,21 @@ const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Open Sans';
     font-display: fallback;
+    font-style: normal;
+    font-weight: 400;
     src: local(''), 
-    url(${OpenSans2}) format('woff2'),
-    url(${OpenSans}) format('woff');
+    url(${OpenSansRegularWoff2}) format('woff2'),
+    url(${OpenSansRegular}) format('woff');
+  }
+
+  @font-face {
+    font-family: 'Open Sans';
+    font-display: fallback;
+    font-style: normal;
+    font-weight: 700;
+    src: local(''), 
+    url(${OpenSans700Woff2}) format('woff2'),
+    url(${OpenSans700}) format('woff');
   }
 `;
 

@@ -8,6 +8,12 @@ type ButtonColor = {
   bgDisabled: string;
 };
 
+type ToastColor = {
+  description: string;
+  bg: string;
+  title: string;
+};
+
 export interface Colors {
   main: string;
   primary: string;
@@ -46,6 +52,11 @@ export interface Colors {
   text: {
     primary: string;
     secondary: string;
+  };
+  toast: {
+    default: ToastColor;
+    success: ToastColor;
+    error: ToastColor;
   };
   scrollbar: { bg: string; bgHover: string; thumb: string };
   tmdb: { primary: string };

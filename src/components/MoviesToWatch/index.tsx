@@ -2,7 +2,6 @@ import { HTTPError } from 'ky';
 import React from 'react';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
-import { API_URL } from '../../config';
 import useAuthentication from '../../hooks/useAuthentication';
 import useGenericHttpError from '../../hooks/useGenericHttpError';
 import { MovieFromPage } from '../../models/movies';
@@ -29,7 +28,7 @@ const MoviesToWatch = ({ limit }: MoviesToWatchProps) => {
   const { isLoading, isError, data } = useQuery(
     'getShouldWatchMovies',
     () =>
-      HttpService.get(`${API_URL}/api/movies`, {
+      HttpService.get(`movies`, {
         headers: { Authorization: `Bearer ${jwtToken}` },
         searchParams: {
           sort: 'creationDate,DESC',

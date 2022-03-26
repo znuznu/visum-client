@@ -6,7 +6,6 @@ import useAuthentication from '../../hooks/useAuthentication';
 import useGenericHttpError from '../../hooks/useGenericHttpError';
 import { TmdbMovie } from '../../models/tmdb';
 import { fetchTmdbMovie } from '../../services/api/tmdb';
-import ErrorText from '../ErrorText';
 import {
   StyledReleaseDate,
   StyledMovieContent,
@@ -31,6 +30,9 @@ import {
   CreateMovieResponseBody
 } from '../../services/api/movie';
 import { useNavigate } from 'react-router';
+import { TMDB_API_BASE_URL } from '../../config';
+import { Toast, ToastDescription, ToastTitle, ToastViewport } from '../common/Toast';
+import ErrorText from '../ErrorText';
 
 const buildTmdbPersonUrl = ({
   id,
@@ -41,19 +43,20 @@ const buildTmdbPersonUrl = ({
   name: string;
   forename: string;
 }): string => {
-  return `https://www.themoviedb.org/person/${id}-${forename}-${name}`;
+  return `${TMDB_API_BASE_URL}/person/${id}-${forename}-${name}`;
 };
 
 const buildTmdbMovieUrl = ({ id, title }: { id: number; title: string }): string => {
-  return `https://www.themoviedb.org/movie/${id}-${title}`;
+  return `${TMDB_API_BASE_URL}/movie/${id}-${title}`;
 };
 
 const TmdbFilm = ({ id }: { id: number }) => {
   const navigate = useNavigate();
   const { jwtToken } = useAuthentication();
-  const { setHttpError } = useGenericHttpError(undefined);
+  const { httpError, setHttpError } = useGenericHttpError(undefined);
   const [movie, setMovie] = useState<TmdbMovie | undefined>(undefined);
   const [isFavorite, setFavorite] = useState(false);
+  const [isOpen, setOpen] = useState(false);
   const [isToWatch, setToWatch] = useState(false);
 
   // Used to redirect the user to the newly created movie page
@@ -90,11 +93,12 @@ const TmdbFilm = ({ id }: { id: number }) => {
     (movie: CreateMovieRequestBody) =>
       createMovie({ authorization: `Bearer ${jwtToken}` }, movie),
     {
-      onError: (error) => {
-        // TODO #1
-        console.log(error);
+      onError: (error: HTTPError) => {
+        setOpen(true);
+        setHttpError(error);
       },
       onSuccess: (data: CreateMovieResponseBody) => {
+        setOpen(true);
         setVisumId(data.id);
       }
     }
@@ -175,6 +179,21 @@ const TmdbFilm = ({ id }: { id: number }) => {
           >
             Add
           </Button>
+          {httpError && (
+            <Toast open={isOpen} onOpenChange={setOpen} variant={'error'}>
+              <ToastTitle variant={'error'}>Couldn't add the movie</ToastTitle>
+              <ToastDescription variant={'error'}>{httpError.message}</ToastDescription>
+            </Toast>
+          )}
+          {/* TODO */}
+          {visumId && (
+            <Toast open={isOpen} variant={'success'}>
+              <ToastTitle variant={'success'}>Movie added</ToastTitle>
+              <ToastDescription variant={'success'}>
+                {movie?.title} successfully added!
+              </ToastDescription>
+            </Toast>
+          )}
         </Flex>
       </div>
       <StyledMovieContent>

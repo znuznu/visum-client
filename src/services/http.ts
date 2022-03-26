@@ -1,4 +1,5 @@
 import ky from 'ky';
+import { API_URL } from '../config';
 
 export interface ResponsePromise extends Promise<Response> {
   arrayBuffer: () => Promise<ArrayBuffer>;
@@ -22,21 +23,38 @@ export interface Options extends Omit<RequestInit, 'headers'> {
 }
 
 // Simple wrapper around Ky in order to be loosely coupled
+const api = ky.create({
+  prefixUrl: `${API_URL}/api/`,
+  hooks: {
+    beforeError: [
+      async (error) => {
+        const { response } = error;
+        const cloneResponse = await response.clone().json();
+
+        error.name = cloneResponse.code;
+        error.message = cloneResponse.message;
+
+        return error;
+      }
+    ]
+  }
+});
+
 class HttpService {
   static post(url: URL | string | Request, options?: Options): ResponsePromise {
-    return ky.post(url, options);
+    return api.post(url, options);
   }
 
   static get(url: URL | string | Request, options?: Options): ResponsePromise {
-    return ky.get(url, options);
+    return api.get(url, options);
   }
 
   static put(url: URL | string | Request, options?: Options): ResponsePromise {
-    return ky.put(url, options);
+    return api.put(url, options);
   }
 
   static delete(url: URL | string | Request, options?: Options): ResponsePromise {
-    return ky.delete(url, options);
+    return api.delete(url, options);
   }
 }
 

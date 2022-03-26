@@ -1,3 +1,5 @@
+import { HTTPError } from 'ky';
+
 export enum VisumHttpErrorCode {
   INVALID_BODY = 'INVALID_BODY',
   INVALID_ARGUMENT = 'INVALID_ARGUMENT',
@@ -16,3 +18,8 @@ export interface VisumHttpError {
   message: string;
   code: VisumHttpErrorCode;
 }
+
+// JUMP
+export const mapKyToVisumError = (error: HTTPError): undefined => {
+  return;
+};

@@ -25,6 +25,8 @@ import DiaryPage from './pages/DiaryPage';
 import ThemeContext from './providers/ThemeProvider';
 import useTheme from './hooks/useTheme';
 import { API_URL } from './config';
+import { ToastProvider } from '@radix-ui/react-toast';
+import { ToastViewport } from './components/common/Toast';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -52,51 +54,54 @@ const App = () => {
       <QueryClientProvider client={queryClient}>
         <ThemeProvider theme={selectedTheme}>
           <ThemeContext.Provider value={{ selectedTheme, setSelectedTheme }}>
-            <AuthProvider>
-              <GlobalStyle />
-              <BrowserRouter>
-                <Routes>
-                  <Route
-                    path="/"
-                    element={
-                      <Guard>
-                        <Shell />
-                      </Guard>
-                    }
-                  >
-                    <Route path="" element={<HomePage />} />
+            <ToastProvider swipeDirection="right">
+              <AuthProvider>
+                <GlobalStyle />
+                <ToastViewport />
+                <BrowserRouter>
+                  <Routes>
+                    <Route
+                      path="/"
+                      element={
+                        <Guard>
+                          <Shell />
+                        </Guard>
+                      }
+                    >
+                      <Route path="" element={<HomePage />} />
 
-                    <Route path="films" element={<FilmsPage />} />
-                    <Route path="film/:movieId" element={<FilmPage />} />
+                      <Route path="films" element={<FilmsPage />} />
+                      <Route path="film/:movieId" element={<FilmPage />} />
 
-                    <Route path="stats/all-time" element={<AllTimeStatisticsPage />} />
+                      <Route path="stats/all-time" element={<AllTimeStatisticsPage />} />
 
-                    <Route path="stats/year">
-                      <Route path="" element={<PerYearStatisticsPage />} />
-                      <Route path=":year" element={<PerYearStatisticsPage />} />
+                      <Route path="stats/year">
+                        <Route path="" element={<PerYearStatisticsPage />} />
+                        <Route path=":year" element={<PerYearStatisticsPage />} />
+                      </Route>
+
+                      <Route path="discovery" element={<DiscoveryPage />} />
+
+                      <Route path="diary">
+                        <Route path="" element={<DiaryPage />} />
+                        <Route path=":year" element={<DiaryPage />} />
+                      </Route>
+
+                      <Route path="tmdb/film/:tmdbId" element={<TmdbFilmPage />} />
+
+                      <Route path="directors" element={<DirectorsPage />} />
+                      <Route path="director/:id" element={<DirectorPage />} />
+
+                      <Route path="actors" element={<ActorsPage />} />
+                      <Route path="actor/:id" element={<ActorPage />} />
                     </Route>
 
-                    <Route path="discovery" element={<DiscoveryPage />} />
-
-                    <Route path="diary">
-                      <Route path="" element={<DiaryPage />} />
-                      <Route path=":year" element={<DiaryPage />} />
-                    </Route>
-
-                    <Route path="tmdb/film/:tmdbId" element={<TmdbFilmPage />} />
-
-                    <Route path="directors" element={<DirectorsPage />} />
-                    <Route path="director/:id" element={<DirectorPage />} />
-
-                    <Route path="actors" element={<ActorsPage />} />
-                    <Route path="actor/:id" element={<ActorPage />} />
-                  </Route>
-
-                  <Route path="/sign" element={<SignPage />} />
-                  <Route path="*" element={<Navigate to="/sign" />} />
-                </Routes>
-              </BrowserRouter>
-            </AuthProvider>
+                    <Route path="/sign" element={<SignPage />} />
+                    <Route path="*" element={<Navigate to="/sign" />} />
+                  </Routes>
+                </BrowserRouter>
+              </AuthProvider>
+            </ToastProvider>
           </ThemeContext.Provider>
         </ThemeProvider>
       </QueryClientProvider>

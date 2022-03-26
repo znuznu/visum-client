@@ -1,4 +1,3 @@
-import { API_URL } from '../../config';
 import { StatsMovie } from '../../models/statistics';
 import { Pair } from '../../models/helpers';
 import HttpService from '../http';
@@ -18,7 +17,7 @@ export interface FetchAllTimeStatisticsResponseBody {
 export const fetchAllTimeStatistics = async (
   headers: Record<string, string>
 ): Promise<FetchAllTimeStatisticsResponseBody> => {
-  return HttpService.get(`${API_URL}/api/statistics/years`, {
+  return HttpService.get(`statistics/years`, {
     headers
   }).json<FetchAllTimeStatisticsResponseBody>();
 };
@@ -38,7 +37,7 @@ export const fetchYearStatistics = async (
   headers: Record<string, string>,
   year: number
 ): Promise<FetchYearStatisticsResponseBody> => {
-  return HttpService.get(`${API_URL}/api/statistics/years/${year}`, {
+  return HttpService.get(`statistics/years/${year}`, {
     headers
   }).json<FetchYearStatisticsResponseBody>();
 };

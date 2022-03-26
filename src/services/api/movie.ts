@@ -1,4 +1,3 @@
-import { API_URL } from '../../config';
 import { Movie } from '../../models/movies';
 import HttpService from '../http';
 
@@ -6,7 +5,7 @@ export const fetchMovie = async (
   headers: Record<string, string>,
   id: number
 ): Promise<Movie> => {
-  return HttpService.get(`${API_URL}/api/movies/${id}`, {
+  return HttpService.get(`movies/${id}`, {
     headers
   }).json<Movie>();
 };
@@ -51,7 +50,7 @@ export const createMovie = async (
   headers: Record<string, string>,
   movie: CreateMovieRequestBody
 ): Promise<CreateMovieResponseBody> => {
-  return HttpService.post(`${API_URL}/api/movies`, {
+  return HttpService.post(`movies`, {
     headers,
     json: movie
   }).json<CreateMovieResponseBody>();
@@ -61,7 +60,7 @@ export const markMovieAsFavorite = async (
   headers: Record<string, string>,
   movieId: number
 ): Promise<void> => {
-  return HttpService.put(`${API_URL}/api/movies/${movieId}/favorite`, {
+  return HttpService.put(`movies/${movieId}/favorite`, {
     headers
   }).json<void>();
 };
@@ -70,7 +69,7 @@ export const removeMovieFromFavorite = async (
   headers: Record<string, string>,
   movieId: number
 ): Promise<void> => {
-  return HttpService.delete(`${API_URL}/api/movies/${movieId}/favorite`, {
+  return HttpService.delete(`movies/${movieId}/favorite`, {
     headers
   }).json<void>();
 };
@@ -79,7 +78,7 @@ export const addMovieToWatchlist = async (
   headers: Record<string, string>,
   movieId: number
 ): Promise<void> => {
-  return HttpService.put(`${API_URL}/api/movies/${movieId}/watchlist`, {
+  return HttpService.put(`movies/${movieId}/watchlist`, {
     headers
   }).json<void>();
 };
@@ -88,7 +87,7 @@ export const removeMovieFromWatchlist = async (
   headers: Record<string, string>,
   movieId: number
 ): Promise<void> => {
-  return HttpService.delete(`${API_URL}/api/movies/${movieId}/watchlist`, {
+  return HttpService.delete(`movies/${movieId}/watchlist`, {
     headers
   }).json<void>();
 };
@@ -97,7 +96,7 @@ export const deleteMovie = async (
   headers: Record<string, string>,
   movieId: number
 ): Promise<void> => {
-  return HttpService.delete(`${API_URL}/api/movies/${movieId}`, {
+  return HttpService.delete(`movies/${movieId}`, {
     headers
   }).json<void>();
 };

@@ -12,7 +12,9 @@ import {
   orange,
   orangeDark,
   red,
-  redDark
+  redDark,
+  greenDark,
+  green
 } from '@radix-ui/colors';
 
 import { Theme } from '.';
@@ -82,6 +84,23 @@ export const darkTheme: Theme = {
     text: {
       primary: grayDark.gray12,
       secondary: indigoDark.indigo11
+    },
+    toast: {
+      default: {
+        description: grayDark.gray11,
+        bg: mauveDark.mauve3,
+        title: mauveDark.mauve12
+      },
+      error: {
+        bg: redDark.red3,
+        description: redDark.red9,
+        title: redDark.red11
+      },
+      success: {
+        bg: greenDark.green3,
+        description: greenDark.green9,
+        title: greenDark.green11
+      }
     },
     scrollbar: {
       bg: 'none',
@@ -153,6 +172,23 @@ export const lightTheme: Theme = {
     text: {
       primary: gray.gray12,
       secondary: indigo.indigo11
+    },
+    toast: {
+      default: {
+        description: gray.gray11,
+        bg: mauve.mauve3,
+        title: mauve.mauve12
+      },
+      error: {
+        bg: red.red3,
+        description: red.red9,
+        title: red.red11
+      },
+      success: {
+        bg: green.green3,
+        description: green.green9,
+        title: green.green11
+      }
     },
     scrollbar: {
       bg: 'none',

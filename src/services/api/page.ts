@@ -1,4 +1,3 @@
-import { API_URL } from '../../config';
 import { Page } from '../../models/page';
 import HttpService from '../http';
 
@@ -14,7 +13,7 @@ export const fetchPage = async <T extends unknown>(
   headers: Record<string, string>,
   params: PageSearchParams
 ): Promise<Page<T>> => {
-  return HttpService.get(`${API_URL}/api/${resource}`, {
+  return HttpService.get(`${resource}`, {
     headers,
     searchParams: {
       sort: params.sort,
