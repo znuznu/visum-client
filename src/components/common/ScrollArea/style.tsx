@@ -9,6 +9,7 @@ const StyledScrollAreaViewport = styled(ScrollAreaPrimitive.Viewport)`
   width: 100%;
   height: 100%;
   border-radius: inherit;
+  padding: 0.1rem;
 `;
 
 const StyledThumb = styled(ScrollAreaPrimitive.Thumb)`
@@ -37,8 +38,14 @@ const StyledScrollAreaScrollbar = styled(ScrollAreaPrimitive.Scrollbar)`
   touch-action: none;
   padding: 2px;
   background-color: ${(props) => props.theme.colors.scrollbar.bg};
-  &[data-orientation] {
-    width: 5px;
+
+  &[data-orientation='vertical'] {
+    width: 10px;
+  }
+
+  &[data-orientation='horizontal'] {
+    flex-direction: column;
+    height: 10px;
   }
 
   &:hover {

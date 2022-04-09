@@ -7,10 +7,11 @@ import { StyledReviews, StyledRecentReviews } from './style';
 import { ReviewFromPage } from '../../models/reviews';
 import PageReview from '../PageReview';
 import { Separator } from '../common/Separator';
-import { StyledTitle } from '../RecentMovies/style';
 import { fetchPage } from '../../services/api/page';
 import { NoData } from '../NoData';
 import ErrorText from '../ErrorText';
+import { StyledTitle } from '../MoviesToWatch/style';
+import { Flex } from '../common/Flex';
 
 export type RecentReviewsProps = {
   limit: number;
@@ -52,7 +53,10 @@ const RecentReviews = ({ limit }: RecentReviewsProps) => {
 
   return (
     <StyledRecentReviews>
-      <StyledTitle>Recent reviews</StyledTitle>
+      <Flex justifyContent={'space-between'} margin={'1rem 0'}>
+        <StyledTitle>Recent reviews</StyledTitle>
+        {/* TODO MORE button */}
+      </Flex>
       {data?.content.length ? (
         <StyledReviews>
           {data?.content.map((review, index) => (

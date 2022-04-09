@@ -19,6 +19,8 @@ import { TmdbPageMovie } from '../../models/tmdb';
 import { searchTmdbMovie } from '../../services/api/tmdb';
 import { StyledDiscover, StyledForm, SearchIcon, StyledTitle } from './style';
 import TmdbAttribution from '../../components/TmdbAttribution';
+import UpcomingMovies from '../../components/UpcomingMovies';
+import { Separator } from '../../components/common/Separator';
 
 interface FormValues {
   search: string;
@@ -86,6 +88,8 @@ const DiscoveryPage = () => {
   return (
     <StyledDiscover>
       <StyledTitle>Explore</StyledTitle>
+      <UpcomingMovies />
+      <Separator decorative />
       <Formik
         initialValues={{
           search: ''

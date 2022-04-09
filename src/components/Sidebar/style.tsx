@@ -12,6 +12,7 @@ const StyledSidebar = styled.div`
   position: fixed;
   bottom: 0;
   top: 0;
+  z-index: 1;
 
   @media screen and (max-width: ${(props) => props.theme.breakpoints.m}) {
     width: 100%;

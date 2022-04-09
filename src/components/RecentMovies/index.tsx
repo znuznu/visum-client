@@ -55,7 +55,7 @@ const RecentMovies = ({ limit }: RecentMoviesProps) => {
 
   return (
     <StyledRecentMovies>
-      <Flex justifyContent={'space-between'}>
+      <Flex justifyContent={'space-between'} margin={'1rem 0'}>
         <StyledTitle>Recently added</StyledTitle>
         <StyledLink to={'/films'}>More</StyledLink>
       </Flex>

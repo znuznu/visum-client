@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const StyledShellContent = styled.div`
-  color: white;
   display: flex;
   flex-direction: column;
   width: 100%;
