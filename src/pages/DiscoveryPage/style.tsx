@@ -4,8 +4,9 @@ import styled from 'styled-components';
 const StyledDiscover = styled.div`
   display: flex;
   flex-direction: column;
+  margin-bottom: 1rem;
 
-  max-width: ${({ theme }) => theme.breakpoints.m};
+  max-width: ${(props) => props.theme.breakpoints.m};
 `;
 
 const StyledTitle = styled.h1`

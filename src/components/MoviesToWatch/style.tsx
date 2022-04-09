@@ -16,4 +16,12 @@ const StyledLink = styled(Link)`
   }
 `;
 
-export { StyledMoviesToWatch, StyledLink };
+const StyledTitle = styled.h2`
+  color: ${(props) => props.theme.colors.tertiary};
+  font-family: ${(props) => props.theme.fonts.main};
+  font-size: ${(props) => props.theme.fontSizes.m};
+  text-transform: uppercase;
+  margin: 0;
+`;
+
+export { StyledMoviesToWatch, StyledLink, StyledTitle };

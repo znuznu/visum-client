@@ -13,8 +13,7 @@ import { Grid } from '../common/Grid';
 import ErrorText from '../ErrorText';
 import { NoData } from '../NoData';
 import PosterTooltip from '../PosterTooltip';
-import { StyledTitle } from '../RecentMovies/style';
-import { StyledLink, StyledMoviesToWatch } from './style';
+import { StyledTitle, StyledLink, StyledMoviesToWatch } from './style';
 
 type MoviesToWatchProps = {
   limit: number;
@@ -57,7 +56,7 @@ const MoviesToWatch = ({ limit }: MoviesToWatchProps) => {
 
   return (
     <StyledMoviesToWatch>
-      <Flex justifyContent={'space-between'}>
+      <Flex justifyContent={'space-between'} margin={'1rem 0'}>
         <StyledTitle>To watch</StyledTitle>
         <StyledLink to={'/films?isToWatch=true'}>More</StyledLink>
       </Flex>

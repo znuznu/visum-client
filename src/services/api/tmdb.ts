@@ -29,3 +29,15 @@ export const fetchTmdbMovie = async (
     headers
   }).json<TmdbMovie>();
 };
+
+export const fetchUpcomingMovies = async (
+  headers: Record<string, string>,
+  pageNumber: number
+): Promise<Page<TmdbPageMovie>> => {
+  return HttpService.get(`${API_URL}/api/tmdb/movies/upcoming`, {
+    headers,
+    searchParams: {
+      pageNumber: pageNumber.toString()
+    }
+  }).json<Page<TmdbPageMovie>>();
+};

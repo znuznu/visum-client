@@ -6,10 +6,6 @@ const StyledHome = styled.div`
   margin-bottom: 1.5rem;
 
   max-width: ${({ theme }) => theme.breakpoints.m};
-
-  & > :not(:first-child) {
-    margin-top: 1.5rem;
-  }
 `;
 
 export { StyledHome };
