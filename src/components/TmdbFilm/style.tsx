@@ -7,7 +7,6 @@ const StyledResource = styled.span`
   margin: 0;
   padding: 0;
   text-decoration: none;
-  font-weight: 900;
 
   &:hover {
     color: ${(props) => props.theme.colors.tmdb.primary};
