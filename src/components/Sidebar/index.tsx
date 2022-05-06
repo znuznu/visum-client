@@ -28,7 +28,9 @@ import ThemeSwitcher from '../ThemeSwitcher';
 
 const Sidebar = () => {
   const windowSize = useWindowSize();
-  const [hideMenu, setHideMenu] = useState(true);
+  const [isMenuHidden, hideMenu] = useState(true);
+
+  const closeMenu = () => hideMenu(true);
 
   return (
     <StyledSidebar>
@@ -36,7 +38,7 @@ const Sidebar = () => {
         <SidebarHeaderLogo>Visum</SidebarHeaderLogo>
         {windowSize.width <= M_BREAKPOINT_IN_PIXEL ? (
           <Button
-            onClick={() => setHideMenu(!hideMenu)}
+            onClick={() => hideMenu(!isMenuHidden)}
             margin={'auto 1rem auto 0'}
             padding={'0.5rem'}
             position={'fixed'}
@@ -49,7 +51,7 @@ const Sidebar = () => {
           </Button>
         ) : null}
       </SidebarHeader>
-      {windowSize.width <= M_BREAKPOINT_IN_PIXEL && hideMenu ? null : (
+      {windowSize.width <= M_BREAKPOINT_IN_PIXEL && isMenuHidden ? null : (
         <SidebarMenu>
           <SidebarMenuSection>
             <SidebarMenuItemLink
@@ -60,6 +62,7 @@ const Sidebar = () => {
                   <HomeIcon />
                 </AccessibleIcon>
               }
+              onClick={closeMenu}
             />
             <SidebarMenuItemLink
               to={'/discovery'}
@@ -69,6 +72,7 @@ const Sidebar = () => {
                   <GlobeIcon />
                 </AccessibleIcon>
               }
+              onClick={closeMenu}
             />
             <SidebarMenuItemLink
               to={'/diary'}
@@ -78,6 +82,7 @@ const Sidebar = () => {
                   <CalendarIcon />
                 </AccessibleIcon>
               }
+              onClick={closeMenu}
             />
           </SidebarMenuSection>
           <Separator decorative />
@@ -91,6 +96,7 @@ const Sidebar = () => {
                   <BsCameraReels />
                 </AccessibleIcon>
               }
+              onClick={closeMenu}
             />
             <SidebarMenuItemLink
               to={'/actors'}
@@ -100,6 +106,7 @@ const Sidebar = () => {
                   <PersonIcon />
                 </AccessibleIcon>
               }
+              onClick={closeMenu}
             />
             <SidebarMenuItemLink
               to={'/directors'}
@@ -109,6 +116,7 @@ const Sidebar = () => {
                   <PersonIcon />
                 </AccessibleIcon>
               }
+              onClick={closeMenu}
             />
           </SidebarMenuSection>
           <Separator decorative />
@@ -122,6 +130,7 @@ const Sidebar = () => {
                   <AiOutlineBarChart />
                 </AccessibleIcon>
               }
+              onClick={closeMenu}
             />
             <SidebarMenuItemLink
               to={'/stats/year'}
@@ -131,6 +140,7 @@ const Sidebar = () => {
                   <AiOutlineLineChart />
                 </AccessibleIcon>
               }
+              onClick={closeMenu}
             />
           </SidebarMenuSection>
           <Separator decorative />
