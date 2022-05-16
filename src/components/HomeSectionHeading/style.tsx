@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Flex } from '../common/Flex';
 
 const StyledRecentMovies = styled.div``;
 
@@ -23,4 +24,11 @@ const StyledLink = styled(Link)`
   }
 `;
 
-export { StyledTitle, StyledRecentMovies, StyledLink };
+const StyledHeading = styled(Flex)`
+  justify-content: space-between;
+  border-bottom: 1px solid ${(props) => props.theme.colors.border.secondary};
+  margin: 1rem 0 0.6rem;
+  padding-bottom: 0.2rem;
+`;
+
+export { StyledTitle, StyledRecentMovies, StyledLink, StyledHeading };
