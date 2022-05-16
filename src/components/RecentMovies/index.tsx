@@ -1,17 +1,17 @@
 import React from 'react';
 import { HTTPError } from 'ky';
+
 import { useQuery } from 'react-query';
 import useAuthentication from '../../hooks/useAuthentication';
 import useGenericHttpError from '../../hooks/useGenericHttpError';
-import { StyledLink, StyledRecentMovies, StyledTitle } from './style';
 import PosterTooltip from '../PosterTooltip';
 import { MovieFromPage } from '../../models/movies';
 import { Grid } from '../common/Grid';
 import { fetchPage } from '../../services/api/page';
-import { Flex } from '../common/Flex';
 import { NoData } from '../NoData';
 import ErrorText from '../ErrorText';
 import { Link } from 'react-router-dom';
+import HomeSectionHeading from '../HomeSectionHeading';
 
 export type RecentMoviesProps = {
   limit: number;
@@ -54,11 +54,8 @@ const RecentMovies = ({ limit }: RecentMoviesProps) => {
   }
 
   return (
-    <StyledRecentMovies>
-      <Flex justifyContent={'space-between'} margin={'1rem 0'}>
-        <StyledTitle>Recently added</StyledTitle>
-        <StyledLink to={'/films'}>More</StyledLink>
-      </Flex>
+    <div>
+      <HomeSectionHeading title={'Recently added'} morePath={'/films'} />
       {data?.content.length ? (
         <Grid gap={'0.5rem'} columnSize={colSize}>
           {data?.content.map((movie) => (
@@ -81,7 +78,7 @@ const RecentMovies = ({ limit }: RecentMoviesProps) => {
       ) : (
         <NoData>No recently added movies found.</NoData>
       )}
-    </StyledRecentMovies>
+    </div>
   );
 };
 

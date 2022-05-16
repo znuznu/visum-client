@@ -1,17 +1,17 @@
 import React from 'react';
+
 import { HTTPError } from 'ky';
 import { useQuery } from 'react-query';
 import useAuthentication from '../../hooks/useAuthentication';
 import useGenericHttpError from '../../hooks/useGenericHttpError';
-import { StyledReviews, StyledRecentReviews } from './style';
+import { StyledReviews } from './style';
 import { ReviewFromPage } from '../../models/reviews';
 import PageReview from '../PageReview';
 import { Separator } from '../common/Separator';
 import { fetchPage } from '../../services/api/page';
 import { NoData } from '../NoData';
 import ErrorText from '../ErrorText';
-import { StyledTitle } from '../MoviesToWatch/style';
-import { Flex } from '../common/Flex';
+import HomeSectionHeading from '../HomeSectionHeading';
 
 export type RecentReviewsProps = {
   limit: number;
@@ -52,11 +52,9 @@ const RecentReviews = ({ limit }: RecentReviewsProps) => {
   }
 
   return (
-    <StyledRecentReviews>
-      <Flex justifyContent={'space-between'} margin={'1rem 0'}>
-        <StyledTitle>Recent reviews</StyledTitle>
-        {/* TODO MORE button */}
-      </Flex>
+    <div>
+      {/* TODO MORE path */}
+      <HomeSectionHeading title={'Recent reviews'} />
       {data?.content.length ? (
         <StyledReviews>
           {data?.content.map((review, index) => (
@@ -69,7 +67,7 @@ const RecentReviews = ({ limit }: RecentReviewsProps) => {
       ) : (
         <NoData>No recent reviews found.</NoData>
       )}
-    </StyledRecentReviews>
+    </div>
   );
 };
 

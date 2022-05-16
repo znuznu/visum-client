@@ -1,19 +1,20 @@
-import { HTTPError } from 'ky';
 import React from 'react';
+
+import { HTTPError } from 'ky';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
+
 import { API_URL } from '../../config';
 import useAuthentication from '../../hooks/useAuthentication';
 import useGenericHttpError from '../../hooks/useGenericHttpError';
 import { MovieFromPage } from '../../models/movies';
 import { Page } from '../../models/page';
 import HttpService from '../../services/http';
-import { Flex } from '../common/Flex';
 import { Grid } from '../common/Grid';
 import ErrorText from '../ErrorText';
 import { NoData } from '../NoData';
 import PosterTooltip from '../PosterTooltip';
-import { StyledTitle, StyledLink, StyledMoviesToWatch } from './style';
+import HomeSectionHeading from '../HomeSectionHeading';
 
 type MoviesToWatchProps = {
   limit: number;
@@ -55,11 +56,8 @@ const MoviesToWatch = ({ limit }: MoviesToWatchProps) => {
   }
 
   return (
-    <StyledMoviesToWatch>
-      <Flex justifyContent={'space-between'} margin={'1rem 0'}>
-        <StyledTitle>To watch</StyledTitle>
-        <StyledLink to={'/films?isToWatch=true'}>More</StyledLink>
-      </Flex>
+    <div>
+      <HomeSectionHeading title={'To watch'} morePath={'/fims?isToWatch=true'} />
       {data?.content.length ? (
         <Grid gap={'0.5rem'} columnSize={colSize}>
           {data?.content.map((movie) => (
@@ -82,7 +80,7 @@ const MoviesToWatch = ({ limit }: MoviesToWatchProps) => {
       ) : (
         <NoData>No movies to watch found.</NoData>
       )}
-    </StyledMoviesToWatch>
+    </div>
   );
 };
 
