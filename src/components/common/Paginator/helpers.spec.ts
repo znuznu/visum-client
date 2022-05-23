@@ -1,11 +1,12 @@
+import { expect, test } from 'vitest';
 import { getPageRangeLabel } from './helpers';
 
-describe('Paginator helpers', () => {
-  describe('#getPageRangeLabel', () => {
-    describe('with current index starting at 0', () => {
+test('Paginator helpers', () => {
+  test('#getPageRangeLabel', () => {
+    test('with current index starting at 0', () => {
       const startIndex = 0;
 
-      describe('when the page is the first one', () => {
+      test('when the page is the first one', () => {
         it('should return page starting with one', () => {
           expect(
             getPageRangeLabel(
@@ -24,7 +25,7 @@ describe('Paginator helpers', () => {
         });
       });
 
-      describe('when the page is not a first or last one', () => {
+      test('when the page is not a first or last one', () => {
         it('should return page according to the offset', () => {
           expect(
             getPageRangeLabel(
@@ -43,7 +44,7 @@ describe('Paginator helpers', () => {
         });
       });
 
-      describe('when the page is the last one', () => {
+      test('when the page is the last one', () => {
         it('should return label with the rest', () => {
           expect(
             getPageRangeLabel(
@@ -62,7 +63,7 @@ describe('Paginator helpers', () => {
         });
       });
 
-      describe('when the page is empty', () => {
+      test('when the page is empty', () => {
         it('should return the empty label', () => {
           expect(
             getPageRangeLabel(
@@ -82,10 +83,10 @@ describe('Paginator helpers', () => {
       });
     });
 
-    describe('with current index starting at 1', () => {
+    test('with current index starting at 1', () => {
       const startIndex = 1;
 
-      describe('when the page is the first one', () => {
+      test('when the page is the first one', () => {
         it('should return page starting with one', () => {
           expect(
             getPageRangeLabel(
@@ -104,7 +105,7 @@ describe('Paginator helpers', () => {
         });
       });
 
-      describe('when the page is not a first or last one', () => {
+      test('when the page is not a first or last one', () => {
         it('should return page according to the offset', () => {
           expect(
             getPageRangeLabel(
@@ -123,7 +124,7 @@ describe('Paginator helpers', () => {
         });
       });
 
-      describe('when the page is the last one', () => {
+      test('when the page is the last one', () => {
         it('should return label with the rest', () => {
           expect(
             getPageRangeLabel(
@@ -142,7 +143,7 @@ describe('Paginator helpers', () => {
         });
       });
 
-      describe('when the page is empty', () => {
+      test('when the page is empty', () => {
         it('should return the empty label', () => {
           expect(
             getPageRangeLabel(

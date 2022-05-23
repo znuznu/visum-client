@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import * as jwt from 'jose';
+
 import { JWT_TOKEN_KEY } from '../config';
-import jwt from 'jsonwebtoken';
 import useLocalStorage from './useLocalStorage';
 
 const useAuthentication = () => {
@@ -9,14 +10,9 @@ const useAuthentication = () => {
 
   const isAuthenticated = () => {
     if (jwtToken) {
-      const decodedToken = jwt.decode(jwtToken, {
-        complete: true,
-        json: true
-      });
+      const decodedToken = jwt.decodeJwt(jwtToken);
 
-      return decodedToken?.payload.exp
-        ? decodedToken.payload.exp * 1000 > Date.now()
-        : false;
+      return decodedToken.exp ? decodedToken.exp * 1000 > Date.now() : false;
     }
 
     return false;
