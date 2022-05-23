@@ -21,7 +21,7 @@
     "chart.js": "3.7.0",
     "formik": "2.2.9",
     "graphql": "16.3.0",
-    "jsonwebtoken": "8.5.1",
+    "jose": "4.8.1",
     "ky": "0.28.5",
     "react": "17.0.2",
     "react-chartjs-2": "4.0.1",
@@ -29,35 +29,29 @@
     "react-icons": "4.3.1",
     "react-query": "3.23.2",
     "react-router-dom": "6.0.2",
-    "react-scripts": "4.0.3",
-    "styled-components": "5.3.0",
-    "typescript": "4.3.5",
-    "web-vitals": "1.1.2"
+    "styled-components": "5.3.0"
   },
   "devDependencies": {
     "@types/jest": "26.0.24",
-    "@types/jsonwebtoken": "8.5.6",
     "@types/node": "12.20.19",
     "@types/react": "17.0.16",
     "@types/react-dom": "17.0.9",
     "@types/styled-components": "5.1.12",
+    "@vitejs/plugin-react": "1.3.0",
     "husky": "7.0.1",
     "lint-staged": "11.1.2",
-    "prettier": "2.3.2"
+    "prettier": "2.3.2",
+    "typescript": "4.6.3",
+    "vite": "2.9.9",
+    "vitest": "0.12.9"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "dev": "vite",
+    "test": "vitest",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
     "prepare": "husky install",
     "fmt": "prettier --write --config .prettierrc \"src/**/*{.tsx, .ts}\""
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
