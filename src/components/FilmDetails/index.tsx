@@ -1,9 +1,10 @@
 import { Flex } from 'components/common/Flex';
 import { StyledSectionTitle } from 'components/Film/style';
+
 import {
-  StyledDetailsRow,
   StyledDetailsBody,
   StyledDetailsData,
+  StyledDetailsRow,
   StyledDetailsTable
 } from './style';
 

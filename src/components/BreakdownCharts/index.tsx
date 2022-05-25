@@ -1,15 +1,18 @@
 import { Fragment } from 'react';
+
 import { Pair } from 'models/helpers';
+
 import StatisticsSectionHeader from 'components/StatisticsSectionHeader';
 import { Flex } from 'components/common/Flex';
+import { NoData } from 'components/NoData';
+
 import {
-  StyledBreakdownCharts,
+  StyledBarDetails,
   StyledBarLabel,
   StyledBarValue,
-  StyledBarDetails,
+  StyledBreakdownCharts,
   StyledGrid
 } from './style';
-import { NoData } from 'components/NoData';
 
 interface BreakdownChartsProps {
   perLanguage?: Pair<string, number>[];

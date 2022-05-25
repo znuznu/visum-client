@@ -1,7 +1,7 @@
 import {
-  ChevronUpIcon as RadixChevronUpIcon,
+  CheckIcon as RadixCheckIcon,
   ChevronDownIcon as RadixChevronDownIcon,
-  CheckIcon as RadixCheckIcon
+  ChevronUpIcon as RadixChevronUpIcon
 } from '@radix-ui/react-icons';
 import * as SelectPrimitive from '@radix-ui/react-select';
 import styled from 'styled-components';

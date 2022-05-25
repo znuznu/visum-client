@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { StyledScrollArea } from 'components/common/ScrollArea/style';
 
 const StyledTitle = styled.h2`

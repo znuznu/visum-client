@@ -1,15 +1,18 @@
 import React, { ReactEventHandler } from 'react';
+// eslint-disable-next-line
 import { CheckedState } from '@radix-ui/react-checkbox';
-import {
-  CheckboxStyleProps,
-  CheckIcon,
-  StyledCheckbox,
-  StyledCheckboxIndicator
-} from './style';
+
 import { AccessibleIcon } from 'components/common/AccessibleIcon';
 import { Flex } from 'components/common/Flex';
 import { Label } from 'components/common/Label';
 import { HTMLAttributes } from 'components/system/system.types';
+
+import {
+  CheckIcon,
+  CheckboxStyleProps,
+  StyledCheckbox,
+  StyledCheckboxIndicator
+} from './style';
 
 export interface CheckProps extends CheckboxStyleProps, HTMLAttributes {
   ariaLabel: string;

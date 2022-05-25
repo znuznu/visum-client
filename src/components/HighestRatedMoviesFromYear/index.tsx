@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
+
+import { StatsMovie } from 'models/statistics';
+
 import { Flex } from 'components/common/Flex';
 import { Grid } from 'components/common/Grid';
 import PosterTooltip from 'components/PosterTooltip';
-import { StatsMovie } from 'models/statistics';
 import StatisticsSectionHeader from 'components/StatisticsSectionHeader';
 import { NoData } from 'components/NoData';
 

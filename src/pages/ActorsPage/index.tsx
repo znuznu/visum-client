@@ -1,18 +1,22 @@
 import { Fragment, useState } from 'react';
 import { HTTPError } from 'ky';
-
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
+
+import { Page } from 'models/page';
+import { PageActor } from 'models/person';
+
+import { fetchPage } from 'services/api/page';
+
 import Input from 'components/common/Input';
 import Paginator from 'components/common/Paginator';
 import { Separator } from 'components/common/Separator';
 import ErrorText from 'components/ErrorText';
 import { NoData } from 'components/NoData';
+
 import useAuthentication from 'hooks/useAuthentication';
 import useGenericHttpError from 'hooks/useGenericHttpError';
-import { Page } from 'models/page';
-import { PageActor } from 'models/person';
-import { fetchPage } from 'services/api/page';
+
 import { StyledPerson, StyledPersons, StyledSearchBar } from './style';
 
 const buildSearchQuery = (search: string) => {

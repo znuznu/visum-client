@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+
 import { Flex } from 'components/common/Flex';
 
 const StyledRecentMovies = styled.div``;

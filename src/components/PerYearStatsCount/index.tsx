@@ -1,8 +1,8 @@
 import {
   StyledCount,
   StyledEntity,
-  StyledStatsCount,
-  StyledPerYearStatsCount
+  StyledPerYearStatsCount,
+  StyledStatsCount
 } from './style';
 
 interface PerYearStatsCountProps {

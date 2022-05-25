@@ -1,22 +1,24 @@
 import { useState } from 'react';
+
 import { Flex } from 'components/common/Flex';
 import {
   Tooltip,
-  TooltipTrigger,
   TooltipArrow,
-  TooltipContent
+  TooltipContent,
+  TooltipTrigger
 } from 'components/common/Tooltip';
 import EmptyPoster from 'components/EmptyPoster';
 import Poster from 'components/Poster';
 import { StyledPosterProps } from 'components/Poster/style';
+
 import {
-  GradeIcon,
   FavoriteIcon,
+  GradeIcon,
+  NotFavoriteIcon,
+  NotToWatchIcon,
   StyledPosterContent,
   StyledUserMetadata,
-  NotFavoriteIcon,
-  ToWatchIcon,
-  NotToWatchIcon
+  ToWatchIcon
 } from './style';
 
 export type PosterTooltipProps = {

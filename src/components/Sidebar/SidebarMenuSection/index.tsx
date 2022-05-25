@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+
 import StyledMenuSection from './style';
 
 type SidebarMenuSectionProps = {

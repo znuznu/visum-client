@@ -2,6 +2,12 @@ import { HTTPError } from 'ky';
 import { useState } from 'react';
 import { useQuery } from 'react-query';
 import { Link, useSearchParams } from 'react-router-dom';
+
+import { MovieFromPage } from 'models/movies';
+import { Page } from 'models/page';
+
+import { fetchPage } from 'services/api/page';
+
 import Checkbox from 'components/common/Checkbox';
 import { Flex } from 'components/common/Flex';
 import { Grid } from 'components/common/Grid';
@@ -10,27 +16,21 @@ import Paginator from 'components/common/Paginator';
 import ErrorText from 'components/ErrorText';
 import { NoData } from 'components/NoData';
 import PosterTooltip from 'components/PosterTooltip';
-import useAuthentication from 'hooks/useAuthentication';
-import useGenericHttpError from 'hooks/useGenericHttpError';
-import { MovieFromPage } from 'models/movies';
-import { Page } from 'models/page';
-import { fetchPage } from 'services/api/page';
-import { StyledMovies, StyledOptions, StyledSearchBar } from './style';
 import {
-  SelectScrollUpButton,
   Select,
   SelectContent,
-  SelectIcon,
-  SelectValue,
-  SelectViewport,
   SelectGroup,
-  SelectLabel,
+  SelectIcon,
   SelectItem,
-  SelectItemText,
   SelectItemIndicator,
-  SelectSeparator,
+  SelectItemText,
+  SelectLabel,
   SelectScrollDownButton,
-  SelectTrigger
+  SelectScrollUpButton,
+  SelectSeparator,
+  SelectTrigger,
+  SelectValue,
+  SelectViewport
 } from 'components/common/Select';
 import {
   CheckIcon,
@@ -38,6 +38,11 @@ import {
   ChevronUpIcon
 } from 'components/common/Select/style';
 import { Label } from 'components/common/Label';
+
+import useGenericHttpError from 'hooks/useGenericHttpError';
+import useAuthentication from 'hooks/useAuthentication';
+
+import { StyledMovies, StyledOptions, StyledSearchBar } from './style';
 
 const buildSearchQuery = (title: string, isFavorite: boolean, isToWatch: boolean) => {
   let query = `title=%${title}%`;

@@ -1,4 +1,5 @@
 import { AccessibleIcon } from 'components/common/AccessibleIcon';
+
 import { EmptyPosterStyleProps, StyledEmptyPoster, StyledNoPosterIcon } from './style';
 
 export type EmptyPosterProps = EmptyPosterStyleProps & {

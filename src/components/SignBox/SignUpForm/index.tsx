@@ -2,13 +2,16 @@ import { useState } from 'react';
 import { useFormik } from 'formik';
 import { useMutation } from 'react-query';
 
+import { SignUpRequestBody, signUp } from 'services/api/sign';
+
 import Button from 'components/common/Button';
 import Input from 'components/common/Input';
-import StyledForm from './style';
-import { validate } from './validate';
-import { signUp, SignUpRequestBody } from 'services/api/sign';
 import HttpError from 'components/common/HttpError';
+
 import { VisumHttpError } from 'errors/errors';
+
+import { validate } from './validate';
+import StyledForm from './style';
 
 export interface FormValues {
   username: string;

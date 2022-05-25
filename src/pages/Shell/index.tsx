@@ -1,5 +1,7 @@
 import { Outlet } from 'react-router-dom';
+
 import Sidebar from 'components/Sidebar';
+
 import Content from './Content';
 import StyledShell from './style';
 

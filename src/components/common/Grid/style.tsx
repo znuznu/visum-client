@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { StyleProps } from 'components/system/system.types';
 
 export type GridStyleProps = {

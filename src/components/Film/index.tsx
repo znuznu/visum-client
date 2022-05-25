@@ -1,33 +1,37 @@
 import { Fragment, useState } from 'react';
 import { HTTPError } from 'ky';
-
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router';
+
+import { Movie } from 'models/movies';
+
+import { fetchMovie } from 'services/api/movie';
+
 import { Flex } from 'components/common/Flex';
 import { Separator } from 'components/common/Separator';
 import EditableReview from 'components/EditableReview';
 import EmptyPoster from 'components/EmptyPoster';
 import MovieActionsPanel from 'components/MovieActionsPanel';
-import useAuthentication from 'hooks/useAuthentication';
-import useGenericHttpError from 'hooks/useGenericHttpError';
-import { Movie } from 'models/movies';
-import { fetchMovie } from 'services/api/movie';
 import ErrorText from 'components/ErrorText';
 import FilmDetails from 'components/FilmDetails';
 import WatchDates from 'components/WatchDates';
+
+import useGenericHttpError from 'hooks/useGenericHttpError';
+import useAuthentication from 'hooks/useAuthentication';
+
 import {
-  StyledPerson,
+  StyledFilm,
   StyledLink,
+  StyledMovieContent,
   StyledMovieTitle,
   StyledOverview,
+  StyledPerson,
   StyledReleaseDate,
-  StyledTagline,
-  StyledSectionTitle,
-  StyledMovieContent,
-  StyledSectionContent,
+  StyledResponsivePoster,
   StyledSection,
-  StyledFilm,
-  StyledResponsivePoster
+  StyledSectionContent,
+  StyledSectionTitle,
+  StyledTagline
 } from './style';
 
 interface FilmProps {

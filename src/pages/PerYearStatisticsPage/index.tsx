@@ -1,15 +1,8 @@
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router';
-import useAuthentication from 'hooks/useAuthentication';
 
 import { fetchYearStatistics } from 'services/api/statistics';
-import {
-  NextIcon,
-  PreviousIcon,
-  StyledLink,
-  StyledPerYearStatistics,
-  StyledYearTitle
-} from './style';
+
 import PerYearStatsCount from 'components/PerYearStatsCount';
 import BreakdownCharts from 'components/BreakdownCharts';
 import HighestRatedMoviesFromYear from 'components/HighestRatedMoviesFromYear';
@@ -17,6 +10,16 @@ import ErrorText from 'components/ErrorText';
 import { Flex } from 'components/common/Flex';
 import Button from 'components/common/Button';
 import { AccessibleIcon } from 'components/common/AccessibleIcon';
+
+import useAuthentication from 'hooks/useAuthentication';
+
+import {
+  NextIcon,
+  PreviousIcon,
+  StyledLink,
+  StyledPerYearStatistics,
+  StyledYearTitle
+} from './style';
 
 const MIN_YEAR = 1900;
 
