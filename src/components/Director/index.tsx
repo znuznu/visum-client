@@ -2,15 +2,15 @@ import { Fragment, useState } from 'react';
 import { HTTPError } from 'ky';
 import { useQuery } from 'react-query';
 
-import useAuthentication from '../../hooks/useAuthentication';
-import useGenericHttpError from '../../hooks/useGenericHttpError';
-import { Director as DirectorModel } from '../../models/person';
-import { fetchDirector } from '../../services/api/person';
-import ErrorText from '../ErrorText';
-import { Flex } from '../common/Flex';
+import useAuthentication from 'hooks/useAuthentication';
+import useGenericHttpError from 'hooks/useGenericHttpError';
+import { Director as DirectorModel } from 'models/person';
+import { fetchDirector } from 'services/api/person';
+import ErrorText from 'components/ErrorText';
+import { Flex } from 'components/common/Flex';
 import { StyledName } from './style';
-import PersonMovie from '../PersonMovie';
-import { Separator } from '../common/Separator';
+import PersonMovie from 'components/PersonMovie';
+import { Separator } from 'components/common/Separator';
 
 const Director = ({ id }: { id: number }) => {
   const { jwtToken } = useAuthentication();

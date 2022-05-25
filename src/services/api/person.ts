@@ -1,6 +1,6 @@
-import { API_URL } from '../../config';
-import { Actor, Director } from '../../models/person';
-import HttpService from '../http';
+import { API_URL } from 'config';
+import { Actor, Director } from 'models/person';
+import HttpService from 'services/http';
 
 export const fetchDirector = async (
   headers: Record<string, string>,

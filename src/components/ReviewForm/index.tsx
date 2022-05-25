@@ -1,17 +1,17 @@
 import { Formik } from 'formik';
 import { useMutation } from 'react-query';
-import useAuthentication from '../../hooks/useAuthentication';
-import { Review } from '../../models/reviews';
+import useAuthentication from 'hooks/useAuthentication';
+import { Review } from 'models/reviews';
 import {
   updateReview,
   createReview,
   CreateReviewRequestBody,
   UpdateReviewRequestBody
-} from '../../services/api/review';
-import Button from '../common/Button';
-import Input from '../common/Input';
-import TextArea from '../common/TextArea';
-import { StyledForm } from '../SignBox/SignInForm/style';
+} from 'services/api/review';
+import Button from 'components/common/Button';
+import Input from 'components/common/Input';
+import TextArea from 'components/common/TextArea';
+import { StyledForm } from 'components/SignBox/SignInForm/style';
 import { validate } from './validate';
 
 export interface FormValues {

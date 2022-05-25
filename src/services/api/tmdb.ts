@@ -1,7 +1,7 @@
-import { API_URL } from '../../config';
-import { Page } from '../../models/page';
-import { TmdbMovie, TmdbPageMovie } from '../../models/tmdb';
-import HttpService from '../http';
+import { API_URL } from 'config';
+import { Page } from 'models/page';
+import { TmdbMovie, TmdbPageMovie } from 'models/tmdb';
+import HttpService from 'services/http';
 
 interface PageSearchParams {
   search: string;

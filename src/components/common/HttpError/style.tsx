@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { ExclamationTriangleIcon } from '@radix-ui/react-icons';
 
-import { StyleProps } from '../../system/system.types';
+import { StyleProps } from 'components/system/system.types';
 
 export type HttpErrorStyleProps = Pick<StyleProps, 'margin'>;
 

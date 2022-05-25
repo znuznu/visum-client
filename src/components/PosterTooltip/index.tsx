@@ -1,9 +1,14 @@
 import { useState } from 'react';
-import { Flex } from '../common/Flex';
-import { Tooltip, TooltipTrigger, TooltipArrow, TooltipContent } from '../common/Tooltip';
-import EmptyPoster from '../EmptyPoster';
-import Poster from '../Poster';
-import { StyledPosterProps } from '../Poster/style';
+import { Flex } from 'components/common/Flex';
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipArrow,
+  TooltipContent
+} from 'components/common/Tooltip';
+import EmptyPoster from 'components/EmptyPoster';
+import Poster from 'components/Poster';
+import { StyledPosterProps } from 'components/Poster/style';
 import {
   GradeIcon,
   FavoriteIcon,

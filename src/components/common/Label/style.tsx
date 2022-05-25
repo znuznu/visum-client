@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import * as LabelPrimitive from '@radix-ui/react-label';
-import { StyleProps } from '../../system/system.types';
+import { StyleProps } from 'components/system/system.types';
 
 export type LabelStyleProps = Pick<StyleProps, 'margin'>;
 

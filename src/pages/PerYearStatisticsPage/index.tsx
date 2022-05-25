@@ -1,8 +1,8 @@
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router';
-import useAuthentication from '../../hooks/useAuthentication';
+import useAuthentication from 'hooks/useAuthentication';
 
-import { fetchYearStatistics } from '../../services/api/statistics';
+import { fetchYearStatistics } from 'services/api/statistics';
 import {
   NextIcon,
   PreviousIcon,
@@ -10,13 +10,13 @@ import {
   StyledPerYearStatistics,
   StyledYearTitle
 } from './style';
-import PerYearStatsCount from '../../components/PerYearStatsCount';
-import BreakdownCharts from '../../components/BreakdownCharts';
-import HighestRatedMoviesFromYear from '../../components/HighestRatedMoviesFromYear';
-import ErrorText from '../../components/ErrorText';
-import { Flex } from '../../components/common/Flex';
-import Button from '../../components/common/Button';
-import { AccessibleIcon } from '../../components/common/AccessibleIcon';
+import PerYearStatsCount from 'components/PerYearStatsCount';
+import BreakdownCharts from 'components/BreakdownCharts';
+import HighestRatedMoviesFromYear from 'components/HighestRatedMoviesFromYear';
+import ErrorText from 'components/ErrorText';
+import { Flex } from 'components/common/Flex';
+import Button from 'components/common/Button';
+import { AccessibleIcon } from 'components/common/AccessibleIcon';
 
 const MIN_YEAR = 1900;
 

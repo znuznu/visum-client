@@ -1,9 +1,9 @@
-import { DiaryMonth as DiaryMonthType } from '../../models/diary';
+import { DiaryMonth as DiaryMonthType } from 'models/diary';
 
 import { StyledThead } from './style';
 import DiaryMonth from './DiaryMonth';
-import useWindowSize from '../../hooks/useWindowSize';
-import { S_BREAKPOINT_IN_PIXEL } from '../../styles/theme/breakpoints';
+import useWindowSize from 'hooks/useWindowSize';
+import { S_BREAKPOINT_IN_PIXEL } from 'styles/theme/breakpoints';
 
 type DiaryYearProps = {
   months: DiaryMonthType[];

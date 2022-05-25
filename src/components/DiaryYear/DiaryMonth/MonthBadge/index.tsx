@@ -1,4 +1,4 @@
-import { Month } from '../../../../models/diary';
+import { Month } from 'models/diary';
 
 import { StyledMonth } from './style';
 

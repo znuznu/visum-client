@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 
-import ThemeContext from '../../providers/ThemeProvider';
-import useTheme from '../../hooks/useTheme';
-import Button from '../common/Button';
+import ThemeContext from 'providers/ThemeProvider';
+import useTheme from 'hooks/useTheme';
+import Button from 'components/common/Button';
 import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
 
 const ThemeSwitcher = () => {

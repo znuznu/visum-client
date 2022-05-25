@@ -3,7 +3,7 @@ import { TabsContent } from '@radix-ui/react-tabs';
 import Container from './style';
 import SignInForm from './SignInForm';
 import SignUpForm from './SignUpForm';
-import { Tabs, TabsList, TabsTrigger } from '../common/Tabs';
+import { Tabs, TabsList, TabsTrigger } from 'components/common/Tabs';
 
 const SignBox = () => {
   return (

@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 
-import Film from '../../components/Film';
+import Film from 'components/Film';
 
 const invariant = (movieId?: string) => {
   if (!movieId) {

@@ -1,7 +1,7 @@
 import { AccessibleIcon } from '@radix-ui/react-accessible-icon';
 import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons';
-import { Page } from '../../../models/page';
-import Button from '../Button';
+import { Page } from 'models/page';
+import Button from 'components/common/Button';
 import { StyledPageSize, StyledPaginator, StyledRangeLabel } from './style';
 import { getPageRangeLabel } from './helpers';
 

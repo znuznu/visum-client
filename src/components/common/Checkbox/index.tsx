@@ -1,15 +1,15 @@
 import React, { ReactEventHandler } from 'react';
+import { CheckedState } from '@radix-ui/react-checkbox';
 import {
   CheckboxStyleProps,
   CheckIcon,
   StyledCheckbox,
   StyledCheckboxIndicator
 } from './style';
-import { AccessibleIcon } from '../AccessibleIcon';
-import { Flex } from '../Flex';
-import { Label } from '../Label';
-import { HTMLAttributes } from '../../system/system.types';
-import { CheckedState } from '@radix-ui/react-checkbox';
+import { AccessibleIcon } from 'components/common/AccessibleIcon';
+import { Flex } from 'components/common/Flex';
+import { Label } from 'components/common/Label';
+import { HTMLAttributes } from 'components/system/system.types';
 
 export interface CheckProps extends CheckboxStyleProps, HTMLAttributes {
   ariaLabel: string;

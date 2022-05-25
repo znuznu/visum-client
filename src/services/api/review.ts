@@ -1,6 +1,6 @@
-import { API_URL } from '../../config';
-import { Review } from '../../models/reviews';
-import HttpService from '../http';
+import { API_URL } from 'config';
+import { Review } from 'models/reviews';
+import HttpService from 'services/http';
 
 export interface CreateReviewRequestBody {
   grade: number;

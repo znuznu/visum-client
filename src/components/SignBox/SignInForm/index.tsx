@@ -2,15 +2,15 @@ import { useState } from 'react';
 import { useFormik } from 'formik';
 import { useMutation } from 'react-query';
 
-import Button from '../../common/Button';
-import Input from '../../common/Input';
+import Button from 'components/common/Button';
+import Input from 'components/common/Input';
 import { StyledForm } from './style';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../../providers/AuthProvider';
+import { useAuth } from 'providers/AuthProvider';
 import { validate } from './validate';
-import { signIn, SignInRequestBody } from '../../../services/api/sign';
-import HttpError from '../../common/HttpError';
-import { VisumHttpError } from '../../../errors/errors';
+import { signIn, SignInRequestBody } from 'services/api/sign';
+import HttpError from 'components/common/HttpError';
+import { VisumHttpError } from 'errors/errors';
 
 export interface FormValues {
   username: string;

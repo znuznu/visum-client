@@ -1,5 +1,5 @@
-import { AccessibleIcon } from '../AccessibleIcon';
-import { VisumHttpError } from '../../../errors/errors';
+import { AccessibleIcon } from 'components/common/AccessibleIcon';
+import { VisumHttpError } from 'errors/errors';
 import {
   HttpErrorStyleProps,
   StyledError,

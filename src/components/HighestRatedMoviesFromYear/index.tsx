@@ -1,10 +1,10 @@
-import { Flex } from '../common/Flex';
-import { Grid } from '../common/Grid';
-import PosterTooltip from '../PosterTooltip';
-import { StatsMovie } from '../../models/statistics';
-import StatisticsSectionHeader from '../StatisticsSectionHeader';
-import { NoData } from '../NoData';
 import { Link } from 'react-router-dom';
+import { Flex } from 'components/common/Flex';
+import { Grid } from 'components/common/Grid';
+import PosterTooltip from 'components/PosterTooltip';
+import { StatsMovie } from 'models/statistics';
+import StatisticsSectionHeader from 'components/StatisticsSectionHeader';
+import { NoData } from 'components/NoData';
 
 interface HighestRatedMoviesFromYearProps {
   released: StatsMovie[];

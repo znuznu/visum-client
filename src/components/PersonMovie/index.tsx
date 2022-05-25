@@ -1,4 +1,4 @@
-import { Flex } from '../common/Flex';
+import { Flex } from 'components/common/Flex';
 
 import { StyledMovieTitle, StyledPersonMovie, StyledReleaseDate } from './style';
 

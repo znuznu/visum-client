@@ -1,6 +1,6 @@
-import { API_URL } from '../../config';
-import { Movie } from '../../models/movies';
-import HttpService from '../http';
+import { API_URL } from 'config';
+import { Movie } from 'models/movies';
+import HttpService from 'services/http';
 
 export const fetchMovie = async (
   headers: Record<string, string>,

@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 import { Navigate } from 'react-router-dom';
-import { useAuth } from '../../../providers/AuthProvider';
+import { useAuth } from 'providers/AuthProvider';
 
 const Guard = ({ children }: { children: ReactElement }) => {
   const { isAuthenticated } = useAuth();

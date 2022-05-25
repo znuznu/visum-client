@@ -1,10 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
 
-import Archivo from '../fonts/archivo/archivo-v8-latin.woff';
-import Archivo2 from '../fonts/archivo/archivo-v8-latin.woff2';
+import Archivo from 'styles/fonts/archivo/archivo-v8-latin.woff';
+import Archivo2 from 'styles/fonts/archivo/archivo-v8-latin.woff2';
 
-import OpenSans from '../fonts/open-sans/open-sans-v27-latin-regular.woff';
-import OpenSans2 from '../fonts/open-sans/open-sans-v27-latin-regular.woff2';
+import OpenSans from 'styles/fonts/open-sans/open-sans-v27-latin-regular.woff';
+import OpenSans2 from 'styles/fonts/open-sans/open-sans-v27-latin-regular.woff2';
 
 const GlobalStyle = createGlobalStyle`
   /*** The new CSS Reset - version 1.2.0 (last updated 23.7.2021) ***/

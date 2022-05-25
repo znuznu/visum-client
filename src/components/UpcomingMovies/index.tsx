@@ -2,20 +2,20 @@ import { HTTPError } from 'ky';
 import { useState } from 'react';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
-import useAuthentication from '../../hooks/useAuthentication';
-import useGenericHttpError from '../../hooks/useGenericHttpError';
-import { Page } from '../../models/page';
-import { TmdbPageMovie } from '../../models/tmdb';
-import { fetchUpcomingMovies } from '../../services/api/tmdb';
-import { Flex } from '../common/Flex';
+import useAuthentication from 'hooks/useAuthentication';
+import useGenericHttpError from 'hooks/useGenericHttpError';
+import { Page } from 'models/page';
+import { TmdbPageMovie } from 'models/tmdb';
+import { fetchUpcomingMovies } from 'services/api/tmdb';
+import { Flex } from 'components/common/Flex';
 import {
   ScrollAreaThumb,
   ScrollAreaScrollbar,
   ScrollAreaViewport
-} from '../common/ScrollArea';
-import ErrorText from '../ErrorText';
-import { NoData } from '../NoData';
-import PosterTooltip from '../PosterTooltip';
+} from 'components/common/ScrollArea';
+import ErrorText from 'components/ErrorText';
+import { NoData } from 'components/NoData';
+import PosterTooltip from 'components/PosterTooltip';
 import { StyledTitle, StyledUpcomingMovies, StyledScrollArea } from './style';
 
 const UpcomingMovies = () => {

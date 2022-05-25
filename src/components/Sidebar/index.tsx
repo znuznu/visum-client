@@ -15,16 +15,16 @@ import SidebarMenu from './SidebarMenu';
 import SidebarMenuSection from './SidebarMenuSection';
 import SidebarMenuSectionTitle from './SidebarMenuSectionTitle';
 import StyledSidebar from './style';
-import { Separator } from '../common/Separator';
+import { Separator } from 'components/common/Separator';
 import SidebarMenuItemLink from './SidebarMenuItemLink';
 import SidebarMenuItem from './SidebarMenuItem';
-import Logout from '../Logout';
-import useWindowSize from '../../hooks/useWindowSize';
+import Logout from 'components/Logout';
+import useWindowSize from 'hooks/useWindowSize';
 import SidebarHeader from './SidebarHeader';
-import Button from '../common/Button';
-import { AccessibleIcon } from '../common/AccessibleIcon';
-import { M_BREAKPOINT_IN_PIXEL } from '../../styles/theme/breakpoints';
-import ThemeSwitcher from '../ThemeSwitcher';
+import Button from 'components/common/Button';
+import { AccessibleIcon } from 'components/common/AccessibleIcon';
+import { M_BREAKPOINT_IN_PIXEL } from 'styles/theme/breakpoints';
+import ThemeSwitcher from 'components/ThemeSwitcher';
 
 const Sidebar = () => {
   const windowSize = useWindowSize();
