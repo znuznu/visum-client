@@ -1,4 +1,3 @@
-import React from 'react';
 import { TabsContent } from '@radix-ui/react-tabs';
 
 import Container from './style';

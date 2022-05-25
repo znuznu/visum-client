@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import { Fragment, useState } from 'react';
 import { HTTPError } from 'ky';
 
 import { useQuery } from 'react-query';
@@ -44,7 +44,7 @@ const ActorsPage = () => {
           sort: 'name,ASC',
           search: buildSearchQuery(search),
           limit: 30,
-          offset: offset
+          offset
         }
       ),
     {

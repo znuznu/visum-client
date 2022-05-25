@@ -8,7 +8,6 @@ const StyledPageReview = styled(Link)`
 
   &:visited {
     color: ${(props) => {
-      // @ts-ignore
       return props.theme.colors.primary;
     }};
   }

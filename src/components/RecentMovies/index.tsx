@@ -1,4 +1,3 @@
-import React from 'react';
 import { HTTPError } from 'ky';
 
 import { useQuery } from 'react-query';
@@ -32,7 +31,7 @@ const RecentMovies = ({ limit }: RecentMoviesProps) => {
         {
           sort: 'creationDate,DESC',
           search: 'title=%%',
-          limit: limit,
+          limit,
           offset: 0
         }
       ),

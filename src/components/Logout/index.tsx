@@ -1,4 +1,3 @@
-import React from 'react';
 import { useAuth } from '../../providers/AuthProvider';
 import Button from '../common/Button';
 import { StyledExitIcon, StyledLogout, StyledLogoutText } from './style';

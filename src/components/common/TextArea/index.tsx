@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, FocusEventHandler, ReactEventHandler } from 'react';
+import { ChangeEventHandler, FocusEventHandler, ReactEventHandler } from 'react';
 import InputError from '../InputError';
 import { InputStyleProps, StyledTextArea } from './style';
 
@@ -16,7 +16,6 @@ interface TextAreaProps extends InputStyleProps {
 
 const TextArea = ({
   id,
-  label,
   value,
   name,
   error,

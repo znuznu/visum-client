@@ -1,5 +1,4 @@
-import { HTTPError } from 'ky/distribution/errors/HTTPError';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
 import useAuthentication from '../../hooks/useAuthentication';
 import { WatchDate } from '../../models/watchDate';
@@ -30,7 +29,7 @@ const WatchDates = ({ movieId }: WatchDatesProps) => {
       onSuccess: (data: WatchDate[]) => {
         setWatchDates(data);
       },
-      onError: (error: HTTPError) => {
+      onError: () => {
         // TODO
       }
     }
@@ -38,13 +37,13 @@ const WatchDates = ({ movieId }: WatchDatesProps) => {
 
   const deleteMutation = useMutation(
     'deleteWatchDate',
-    ({ watchDateId, index }: { watchDateId: number; index: number }) =>
+    ({ watchDateId }: { watchDateId: number; index: number }) =>
       deleteWatchDate({ authorization: `Bearer ${jwtToken}` }, watchDateId),
     {
       onSuccess: (_, values) => {
         setWatchDates(watchDates?.filter((_, index) => index !== values.index));
       },
-      onError: (error: HTTPError) => {
+      onError: () => {
         // TODO
       }
     }
@@ -59,7 +58,7 @@ const WatchDates = ({ movieId }: WatchDatesProps) => {
       onSuccess: (data: WatchDate) => {
         setWatchDates([...watchDates, data]);
       },
-      onError: (error: HTTPError) => {
+      onError: () => {
         // TODO
       }
     }

@@ -1,4 +1,3 @@
-import React from 'react';
 import { AccessibleIcon } from '../common/AccessibleIcon';
 import { EmptyPosterStyleProps, StyledEmptyPoster, StyledNoPosterIcon } from './style';
 

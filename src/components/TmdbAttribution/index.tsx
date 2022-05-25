@@ -1,4 +1,3 @@
-import React from 'react';
 import { StyledAttribution, StyledLink } from './style';
 
 const TmdbAttribution = () => {

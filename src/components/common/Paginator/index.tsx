@@ -1,4 +1,3 @@
-import React from 'react';
 import { AccessibleIcon } from '@radix-ui/react-accessible-icon';
 import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons';
 import { Page } from '../../../models/page';

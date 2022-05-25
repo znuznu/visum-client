@@ -1,4 +1,3 @@
-import React from 'react';
 import { useParams } from 'react-router-dom';
 import Director from '../../components/Director';
 import { StyledDirector } from './style';

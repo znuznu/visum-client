@@ -1,5 +1,4 @@
 import { Formik } from 'formik';
-import React from 'react';
 import { useMutation } from 'react-query';
 import useAuthentication from '../../hooks/useAuthentication';
 import { Review } from '../../models/reviews';

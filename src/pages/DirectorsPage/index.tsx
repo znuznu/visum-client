@@ -1,5 +1,5 @@
 import { HTTPError } from 'ky';
-import React, { Fragment, useState } from 'react';
+import { Fragment, useState } from 'react';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import Input from '../../components/common/Input';
@@ -43,7 +43,7 @@ const DirectorsPage = () => {
           sort: 'name,ASC',
           search: buildSearchQuery(search),
           limit: 30,
-          offset: offset
+          offset
         }
       ),
     {

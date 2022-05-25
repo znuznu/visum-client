@@ -51,7 +51,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 100%;
 
     @media screen and (max-width: ${({ theme }) => {
-      //@ts-ignore
+      // @ts-ignore
       return theme.breakpoints.m;
     }}) {
       font-size: 90%;

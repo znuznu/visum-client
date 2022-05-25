@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Flex } from '../common/Flex';
 import { Grid } from '../common/Grid';
 import PosterTooltip from '../PosterTooltip';

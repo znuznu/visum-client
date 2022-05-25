@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, ReactEventHandler } from 'react';
+import { PropsWithChildren, ReactEventHandler } from 'react';
 import StyledButton, { ButtonStyleProps } from './style';
 
 interface ButtonProps extends ButtonStyleProps {

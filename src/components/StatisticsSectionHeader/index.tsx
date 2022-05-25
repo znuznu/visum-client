@@ -1,4 +1,3 @@
-import React from 'react';
 import { Flex } from '../common/Flex';
 import { Separator } from '../common/Separator';
 import { StyledTitle } from './style';
