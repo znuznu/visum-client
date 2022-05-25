@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import GlobalStyle from './styles/theme/GlobalStyle';

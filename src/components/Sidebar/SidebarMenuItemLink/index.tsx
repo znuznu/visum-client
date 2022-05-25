@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactEventHandler } from 'react';
+import { ReactElement, ReactEventHandler } from 'react';
 import { useMatch, useResolvedPath } from 'react-router-dom';
 
 import { StyledSidebarMenuItemLink, StyledSidebarMenuItemLinkIcon } from './style';

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import EmptyPoster from '../EmptyPoster';
 import Poster from '../Poster';
 
@@ -10,7 +8,7 @@ export type MoviePosterProps = {
   };
 };
 
-const MovieReviewPoster = ({ id, metadata }: MoviePosterProps) => {
+const MovieReviewPoster = ({ metadata }: MoviePosterProps) => {
   return (
     <div>
       {metadata?.posterUrl ? (

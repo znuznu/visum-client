@@ -1,7 +1,5 @@
-import React from 'react';
 import { Review } from '../../models/reviews';
-import { StyledGrade } from './style';
-import { StyledFooter, StyledText, StyledReadonlyReview } from './style';
+import { StyledFooter, StyledText, StyledReadonlyReview, StyledGrade } from './style';
 
 interface ReadonlyReviewProps {
   review: Review;

@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, FocusEventHandler, ReactEventHandler } from 'react';
+import { ChangeEventHandler, FocusEventHandler, ReactEventHandler } from 'react';
 import InputError from '../InputError';
 import { InputBlock, InputStyleProps, StyledInput, StyledLabel } from './style';
 

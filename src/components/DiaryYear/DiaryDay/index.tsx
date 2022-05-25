@@ -1,4 +1,3 @@
-import React from 'react';
 import useWindowSize from '../../../hooks/useWindowSize';
 import { S_BREAKPOINT_IN_PIXEL } from '../../../styles/theme/breakpoints';
 

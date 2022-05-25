@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { AccessibleIcon } from '../AccessibleIcon';
 import { VisumHttpError } from '../../../errors/errors';
 import {

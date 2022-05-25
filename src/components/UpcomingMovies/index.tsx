@@ -1,5 +1,5 @@
 import { HTTPError } from 'ky';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import useAuthentication from '../../hooks/useAuthentication';

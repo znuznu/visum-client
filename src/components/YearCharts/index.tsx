@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useTheme } from 'styled-components';
 import { Pair } from '../../models/helpers';
 import { Flex } from '../common/Flex';

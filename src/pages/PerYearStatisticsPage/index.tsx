@@ -1,5 +1,3 @@
-import React from 'react';
-import { HTTPError } from 'ky';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router';
 import useAuthentication from '../../hooks/useAuthentication';
@@ -30,7 +28,7 @@ const PerYearStatisticsPage = () => {
     ['getYearStatistics', year],
     () => fetchYearStatistics({ authorization: `Bearer ${jwtToken}` }, parseInt(year)),
     {
-      onError: (error: HTTPError) => {
+      onError: () => {
         // TODO
       },
       retry: false

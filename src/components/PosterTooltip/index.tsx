@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Flex } from '../common/Flex';
-import { Tooltip, TooltipTrigger } from '../common/Tooltip';
-import { TooltipArrow, TooltipContent } from '../common/Tooltip';
+import { Tooltip, TooltipTrigger, TooltipArrow, TooltipContent } from '../common/Tooltip';
 import EmptyPoster from '../EmptyPoster';
 import Poster from '../Poster';
 import { StyledPosterProps } from '../Poster/style';

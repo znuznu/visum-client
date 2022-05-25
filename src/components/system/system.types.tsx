@@ -1,6 +1,3 @@
-interface ThemingProps {
-  variant?: string;
-}
 interface BorderProps {
   border?: string;
   borderRadius?: string;

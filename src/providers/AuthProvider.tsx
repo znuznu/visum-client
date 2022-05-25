@@ -1,4 +1,4 @@
-import React, { createContext, ReactElement, useContext } from 'react';
+import { createContext, ReactElement, useContext } from 'react';
 import useAuthentication from '../hooks/useAuthentication';
 
 interface AuthContext {

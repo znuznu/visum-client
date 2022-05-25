@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { AccessibleIcon } from '../../components/common/AccessibleIcon';
 import Button from '../../components/common/Button';

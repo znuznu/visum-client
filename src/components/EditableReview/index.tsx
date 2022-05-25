@@ -1,5 +1,5 @@
 import { HTTPError } from 'ky';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
 import useAuthentication from '../../hooks/useAuthentication';
 import useGenericHttpError from '../../hooks/useGenericHttpError';

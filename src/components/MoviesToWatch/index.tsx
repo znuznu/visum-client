@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { HTTPError } from 'ky';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';

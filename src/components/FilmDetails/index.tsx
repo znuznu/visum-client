@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Flex } from '../common/Flex';
 import { StyledSectionTitle } from '../Film/style';
 import {

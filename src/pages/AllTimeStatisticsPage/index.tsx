@@ -1,5 +1,3 @@
-import { HTTPError } from 'ky';
-import React from 'react';
 import { useQuery } from 'react-query';
 import AllTimeStatsCount from '../../components/AllTimeStatsCount';
 import useAuthentication from '../../hooks/useAuthentication';
@@ -17,7 +15,7 @@ const AllTimeStatisticsPage = () => {
     'getAllTimeStatistics',
     () => fetchAllTimeStatistics({ authorization: `Bearer ${jwtToken}` }),
     {
-      onError: (error: HTTPError) => {
+      onError: () => {
         // TODO
       }
     }

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import SignBox from '../../components/SignBox';
 import { useAuth } from '../../providers/AuthProvider';

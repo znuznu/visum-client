@@ -1,4 +1,3 @@
-import React from 'react';
 import { StyledPoster, StyledPosterProps } from './style';
 
 export type PosterProps = {

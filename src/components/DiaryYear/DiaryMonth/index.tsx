@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { DiaryDay as DiaryDayType, Month } from '../../../models/diary';
 import DiaryDay from '../DiaryDay';
 import MonthBadge from './MonthBadge';

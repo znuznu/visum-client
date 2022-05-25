@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { DiaryMonth as DiaryMonthType } from '../../models/diary';
 
 import { StyledThead } from './style';

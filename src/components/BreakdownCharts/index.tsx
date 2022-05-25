@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import { Pair } from '../../models/helpers';
 import StatisticsSectionHeader from '../StatisticsSectionHeader';
 import { Flex } from '../common/Flex';

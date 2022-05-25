@@ -1,4 +1,3 @@
-import React from 'react';
 import { Flex } from '../common/Flex';
 import MovieReviewPoster from '../MovieReviewPoster';
 import { StyledFooter, StyledText } from '../ReadonlyReview/style';

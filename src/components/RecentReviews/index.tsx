@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { HTTPError } from 'ky';
 import { useQuery } from 'react-query';
 import useAuthentication from '../../hooks/useAuthentication';
@@ -30,7 +28,7 @@ const RecentReviews = ({ limit }: RecentReviewsProps) => {
         {
           sort: 'updateDate,DESC',
           search: 'content=%%',
-          limit: limit,
+          limit,
           offset: 0
         }
       ),

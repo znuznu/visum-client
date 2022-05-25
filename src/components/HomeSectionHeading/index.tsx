@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { StyledHeading, StyledLink, StyledTitle } from './style';
 
 type HomeSectionHeadingProps = {
