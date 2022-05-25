@@ -1,16 +1,16 @@
 import { HTTPError } from 'ky';
 
 import { useQuery } from 'react-query';
-import useAuthentication from '../../hooks/useAuthentication';
-import useGenericHttpError from '../../hooks/useGenericHttpError';
-import PosterTooltip from '../PosterTooltip';
-import { MovieFromPage } from '../../models/movies';
-import { Grid } from '../common/Grid';
-import { fetchPage } from '../../services/api/page';
-import { NoData } from '../NoData';
-import ErrorText from '../ErrorText';
+import useAuthentication from 'hooks/useAuthentication';
+import useGenericHttpError from 'hooks/useGenericHttpError';
+import PosterTooltip from 'components/PosterTooltip';
+import { MovieFromPage } from 'models/movies';
+import { Grid } from 'components/common/Grid';
+import { fetchPage } from 'services/api/page';
+import { NoData } from 'components/NoData';
+import ErrorText from 'components/ErrorText';
 import { Link } from 'react-router-dom';
-import HomeSectionHeading from '../HomeSectionHeading';
+import HomeSectionHeading from 'components/HomeSectionHeading';
 
 export type RecentMoviesProps = {
   limit: number;

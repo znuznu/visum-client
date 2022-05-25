@@ -1,7 +1,7 @@
-import { useAuth } from '../../providers/AuthProvider';
-import Button from '../common/Button';
+import { useAuth } from 'providers/AuthProvider';
+import Button from 'components/common/Button';
 import { StyledExitIcon, StyledLogout, StyledLogoutText } from './style';
-import { AccessibleIcon } from '../common/AccessibleIcon';
+import { AccessibleIcon } from 'components/common/AccessibleIcon';
 
 const Logout = () => {
   const { signOut } = useAuth();

@@ -1,5 +1,5 @@
-import { Flex } from '../common/Flex';
-import { StyledSectionTitle } from '../Film/style';
+import { Flex } from 'components/common/Flex';
+import { StyledSectionTitle } from 'components/Film/style';
 import {
   StyledDetailsRow,
   StyledDetailsBody,

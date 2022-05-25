@@ -1,15 +1,15 @@
 import { useMutation } from 'react-query';
-import useAuthentication from '../../hooks/useAuthentication';
+import useAuthentication from 'hooks/useAuthentication';
 import {
   addMovieToWatchlist,
   deleteMovie,
   markMovieAsFavorite,
   removeMovieFromFavorite,
   removeMovieFromWatchlist
-} from '../../services/api/movie';
+} from 'services/api/movie';
 
-import { AccessibleIcon } from '../common/AccessibleIcon';
-import Button from '../common/Button';
+import { AccessibleIcon } from 'components/common/AccessibleIcon';
+import Button from 'components/common/Button';
 import {
   FavoriteFilledIcon,
   FavoriteIcon,

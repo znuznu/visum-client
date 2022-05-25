@@ -1,7 +1,7 @@
-import { API_URL } from '../../config';
-import { StatsMovie } from '../../models/statistics';
-import { Pair } from '../../models/helpers';
-import HttpService from '../http';
+import { API_URL } from 'config';
+import { StatsMovie } from 'models/statistics';
+import { Pair } from 'models/helpers';
+import HttpService from 'services/http';
 
 export interface FetchAllTimeStatisticsResponseBody {
   totalRuntimeInHours: number;

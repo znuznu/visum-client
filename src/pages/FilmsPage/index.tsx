@@ -2,19 +2,19 @@ import { HTTPError } from 'ky';
 import { useState } from 'react';
 import { useQuery } from 'react-query';
 import { Link, useSearchParams } from 'react-router-dom';
-import Checkbox from '../../components/common/Checkbox';
-import { Flex } from '../../components/common/Flex';
-import { Grid } from '../../components/common/Grid';
-import Input from '../../components/common/Input';
-import Paginator from '../../components/common/Paginator';
-import ErrorText from '../../components/ErrorText';
-import { NoData } from '../../components/NoData';
-import PosterTooltip from '../../components/PosterTooltip';
-import useAuthentication from '../../hooks/useAuthentication';
-import useGenericHttpError from '../../hooks/useGenericHttpError';
-import { MovieFromPage } from '../../models/movies';
-import { Page } from '../../models/page';
-import { fetchPage } from '../../services/api/page';
+import Checkbox from 'components/common/Checkbox';
+import { Flex } from 'components/common/Flex';
+import { Grid } from 'components/common/Grid';
+import Input from 'components/common/Input';
+import Paginator from 'components/common/Paginator';
+import ErrorText from 'components/ErrorText';
+import { NoData } from 'components/NoData';
+import PosterTooltip from 'components/PosterTooltip';
+import useAuthentication from 'hooks/useAuthentication';
+import useGenericHttpError from 'hooks/useGenericHttpError';
+import { MovieFromPage } from 'models/movies';
+import { Page } from 'models/page';
+import { fetchPage } from 'services/api/page';
 import { StyledMovies, StyledOptions, StyledSearchBar } from './style';
 import {
   SelectScrollUpButton,
@@ -31,13 +31,13 @@ import {
   SelectSeparator,
   SelectScrollDownButton,
   SelectTrigger
-} from '../../components/common/Select';
+} from 'components/common/Select';
 import {
   CheckIcon,
   ChevronDownIcon,
   ChevronUpIcon
-} from '../../components/common/Select/style';
-import { Label } from '../../components/common/Label';
+} from 'components/common/Select/style';
+import { Label } from 'components/common/Label';
 
 const buildSearchQuery = (title: string, isFavorite: boolean, isToWatch: boolean) => {
   let query = `title=%${title}%`;

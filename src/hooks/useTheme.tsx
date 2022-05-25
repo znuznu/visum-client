@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Theme } from '../styles/theme';
-import { lightTheme, darkTheme } from '../styles/theme/themes';
+import { Theme } from 'styles/theme';
+import { lightTheme, darkTheme } from 'styles/theme/themes';
 import useLocalStorage from './useLocalStorage';
 
 const THEME_KEY = 'visum-theme';

@@ -2,17 +2,17 @@ import { HTTPError } from 'ky';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 
-import { API_URL } from '../../config';
-import useAuthentication from '../../hooks/useAuthentication';
-import useGenericHttpError from '../../hooks/useGenericHttpError';
-import { MovieFromPage } from '../../models/movies';
-import { Page } from '../../models/page';
-import HttpService from '../../services/http';
-import { Grid } from '../common/Grid';
-import ErrorText from '../ErrorText';
-import { NoData } from '../NoData';
-import PosterTooltip from '../PosterTooltip';
-import HomeSectionHeading from '../HomeSectionHeading';
+import { API_URL } from 'config';
+import useAuthentication from 'hooks/useAuthentication';
+import useGenericHttpError from 'hooks/useGenericHttpError';
+import { MovieFromPage } from 'models/movies';
+import { Page } from 'models/page';
+import HttpService from 'services/http';
+import { Grid } from 'components/common/Grid';
+import ErrorText from 'components/ErrorText';
+import { NoData } from 'components/NoData';
+import PosterTooltip from 'components/PosterTooltip';
+import HomeSectionHeading from 'components/HomeSectionHeading';
 
 type MoviesToWatchProps = {
   limit: number;

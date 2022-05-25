@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { StyledScrollArea } from '../../common/ScrollArea/style';
+import { StyledScrollArea } from 'components/common/ScrollArea/style';
 
 const StyledMenu = styled(StyledScrollArea)`
   display: flex;

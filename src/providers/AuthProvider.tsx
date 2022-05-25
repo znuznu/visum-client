@@ -1,5 +1,5 @@
 import { createContext, ReactElement, useContext } from 'react';
-import useAuthentication from '../hooks/useAuthentication';
+import useAuthentication from 'hooks/useAuthentication';
 
 interface AuthContext {
   isAuthenticated: () => boolean;

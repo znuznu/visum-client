@@ -1,5 +1,5 @@
 import { ChangeEventHandler, FocusEventHandler, ReactEventHandler } from 'react';
-import InputError from '../InputError';
+import InputError from 'components/common/InputError';
 import { InputStyleProps, StyledTextArea } from './style';
 
 interface TextAreaProps extends InputStyleProps {

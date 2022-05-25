@@ -2,11 +2,11 @@ import { Fragment, useEffect, useState } from 'react';
 import { HTTPError } from 'ky';
 import { useMutation, useQuery } from 'react-query';
 
-import useAuthentication from '../../hooks/useAuthentication';
-import useGenericHttpError from '../../hooks/useGenericHttpError';
-import { TmdbMovie } from '../../models/tmdb';
-import { fetchTmdbMovie } from '../../services/api/tmdb';
-import ErrorText from '../ErrorText';
+import useAuthentication from 'hooks/useAuthentication';
+import useGenericHttpError from 'hooks/useGenericHttpError';
+import { TmdbMovie } from 'models/tmdb';
+import { fetchTmdbMovie } from 'services/api/tmdb';
+import ErrorText from 'components/ErrorText';
 import {
   StyledReleaseDate,
   StyledMovieContent,
@@ -17,19 +17,19 @@ import {
   StyledSection,
   StyledSectionTitle,
   StyledSectionContent
-} from '../Film/style';
-import EmptyPoster from '../EmptyPoster';
-import { Flex } from '../common/Flex';
-import { Separator } from '../common/Separator';
-import FilmDetails from '../FilmDetails';
+} from 'components/Film/style';
+import EmptyPoster from 'components/EmptyPoster';
+import { Flex } from 'components/common/Flex';
+import { Separator } from 'components/common/Separator';
+import FilmDetails from 'components/FilmDetails';
 import { StyledCheckboxes, StyledFilmTitle, StyledLink, StyledResource } from './style';
-import Checkbox from '../common/Checkbox';
-import Button from '../common/Button';
+import Checkbox from 'components/common/Checkbox';
+import Button from 'components/common/Button';
 import {
   createMovie,
   CreateMovieRequestBody,
   CreateMovieResponseBody
-} from '../../services/api/movie';
+} from 'services/api/movie';
 import { useNavigate } from 'react-router';
 
 const buildTmdbPersonUrl = ({

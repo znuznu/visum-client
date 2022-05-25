@@ -1,15 +1,15 @@
 import { HTTPError } from 'ky';
 import { useQuery } from 'react-query';
-import useAuthentication from '../../hooks/useAuthentication';
-import useGenericHttpError from '../../hooks/useGenericHttpError';
+import useAuthentication from 'hooks/useAuthentication';
+import useGenericHttpError from 'hooks/useGenericHttpError';
 import { StyledReviews } from './style';
-import { ReviewFromPage } from '../../models/reviews';
-import PageReview from '../PageReview';
-import { Separator } from '../common/Separator';
-import { fetchPage } from '../../services/api/page';
-import { NoData } from '../NoData';
-import ErrorText from '../ErrorText';
-import HomeSectionHeading from '../HomeSectionHeading';
+import { ReviewFromPage } from 'models/reviews';
+import PageReview from 'components/PageReview';
+import { Separator } from 'components/common/Separator';
+import { fetchPage } from 'services/api/page';
+import { NoData } from 'components/NoData';
+import ErrorText from 'components/ErrorText';
+import HomeSectionHeading from 'components/HomeSectionHeading';
 
 export type RecentReviewsProps = {
   limit: number;

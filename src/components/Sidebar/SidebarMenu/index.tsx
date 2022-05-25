@@ -3,7 +3,7 @@ import {
   ScrollAreaScrollbar,
   ScrollAreaViewport,
   ScrollAreaThumb
-} from '../../common/ScrollArea';
+} from 'components/common/ScrollArea';
 import StyledMenu from './style';
 
 type SidebarMenuProps = {

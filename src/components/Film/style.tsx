@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { StyledPoster } from '../../components/Poster/style';
+import { StyledPoster } from 'components/Poster/style';
 
 const StyledFilm = styled.div`
   display: flex;

@@ -1,6 +1,6 @@
-import { API_URL } from '../../config';
-import { WatchDate } from '../../models/watchDate';
-import HttpService from '../http';
+import { API_URL } from 'config';
+import { WatchDate } from 'models/watchDate';
+import HttpService from 'services/http';
 
 type WatchDatesResponseBody = WatchDate[];
 

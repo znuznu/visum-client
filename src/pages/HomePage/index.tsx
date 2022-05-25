@@ -1,6 +1,6 @@
-import RecentMovies from '../../components/RecentMovies';
-import RecentReviews from '../../components/RecentReviews';
-import MoviesToWatch from '../../components/MoviesToWatch';
+import RecentMovies from 'components/RecentMovies';
+import RecentReviews from 'components/RecentReviews';
+import MoviesToWatch from 'components/MoviesToWatch';
 import { StyledHome } from './style';
 
 const MOVIE_LIMIT = 18;

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useTheme } from 'styled-components';
-import { Pair } from '../../models/helpers';
-import { Flex } from '../common/Flex';
-import StatisticsSectionHeader from '../StatisticsSectionHeader';
+import { Pair } from 'models/helpers';
+import { Flex } from 'components/common/Flex';
+import StatisticsSectionHeader from 'components/StatisticsSectionHeader';
 
 import {
   Chart as ChartJS,
@@ -17,7 +17,7 @@ import {
 } from 'chart.js';
 
 import { Chart } from 'react-chartjs-2';
-import { Theme } from '../../styles/theme';
+import { Theme } from 'styles/theme';
 
 interface YearChartsProps {
   averageRate: Pair<number, number>[];

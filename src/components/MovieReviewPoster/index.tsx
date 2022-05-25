@@ -1,5 +1,5 @@
-import EmptyPoster from '../EmptyPoster';
-import Poster from '../Poster';
+import EmptyPoster from 'components/EmptyPoster';
+import Poster from 'components/Poster';
 
 export type MoviePosterProps = {
   id: number;
