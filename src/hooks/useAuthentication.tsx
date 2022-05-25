@@ -2,6 +2,7 @@ import { useState } from 'react';
 import * as jwt from 'jose';
 
 import { JWT_TOKEN_KEY } from 'config';
+
 import useLocalStorage from './useLocalStorage';
 
 const useAuthentication = () => {

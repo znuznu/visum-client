@@ -1,6 +1,7 @@
 import { Flex } from 'components/common/Flex';
 import MovieReviewPoster from 'components/MovieReviewPoster';
 import { StyledFooter, StyledText } from 'components/ReadonlyReview/style';
+
 import {
   StyledContent,
   StyledGrade,

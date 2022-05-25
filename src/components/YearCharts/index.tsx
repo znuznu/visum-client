@@ -1,22 +1,23 @@
 import { useState } from 'react';
 import { useTheme } from 'styled-components';
+import {
+  BarElement,
+  CategoryScale,
+  Chart as ChartJS,
+  Legend,
+  LineController,
+  LineElement,
+  LinearScale,
+  PointElement,
+  Tooltip
+} from 'chart.js';
+import { Chart } from 'react-chartjs-2';
+
 import { Pair } from 'models/helpers';
+
 import { Flex } from 'components/common/Flex';
 import StatisticsSectionHeader from 'components/StatisticsSectionHeader';
 
-import {
-  Chart as ChartJS,
-  LinearScale,
-  LineController,
-  CategoryScale,
-  BarElement,
-  PointElement,
-  LineElement,
-  Legend,
-  Tooltip
-} from 'chart.js';
-
-import { Chart } from 'react-chartjs-2';
 import { Theme } from 'styles/theme';
 
 interface YearChartsProps {

@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
-import GlobalStyle from './styles/theme/GlobalStyle';
-import SignPage from 'pages/Sign';
 import Guard from 'components/common/Guard';
-import { AuthProvider } from './providers/AuthProvider';
+
+import useTheme from 'hooks/useTheme';
+
+import SignPage from 'pages/Sign';
 import Shell from 'pages/Shell';
 import HomePage from 'pages/HomePage';
 import FilmsPage from 'pages/FilmsPage';
@@ -21,8 +22,10 @@ import DirectorsPage from 'pages/DirectorsPage';
 import ActorPage from 'pages/ActorPage';
 import DirectorPage from 'pages/DirectorPage';
 import DiaryPage from 'pages/DiaryPage';
+
 import ThemeContext from './providers/ThemeProvider';
-import useTheme from 'hooks/useTheme';
+import { AuthProvider } from './providers/AuthProvider';
+import GlobalStyle from './styles/theme/GlobalStyle';
 import { API_URL } from './config';
 
 const queryClient = new QueryClient({

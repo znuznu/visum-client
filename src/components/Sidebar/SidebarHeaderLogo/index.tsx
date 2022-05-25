@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+
 import StyledTitle from './style';
 
 type SidebarHeaderLogoProps = {

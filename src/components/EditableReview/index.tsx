@@ -1,12 +1,13 @@
 import { HTTPError } from 'ky';
 import { useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
-import useAuthentication from 'hooks/useAuthentication';
-import useGenericHttpError from 'hooks/useGenericHttpError';
+
 import { Movie } from 'models/movies';
 import { Review } from 'models/reviews';
+
 import { fetchMovie } from 'services/api/movie';
 import { deleteReview } from 'services/api/review';
+
 import { AccessibleIcon } from 'components/common/AccessibleIcon';
 import Button from 'components/common/Button';
 import { Flex } from 'components/common/Flex';
@@ -14,7 +15,11 @@ import ErrorText from 'components/ErrorText';
 import { NoData } from 'components/NoData';
 import ReadonlyReview from 'components/ReadonlyReview';
 import ReviewForm from 'components/ReviewForm';
-import { RemoveIcon, StyledTitle, EditIcon, CancelIcon, Edit2Icon } from './style';
+
+import useGenericHttpError from 'hooks/useGenericHttpError';
+import useAuthentication from 'hooks/useAuthentication';
+
+import { CancelIcon, Edit2Icon, EditIcon, RemoveIcon, StyledTitle } from './style';
 
 interface EditableReviewProps {
   // The Movie ID of the one we want to handle the Review

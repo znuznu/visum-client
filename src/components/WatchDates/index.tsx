@@ -1,13 +1,18 @@
 import { useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
-import useAuthentication from 'hooks/useAuthentication';
+
 import { WatchDate } from 'models/watchDate';
+
 import { addWatchDate, deleteWatchDate, fetchWatchDates } from 'services/api/history';
+
 import { AccessibleIcon } from 'components/common/AccessibleIcon';
 import Button from 'components/common/Button';
 import { Flex } from 'components/common/Flex';
 import ErrorText from 'components/ErrorText';
 import { StyledSectionTitle } from 'components/Film/style';
+
+import useAuthentication from 'hooks/useAuthentication';
+
 import { formatToVisumDate } from './helpers';
 import { AddIcon, RemoveIcon, StyledNoWatchDates, StyledWatchDate } from './style';
 

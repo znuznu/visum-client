@@ -1,9 +1,11 @@
 import { useContext } from 'react';
+import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
+
+import Button from 'components/common/Button';
+
+import useTheme from 'hooks/useTheme';
 
 import ThemeContext from 'providers/ThemeProvider';
-import useTheme from 'hooks/useTheme';
-import Button from 'components/common/Button';
-import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
 
 const ThemeSwitcher = () => {
   const themeContext = useContext(ThemeContext);

@@ -2,15 +2,19 @@ import { Fragment, useState } from 'react';
 import { HTTPError } from 'ky';
 import { useQuery } from 'react-query';
 
-import useAuthentication from 'hooks/useAuthentication';
-import useGenericHttpError from 'hooks/useGenericHttpError';
 import { Actor as ActorModel } from 'models/person';
+
 import { fetchActor } from 'services/api/person';
+
 import ErrorText from 'components/ErrorText';
 import { Flex } from 'components/common/Flex';
-import { StyledName } from './style';
 import PersonMovie from 'components/PersonMovie';
 import { Separator } from 'components/common/Separator';
+
+import useGenericHttpError from 'hooks/useGenericHttpError';
+import useAuthentication from 'hooks/useAuthentication';
+
+import { StyledName } from './style';
 
 const Actor = ({ id }: { id: number }) => {
   const { jwtToken } = useAuthentication();

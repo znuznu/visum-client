@@ -1,14 +1,15 @@
 import * as SelectPrimitive from '@radix-ui/react-select';
+
 import {
-  StyledLabel,
   StyledContent,
   StyledItem,
   StyledItemIndicator,
-  StyledTrigger,
-  StyledSeparator,
-  StyledViewport,
-  StyledScrollUpButton,
+  StyledLabel,
   StyledScrollDownButton,
+  StyledScrollUpButton,
+  StyledSeparator,
+  StyledTrigger,
+  StyledViewport,
   TriggerIcon
 } from './style';
 

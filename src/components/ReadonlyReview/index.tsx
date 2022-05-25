@@ -1,5 +1,6 @@
 import { Review } from 'models/reviews';
-import { StyledFooter, StyledText, StyledReadonlyReview, StyledGrade } from './style';
+
+import { StyledFooter, StyledGrade, StyledReadonlyReview, StyledText } from './style';
 
 interface ReadonlyReviewProps {
   review: Review;

@@ -1,5 +1,7 @@
 import { useParams } from 'react-router-dom';
+
 import Director from 'components/Director';
+
 import { StyledDirector } from './style';
 
 const invariant = (id?: string) => {

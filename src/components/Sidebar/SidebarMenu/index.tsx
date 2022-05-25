@@ -1,9 +1,11 @@
 import { ReactNode } from 'react';
+
 import {
   ScrollAreaScrollbar,
-  ScrollAreaViewport,
-  ScrollAreaThumb
+  ScrollAreaThumb,
+  ScrollAreaViewport
 } from 'components/common/ScrollArea';
+
 import StyledMenu from './style';
 
 type SidebarMenuProps = {

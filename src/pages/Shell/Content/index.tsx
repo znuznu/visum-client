@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+
 import StyledShellContent from './style';
 
 type ShellContentProps = {

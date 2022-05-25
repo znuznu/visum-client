@@ -1,8 +1,10 @@
-import useWindowSize from 'hooks/useWindowSize';
-import { S_BREAKPOINT_IN_PIXEL } from 'styles/theme/breakpoints';
-
 import { Flex } from 'components/common/Flex';
 import Poster from 'components/Poster';
+
+import useWindowSize from 'hooks/useWindowSize';
+
+import { S_BREAKPOINT_IN_PIXEL } from 'styles/theme/breakpoints';
+
 import {
   FavoriteIcon,
   GradeIcon,

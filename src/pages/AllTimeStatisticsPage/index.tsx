@@ -1,12 +1,16 @@
 import { useQuery } from 'react-query';
-import AllTimeStatsCount from 'components/AllTimeStatsCount';
-import useAuthentication from 'hooks/useAuthentication';
+
 import { fetchAllTimeStatistics } from 'services/api/statistics';
+
+import AllTimeStatsCount from 'components/AllTimeStatsCount';
 import HighestRatedMoviesPerDecade from 'components/HighestRatedMoviesPerDecade';
-import { StyledAllTimeStatistics } from './style';
 import BreakdownCharts from 'components/BreakdownCharts';
 import YearCharts from 'components/YearCharts';
 import ErrorText from 'components/ErrorText';
+
+import useAuthentication from 'hooks/useAuthentication';
+
+import { StyledAllTimeStatistics } from './style';
 
 const AllTimeStatisticsPage = () => {
   const { jwtToken } = useAuthentication();

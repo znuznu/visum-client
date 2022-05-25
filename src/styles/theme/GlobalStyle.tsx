@@ -2,7 +2,6 @@ import { createGlobalStyle } from 'styled-components';
 
 import Archivo from 'styles/fonts/archivo/archivo-v8-latin.woff';
 import Archivo2 from 'styles/fonts/archivo/archivo-v8-latin.woff2';
-
 import OpenSans from 'styles/fonts/open-sans/open-sans-v27-latin-regular.woff';
 import OpenSans2 from 'styles/fonts/open-sans/open-sans-v27-latin-regular.woff2';
 

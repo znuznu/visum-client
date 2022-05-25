@@ -6,25 +6,27 @@ import {
   HomeIcon,
   PersonIcon
 } from '@radix-ui/react-icons';
-
 import { BsCameraReels } from 'react-icons/bs';
 import { AiOutlineBarChart, AiOutlineLineChart } from 'react-icons/ai';
+
+import { Separator } from 'components/common/Separator';
+import Logout from 'components/Logout';
+import Button from 'components/common/Button';
+import { AccessibleIcon } from 'components/common/AccessibleIcon';
+import ThemeSwitcher from 'components/ThemeSwitcher';
+
+import useWindowSize from 'hooks/useWindowSize';
+
+import { M_BREAKPOINT_IN_PIXEL } from 'styles/theme/breakpoints';
 
 import SidebarHeaderLogo from './SidebarHeaderLogo';
 import SidebarMenu from './SidebarMenu';
 import SidebarMenuSection from './SidebarMenuSection';
 import SidebarMenuSectionTitle from './SidebarMenuSectionTitle';
 import StyledSidebar from './style';
-import { Separator } from 'components/common/Separator';
 import SidebarMenuItemLink from './SidebarMenuItemLink';
 import SidebarMenuItem from './SidebarMenuItem';
-import Logout from 'components/Logout';
-import useWindowSize from 'hooks/useWindowSize';
 import SidebarHeader from './SidebarHeader';
-import Button from 'components/common/Button';
-import { AccessibleIcon } from 'components/common/AccessibleIcon';
-import { M_BREAKPOINT_IN_PIXEL } from 'styles/theme/breakpoints';
-import ThemeSwitcher from 'components/ThemeSwitcher';
 
 const Sidebar = () => {
   const windowSize = useWindowSize();
