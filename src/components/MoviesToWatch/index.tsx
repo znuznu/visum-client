@@ -3,20 +3,18 @@ import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 
 import { MovieFromPage } from 'models/movies';
-import { Page } from 'models/page';
 
-import HttpService from 'services/http';
+import { fetchPage } from 'services/api/page';
 
 import { Grid } from 'components/common/Grid';
 import ErrorText from 'components/ErrorText';
 import { NoData } from 'components/NoData';
 import PosterTooltip from 'components/PosterTooltip';
 import HomeSectionHeading from 'components/HomeSectionHeading';
+import SkeletonPosters from 'components/common/SkeletonPosters';
 
 import useGenericHttpError from 'hooks/useGenericHttpError';
 import useAuthentication from 'hooks/useAuthentication';
-
-import { API_URL } from 'config';
 
 type MoviesToWatchProps = {
   limit: number;
@@ -31,15 +29,16 @@ const MoviesToWatch = ({ limit }: MoviesToWatchProps) => {
   const { isLoading, isError, data } = useQuery(
     'getShouldWatchMovies',
     () =>
-      HttpService.get(`${API_URL}/api/movies`, {
-        headers: { Authorization: `Bearer ${jwtToken}` },
-        searchParams: {
+      fetchPage<MovieFromPage>(
+        'movies',
+        { Authorization: `Bearer ${jwtToken}` },
+        {
           sort: 'creationDate,DESC',
           search: 'title=%%*shouldWatch==true',
-          limit: limit.toString(),
-          offset: '0'
+          limit,
+          offset: 0
         }
-      }).json<Page<MovieFromPage>>(),
+      ),
     {
       onError: (error: HTTPError) => {
         setHttpError(error);
@@ -48,11 +47,6 @@ const MoviesToWatch = ({ limit }: MoviesToWatchProps) => {
     }
   );
 
-  if (isLoading) {
-    // TODO spinner
-    return <p>Loading</p>;
-  }
-
   if (isError) {
     return <ErrorText />;
   }
@@ -60,28 +54,30 @@ const MoviesToWatch = ({ limit }: MoviesToWatchProps) => {
   return (
     <div>
       <HomeSectionHeading title={'To watch'} morePath={'/fims?isToWatch=true'} />
-      {data?.content.length ? (
-        <Grid gap={'0.5rem'} columnSize={colSize}>
-          {data?.content.map((movie) => (
-            <Link to={`/film/${movie.id}`} key={`to-watch-movie-${movie.id}`}>
-              <PosterTooltip
-                width={colSize}
-                height={'150px'}
-                movie={{
-                  title: movie.title,
-                  posterUrl: movie.metadata.posterUrl,
-                  releaseDate: movie.releaseDate,
-                  isFavorite: movie.isFavorite,
-                  isToWatch: movie.isToWatch
-                }}
-                showMetadata
-              />
-            </Link>
-          ))}
-        </Grid>
-      ) : (
-        <NoData>No movies to watch found.</NoData>
-      )}
+      {isLoading && <SkeletonPosters elements={9} variant={'standard'} />}
+      {!isLoading &&
+        (data?.content.length ? (
+          <Grid gap={'0.5rem'} columnSize={colSize}>
+            {data?.content.map((movie) => (
+              <Link to={`/film/${movie.id}`} key={`to-watch-movie-${movie.id}`}>
+                <PosterTooltip
+                  width={colSize}
+                  height={'150px'}
+                  movie={{
+                    title: movie.title,
+                    posterUrl: movie.metadata.posterUrl,
+                    releaseDate: movie.releaseDate,
+                    isFavorite: movie.isFavorite,
+                    isToWatch: movie.isToWatch
+                  }}
+                  showMetadata
+                />
+              </Link>
+            ))}
+          </Grid>
+        ) : (
+          <NoData>No movies to watch found.</NoData>
+        ))}
     </div>
   );
 };

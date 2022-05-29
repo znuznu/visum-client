@@ -11,6 +11,7 @@ import PosterTooltip from 'components/PosterTooltip';
 import { NoData } from 'components/NoData';
 import ErrorText from 'components/ErrorText';
 import HomeSectionHeading from 'components/HomeSectionHeading';
+import SkeletonPosters from 'components/common/SkeletonPosters';
 
 import useGenericHttpError from 'hooks/useGenericHttpError';
 import useAuthentication from 'hooks/useAuthentication';
@@ -46,11 +47,6 @@ const RecentMovies = ({ limit }: RecentMoviesProps) => {
     }
   );
 
-  if (isLoading) {
-    // TODO spinner
-    return <p>Loading</p>;
-  }
-
   if (isError) {
     return <ErrorText />;
   }
@@ -58,28 +54,30 @@ const RecentMovies = ({ limit }: RecentMoviesProps) => {
   return (
     <div>
       <HomeSectionHeading title={'Recently added'} morePath={'/films'} />
-      {data?.content.length ? (
-        <Grid gap={'0.5rem'} columnSize={colSize}>
-          {data?.content.map((movie) => (
-            <Link to={`film/${movie.id}`} key={`recent-movie-${movie.id}`}>
-              <PosterTooltip
-                movie={{
-                  title: movie.title,
-                  posterUrl: movie.metadata.posterUrl,
-                  releaseDate: movie.releaseDate,
-                  isFavorite: movie.isFavorite,
-                  isToWatch: movie.isToWatch
-                }}
-                width={colSize}
-                height={'150px'}
-                showMetadata
-              />
-            </Link>
-          ))}
-        </Grid>
-      ) : (
-        <NoData>No recently added movies found.</NoData>
-      )}
+      {isLoading && <SkeletonPosters elements={9} variant={'standard'} />}
+      {!isLoading &&
+        (data?.content.length ? (
+          <Grid gap={'0.5rem'} columnSize={colSize}>
+            {data?.content.map((movie) => (
+              <Link to={`film/${movie.id}`} key={`recent-movie-${movie.id}`}>
+                <PosterTooltip
+                  movie={{
+                    title: movie.title,
+                    posterUrl: movie.metadata.posterUrl,
+                    releaseDate: movie.releaseDate,
+                    isFavorite: movie.isFavorite,
+                    isToWatch: movie.isToWatch
+                  }}
+                  width={colSize}
+                  height={'150px'}
+                  showMetadata
+                />
+              </Link>
+            ))}
+          </Grid>
+        ) : (
+          <NoData>No recently added movies found.</NoData>
+        ))}
     </div>
   );
 };

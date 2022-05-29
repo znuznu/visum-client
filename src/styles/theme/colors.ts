@@ -58,6 +58,9 @@ export interface Colors {
       bgHover: string;
     };
   };
+  skeleton: {
+    bg: string;
+  };
 }
 
 export const tmdbPrimaryColor = '#90cea1';
