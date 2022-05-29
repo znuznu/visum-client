@@ -97,6 +97,9 @@ export const darkTheme: Theme = {
         bgHover: indigoDark.indigo4
       }
     },
+    skeleton: {
+      bg: mauveDark.mauve5
+    },
     ...sharedColors
   }
 };
@@ -167,6 +170,9 @@ export const lightTheme: Theme = {
       item: {
         bgHover: indigo.indigo4
       }
+    },
+    skeleton: {
+      bg: mauve.mauve5
     },
     ...sharedColors
   }

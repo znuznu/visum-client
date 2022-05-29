@@ -20,6 +20,7 @@ import PosterTooltip from 'components/PosterTooltip';
 import TmdbAttribution from 'components/TmdbAttribution';
 import UpcomingMovies from 'components/UpcomingMovies';
 import { Separator } from 'components/common/Separator';
+import SkeletonPosters from 'components/common/SkeletonPosters';
 
 import useGenericHttpError from 'hooks/useGenericHttpError';
 import useAuthentication from 'hooks/useAuthentication';
@@ -125,21 +126,28 @@ const DiscoveryPage = () => {
           );
         }}
       </Formik>
-      {isLoading && <p>Loading</p>}
-      {data?.content.length ? (
-        <>
-          <Paginator page={data} onPageChange={handlePageChange} currentStartIndex={1} />
-          <Grid gap={'0.5rem'} columnSize={'100px'} margin={'0.5rem 0 1.5rem'}>
-            {data?.content.map((movie: TmdbPageMovie) => (
-              <Link to={`/tmdb/film/${movie.tmdbId}`} key={`tmdb-film-${movie.tmdbId}`}>
-                <PosterTooltip width={'100px'} height={'150px'} movie={movie} />
-              </Link>
-            ))}
-          </Grid>
-        </>
-      ) : search.length !== 0 && !isLoading ? (
-        <NoData>No films found.</NoData>
-      ) : null}
+      {isLoading && (
+        <SkeletonPosters elements={8} variant={'standard'} margin={'2rem 0 1.5rem'} />
+      )}
+      {!isLoading &&
+        (data?.content.length ? (
+          <>
+            <Paginator
+              page={data}
+              onPageChange={handlePageChange}
+              currentStartIndex={1}
+            />
+            <Grid gap={'0.5rem'} columnSize={'100px'} margin={'0.5rem 0 1.5rem'}>
+              {data?.content.map((movie: TmdbPageMovie) => (
+                <Link to={`/tmdb/film/${movie.tmdbId}`} key={`tmdb-film-${movie.tmdbId}`}>
+                  <PosterTooltip width={'100px'} height={'150px'} movie={movie} />
+                </Link>
+              ))}
+            </Grid>
+          </>
+        ) : (
+          search.length !== 0 && <NoData>No films found.</NoData>
+        ))}
       <TmdbAttribution />
     </StyledDiscover>
   );

@@ -38,6 +38,7 @@ import {
   ChevronUpIcon
 } from 'components/common/Select/style';
 import { Label } from 'components/common/Label';
+import SkeletonPosters from 'components/common/SkeletonPosters';
 
 import useGenericHttpError from 'hooks/useGenericHttpError';
 import useAuthentication from 'hooks/useAuthentication';
@@ -99,11 +100,6 @@ const FilmsPage = () => {
       keepPreviousData: true
     }
   );
-
-  if (isLoading) {
-    // TODO spinner
-    return <p>Loading</p>;
-  }
 
   if (isError) {
     return <ErrorText />;
@@ -232,31 +228,39 @@ const FilmsPage = () => {
           </Flex>
         </StyledOptions>
       </StyledSearchBar>
-      {data?.content.length ? (
-        <>
-          <Paginator page={data} onPageChange={handlePageChange} currentStartIndex={0} />
-          <Grid gap={'0.5rem'} columnSize={'100px'} margin={'0.5rem 0 1.5rem'}>
-            {data?.content.map((movie) => (
-              <Link to={`/film/${movie.id}`} key={`movie-${movie.id}`}>
-                <PosterTooltip
-                  width={'100px'}
-                  height={'150px'}
-                  movie={{
-                    title: movie.title,
-                    posterUrl: movie.metadata.posterUrl,
-                    releaseDate: movie.releaseDate,
-                    isFavorite: movie.isFavorite,
-                    isToWatch: movie.isToWatch
-                  }}
-                  showMetadata
-                />
-              </Link>
-            ))}
-          </Grid>
-        </>
-      ) : (
-        <NoData>No films found.</NoData>
+      {isLoading && (
+        <SkeletonPosters elements={9} variant={'standard'} margin={'2rem 0 0'} />
       )}
+      {!isLoading &&
+        (data?.content.length ? (
+          <>
+            <Paginator
+              page={data}
+              onPageChange={handlePageChange}
+              currentStartIndex={0}
+            />
+            <Grid gap={'0.5rem'} columnSize={'100px'} margin={'0.5rem 0 1.5rem'}>
+              {data?.content.map((movie) => (
+                <Link to={`/film/${movie.id}`} key={`movie-${movie.id}`}>
+                  <PosterTooltip
+                    width={'100px'}
+                    height={'150px'}
+                    movie={{
+                      title: movie.title,
+                      posterUrl: movie.metadata.posterUrl,
+                      releaseDate: movie.releaseDate,
+                      isFavorite: movie.isFavorite,
+                      isToWatch: movie.isToWatch
+                    }}
+                    showMetadata
+                  />
+                </Link>
+              ))}
+            </Grid>
+          </>
+        ) : (
+          <NoData>No films found.</NoData>
+        ))}
     </StyledMovies>
   );
 };

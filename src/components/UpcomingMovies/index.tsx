@@ -17,6 +17,7 @@ import {
 import ErrorText from 'components/ErrorText';
 import { NoData } from 'components/NoData';
 import PosterTooltip from 'components/PosterTooltip';
+import Skeleton from 'components/common/Skeleton';
 
 import useGenericHttpError from 'hooks/useGenericHttpError';
 import useAuthentication from 'hooks/useAuthentication';
@@ -57,28 +58,30 @@ const UpcomingMovies = () => {
   return (
     <Flex flexDirection={'column'}>
       <StyledTitle>Upcoming movies</StyledTitle>
-      {isLoading && <p>Loading</p>}
-      {data?.content.length ? (
-        <StyledScrollArea aria-orientation={'horizontal'}>
-          <ScrollAreaViewport>
-            <StyledUpcomingMovies>
-              {data?.content.map((movie: TmdbPageMovie) => (
+      <StyledScrollArea aria-orientation={'horizontal'}>
+        <ScrollAreaViewport>
+          <StyledUpcomingMovies>
+            {isLoading &&
+              [...Array(9)].map((_, index) => (
+                <Skeleton key={`skeleton-${index}`} variant={'standard'} />
+              ))}
+            {!isLoading &&
+              data?.content.length &&
+              data?.content.map((movie: TmdbPageMovie) => (
                 <Link to={`/tmdb/film/${movie.tmdbId}`} key={`tmdb-film-${movie.tmdbId}`}>
                   <PosterTooltip width={'100px'} height={'150px'} movie={movie} />
                 </Link>
               ))}
-            </StyledUpcomingMovies>
-          </ScrollAreaViewport>
-          <ScrollAreaScrollbar>
-            <ScrollAreaThumb />
-          </ScrollAreaScrollbar>
-          <ScrollAreaScrollbar orientation={'horizontal'}>
-            <ScrollAreaThumb />
-          </ScrollAreaScrollbar>
-        </StyledScrollArea>
-      ) : !isLoading ? (
-        <NoData>No upcoming films found.</NoData>
-      ) : null}
+          </StyledUpcomingMovies>
+        </ScrollAreaViewport>
+        <ScrollAreaScrollbar>
+          <ScrollAreaThumb />
+        </ScrollAreaScrollbar>
+        <ScrollAreaScrollbar orientation={'horizontal'}>
+          <ScrollAreaThumb />
+        </ScrollAreaScrollbar>
+      </StyledScrollArea>
+      {!isLoading && !data?.content.length && <NoData>No upcoming films found.</NoData>}
     </Flex>
   );
 };
