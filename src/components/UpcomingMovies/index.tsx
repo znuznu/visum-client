@@ -17,7 +17,7 @@ import {
 import ErrorText from 'components/ErrorText';
 import { NoData } from 'components/NoData';
 import PosterTooltip from 'components/PosterTooltip';
-import Skeleton from 'components/common/Skeleton';
+import Skeleton from 'components/common/Skeleton/SkeletonPoster';
 
 import useGenericHttpError from 'hooks/useGenericHttpError';
 import useAuthentication from 'hooks/useAuthentication';

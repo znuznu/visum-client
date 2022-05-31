@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
 import { Grid } from 'components/common/Grid';
-import Skeleton from 'components/common/Skeleton';
+import Skeleton from 'components/common/Skeleton/SkeletonPoster';
 import { StyleProps } from 'components/system/system.types';
 
-import { SkeletonPosterVariant } from '../Skeleton/style';
+import { SkeletonPosterVariant } from '../SkeletonPoster/style';
 
 type SkeletonPostersProps = {
   elements: number;

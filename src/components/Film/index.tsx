@@ -15,6 +15,7 @@ import MovieActionsPanel from 'components/MovieActionsPanel';
 import ErrorText from 'components/ErrorText';
 import FilmDetails from 'components/FilmDetails';
 import WatchDates from 'components/WatchDates';
+import SkeletonFilm from 'components/SkeletonFilm';
 
 import useGenericHttpError from 'hooks/useGenericHttpError';
 import useAuthentication from 'hooks/useAuthentication';
@@ -61,16 +62,13 @@ const Film = ({ movieId }: FilmProps) => {
     navigate('/films');
   };
 
-  if (isLoading) {
-    // TODO spinner
-    return <p>Loading</p>;
-  }
-
   if (isError) {
     return <ErrorText />;
   }
 
-  return (
+  return isLoading ? (
+    <SkeletonFilm withWatchDates={true} />
+  ) : (
     <StyledFilm>
       <div>
         {movie?.metadata?.posterUrl ? (

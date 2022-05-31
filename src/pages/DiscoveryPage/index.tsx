@@ -20,7 +20,7 @@ import PosterTooltip from 'components/PosterTooltip';
 import TmdbAttribution from 'components/TmdbAttribution';
 import UpcomingMovies from 'components/UpcomingMovies';
 import { Separator } from 'components/common/Separator';
-import SkeletonPosters from 'components/common/SkeletonPosters';
+import SkeletonPosters from 'components/common/Skeleton/SkeletonPosters';
 
 import useGenericHttpError from 'hooks/useGenericHttpError';
 import useAuthentication from 'hooks/useAuthentication';

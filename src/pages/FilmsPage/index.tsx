@@ -38,7 +38,7 @@ import {
   ChevronUpIcon
 } from 'components/common/Select/style';
 import { Label } from 'components/common/Label';
-import SkeletonPosters from 'components/common/SkeletonPosters';
+import SkeletonPosters from 'components/common/Skeleton/SkeletonPosters';
 
 import useGenericHttpError from 'hooks/useGenericHttpError';
 import useAuthentication from 'hooks/useAuthentication';

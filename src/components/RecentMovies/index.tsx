@@ -11,7 +11,7 @@ import PosterTooltip from 'components/PosterTooltip';
 import { NoData } from 'components/NoData';
 import ErrorText from 'components/ErrorText';
 import HomeSectionHeading from 'components/HomeSectionHeading';
-import SkeletonPosters from 'components/common/SkeletonPosters';
+import SkeletonPosters from 'components/common/Skeleton/SkeletonPosters';
 
 import useGenericHttpError from 'hooks/useGenericHttpError';
 import useAuthentication from 'hooks/useAuthentication';
