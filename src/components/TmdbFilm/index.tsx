@@ -30,6 +30,7 @@ import { Separator } from 'components/common/Separator';
 import FilmDetails from 'components/FilmDetails';
 import Checkbox from 'components/common/Checkbox';
 import Button from 'components/common/Button';
+import SkeletonFilm from 'components/SkeletonFilm';
 
 import useGenericHttpError from 'hooks/useGenericHttpError';
 import useAuthentication from 'hooks/useAuthentication';
@@ -104,16 +105,13 @@ const TmdbFilm = ({ id }: { id: number }) => {
     }
   );
 
-  if (isLoading) {
-    // TODO spinner
-    return <p>Loading</p>;
-  }
-
   if (isError) {
     return <ErrorText />;
   }
 
-  return (
+  return isLoading ? (
+    <SkeletonFilm withWatchDates={false} />
+  ) : (
     <>
       <div>
         {movie?.metadata?.posterUrl ? (

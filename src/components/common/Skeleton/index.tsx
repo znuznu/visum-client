@@ -1,9 +1,9 @@
-import StyledSkeletonPoster, { SkeletonPosterStyleProps } from './style';
+import { SkeletonStyleProps, StyledSkeleton } from './style';
 
-type SkeletonPosterProps = SkeletonPosterStyleProps;
+type SkeletonProps = SkeletonStyleProps;
 
-const SkeletonPoster = ({ variant }: SkeletonPosterProps) => {
-  return <StyledSkeletonPoster variant={variant} />;
+const Skeleton = ({ width, height, margin }: SkeletonProps) => {
+  return <StyledSkeleton width={width} height={height} margin={margin} />;
 };
 
-export default SkeletonPoster;
+export default Skeleton;

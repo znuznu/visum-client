@@ -1,25 +1,10 @@
 import styled from 'styled-components';
 
-export type SkeletonPosterVariant = 'standard' | 'small';
-export type SkeletonPosterStyleProps = { variant: SkeletonPosterVariant };
+import { StyleProps } from 'components/system/system.types';
 
-const skeletonVariantPxSize = {
-  small: {
-    width: '80px',
-    height: '120px'
-  },
-  standard: {
-    width: '100px',
-    height: '150px'
-  }
-};
+export type SkeletonStyleProps = Pick<StyleProps, 'width' | 'height' | 'margin'>;
 
-const StyledSkeletonPoster = styled.div<SkeletonPosterStyleProps>`
-  ${(props) => `
-        width: ${skeletonVariantPxSize[props.variant].width};
-        height: ${skeletonVariantPxSize[props.variant].height};
-    `}
-
+const StyledSkeletonBackground = styled.div`
   background-color: ${(props) => props.theme.colors.skeleton.bg};
   border-radius: 4px;
 
@@ -37,4 +22,12 @@ const StyledSkeletonPoster = styled.div<SkeletonPosterStyleProps>`
   }
 `;
 
-export default StyledSkeletonPoster;
+const StyledSkeleton = styled(StyledSkeletonBackground)<SkeletonStyleProps>`
+  ${(props) => `
+      width: ${props.width};
+      height: ${props.height};
+      margin: ${props.margin};
+    `}
+`;
+
+export { StyledSkeletonBackground, StyledSkeleton };
