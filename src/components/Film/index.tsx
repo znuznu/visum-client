@@ -66,109 +66,113 @@ const Film = ({ movieId }: FilmProps) => {
     return <ErrorText />;
   }
 
-  return isLoading ? (
-    <SkeletonFilm withWatchDates={true} />
-  ) : (
+  return (
     <StyledFilm>
-      <div>
-        {movie?.metadata?.posterUrl ? (
-          <StyledResponsivePoster src={movie?.metadata.posterUrl} />
-        ) : (
-          <EmptyPoster width={'250px'} height={'375px'} iconSize={'50px'} />
-        )}
-        <MovieActionsPanel
-          isFavorite={movie?.isFavorite!}
-          isToWatch={movie?.isToWatch!}
-          movieId={movie?.id!}
-          onFavorite={() => {
-            setMovie({ ...movie!, isFavorite: true });
-          }}
-          onRemoveFavorite={() => {
-            setMovie({ ...movie!, isFavorite: false });
-          }}
-          onAddToWatchlist={() => {
-            setMovie({ ...movie!, isToWatch: true });
-          }}
-          onRemoveFromWatchlist={() => {
-            setMovie({ ...movie!, isToWatch: false });
-          }}
-          onDelete={redirectToFilmsPage}
-        />
-      </div>
-      <StyledMovieContent>
-        <Flex>
-          <StyledMovieTitle>{movie?.title}</StyledMovieTitle>
-          <StyledReleaseDate>{movie?.releaseDate} </StyledReleaseDate>
-        </Flex>
-        <Flex>
-          <StyledPerson>
-            directed by{' '}
-            {movie?.directors.map((director, index) => {
-              return (
-                <Fragment key={`director-${director.id}`}>
-                  <StyledLink to={`/director/${director.id}`}>
-                    {`${director.forename} ${director.name}`}
-                  </StyledLink>
-                  {index === movie.directors.length - 1 ? '' : ', '}
-                </Fragment>
-              );
-            })}
-          </StyledPerson>
-        </Flex>
-        <StyledTagline>{movie?.metadata.tagline}</StyledTagline>
-        <StyledOverview>{movie?.metadata.overview}</StyledOverview>
+      {isLoading ? (
+        <SkeletonFilm withWatchDates={true} />
+      ) : (
+        <>
+          <div>
+            {movie?.metadata?.posterUrl ? (
+              <StyledResponsivePoster src={movie?.metadata.posterUrl} />
+            ) : (
+              <EmptyPoster width={'250px'} height={'375px'} iconSize={'50px'} />
+            )}
+            <MovieActionsPanel
+              isFavorite={movie?.isFavorite!}
+              isToWatch={movie?.isToWatch!}
+              movieId={movie?.id!}
+              onFavorite={() => {
+                setMovie({ ...movie!, isFavorite: true });
+              }}
+              onRemoveFavorite={() => {
+                setMovie({ ...movie!, isFavorite: false });
+              }}
+              onAddToWatchlist={() => {
+                setMovie({ ...movie!, isToWatch: true });
+              }}
+              onRemoveFromWatchlist={() => {
+                setMovie({ ...movie!, isToWatch: false });
+              }}
+              onDelete={redirectToFilmsPage}
+            />
+          </div>
+          <StyledMovieContent>
+            <Flex>
+              <StyledMovieTitle>{movie?.title}</StyledMovieTitle>
+              <StyledReleaseDate>{movie?.releaseDate} </StyledReleaseDate>
+            </Flex>
+            <Flex>
+              <StyledPerson>
+                directed by{' '}
+                {movie?.directors.map((director, index) => {
+                  return (
+                    <Fragment key={`director-${director.id}`}>
+                      <StyledLink to={`/director/${director.id}`}>
+                        {`${director.forename} ${director.name}`}
+                      </StyledLink>
+                      {index === movie.directors.length - 1 ? '' : ', '}
+                    </Fragment>
+                  );
+                })}
+              </StyledPerson>
+            </Flex>
+            <StyledTagline>{movie?.metadata.tagline}</StyledTagline>
+            <StyledOverview>{movie?.metadata.overview}</StyledOverview>
 
-        <Separator decorative />
+            <Separator decorative />
 
-        <StyledSection>
-          <StyledSectionTitle>Cast</StyledSectionTitle>
-          <StyledSectionContent>
-            {movie?.actors.map((actor, index) => {
-              return (
-                <Fragment key={`actor-${actor.id}`}>
-                  <StyledLink to={`/actor/${actor.id}`}>
-                    {`${actor.forename} ${actor.name}`}
-                  </StyledLink>
-                  {index === movie.actors.length - 1 ? '' : ', '}
-                </Fragment>
-              );
-            })}
-          </StyledSectionContent>
-        </StyledSection>
+            <StyledSection>
+              <StyledSectionTitle>Cast</StyledSectionTitle>
+              <StyledSectionContent>
+                {movie?.actors.map((actor, index) => {
+                  return (
+                    <Fragment key={`actor-${actor.id}`}>
+                      <StyledLink to={`/actor/${actor.id}`}>
+                        {`${actor.forename} ${actor.name}`}
+                      </StyledLink>
+                      {index === movie.actors.length - 1 ? '' : ', '}
+                    </Fragment>
+                  );
+                })}
+              </StyledSectionContent>
+            </StyledSection>
 
-        <Separator decorative />
+            <Separator decorative />
 
-        <StyledSection>
-          <StyledSectionTitle>Genres</StyledSectionTitle>
-          <StyledSectionContent>
-            {movie?.genres.map((genre, index) => {
-              return (
-                <Fragment key={`genre-${genre.id}`}>
-                  <StyledLink to={`/genre/${genre.id}`}>{`${genre.type}`}</StyledLink>
-                  {index === movie.genres.length - 1 ? '' : ', '}
-                </Fragment>
-              );
-            })}
-          </StyledSectionContent>
-        </StyledSection>
+            <StyledSection>
+              <StyledSectionTitle>Genres</StyledSectionTitle>
+              <StyledSectionContent>
+                {movie?.genres.map((genre, index) => {
+                  return (
+                    <Fragment key={`genre-${genre.id}`}>
+                      <StyledLink to={`/genre/${genre.id}`}>{`${genre.type}`}</StyledLink>
+                      {index === movie.genres.length - 1 ? '' : ', '}
+                    </Fragment>
+                  );
+                })}
+              </StyledSectionContent>
+            </StyledSection>
 
-        <Separator decorative />
+            <Separator decorative />
 
-        <WatchDates movieId={movieId} />
+            <WatchDates movieId={movieId} />
 
-        <Separator decorative />
+            <Separator decorative />
 
-        <FilmDetails
-          runtimeInMinutes={movie?.metadata.runtime}
-          originalLanguage={movie?.metadata.originalLanguage}
-          revenue={movie?.metadata.revenue}
-          budget={movie?.metadata.budget}
-        />
+            <FilmDetails
+              runtimeInMinutes={movie?.metadata.runtime}
+              originalLanguage={movie?.metadata.originalLanguage}
+              revenue={movie?.metadata.revenue}
+              budget={movie?.metadata.budget}
+            />
 
-        <Separator decorative />
+            <Separator decorative />
 
-        <EditableReview movieId={movieId} />
-      </StyledMovieContent>
+            <EditableReview movieId={movieId} />
+          </StyledMovieContent>
+        </>
+      )}
     </StyledFilm>
   );
 };

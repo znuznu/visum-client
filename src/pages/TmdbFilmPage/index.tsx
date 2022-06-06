@@ -2,8 +2,6 @@ import { useParams } from 'react-router-dom';
 
 import TmdbFilm from 'components/TmdbFilm';
 
-import { StyledTmdbFilm } from './style';
-
 const invariant = (tmdbId?: string) => {
   if (!tmdbId) {
     throw new Error('TMDb id is undefined');
@@ -20,11 +18,7 @@ const TmdbFilmPage = () => {
   // We could redirect the user to home
   invariant(tmdbId);
 
-  return (
-    <StyledTmdbFilm>
-      <TmdbFilm id={parseInt(tmdbId!)} />
-    </StyledTmdbFilm>
-  );
+  return <TmdbFilm id={parseInt(tmdbId!)} />;
 };
 
 export default TmdbFilmPage;

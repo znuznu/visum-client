@@ -1,10 +1,5 @@
-import styled from 'styled-components';
+import { StyledFilm } from 'components/Film/style';
 
-const StyledTmdbFilm = styled.div`
-  display: flex;
-  margin: 1rem 0;
-
-  max-width: ${({ theme }) => theme.breakpoints.s};
-`;
+const StyledTmdbFilm = StyledFilm;
 
 export { StyledTmdbFilm };

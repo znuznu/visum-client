@@ -14,6 +14,7 @@ import {
 
 import ErrorText from 'components/ErrorText';
 import {
+  StyledFilm,
   StyledMovieContent,
   StyledOverview,
   StyledPerson,
@@ -109,170 +110,174 @@ const TmdbFilm = ({ id }: { id: number }) => {
     return <ErrorText />;
   }
 
-  return isLoading ? (
-    <SkeletonFilm withWatchDates={false} />
-  ) : (
-    <>
-      <div>
-        {movie?.metadata?.posterUrl ? (
-          <StyledResponsivePoster src={movie?.metadata.posterUrl} />
-        ) : (
-          <EmptyPoster width={'250px'} height={'375px'} iconSize={'50px'} />
-        )}
-        <Flex
-          flexDirection={'column'}
-          justifyContent={'space-between'}
-          margin={'1rem 0 0'}
-        >
-          <StyledCheckboxes>
-            <Checkbox
-              onClick={toggleFavorite}
-              label={'Favorite'}
-              ariaLabel={'Favorite'}
-              id={'Favorite'}
+  return (
+    <StyledFilm>
+      {isLoading ? (
+        <SkeletonFilm withWatchDates={false} />
+      ) : (
+        <>
+          <div>
+            {movie?.metadata?.posterUrl ? (
+              <StyledResponsivePoster src={movie?.metadata.posterUrl} />
+            ) : (
+              <EmptyPoster width={'250px'} height={'375px'} iconSize={'50px'} />
+            )}
+            <Flex
+              flexDirection={'column'}
+              justifyContent={'space-between'}
+              margin={'1rem 0 0'}
+            >
+              <StyledCheckboxes>
+                <Checkbox
+                  onClick={toggleFavorite}
+                  label={'Favorite'}
+                  ariaLabel={'Favorite'}
+                  id={'Favorite'}
+                />
+                <Checkbox
+                  onClick={toggleToWatch}
+                  label={'To watch'}
+                  ariaLabel={'To watch'}
+                  id={'To watch'}
+                />
+              </StyledCheckboxes>
+              <Button
+                margin={' 1rem auto 0'}
+                onClick={() => {
+                  if (!movie) {
+                    throw new Error('Unexpected behavior: movie is undefined.');
+                  }
+
+                  createMovieMutation.mutate({
+                    title: movie.title,
+                    releaseDate: movie.releaseDate,
+                    actors: movie.actors.map((actor) => {
+                      return { name: actor.name, forename: actor.forename };
+                    }),
+                    directors: movie.directors.map((director) => {
+                      return { name: director.name, forename: director.forename };
+                    }),
+                    genres: movie.genres.map((genre) => {
+                      return {
+                        type: genre
+                      };
+                    }),
+                    metadata: {
+                      tmdbId: movie.metadata.tmdbId,
+                      imdbId: movie.metadata.imdbId,
+                      originalLanguage: movie.metadata.originalLanguage,
+                      tagline: movie.metadata.tagline,
+                      overview: movie.metadata.overview,
+                      budget: movie.metadata.budget,
+                      revenue: movie.metadata.revenue,
+                      runtime: movie.metadata.runtime,
+                      posterUrl: movie.metadata.posterUrl
+                    },
+                    isFavorite,
+                    isToWatch
+                  });
+                }}
+              >
+                Add
+              </Button>
+            </Flex>
+          </div>
+          <StyledMovieContent>
+            <Flex>
+              <StyledFilmTitle
+                href={buildTmdbMovieUrl({
+                  id: movie?.metadata.tmdbId!,
+                  title: movie?.title!
+                })}
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                {movie?.title}
+              </StyledFilmTitle>
+              <StyledReleaseDate>{movie?.releaseDate} </StyledReleaseDate>
+            </Flex>
+            <Flex>
+              <StyledPerson>
+                directed by{' '}
+                {movie?.directors.map((director, index) => {
+                  return (
+                    <Fragment key={`director-${director.id}`}>
+                      <StyledLink
+                        as="a"
+                        href={buildTmdbPersonUrl({
+                          id: director.id,
+                          forename: director.forename,
+                          name: director.name
+                        })}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                      >
+                        {`${director.forename} ${director.name}`}
+                      </StyledLink>
+                      {index === movie.directors.length - 1 ? '' : ', '}
+                    </Fragment>
+                  );
+                })}
+              </StyledPerson>
+            </Flex>
+            <StyledTagline>{movie?.metadata.tagline}</StyledTagline>
+            <StyledOverview>{movie?.metadata.overview}</StyledOverview>
+
+            <Separator decorative />
+
+            <StyledSection>
+              <StyledSectionTitle>Cast</StyledSectionTitle>
+              <StyledSectionContent>
+                {movie?.actors.map((actor, index) => {
+                  return (
+                    <Fragment key={`actor-${actor.id}`}>
+                      <StyledLink
+                        as="a"
+                        href={buildTmdbPersonUrl({
+                          id: actor.id,
+                          forename: actor.forename,
+                          name: actor.name
+                        })}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                      >
+                        {`${actor.forename} ${actor.name}`}
+                      </StyledLink>
+                      {index === movie.actors.length - 1 ? '' : ', '}
+                    </Fragment>
+                  );
+                })}
+              </StyledSectionContent>
+            </StyledSection>
+
+            <Separator decorative />
+
+            <StyledSection>
+              <StyledSectionTitle>Genres</StyledSectionTitle>
+              <StyledSectionContent>
+                {movie?.genres.map((genre, index) => {
+                  return (
+                    <Fragment key={`genre-${genre}`}>
+                      <StyledResource>{`${genre}`}</StyledResource>
+                      {index === movie.genres.length - 1 ? '' : ', '}
+                    </Fragment>
+                  );
+                })}
+              </StyledSectionContent>
+            </StyledSection>
+
+            <Separator decorative />
+
+            <FilmDetails
+              runtimeInMinutes={movie?.metadata.runtime}
+              originalLanguage={movie?.metadata.originalLanguage}
+              revenue={movie?.metadata.revenue}
+              budget={movie?.metadata.budget}
             />
-            <Checkbox
-              onClick={toggleToWatch}
-              label={'To watch'}
-              ariaLabel={'To watch'}
-              id={'To watch'}
-            />
-          </StyledCheckboxes>
-          <Button
-            margin={' 1rem auto 0'}
-            onClick={() => {
-              if (!movie) {
-                throw new Error('Unexpected behavior: movie is undefined.');
-              }
-
-              createMovieMutation.mutate({
-                title: movie.title,
-                releaseDate: movie.releaseDate,
-                actors: movie.actors.map((actor) => {
-                  return { name: actor.name, forename: actor.forename };
-                }),
-                directors: movie.directors.map((director) => {
-                  return { name: director.name, forename: director.forename };
-                }),
-                genres: movie.genres.map((genre) => {
-                  return {
-                    type: genre
-                  };
-                }),
-                metadata: {
-                  tmdbId: movie.metadata.tmdbId,
-                  imdbId: movie.metadata.imdbId,
-                  originalLanguage: movie.metadata.originalLanguage,
-                  tagline: movie.metadata.tagline,
-                  overview: movie.metadata.overview,
-                  budget: movie.metadata.budget,
-                  revenue: movie.metadata.revenue,
-                  runtime: movie.metadata.runtime,
-                  posterUrl: movie.metadata.posterUrl
-                },
-                isFavorite,
-                isToWatch
-              });
-            }}
-          >
-            Add
-          </Button>
-        </Flex>
-      </div>
-      <StyledMovieContent>
-        <Flex>
-          <StyledFilmTitle
-            href={buildTmdbMovieUrl({
-              id: movie?.metadata.tmdbId!,
-              title: movie?.title!
-            })}
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            {movie?.title}
-          </StyledFilmTitle>
-          <StyledReleaseDate>{movie?.releaseDate} </StyledReleaseDate>
-        </Flex>
-        <Flex>
-          <StyledPerson>
-            directed by{' '}
-            {movie?.directors.map((director, index) => {
-              return (
-                <Fragment key={`director-${director.id}`}>
-                  <StyledLink
-                    as="a"
-                    href={buildTmdbPersonUrl({
-                      id: director.id,
-                      forename: director.forename,
-                      name: director.name
-                    })}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-                    {`${director.forename} ${director.name}`}
-                  </StyledLink>
-                  {index === movie.directors.length - 1 ? '' : ', '}
-                </Fragment>
-              );
-            })}
-          </StyledPerson>
-        </Flex>
-        <StyledTagline>{movie?.metadata.tagline}</StyledTagline>
-        <StyledOverview>{movie?.metadata.overview}</StyledOverview>
-
-        <Separator decorative />
-
-        <StyledSection>
-          <StyledSectionTitle>Cast</StyledSectionTitle>
-          <StyledSectionContent>
-            {movie?.actors.map((actor, index) => {
-              return (
-                <Fragment key={`actor-${actor.id}`}>
-                  <StyledLink
-                    as="a"
-                    href={buildTmdbPersonUrl({
-                      id: actor.id,
-                      forename: actor.forename,
-                      name: actor.name
-                    })}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-                    {`${actor.forename} ${actor.name}`}
-                  </StyledLink>
-                  {index === movie.actors.length - 1 ? '' : ', '}
-                </Fragment>
-              );
-            })}
-          </StyledSectionContent>
-        </StyledSection>
-
-        <Separator decorative />
-
-        <StyledSection>
-          <StyledSectionTitle>Genres</StyledSectionTitle>
-          <StyledSectionContent>
-            {movie?.genres.map((genre, index) => {
-              return (
-                <Fragment key={`genre-${genre}`}>
-                  <StyledResource>{`${genre}`}</StyledResource>
-                  {index === movie.genres.length - 1 ? '' : ', '}
-                </Fragment>
-              );
-            })}
-          </StyledSectionContent>
-        </StyledSection>
-
-        <Separator decorative />
-
-        <FilmDetails
-          runtimeInMinutes={movie?.metadata.runtime}
-          originalLanguage={movie?.metadata.originalLanguage}
-          revenue={movie?.metadata.revenue}
-          budget={movie?.metadata.budget}
-        />
-      </StyledMovieContent>
-    </>
+          </StyledMovieContent>
+        </>
+      )}
+    </StyledFilm>
   );
 };
 
