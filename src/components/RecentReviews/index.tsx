@@ -1,5 +1,6 @@
 import { HTTPError } from 'ky';
 import { useQuery } from 'react-query';
+import { Fragment } from 'react';
 
 import { ReviewFromPage } from 'models/reviews';
 
@@ -10,6 +11,7 @@ import { Separator } from 'components/common/Separator';
 import { NoData } from 'components/NoData';
 import ErrorText from 'components/ErrorText';
 import HomeSectionHeading from 'components/HomeSectionHeading';
+import SkeletonRecentReview from 'components/SkeletonRecentReview';
 
 import useGenericHttpError from 'hooks/useGenericHttpError';
 import useAuthentication from 'hooks/useAuthentication';
@@ -19,6 +21,8 @@ import { StyledReviews } from './style';
 export type RecentReviewsProps = {
   limit: number;
 };
+
+const SKELETON_NUMBERS = 3;
 
 const RecentReviews = ({ limit }: RecentReviewsProps) => {
   const { jwtToken } = useAuthentication();
@@ -45,11 +49,6 @@ const RecentReviews = ({ limit }: RecentReviewsProps) => {
     }
   );
 
-  if (isLoading) {
-    // TODO spinner
-    return <p>Loading</p>;
-  }
-
   if (isError) {
     return <ErrorText />;
   }
@@ -58,18 +57,26 @@ const RecentReviews = ({ limit }: RecentReviewsProps) => {
     <div>
       {/* TODO MORE path */}
       <HomeSectionHeading title={'Recent reviews'} />
-      {data?.content.length ? (
-        <StyledReviews>
-          {data?.content.map((review, index) => (
-            <li key={`recent-review-${review.id}`}>
-              <PageReview key={`recent-review-${review.id}`} review={review} />
-              {index !== data.content.length - 1 && <Separator />}
-            </li>
-          ))}
-        </StyledReviews>
-      ) : (
-        <NoData>No recent reviews found.</NoData>
-      )}
+      {isLoading &&
+        [...Array(SKELETON_NUMBERS)].map((_, index) => (
+          <Fragment key={`skeleton-${index}`}>
+            <SkeletonRecentReview />
+            {index !== SKELETON_NUMBERS - 1 && <Separator />}
+          </Fragment>
+        ))}
+      {!isLoading &&
+        (data?.content.length ? (
+          <StyledReviews>
+            {data?.content.map((review, index) => (
+              <li key={`recent-review-${review.id}`}>
+                <PageReview key={`recent-review-${review.id}`} review={review} />
+                {index !== data.content.length - 1 && <Separator />}
+              </li>
+            ))}
+          </StyledReviews>
+        ) : (
+          <NoData>No recent reviews found.</NoData>
+        ))}
     </div>
   );
 };

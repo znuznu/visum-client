@@ -15,7 +15,7 @@ import MovieActionsPanel from 'components/MovieActionsPanel';
 import ErrorText from 'components/ErrorText';
 import FilmDetails from 'components/FilmDetails';
 import WatchDates from 'components/WatchDates';
-import SkeletonFilm from 'components/SkeletonFilm';
+import SkeletonFilm from 'components/common/Skeleton/SkeletonFilm';
 
 import useGenericHttpError from 'hooks/useGenericHttpError';
 import useAuthentication from 'hooks/useAuthentication';

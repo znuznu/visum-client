@@ -31,7 +31,7 @@ import { Separator } from 'components/common/Separator';
 import FilmDetails from 'components/FilmDetails';
 import Checkbox from 'components/common/Checkbox';
 import Button from 'components/common/Button';
-import SkeletonFilm from 'components/SkeletonFilm';
+import SkeletonFilm from 'components/common/Skeleton/SkeletonFilm';
 
 import useGenericHttpError from 'hooks/useGenericHttpError';
 import useAuthentication from 'hooks/useAuthentication';
