@@ -27,6 +27,7 @@ module.exports = {
     'no-duplicate-imports': ['error'],
     'no-useless-rename': ['error'],
     'no-var': ['error'],
+    'no-undef': 'off',
     'prefer-const': [
       'error',
       {

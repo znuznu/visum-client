@@ -1,5 +1,6 @@
-import { API_URL } from 'config';
 import HttpService from 'services/http';
+
+import { API_URL } from 'config';
 
 export interface SignInRequestBody {
   username: string;

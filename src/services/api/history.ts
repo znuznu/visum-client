@@ -1,16 +1,24 @@
-import { API_URL } from 'config';
-import { WatchDate } from 'models/watchDate';
+import { z } from 'zod';
+
+import { PromiseWatchDateSchema, WatchDate, WatchDateSchema } from 'models/watchDate';
+
 import HttpService from 'services/http';
 
-type WatchDatesResponseBody = WatchDate[];
+import { API_URL } from 'config';
+
+const WatchDatesResponseSchema = z.array(WatchDateSchema);
+const PromiseWatchDatesResponseSchema = z.promise(WatchDatesResponseSchema);
+type WatchDatesResponse = z.infer<typeof WatchDatesResponseSchema>;
 
 export const fetchWatchDates = async (
   headers: Record<string, string>,
   movieId: number
-): Promise<WatchDatesResponseBody> => {
-  return HttpService.get(`${API_URL}/api/history/movies/${movieId}`, {
-    headers
-  }).json<WatchDatesResponseBody>();
+): Promise<WatchDatesResponse> => {
+  return PromiseWatchDatesResponseSchema.parse(
+    HttpService.get(`${API_URL}/api/history/movies/${movieId}`, {
+      headers
+    }).json<WatchDatesResponse>()
+  );
 };
 
 export const deleteWatchDate = async (
@@ -27,18 +35,16 @@ type CreateWatchDateRequestBody = {
   viewingDate: string;
 };
 
-type CreateWatchDateResponseBody = {
-  id: number;
-  movieId: number;
-  viewingDate: string;
-};
+type CreateWatchDateResponse = WatchDate;
 
 export const addWatchDate = async (
   headers: Record<string, string>,
   body: CreateWatchDateRequestBody
-): Promise<CreateWatchDateResponseBody> => {
-  return HttpService.post(`${API_URL}/api/history`, {
-    headers,
-    json: body
-  }).json<CreateWatchDateResponseBody>();
+): Promise<CreateWatchDateResponse> => {
+  return PromiseWatchDateSchema.parse(
+    HttpService.post(`${API_URL}/api/history`, {
+      headers,
+      json: body
+    }).json<CreateWatchDateResponse>()
+  );
 };

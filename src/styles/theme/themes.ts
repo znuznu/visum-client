@@ -15,10 +15,11 @@ import {
   redDark
 } from '@radix-ui/colors';
 
-import { Theme } from '.';
 import { breakpoints } from './breakpoints';
 import { favoriteIconColor, tmdbPrimaryColor, watchIconColor } from './colors';
 import { fonts, fontSizes } from './fonts';
+
+import { Theme } from '.';
 
 const sharedColors = {
   tmdb: {

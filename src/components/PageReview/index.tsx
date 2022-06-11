@@ -1,3 +1,5 @@
+import { ReviewFromPage } from 'models/reviews';
+
 import { Flex } from 'components/common/Flex';
 import MovieReviewPoster from 'components/MovieReviewPoster';
 import { StyledFooter, StyledText } from 'components/ReadonlyReview/style';
@@ -13,21 +15,7 @@ import {
 } from './style';
 
 type PageReviewProps = {
-  review: {
-    id: number;
-    grade: number;
-    content: string;
-    movie: {
-      id: number;
-      title: string;
-      releaseDate: string;
-      metadata: {
-        posterUrl?: string;
-      };
-    };
-    creationDate: string;
-    updateDate: string;
-  };
+  review: ReviewFromPage;
 };
 
 const PageReview = ({ review }: PageReviewProps) => {

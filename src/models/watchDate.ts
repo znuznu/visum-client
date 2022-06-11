@@ -1,5 +1,9 @@
-export interface WatchDate {
-  id: number;
-  viewingDate: string;
-  movieId: number;
-}
+import { z } from 'zod';
+
+export const WatchDateSchema = z.object({
+  id: z.number(),
+  viewingDate: z.string(),
+  movieId: z.number()
+});
+export const PromiseWatchDateSchema = z.promise(WatchDateSchema);
+export type WatchDate = z.infer<typeof WatchDateSchema>;

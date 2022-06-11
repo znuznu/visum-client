@@ -1,44 +1,64 @@
-import { API_URL } from 'config';
-import { StatsMovie } from 'models/statistics';
-import { Pair } from 'models/helpers';
+import { z } from 'zod';
+
+import { getPairSchema } from 'models/common';
+import { StatsMovieSchema } from 'models/statistics';
+
 import HttpService from 'services/http';
 
-export interface FetchAllTimeStatisticsResponseBody {
-  totalRuntimeInHours: number;
-  averageRatePerYear: Pair<number, number>[];
-  reviewCount: number;
-  movieCount: {
-    perYear: Pair<number, number>[];
-    perGenre: Pair<string, number>[];
-    perOriginalLanguage: Pair<string, number>[];
-  };
-  highestRatedMoviesPerDecade: Pair<number, StatsMovie[]>[];
-}
+import { API_URL } from 'config';
+
+const FetchAllTimeStatisticsResponseSchema = z.object({
+  totalRuntimeInHours: z.number(),
+  averageRatePerYear: z.array(getPairSchema(z.number(), z.number())),
+  reviewCount: z.number(),
+  movieCount: z.object({
+    perYear: z.array(getPairSchema(z.number(), z.number())),
+    perGenre: z.array(getPairSchema(z.string(), z.number())),
+    perOriginalLanguage: z.array(getPairSchema(z.string(), z.number()))
+  }),
+  highestRatedMoviesPerDecade: z.array(
+    getPairSchema(z.number(), z.array(StatsMovieSchema))
+  )
+});
+const PromiseFetchAllTimeStatisticsResponseSchema = z.promise(
+  FetchAllTimeStatisticsResponseSchema
+);
+type FetchAllTimeStatisticsResponse = z.infer<
+  typeof FetchAllTimeStatisticsResponseSchema
+>;
 
 export const fetchAllTimeStatistics = async (
   headers: Record<string, string>
-): Promise<FetchAllTimeStatisticsResponseBody> => {
-  return HttpService.get(`${API_URL}/api/statistics/years`, {
-    headers
-  }).json<FetchAllTimeStatisticsResponseBody>();
+): Promise<FetchAllTimeStatisticsResponse> => {
+  return PromiseFetchAllTimeStatisticsResponseSchema.parse(
+    HttpService.get(`${API_URL}/api/statistics/years`, {
+      headers
+    }).json<FetchAllTimeStatisticsResponse>()
+  );
 };
 
-export interface FetchYearStatisticsResponseBody {
-  movieCount: number;
-  reviewCount: number;
-  totalRuntimeInHours: number;
-  highestRatedMovies: {
-    released: StatsMovie[];
-    older: StatsMovie[];
-  };
-  movieCountPerGenre: Pair<string, number>[];
-}
+const FetchYearStatisticsResponseSchema = z.object({
+  movieCount: z.number(),
+  reviewCount: z.number(),
+  totalRuntimeInHours: z.number(),
+  highestRatedMovies: z.object({
+    released: z.array(StatsMovieSchema),
+    older: z.array(StatsMovieSchema)
+  }),
+  movieCountPerGenre: z.array(getPairSchema(z.string(), z.number()))
+});
+const PromiseFetchYearStatisticsResponseSchema = z.promise(
+  FetchYearStatisticsResponseSchema
+);
+type FetchYearStatisticsResponse = z.infer<typeof FetchYearStatisticsResponseSchema>;
 
 export const fetchYearStatistics = async (
   headers: Record<string, string>,
   year: number
-): Promise<FetchYearStatisticsResponseBody> => {
-  return HttpService.get(`${API_URL}/api/statistics/years/${year}`, {
-    headers
-  }).json<FetchYearStatisticsResponseBody>();
+): Promise<FetchYearStatisticsResponse> => {
+  return PromiseFetchYearStatisticsResponseSchema.parse(
+    HttpService.get(`${API_URL}/api/statistics/years/${year}`, {
+      headers
+    }).json<FetchYearStatisticsResponse>()
+  );
 };
