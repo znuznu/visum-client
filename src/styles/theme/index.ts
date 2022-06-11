@@ -1,6 +1,7 @@
+// eslint-disable-next-line
 import { DefaultTheme } from 'styled-components';
-import { Breakpoints } from './breakpoints';
 
+import { Breakpoints } from './breakpoints';
 import { Colors } from './colors';
 import { Fonts, Sizes as FontSizes } from './fonts';
 

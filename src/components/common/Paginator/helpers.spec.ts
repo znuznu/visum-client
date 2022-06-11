@@ -1,4 +1,5 @@
-import { expect, test } from 'vitest';
+import { expect, test, it } from 'vitest';
+
 import { getPageRangeLabel } from './helpers';
 
 test('Paginator helpers', () => {

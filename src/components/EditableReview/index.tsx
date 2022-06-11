@@ -29,7 +29,7 @@ interface EditableReviewProps {
 const EditableReview = ({ movieId }: EditableReviewProps) => {
   const { jwtToken } = useAuthentication();
   const { setHttpError } = useGenericHttpError();
-  const [review, setReview] = useState<Review | undefined>(undefined);
+  const [review, setReview] = useState<Review | null | undefined>(null);
   const [isEdited, edited] = useState(false);
 
   const toggleEdit = () => edited(!isEdited);
@@ -55,7 +55,7 @@ const EditableReview = ({ movieId }: EditableReviewProps) => {
         console.log(error);
       },
       onSuccess: () => {
-        setReview(undefined);
+        setReview(null);
       }
     }
   );

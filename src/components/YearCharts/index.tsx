@@ -13,7 +13,7 @@ import {
 } from 'chart.js';
 import { Chart } from 'react-chartjs-2';
 
-import { Pair } from 'models/helpers';
+import { Pair } from 'models/common';
 
 import { Flex } from 'components/common/Flex';
 import StatisticsSectionHeader from 'components/StatisticsSectionHeader';

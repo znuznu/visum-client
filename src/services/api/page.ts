@@ -1,6 +1,8 @@
-import { API_URL } from 'config';
 import { Page } from 'models/page';
+
 import HttpService from 'services/http';
+
+import { API_URL } from 'config';
 
 interface PageSearchParams {
   sort: string;

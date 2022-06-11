@@ -8,7 +8,7 @@ import { TmdbMovie } from 'models/tmdb';
 import { fetchTmdbMovie } from 'services/api/tmdb';
 import {
   CreateMovieRequestBody,
-  CreateMovieResponseBody,
+  CreateMovieResponse,
   createMovie
 } from 'services/api/movie';
 
@@ -100,7 +100,7 @@ const TmdbFilm = ({ id }: { id: number }) => {
         // TODO #1
         console.log(error);
       },
-      onSuccess: (data: CreateMovieResponseBody) => {
+      onSuccess: (data: CreateMovieResponse) => {
         setVisumId(data.id);
       }
     }

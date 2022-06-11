@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
+import { Pair } from 'models/common';
 import { StatsMovie } from 'models/statistics';
-import { Pair } from 'models/helpers';
 
 import { Flex } from 'components/common/Flex';
 import { Grid } from 'components/common/Grid';

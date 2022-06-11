@@ -4,8 +4,8 @@ import { useMutation } from 'react-query';
 import { Review } from 'models/reviews';
 
 import {
-  CreateReviewRequestBody,
-  UpdateReviewRequestBody,
+  CreateReviewRequest,
+  UpdateReviewRequest,
   createReview,
   updateReview
 } from 'services/api/review';
@@ -25,7 +25,7 @@ export interface FormValues {
 }
 
 interface ReviewFormProps {
-  review?: Review;
+  review?: Review | null;
   movieId: number;
   onComplete: () => void;
 }
@@ -34,7 +34,7 @@ const ReviewForm = ({ review, movieId, onComplete }: ReviewFormProps) => {
   const auth = useAuthentication();
 
   const createReviewMutation = useMutation(
-    (body: CreateReviewRequestBody) =>
+    (body: CreateReviewRequest) =>
       createReview({ authorization: `Bearer ${auth.jwtToken}` }, body),
     {
       onError: (error) => {
@@ -48,7 +48,7 @@ const ReviewForm = ({ review, movieId, onComplete }: ReviewFormProps) => {
   );
 
   const updateReviewMutation = useMutation(
-    (body: UpdateReviewRequestBody) =>
+    (body: UpdateReviewRequest) =>
       updateReview({ authorization: `Bearer ${auth.jwtToken}` }, body, review?.id!),
     {
       onError: (error) => {
