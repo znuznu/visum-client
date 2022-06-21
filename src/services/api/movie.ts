@@ -29,6 +29,8 @@ export interface CreateMovieRequestBody {
   directors: {
     name: string;
     forename: string;
+    tmdbId: number;
+    posterUrl?: string | null;
   }[];
   genres: {
     type: string;
@@ -42,7 +44,7 @@ export interface CreateMovieRequestBody {
     budget: number;
     revenue: number;
     runtime: number;
-    posterUrl: string;
+    posterUrl?: string | null;
   };
 }
 

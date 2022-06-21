@@ -1,33 +1,36 @@
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 import { HTTPError } from 'ky';
 import { useQuery } from 'react-query';
-
-import { Director as DirectorModel } from 'models/person';
 
 import { fetchDirector } from 'services/api/person';
 
 import ErrorText from 'components/ErrorText';
-import { Flex } from 'components/common/Flex';
 import PersonMovie from 'components/PersonMovie';
 import { Separator } from 'components/common/Separator';
+import { NoData } from 'components/NoData';
+import EmptyPoster from 'components/EmptyPoster';
+import SkeletonPerson from 'components/common/Skeleton/SkeletonPerson';
+import { StyledResponsivePoster } from 'components/Film/style';
 
-import useGenericHttpError from 'hooks/useGenericHttpError';
 import useAuthentication from 'hooks/useAuthentication';
+import useGenericHttpError from 'hooks/useGenericHttpError';
 
-import { StyledName } from './style';
+import {
+  StyledAssetContent,
+  StyledContent,
+  StyledMovies,
+  StyledName,
+  StyledTextContent
+} from './style';
 
 const Director = ({ id }: { id: number }) => {
   const { jwtToken } = useAuthentication();
   const { setHttpError } = useGenericHttpError(undefined);
-  const [director, setDirector] = useState<DirectorModel | undefined>(undefined);
 
-  const { isLoading, isError } = useQuery(
-    'getDirector',
+  const { isLoading, isError, data } = useQuery(
+    ['getDirector', id],
     () => fetchDirector({ authorization: `Bearer ${jwtToken}` }, id),
     {
-      onSuccess: (data: DirectorModel) => {
-        setDirector(data);
-      },
       onError: (error: HTTPError) => {
         // TODO #1
         setHttpError(error);
@@ -36,8 +39,7 @@ const Director = ({ id }: { id: number }) => {
   );
 
   if (isLoading) {
-    // TODO spinner
-    return <p>Loading</p>;
+    return <SkeletonPerson />;
   }
 
   if (isError) {
@@ -45,27 +47,42 @@ const Director = ({ id }: { id: number }) => {
   }
 
   return (
-    <Flex flexDirection={'column'}>
-      <StyledName>
-        {director?.forename} {director?.name}
-      </StyledName>
-      <Flex flexDirection={'column'}>
-        {director?.movies.map((movie, index) => (
-          <Fragment key={`movie-${movie.id}`}>
-            <PersonMovie
-              movie={{
-                id: movie.id,
-                title: movie.title,
-                releaseDate: movie.releaseDate,
-                isToWatch: movie.shouldWatch,
-                isFavorite: movie.favorite
-              }}
-            />
-            {index !== director.movies.length - 1 ? <Separator decorative /> : null}
-          </Fragment>
-        ))}
-      </Flex>
-    </Flex>
+    <>
+      {!isLoading && data && (
+        <StyledContent>
+          <StyledAssetContent>
+            {data.posterUrl ? (
+              <StyledResponsivePoster src={data.posterUrl} />
+            ) : (
+              <EmptyPoster width={'250px'} height={'375px'} iconSize={'50px'} />
+            )}
+          </StyledAssetContent>
+          <StyledTextContent>
+            <StyledName>
+              {data.forename} {data.name}
+            </StyledName>
+            <Separator decorative />
+            <StyledMovies>
+              {data.movies.map((movie, index) => (
+                <Fragment key={`movie-${movie.id}`}>
+                  <PersonMovie
+                    movie={{
+                      id: movie.id,
+                      title: movie.title,
+                      releaseDate: movie.releaseDate,
+                      isToWatch: movie.shouldWatch,
+                      isFavorite: movie.favorite
+                    }}
+                  />
+                  {index !== data.movies.length - 1 ? <Separator decorative /> : null}
+                </Fragment>
+              ))}
+            </StyledMovies>
+          </StyledTextContent>
+        </StyledContent>
+      )}
+      {!isLoading && !data && <NoData>No director with id {id} found.</NoData>}
+    </>
   );
 };
 

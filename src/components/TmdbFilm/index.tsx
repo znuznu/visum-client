@@ -163,7 +163,12 @@ const TmdbFilm = ({ id }: { id: number }) => {
                       return { name: actor.name, forename: actor.forename };
                     }),
                     directors: movie.directors.map((director) => {
-                      return { name: director.name, forename: director.forename };
+                      return {
+                        name: director.name,
+                        forename: director.forename,
+                        tmdbId: director.id,
+                        posterUrl: director.posterUrl
+                      };
                     }),
                     genres: movie.genres.map((genre) => {
                       return {

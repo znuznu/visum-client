@@ -1,5 +1,3 @@
-import { Flex } from 'components/common/Flex';
-
 import { StyledMovieTitle, StyledPersonMovie, StyledReleaseDate } from './style';
 
 interface PersonMovieProps {
@@ -15,10 +13,8 @@ interface PersonMovieProps {
 const PersonMovie = ({ movie }: PersonMovieProps) => {
   return (
     <StyledPersonMovie>
-      <Flex>
-        <StyledMovieTitle to={`/film/${movie.id}`}>{movie?.title}</StyledMovieTitle>
-        <StyledReleaseDate>{movie?.releaseDate} </StyledReleaseDate>
-      </Flex>
+      <StyledMovieTitle to={`/film/${movie.id}`}>{movie?.title}</StyledMovieTitle>
+      <StyledReleaseDate>{movie?.releaseDate} </StyledReleaseDate>
     </StyledPersonMovie>
   );
 };

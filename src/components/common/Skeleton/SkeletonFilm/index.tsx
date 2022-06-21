@@ -27,7 +27,7 @@ const SkeletonFilm = ({ withWatchDates }: SkeletonFilmProps) => {
 
   useEffect(() => {
     setPosterWidth(windowSize.width >= S_BREAKPOINT_IN_PIXEL ? '250px' : '100px');
-    setPosterHeight(windowSize.width >= S_BREAKPOINT_IN_PIXEL ? '300px' : '150px');
+    setPosterHeight(windowSize.width >= S_BREAKPOINT_IN_PIXEL ? '375px' : '150px');
   }, [windowSize]);
 
   return (

@@ -12,7 +12,7 @@ const StyledShellContent = styled.div`
   @media screen and (max-width: 1214px) {
     z-index: 0;
     margin: 53px 0 0;
-    padding: 0.5rem 1rem;
+    padding: 1rem 1rem;
     max-width: none;
   }
 `;

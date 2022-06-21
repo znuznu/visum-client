@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const StyledPersonMovie = styled.div`
   display: flex;
+  justify-content: space-between;
 
   &:hover {
     cursor: pointer;
@@ -12,7 +13,7 @@ const StyledPersonMovie = styled.div`
 const StyledMovieTitle = styled(Link)`
   color: ${(props) => props.theme.colors.secondary};
   font-family: ${(props) => props.theme.fonts.logo};
-  font-size: ${(props) => props.theme.fontSizes.xl};
+  font-size: ${(props) => props.theme.fontSizes.l};
   font-weight: bold;
   margin: 0;
 `;

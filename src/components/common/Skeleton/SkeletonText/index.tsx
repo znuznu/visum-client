@@ -5,13 +5,14 @@ import { StyledSkeletonText } from './style';
 
 type SkeletonTextProps = {
   lines: number;
+  lineHeight?: string;
 } & Pick<StyleProps, 'margin' | 'width'>;
 
-const SkeletonText = ({ lines, margin, width }: SkeletonTextProps) => {
+const SkeletonText = ({ lines, lineHeight, margin, width }: SkeletonTextProps) => {
   return (
     <StyledSkeletonText margin={margin}>
       {[...Array(lines)].map((_, index) => (
-        <Skeleton key={`skeleton-${index}`} width={width} height={'10px'} />
+        <Skeleton key={`skeleton-${index}`} width={width} height={lineHeight ?? '10px'} />
       ))}
     </StyledSkeletonText>
   );
