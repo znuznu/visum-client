@@ -53,7 +53,7 @@ const MoviesToWatch = ({ limit }: MoviesToWatchProps) => {
 
   return (
     <div>
-      <HomeSectionHeading title={'To watch'} morePath={'/fims?isToWatch=true'} />
+      <HomeSectionHeading title={'To watch'} morePath={'/films?isToWatch=true'} />
       {isLoading && <SkeletonPosters elements={9} variant={'standard'} />}
       {!isLoading &&
         (data?.content.length ? (
