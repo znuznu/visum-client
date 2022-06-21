@@ -28,7 +28,7 @@ const StyledLink = styled(Link)`
 const StyledHeading = styled(Flex)`
   justify-content: space-between;
   border-bottom: 1px solid ${(props) => props.theme.colors.border.secondary};
-  margin: 1rem 0 0.6rem;
+  margin-bottom: 0.6rem;
   padding-bottom: 0.2rem;
 `;
 

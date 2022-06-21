@@ -8,7 +8,6 @@ import { TmdbPageMovie } from 'models/tmdb';
 
 import { fetchUpcomingMovies } from 'services/api/tmdb';
 
-import { Flex } from 'components/common/Flex';
 import {
   ScrollAreaScrollbar,
   ScrollAreaThumb,
@@ -56,7 +55,7 @@ const UpcomingMovies = () => {
   }
 
   return (
-    <Flex flexDirection={'column'}>
+    <>
       <StyledTitle>Upcoming movies</StyledTitle>
       <StyledScrollArea aria-orientation={'horizontal'}>
         <ScrollAreaViewport>
@@ -82,7 +81,7 @@ const UpcomingMovies = () => {
         </ScrollAreaScrollbar>
       </StyledScrollArea>
       {!isLoading && !data?.content.length && <NoData>No upcoming films found.</NoData>}
-    </Flex>
+    </>
   );
 };
 

@@ -17,7 +17,7 @@ import ThemeSwitcher from 'components/ThemeSwitcher';
 
 import useWindowSize from 'hooks/useWindowSize';
 
-import { M_BREAKPOINT_IN_PIXEL } from 'styles/theme/breakpoints';
+import { SIDEBAR_BREAKPOINT_PX } from 'styles/theme/breakpoints';
 
 import SidebarHeaderLogo from './SidebarHeaderLogo';
 import SidebarMenu from './SidebarMenu';
@@ -38,7 +38,7 @@ const Sidebar = () => {
     <StyledSidebar>
       <SidebarHeader>
         <SidebarHeaderLogo>Visum</SidebarHeaderLogo>
-        {windowSize.width <= M_BREAKPOINT_IN_PIXEL ? (
+        {windowSize.width <= SIDEBAR_BREAKPOINT_PX ? (
           <Button
             onClick={() => hideMenu(!isMenuHidden)}
             margin={'auto 1rem auto 0'}
@@ -53,7 +53,7 @@ const Sidebar = () => {
           </Button>
         ) : null}
       </SidebarHeader>
-      {windowSize.width <= M_BREAKPOINT_IN_PIXEL && isMenuHidden ? null : (
+      {windowSize.width <= SIDEBAR_BREAKPOINT_PX && isMenuHidden ? null : (
         <SidebarMenu>
           <SidebarMenuSection>
             <SidebarMenuItemLink

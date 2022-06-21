@@ -3,8 +3,6 @@ import styled from 'styled-components';
 const StyledMovies = styled.div`
   display: flex;
   flex-direction: column;
-
-  max-width: ${({ theme }) => theme.breakpoints.m};
 `;
 
 const StyledTitle = styled.h2`
@@ -14,7 +12,7 @@ const StyledTitle = styled.h2`
 
 const StyledSearchBar = styled.form`
   display: flex;
-  padding: 1rem 0 1.5rem;
+  padding: 0 0 1.5rem;
 
   @media screen and (max-width: ${({ theme }) => theme.breakpoints.s}) {
     flex-direction: column;
