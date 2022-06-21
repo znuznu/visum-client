@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const StyledAllTimeStatsCount = styled.div`
   display: flex;
-  margin: 2rem auto;
+  margin: 0 auto 2rem;
 `;
 
 const StyledStatsCount = styled.div`

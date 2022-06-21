@@ -4,9 +4,6 @@ import styled from 'styled-components';
 const StyledDiscover = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
-
-  max-width: ${(props) => props.theme.breakpoints.m};
 `;
 
 const StyledTitle = styled.h1`
@@ -14,7 +11,7 @@ const StyledTitle = styled.h1`
   font-family: ${(props) => props.theme.fonts.logo};
   font-size: ${(props) => props.theme.fontSizes.xxxl};
   text-align: center;
-  margin: 1rem 0;
+  margin: 0 0 1rem;
 `;
 
 const StyledForm = styled.form`

@@ -5,9 +5,6 @@ import styled from 'styled-components';
 const StyledPerYearStatistics = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 1rem;
-
-  max-width: ${({ theme }) => theme.breakpoints.m};
 `;
 
 const StyledYearTitle = styled.h1`

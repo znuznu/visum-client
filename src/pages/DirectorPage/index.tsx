@@ -2,8 +2,6 @@ import { useParams } from 'react-router-dom';
 
 import Director from 'components/Director';
 
-import { StyledDirector } from './style';
-
 const invariant = (id?: string) => {
   if (!id) {
     throw new Error('Director id is undefined');
@@ -20,11 +18,7 @@ const DirectorPage = () => {
   // We could redirect the user to home
   invariant(id);
 
-  return (
-    <StyledDirector>
-      <Director id={parseInt(id!)} />
-    </StyledDirector>
-  );
+  return <Director id={parseInt(id!)} />;
 };
 
 export default DirectorPage;

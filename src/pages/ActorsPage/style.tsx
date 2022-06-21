@@ -6,14 +6,11 @@ import styled from 'styled-components';
 const StyledPersons = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
-
-  max-width: ${({ theme }) => theme.breakpoints.m};
 `;
 
 const StyledSearchBar = styled.form`
   display: flex;
-  padding: 1rem 0 1.5rem;
+  padding: 0 0 1.5rem;
 
   @media screen and (max-width: ${({ theme }) => theme.breakpoints.s}) {
     flex-direction: column;

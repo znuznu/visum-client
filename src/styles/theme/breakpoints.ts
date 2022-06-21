@@ -14,3 +14,6 @@ export const breakpoints: Breakpoints = {
   m: `${M_BREAKPOINT_IN_PIXEL}px` as const,
   l: '1433px' as const
 };
+
+export const SIDEBAR_WIDTH_PX = 250;
+export const SIDEBAR_BREAKPOINT_PX = M_BREAKPOINT_IN_PIXEL + SIDEBAR_WIDTH_PX;

@@ -11,7 +11,6 @@ const StyledTitle = styled.h2`
 `;
 
 const StyledUpcomingMoviesScrollArea = styled(StyledScrollArea)`
-  width: auto;
   height: 100%;
 `;
 

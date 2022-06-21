@@ -19,7 +19,7 @@ const colSize = '80px';
 
 const HighestRatedMoviesPerDecade = ({ decades }: HighestRatedMoviesPerDecadeProps) => {
   return (
-    <Flex flexDirection={'column'} margin={'0 0 1rem 0'}>
+    <Flex flexDirection={'column'}>
       <StatisticsSectionHeader title={'Highest rated movies per decade'} />
       {decades.length ? (
         decades.map((decade) => (
