@@ -10,7 +10,8 @@ export interface TmdbPageMovie {
 const TmdbPeopleSchema = z.object({
   id: z.number(),
   name: z.string(),
-  forename: z.string()
+  forename: z.string(),
+  posterUrl: z.string().optional().nullable()
 });
 
 const TmdbMovieSchema = z.object({
@@ -27,7 +28,7 @@ const TmdbMovieSchema = z.object({
     budget: z.number(),
     revenue: z.number(),
     runtime: z.number(),
-    posterUrl: z.string()
+    posterUrl: z.string().optional().nullable()
   }),
   actors: z.array(TmdbPeopleSchema),
   directors: z.array(TmdbPeopleSchema)
