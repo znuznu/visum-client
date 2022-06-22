@@ -33,11 +33,18 @@ import FilmDetails from 'components/FilmDetails';
 import Checkbox from 'components/common/Checkbox';
 import Button from 'components/common/Button';
 import SkeletonFilm from 'components/common/Skeleton/SkeletonFilm';
+import { AccessibleIcon } from 'components/common/AccessibleIcon';
 
 import useGenericHttpError from 'hooks/useGenericHttpError';
 import useAuthentication from 'hooks/useAuthentication';
 
-import { StyledCheckboxes, StyledFilmTitle, StyledLink, StyledResource } from './style';
+import {
+  AddIcon,
+  StyledCheckboxes,
+  StyledFilmTitle,
+  StyledLink,
+  StyledResource
+} from './style';
 
 const buildTmdbPersonUrl = ({
   id,
@@ -179,7 +186,10 @@ const TmdbFilm = ({ id }: { id: number }) => {
                   });
                 }}
               >
-                Add
+                Add to Visum
+                <AccessibleIcon label={'Logout'}>
+                  <AddIcon />
+                </AccessibleIcon>
               </Button>
             </Flex>
           </StyledMovieAssetContent>

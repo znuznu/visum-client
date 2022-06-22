@@ -1,3 +1,4 @@
+import { RocketIcon } from '@radix-ui/react-icons';
 import styled from 'styled-components';
 
 const StyledResource = styled.span`
@@ -42,14 +43,12 @@ const StyledFilmTitle = styled.a`
 const StyledCheckboxes = styled.div`
   display: flex;
   justify-content: space-evenly;
-
-  @media screen and (max-width: ${(props) => props.theme.breakpoints.s}) {
-    flex-direction: column;
-
-    & > div:not(:last-child) {
-      margin-bottom: 0.5rem;
-    }
-  }
 `;
 
-export { StyledResource, StyledLink, StyledFilmTitle, StyledCheckboxes };
+const AddIcon = styled(RocketIcon)`
+  width: 0.937rem;
+  height: 0.937rem;
+  margin-left: 0.2rem;
+`;
+
+export { StyledResource, StyledLink, StyledFilmTitle, StyledCheckboxes, AddIcon };
