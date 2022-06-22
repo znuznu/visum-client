@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const StyledPageReview = styled(Link)`
+import { StyledText as StyledReadonlyText } from 'components/films/Film/EditableReview/ReadonlyReview/style';
+
+const StyledLink = styled(Link)`
   &:hover {
     cursor: pointer;
   }
@@ -21,25 +23,15 @@ const StyledTitle = styled.h2`
 
 const StyledHeader = styled.div`
   display: flex;
-  justify-content: space-between;
-`;
-
-const StyledHeaderLeft = styled.div`
-  display: flex;
-
-  @media screen and (max-width: ${({ theme }) => theme.breakpoints.xs}) {
-    flex-direction: column;
-  }
+  margin-bottom: 0.5rem;
+  align-items: center;
 `;
 
 const StyledReleaseDate = styled.span`
   font-family: ${(props) => props.theme.fonts.main};
   margin: 0 0 0 0.5rem;
   color: ${(props) => props.theme.colors.tertiary};
-
-  @media screen and (max-width: ${({ theme }) => theme.breakpoints.xs}) {
-    margin: 0;
-  }
+  font-size: ${(props) => props.theme.fontSizes.s};
 `;
 
 const StyledContent = styled.div`
@@ -54,14 +46,19 @@ const StyledGrade = styled.span`
   font-size: ${(props) => props.theme.fontSizes.xxxl};
   font-family: ${(props) => props.theme.fonts.logo};
   margin: 0 0 0 1rem;
+  float: right;
+`;
+
+const StyledText = styled(StyledReadonlyText)`
+  white-space: unset;
 `;
 
 export {
   StyledContent,
   StyledHeader,
-  StyledHeaderLeft,
   StyledGrade,
-  StyledPageReview,
+  StyledLink,
   StyledReleaseDate,
-  StyledTitle
+  StyledTitle,
+  StyledText
 };

@@ -4,7 +4,6 @@ const StyledReadonlyReview = styled.div`
   display: flex;
   flex-direction: column;
   color: ${(props) => props.theme.colors.primary};
-  white-space: pre-wrap;
 
   margin-bottom: 1rem;
 `;
@@ -12,8 +11,10 @@ const StyledReadonlyReview = styled.div`
 const StyledText = styled.p`
   color: ${(props) => props.theme.colors.text.primary};
   font-family: ${(props) => props.theme.fonts.main};
+  font-size: ${(props) => props.theme.fontSizes.s};
   margin: 0 0 1rem;
   white-space: pre-wrap;
+  text-align: justify;
 `;
 
 const StyledFooter = styled.p`
