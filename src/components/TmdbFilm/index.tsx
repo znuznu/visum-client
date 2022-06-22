@@ -15,6 +15,7 @@ import {
 import ErrorText from 'components/ErrorText';
 import {
   StyledFilm,
+  StyledMovieAssetContent,
   StyledMovieContent,
   StyledOverview,
   StyledPerson,
@@ -116,7 +117,7 @@ const TmdbFilm = ({ id }: { id: number }) => {
         <SkeletonFilm withWatchDates={false} />
       ) : (
         <>
-          <div>
+          <StyledMovieAssetContent>
             {movie?.metadata?.posterUrl ? (
               <StyledResponsivePoster src={movie?.metadata.posterUrl} />
             ) : (
@@ -181,7 +182,7 @@ const TmdbFilm = ({ id }: { id: number }) => {
                 Add
               </Button>
             </Flex>
-          </div>
+          </StyledMovieAssetContent>
           <StyledMovieContent>
             <Flex>
               <StyledFilmTitle

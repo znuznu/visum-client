@@ -23,7 +23,8 @@ import useAuthentication from 'hooks/useAuthentication';
 import {
   StyledFilm,
   StyledLink,
-  StyledMovieContent,
+  StyledMovieAssetContent,
+  StyledMovieContent as StyledMovieTextContent,
   StyledMovieTitle,
   StyledOverview,
   StyledPerson,
@@ -72,7 +73,7 @@ const Film = ({ movieId }: FilmProps) => {
         <SkeletonFilm withWatchDates={true} />
       ) : (
         <>
-          <div>
+          <StyledMovieAssetContent>
             {movie?.metadata?.posterUrl ? (
               <StyledResponsivePoster src={movie?.metadata.posterUrl} />
             ) : (
@@ -96,8 +97,8 @@ const Film = ({ movieId }: FilmProps) => {
               }}
               onDelete={redirectToFilmsPage}
             />
-          </div>
-          <StyledMovieContent>
+          </StyledMovieAssetContent>
+          <StyledMovieTextContent>
             <Flex>
               <StyledMovieTitle>{movie?.title}</StyledMovieTitle>
               <StyledReleaseDate>{movie?.releaseDate} </StyledReleaseDate>
@@ -170,7 +171,7 @@ const Film = ({ movieId }: FilmProps) => {
             <Separator decorative />
 
             <EditableReview movieId={movieId} />
-          </StyledMovieContent>
+          </StyledMovieTextContent>
         </>
       )}
     </StyledFilm>
