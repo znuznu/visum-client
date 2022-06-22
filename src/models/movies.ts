@@ -25,7 +25,7 @@ const MovieMetadataSchema = z.object({
   budget: z.number(),
   revenue: z.number(),
   runtime: z.number(),
-  posterUrl: z.string()
+  posterUrl: z.string().nullable().optional()
 });
 export type MovieMetadata = z.infer<typeof MovieMetadataSchema>;
 

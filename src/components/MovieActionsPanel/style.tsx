@@ -11,18 +11,6 @@ const StyledMovieActionsPanel = styled.div`
   display: flex;
   margin: 1rem 0 0;
   justify-content: space-evenly;
-
-  @media screen and (max-width: ${({ theme }) => theme.breakpoints.xs}) {
-    flex-direction: column;
-
-    & > * {
-      margin: 0 auto;
-    }
-
-    & :not(:first-child) {
-      margin-top: 1rem;
-    }
-  }
 `;
 
 const FavoriteFilledIcon = styled(HeartFilledIcon)`

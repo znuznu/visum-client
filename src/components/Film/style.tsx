@@ -5,7 +5,10 @@ import { StyledPoster } from 'components/Poster/style';
 
 const StyledFilm = styled.div`
   display: flex;
-  margin: 1rem 0 0 0;
+
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints.s}) {
+    flex-direction: column;
+  }
 `;
 
 const StyledResponsivePoster = styled(StyledPoster).attrs((props) => ({
@@ -14,7 +17,17 @@ const StyledResponsivePoster = styled(StyledPoster).attrs((props) => ({
   width: ${(props) => props.width};
 
   @media screen and (max-width: ${({ theme }) => theme.breakpoints.s}) {
-    width: 100%;
+    width: 250px;
+  }
+`;
+
+const StyledMovieAssetContent = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints.s}) {
+    margin: 0 auto;
+    margin-bottom: 1rem;
   }
 `;
 
@@ -95,7 +108,7 @@ const StyledSection = styled.div`
   flex-direction: column;
 `;
 
-const StyledMovieContent = styled.div`
+const StyledMovieTextContent = styled.div`
   color: ${(props) => props.theme.colors.tertiary};
   font-family: ${(props) => props.theme.fonts.main};
   font-size: ${(props) => props.theme.fontSizes.s};
@@ -112,8 +125,9 @@ export {
   StyledOverview,
   StyledCast,
   StyledSectionTitle,
-  StyledMovieContent,
+  StyledMovieTextContent as StyledMovieContent,
   StyledSectionContent,
   StyledSection,
-  StyledResponsivePoster
+  StyledResponsivePoster,
+  StyledMovieAssetContent
 };
