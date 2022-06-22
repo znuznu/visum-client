@@ -8,18 +8,18 @@ import useTheme from 'hooks/useTheme';
 
 import SignPage from 'pages/Sign';
 import Shell from 'pages/Shell';
-import HomePage from 'pages/HomePage';
-import FilmsPage from 'pages/FilmsPage';
-import FilmPage from 'pages/FilmPage';
-import AllTimeStatisticsPage from 'pages/AllTimeStatisticsPage';
-import PerYearStatisticsPage from 'pages/PerYearStatisticsPage';
-import DiscoveryPage from 'pages/DiscoveryPage';
-import TmdbFilmPage from 'pages/TmdbFilmPage';
-import ActorsPage from 'pages/ActorsPage';
-import DirectorsPage from 'pages/DirectorsPage';
-import ActorPage from 'pages/ActorPage';
-import DirectorPage from 'pages/DirectorPage';
-import DiaryPage from 'pages/DiaryPage';
+import HomePage from 'pages/Home';
+import FilmsPage from 'pages/Films';
+import FilmPage from 'pages/Film';
+import AllTimeStatisticsPage from 'pages/AllTimeStatistics';
+import PerYearStatisticsPage from 'pages/PerYearStatistics';
+import DiscoveryPage from 'pages/Discovery';
+import TmdbFilmPage from 'pages/TmdbFilm';
+import ActorsPage from 'pages/Actors';
+import DirectorsPage from 'pages/Directors';
+import ActorPage from 'pages/Actor';
+import DirectorPage from 'pages/Director';
+import DiaryPage from 'pages/Diary';
 
 import Guard from 'components/primitives/Guard';
 

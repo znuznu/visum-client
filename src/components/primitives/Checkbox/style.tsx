@@ -2,7 +2,7 @@ import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import { CheckIcon as RadixCheckIcon } from '@radix-ui/react-icons';
 import styled from 'styled-components';
 
-import { StyleProps } from 'components/system/system.types';
+import { StyleProps } from 'components/primitives/system/system.types';
 
 export type CheckboxStyleProps = Pick<StyleProps, 'margin'>;
 

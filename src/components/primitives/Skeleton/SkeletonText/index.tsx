@@ -1,5 +1,5 @@
 import Skeleton from 'components/primitives/Skeleton';
-import { StyleProps } from 'components/system/system.types';
+import { StyleProps } from 'components/primitives/system/system.types';
 
 import { StyledSkeletonText } from './style';
 

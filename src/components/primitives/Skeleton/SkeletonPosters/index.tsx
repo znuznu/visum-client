@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { Grid } from 'components/primitives/Grid';
 import Skeleton from 'components/primitives/Skeleton/SkeletonPoster';
-import { StyleProps } from 'components/system/system.types';
+import { StyleProps } from 'components/primitives/system/system.types';
 
 import { SkeletonPosterVariant } from '../SkeletonPoster/style';
 

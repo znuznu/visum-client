@@ -5,7 +5,7 @@ import { CheckedState } from '@radix-ui/react-checkbox';
 import { AccessibleIcon } from 'components/primitives/AccessibleIcon';
 import { Flex } from 'components/primitives/Flex';
 import { Label } from 'components/primitives/Label';
-import { HTMLAttributes } from 'components/system/system.types';
+import { HTMLAttributes } from 'components/primitives/system/system.types';
 
 import {
   CheckIcon,
