@@ -2,13 +2,13 @@ import { useQuery } from 'react-query';
 
 import { fetchAllTimeStatistics } from 'services/api/statistics';
 
+import useAuthentication from 'hooks/useAuthentication';
+
 import AllTimeStatsCount from 'components/AllTimeStatsCount';
 import HighestRatedMoviesPerDecade from 'components/HighestRatedMoviesPerDecade';
 import BreakdownCharts from 'components/BreakdownCharts';
 import YearCharts from 'components/YearCharts';
-import ErrorText from 'components/ErrorText';
-
-import useAuthentication from 'hooks/useAuthentication';
+import ErrorText from 'components/common/ErrorText';
 
 import { StyledAllTimeStatistics } from './style';
 

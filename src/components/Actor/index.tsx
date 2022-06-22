@@ -6,13 +6,13 @@ import { Actor as ActorModel } from 'models/person';
 
 import { fetchActor } from 'services/api/person';
 
-import ErrorText from 'components/ErrorText';
-import { Flex } from 'components/common/Flex';
-import PersonMovie from 'components/PersonMovie';
-import { Separator } from 'components/common/Separator';
-
 import useGenericHttpError from 'hooks/useGenericHttpError';
 import useAuthentication from 'hooks/useAuthentication';
+
+import ErrorText from 'components/common/ErrorText';
+import { Flex } from 'components/primitives/Flex';
+import PersonMovie from 'components/PersonMovie';
+import { Separator } from 'components/primitives/Separator';
 
 import { StyledName } from './style';
 

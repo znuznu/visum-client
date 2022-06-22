@@ -4,16 +4,16 @@ import { useQuery } from 'react-query';
 
 import { fetchDirector } from 'services/api/person';
 
-import ErrorText from 'components/ErrorText';
-import PersonMovie from 'components/PersonMovie';
-import { Separator } from 'components/common/Separator';
-import { NoData } from 'components/NoData';
-import EmptyPoster from 'components/EmptyPoster';
-import SkeletonPerson from 'components/common/Skeleton/SkeletonPerson';
-import { StyledResponsivePoster } from 'components/Film/style';
-
 import useAuthentication from 'hooks/useAuthentication';
 import useGenericHttpError from 'hooks/useGenericHttpError';
+
+import ErrorText from 'components/common/ErrorText';
+import PersonMovie from 'components/PersonMovie';
+import { Separator } from 'components/primitives/Separator';
+import { NoData } from 'components/common/NoData';
+import EmptyPoster from 'components/common/EmptyPoster';
+import SkeletonPerson from 'components/Director/SkeletonPerson';
+import { StyledResponsivePoster } from 'components/Film/style';
 
 import {
   StyledAssetContent,

@@ -7,18 +7,18 @@ import { Movie } from 'models/movies';
 
 import { fetchMovie } from 'services/api/movie';
 
-import { Flex } from 'components/common/Flex';
-import { Separator } from 'components/common/Separator';
-import EditableReview from 'components/EditableReview';
-import EmptyPoster from 'components/EmptyPoster';
-import MovieActionsPanel from 'components/MovieActionsPanel';
-import ErrorText from 'components/ErrorText';
-import FilmDetails from 'components/FilmDetails';
-import WatchDates from 'components/WatchDates';
-import SkeletonFilm from 'components/common/Skeleton/SkeletonFilm';
-
 import useGenericHttpError from 'hooks/useGenericHttpError';
 import useAuthentication from 'hooks/useAuthentication';
+
+import { Flex } from 'components/primitives/Flex';
+import { Separator } from 'components/primitives/Separator';
+import EditableReview from 'components/EditableReview';
+import EmptyPoster from 'components/common/EmptyPoster';
+import MovieActionsPanel from 'components/Film/MovieActionsPanel';
+import ErrorText from 'components/common/ErrorText';
+import FilmDetails from 'components/Film/FilmDetails';
+import WatchDates from 'components/Film/WatchDates';
+import SkeletonFilm from 'components/Film/SkeletonFilm';
 
 import {
   StyledFilm,

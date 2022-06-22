@@ -1,5 +1,5 @@
-import { Flex } from 'components/common/Flex';
-import { Separator } from 'components/common/Separator';
+import { Flex } from 'components/primitives/Flex';
+import { Separator } from 'components/primitives/Separator';
 
 import { StyledTitle } from './style';
 

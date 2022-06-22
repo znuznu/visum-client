@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import { Pair } from 'models/common';
 import { StatsMovie } from 'models/statistics';
 
-import { Flex } from 'components/common/Flex';
-import { Grid } from 'components/common/Grid';
+import { Flex } from 'components/primitives/Flex';
+import { Grid } from 'components/primitives/Grid';
 import PosterTooltip from 'components/PosterTooltip';
 import StatisticsSectionHeader from 'components/StatisticsSectionHeader';
-import { NoData } from 'components/NoData';
+import { NoData } from 'components/common/NoData';
 
 import { StyledDecade, StyledYear } from './style';
 

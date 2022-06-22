@@ -4,8 +4,6 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
-import Guard from 'components/common/Guard';
-
 import useTheme from 'hooks/useTheme';
 
 import SignPage from 'pages/Sign';
@@ -22,6 +20,8 @@ import DirectorsPage from 'pages/DirectorsPage';
 import ActorPage from 'pages/ActorPage';
 import DirectorPage from 'pages/DirectorPage';
 import DiaryPage from 'pages/DiaryPage';
+
+import Guard from 'components/primitives/Guard';
 
 import ThemeContext from './providers/ThemeProvider';
 import { AuthProvider } from './providers/AuthProvider';

@@ -15,10 +15,10 @@ import { Chart } from 'react-chartjs-2';
 
 import { Pair } from 'models/common';
 
-import { Flex } from 'components/common/Flex';
-import StatisticsSectionHeader from 'components/StatisticsSectionHeader';
-
 import { Theme } from 'styles/theme';
+
+import { Flex } from 'components/primitives/Flex';
+import StatisticsSectionHeader from 'components/StatisticsSectionHeader';
 
 interface YearChartsProps {
   averageRate: Pair<number, number>[];

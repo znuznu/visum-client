@@ -5,13 +5,13 @@ import { useNavigate } from 'react-router-dom';
 
 import { SignInRequestBody, signIn } from 'services/api/sign';
 
-import Button from 'components/common/Button';
-import Input from 'components/common/Input';
-import HttpError from 'components/common/HttpError';
-
 import { useAuth } from 'providers/AuthProvider';
 
 import { VisumHttpError } from 'errors/errors';
+
+import Button from 'components/primitives/Button';
+import Input from 'components/primitives/Input';
+import HttpError from 'components/primitives/HttpError';
 
 import { validate } from './validate';
 import { StyledForm } from './style';

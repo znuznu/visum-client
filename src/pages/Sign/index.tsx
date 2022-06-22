@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 
-import SignBox from 'components/SignBox';
-
 import { useAuth } from 'providers/AuthProvider';
+
+import SignBox from 'components/SignBox';
 
 import StyledSignContainer from './style';
 

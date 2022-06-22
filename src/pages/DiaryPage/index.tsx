@@ -6,13 +6,6 @@ import { DiaryFiltersInput, DiaryYear } from 'models/diary';
 
 import { QUERY_DIARY } from 'services/graphql/queryDiary';
 
-import { AccessibleIcon } from 'components/common/AccessibleIcon';
-import Button from 'components/common/Button';
-import { Flex } from 'components/common/Flex';
-import Diary from 'components/DiaryYear';
-import ErrorText from 'components/ErrorText';
-import { NoData } from 'components/NoData';
-
 import useAuthentication from 'hooks/useAuthentication';
 
 import {
@@ -21,6 +14,13 @@ import {
   StyledLink,
   StyledYearTitle
 } from 'pages/PerYearStatisticsPage/style';
+
+import { AccessibleIcon } from 'components/primitives/AccessibleIcon';
+import Button from 'components/primitives/Button';
+import { Flex } from 'components/primitives/Flex';
+import Diary from 'components/DiaryYear';
+import ErrorText from 'components/common/ErrorText';
+import { NoData } from 'components/common/NoData';
 
 import { StyledDiary } from './style';
 

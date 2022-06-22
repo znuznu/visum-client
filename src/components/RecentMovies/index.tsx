@@ -6,15 +6,15 @@ import { MovieFromPage } from 'models/movies';
 
 import { fetchPage } from 'services/api/page';
 
-import { Grid } from 'components/common/Grid';
-import PosterTooltip from 'components/PosterTooltip';
-import { NoData } from 'components/NoData';
-import ErrorText from 'components/ErrorText';
-import HomeSectionHeading from 'components/HomeSectionHeading';
-import SkeletonPosters from 'components/common/Skeleton/SkeletonPosters';
-
 import useGenericHttpError from 'hooks/useGenericHttpError';
 import useAuthentication from 'hooks/useAuthentication';
+
+import { Grid } from 'components/primitives/Grid';
+import PosterTooltip from 'components/PosterTooltip';
+import { NoData } from 'components/common/NoData';
+import ErrorText from 'components/common/ErrorText';
+import HomeSectionHeading from 'components/HomeSectionHeading';
+import SkeletonPosters from 'components/primitives/Skeleton/SkeletonPosters';
 
 export type RecentMoviesProps = {
   limit: number;

@@ -2,9 +2,9 @@ import { Fragment } from 'react';
 
 import { Pair } from 'models/common';
 
+import { Flex } from 'components/primitives/Flex';
 import StatisticsSectionHeader from 'components/StatisticsSectionHeader';
-import { Flex } from 'components/common/Flex';
-import { NoData } from 'components/NoData';
+import { NoData } from 'components/common/NoData';
 
 import {
   StyledBarDetails,

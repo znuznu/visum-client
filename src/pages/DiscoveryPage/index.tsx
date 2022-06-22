@@ -9,21 +9,21 @@ import { TmdbPageMovie } from 'models/tmdb';
 
 import { searchTmdbMovie } from 'services/api/tmdb';
 
-import { AccessibleIcon } from 'components/common/AccessibleIcon';
-import Button from 'components/common/Button';
-import { Grid } from 'components/common/Grid';
-import Input from 'components/common/Input';
-import Paginator from 'components/common/Paginator';
-import ErrorText from 'components/ErrorText';
-import { NoData } from 'components/NoData';
+import useGenericHttpError from 'hooks/useGenericHttpError';
+import useAuthentication from 'hooks/useAuthentication';
+
+import { AccessibleIcon } from 'components/primitives/AccessibleIcon';
+import Button from 'components/primitives/Button';
+import { Grid } from 'components/primitives/Grid';
+import Input from 'components/primitives/Input';
+import Paginator from 'components/primitives/Paginator';
+import ErrorText from 'components/common/ErrorText';
+import { NoData } from 'components/common/NoData';
 import PosterTooltip from 'components/PosterTooltip';
 import TmdbAttribution from 'components/TmdbAttribution';
 import UpcomingMovies from 'components/UpcomingMovies';
-import { Separator } from 'components/common/Separator';
-import SkeletonPosters from 'components/common/Skeleton/SkeletonPosters';
-
-import useGenericHttpError from 'hooks/useGenericHttpError';
-import useAuthentication from 'hooks/useAuthentication';
+import { Separator } from 'components/primitives/Separator';
+import SkeletonPosters from 'components/primitives/Skeleton/SkeletonPosters';
 
 import { SearchIcon, StyledDiscover, StyledForm, StyledTitle } from './style';
 

@@ -8,14 +8,14 @@ import { PageDirector } from 'models/person';
 
 import { fetchPage } from 'services/api/page';
 
-import Input from 'components/common/Input';
-import Paginator from 'components/common/Paginator';
-import { Separator } from 'components/common/Separator';
-import ErrorText from 'components/ErrorText';
-import { NoData } from 'components/NoData';
-
 import useAuthentication from 'hooks/useAuthentication';
 import useGenericHttpError from 'hooks/useGenericHttpError';
+
+import Input from 'components/primitives/Input';
+import Paginator from 'components/primitives/Paginator';
+import { Separator } from 'components/primitives/Separator';
+import ErrorText from 'components/common/ErrorText';
+import { NoData } from 'components/common/NoData';
 
 import { StyledPerson, StyledPersons, StyledSearchBar } from './style';
 

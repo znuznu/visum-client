@@ -8,13 +8,16 @@ import { Page } from 'models/page';
 
 import { fetchPage } from 'services/api/page';
 
-import Checkbox from 'components/common/Checkbox';
-import { Flex } from 'components/common/Flex';
-import { Grid } from 'components/common/Grid';
-import Input from 'components/common/Input';
-import Paginator from 'components/common/Paginator';
-import ErrorText from 'components/ErrorText';
-import { NoData } from 'components/NoData';
+import useGenericHttpError from 'hooks/useGenericHttpError';
+import useAuthentication from 'hooks/useAuthentication';
+
+import Checkbox from 'components/primitives/Checkbox';
+import { Flex } from 'components/primitives/Flex';
+import { Grid } from 'components/primitives/Grid';
+import Input from 'components/primitives/Input';
+import Paginator from 'components/primitives/Paginator';
+import ErrorText from 'components/common/ErrorText';
+import { NoData } from 'components/common/NoData';
 import PosterTooltip from 'components/PosterTooltip';
 import {
   Select,
@@ -31,17 +34,14 @@ import {
   SelectTrigger,
   SelectValue,
   SelectViewport
-} from 'components/common/Select';
+} from 'components/primitives/Select';
 import {
   CheckIcon,
   ChevronDownIcon,
   ChevronUpIcon
-} from 'components/common/Select/style';
-import { Label } from 'components/common/Label';
-import SkeletonPosters from 'components/common/Skeleton/SkeletonPosters';
-
-import useGenericHttpError from 'hooks/useGenericHttpError';
-import useAuthentication from 'hooks/useAuthentication';
+} from 'components/primitives/Select/style';
+import { Label } from 'components/primitives/Label';
+import SkeletonPosters from 'components/primitives/Skeleton/SkeletonPosters';
 
 import { StyledMovies, StyledOptions, StyledSearchBar } from './style';
 

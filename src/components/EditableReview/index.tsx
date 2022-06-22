@@ -8,16 +8,16 @@ import { Review } from 'models/reviews';
 import { fetchMovie } from 'services/api/movie';
 import { deleteReview } from 'services/api/review';
 
-import { AccessibleIcon } from 'components/common/AccessibleIcon';
-import Button from 'components/common/Button';
-import { Flex } from 'components/common/Flex';
-import ErrorText from 'components/ErrorText';
-import { NoData } from 'components/NoData';
-import ReadonlyReview from 'components/ReadonlyReview';
-import ReviewForm from 'components/ReviewForm';
-
 import useGenericHttpError from 'hooks/useGenericHttpError';
 import useAuthentication from 'hooks/useAuthentication';
+
+import { AccessibleIcon } from 'components/primitives/AccessibleIcon';
+import Button from 'components/primitives/Button';
+import { Flex } from 'components/primitives/Flex';
+import ErrorText from 'components/common/ErrorText';
+import { NoData } from 'components/common/NoData';
+import ReadonlyReview from 'components/EditableReview/ReadonlyReview';
+import ReviewForm from 'components/EditableReview/ReviewForm';
 
 import { CancelIcon, Edit2Icon, EditIcon, RemoveIcon, StyledTitle } from './style';
 

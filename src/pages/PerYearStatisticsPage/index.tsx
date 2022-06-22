@@ -3,15 +3,15 @@ import { useParams } from 'react-router';
 
 import { fetchYearStatistics } from 'services/api/statistics';
 
+import useAuthentication from 'hooks/useAuthentication';
+
 import PerYearStatsCount from 'components/PerYearStatsCount';
 import BreakdownCharts from 'components/BreakdownCharts';
 import HighestRatedMoviesFromYear from 'components/HighestRatedMoviesFromYear';
-import ErrorText from 'components/ErrorText';
-import { Flex } from 'components/common/Flex';
-import Button from 'components/common/Button';
-import { AccessibleIcon } from 'components/common/AccessibleIcon';
-
-import useAuthentication from 'hooks/useAuthentication';
+import ErrorText from 'components/common/ErrorText';
+import { Flex } from 'components/primitives/Flex';
+import Button from 'components/primitives/Button';
+import { AccessibleIcon } from 'components/primitives/AccessibleIcon';
 
 import {
   NextIcon,

@@ -1,6 +1,6 @@
 import { TabsContent } from '@radix-ui/react-tabs';
 
-import { Tabs, TabsList, TabsTrigger } from 'components/common/Tabs';
+import { Tabs, TabsList, TabsTrigger } from 'components/primitives/Tabs';
 
 import Container from './style';
 import SignInForm from './SignInForm';

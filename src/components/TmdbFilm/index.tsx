@@ -12,7 +12,10 @@ import {
   createMovie
 } from 'services/api/movie';
 
-import ErrorText from 'components/ErrorText';
+import useGenericHttpError from 'hooks/useGenericHttpError';
+import useAuthentication from 'hooks/useAuthentication';
+
+import ErrorText from 'components/common/ErrorText';
 import {
   StyledFilm,
   StyledMovieAssetContent,
@@ -26,17 +29,14 @@ import {
   StyledSectionTitle,
   StyledTagline
 } from 'components/Film/style';
-import EmptyPoster from 'components/EmptyPoster';
-import { Flex } from 'components/common/Flex';
-import { Separator } from 'components/common/Separator';
-import FilmDetails from 'components/FilmDetails';
-import Checkbox from 'components/common/Checkbox';
-import Button from 'components/common/Button';
-import SkeletonFilm from 'components/common/Skeleton/SkeletonFilm';
-import { AccessibleIcon } from 'components/common/AccessibleIcon';
-
-import useGenericHttpError from 'hooks/useGenericHttpError';
-import useAuthentication from 'hooks/useAuthentication';
+import EmptyPoster from 'components/common/EmptyPoster';
+import { Flex } from 'components/primitives/Flex';
+import { Separator } from 'components/primitives/Separator';
+import FilmDetails from 'components/Film/FilmDetails';
+import Checkbox from 'components/primitives/Checkbox';
+import Button from 'components/primitives/Button';
+import SkeletonFilm from 'components/Film/SkeletonFilm';
+import { AccessibleIcon } from 'components/primitives/AccessibleIcon';
 
 import {
   AddIcon,

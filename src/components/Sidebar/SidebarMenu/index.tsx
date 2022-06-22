@@ -4,7 +4,7 @@ import {
   ScrollAreaScrollbar,
   ScrollAreaThumb,
   ScrollAreaViewport
-} from 'components/common/ScrollArea';
+} from 'components/primitives/ScrollArea';
 
 import StyledMenu from './style';
 

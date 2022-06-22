@@ -8,18 +8,18 @@ import { TmdbPageMovie } from 'models/tmdb';
 
 import { fetchUpcomingMovies } from 'services/api/tmdb';
 
+import useGenericHttpError from 'hooks/useGenericHttpError';
+import useAuthentication from 'hooks/useAuthentication';
+
 import {
   ScrollAreaScrollbar,
   ScrollAreaThumb,
   ScrollAreaViewport
-} from 'components/common/ScrollArea';
-import ErrorText from 'components/ErrorText';
-import { NoData } from 'components/NoData';
+} from 'components/primitives/ScrollArea';
+import ErrorText from 'components/common/ErrorText';
+import { NoData } from 'components/common/NoData';
 import PosterTooltip from 'components/PosterTooltip';
-import Skeleton from 'components/common/Skeleton/SkeletonPoster';
-
-import useGenericHttpError from 'hooks/useGenericHttpError';
-import useAuthentication from 'hooks/useAuthentication';
+import Skeleton from 'components/primitives/Skeleton/SkeletonPoster';
 
 import { StyledScrollArea, StyledTitle, StyledUpcomingMovies } from './style';
 

@@ -9,15 +9,15 @@ import {
 import { BsCameraReels } from 'react-icons/bs';
 import { AiOutlineBarChart, AiOutlineLineChart } from 'react-icons/ai';
 
-import { Separator } from 'components/common/Separator';
-import Logout from 'components/Logout';
-import Button from 'components/common/Button';
-import { AccessibleIcon } from 'components/common/AccessibleIcon';
-import ThemeSwitcher from 'components/ThemeSwitcher';
-
 import useWindowSize from 'hooks/useWindowSize';
 
 import { SIDEBAR_BREAKPOINT_PX } from 'styles/theme/breakpoints';
+
+import { Separator } from 'components/primitives/Separator';
+import Logout from 'components/Sidebar/Logout';
+import Button from 'components/primitives/Button';
+import { AccessibleIcon } from 'components/primitives/AccessibleIcon';
+import ThemeSwitcher from 'components/Sidebar/ThemeSwitcher';
 
 import SidebarHeaderLogo from './SidebarHeaderLogo';
 import SidebarMenu from './SidebarMenu';

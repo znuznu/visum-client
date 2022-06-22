@@ -6,15 +6,15 @@ import { ReviewFromPage } from 'models/reviews';
 
 import { fetchPage } from 'services/api/page';
 
-import PageReview from 'components/PageReview';
-import { Separator } from 'components/common/Separator';
-import { NoData } from 'components/NoData';
-import ErrorText from 'components/ErrorText';
-import HomeSectionHeading from 'components/HomeSectionHeading';
-import SkeletonRecentReview from 'components/SkeletonRecentReview';
-
 import useGenericHttpError from 'hooks/useGenericHttpError';
 import useAuthentication from 'hooks/useAuthentication';
+
+import PageReview from 'components/RecentReviews/PageReview';
+import { Separator } from 'components/primitives/Separator';
+import { NoData } from 'components/common/NoData';
+import ErrorText from 'components/common/ErrorText';
+import HomeSectionHeading from 'components/HomeSectionHeading';
+import SkeletonRecentReview from 'components/RecentReviews/SkeletonRecentReview';
 
 import { StyledReviews } from './style';
 

@@ -78,7 +78,12 @@ module.exports = {
             position: 'before'
           },
           {
-            pattern: 'components/**',
+            pattern: 'primitives/**',
+            group: 'internal',
+            position: 'before'
+          },
+          {
+            pattern: 'common/**',
             group: 'internal',
             position: 'before'
           },
