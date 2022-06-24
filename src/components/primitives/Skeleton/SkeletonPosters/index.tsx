@@ -13,7 +13,8 @@ type SkeletonPostersProps = {
 
 const variantToPxSize = {
   small: '80px',
-  standard: '100px'
+  standard: '100px',
+  large: '250px'
 };
 
 const SkeletonPosters = ({ elements, variant, margin }: SkeletonPostersProps) => {
