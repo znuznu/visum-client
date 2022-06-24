@@ -1,7 +1,7 @@
 import { Flex } from 'components/primitives/Flex';
 
-import Skeleton from '../../../primitives/Skeleton';
-import SkeletonText from '../../../primitives/Skeleton/SkeletonText';
+import Skeleton from '../../primitives/Skeleton';
+import SkeletonText from '../../primitives/Skeleton/SkeletonText';
 
 import SkeletonDynamicPoster from './SkeletonDynamicPoster';
 import { StyledPersonMovies } from './style';

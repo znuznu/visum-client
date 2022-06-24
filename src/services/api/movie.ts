@@ -25,6 +25,8 @@ export interface CreateMovieRequestBody {
   actors: {
     name: string;
     forename: string;
+    tmdbId: number;
+    posterUrl?: string | null;
   }[];
   directors: {
     name: string;
