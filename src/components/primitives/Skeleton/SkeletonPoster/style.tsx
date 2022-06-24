@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { StyledSkeletonBackground } from 'components/primitives/Skeleton/style';
 
-export type SkeletonPosterVariant = 'standard' | 'small';
+export type SkeletonPosterVariant = 'small' | 'standard' | 'large';
 export type SkeletonPosterStyleProps = { variant: SkeletonPosterVariant };
 
 const skeletonVariantPxSize = {
@@ -13,6 +13,10 @@ const skeletonVariantPxSize = {
   standard: {
     width: '100px',
     height: '150px'
+  },
+  large: {
+    width: '250px',
+    height: '375px'
   }
 };
 
