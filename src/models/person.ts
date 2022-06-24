@@ -27,7 +27,9 @@ export const PromiseDirectorSchema = z.promise(DirectorSchema);
 export type Director = z.infer<typeof DirectorSchema>;
 
 const ActorSchema = PersonSchema.extend({
-  movies: z.array(PersonMovieSchema)
+  movies: z.array(PersonMovieSchema),
+  tmdbId: z.number().int(),
+  posterUrl: z.string().optional().nullable()
 });
 export const PromiseActorSchema = z.promise(ActorSchema);
 export type Actor = z.infer<typeof ActorSchema>;

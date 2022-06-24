@@ -1,8 +1,6 @@
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 import { HTTPError } from 'ky';
 import { useQuery } from 'react-query';
-
-import { Actor as ActorModel } from 'models/person';
 
 import { fetchActor } from 'services/api/person';
 
@@ -10,24 +8,30 @@ import useGenericHttpError from 'hooks/useGenericHttpError';
 import useAuthentication from 'hooks/useAuthentication';
 
 import ErrorText from 'components/common/ErrorText';
-import { Flex } from 'components/primitives/Flex';
 import PersonMovie from 'components/credits/PersonMovie';
 import { Separator } from 'components/primitives/Separator';
+import { NoData } from 'components/common/NoData';
+import { StyledResponsivePoster } from 'components/films/Film/style';
+import EmptyPoster from 'components/common/Poster/EmptyPoster';
+
+import {
+  StyledAssetContent,
+  StyledContent,
+  StyledMovies,
+  StyledTextContent
+} from '../Director/style';
+import SkeletonPerson from '../SkeletonPerson';
 
 import { StyledName } from './style';
 
 const Actor = ({ id }: { id: number }) => {
   const { jwtToken } = useAuthentication();
   const { setHttpError } = useGenericHttpError(undefined);
-  const [actor, setActor] = useState<ActorModel | undefined>(undefined);
 
-  const { isLoading, isError } = useQuery(
-    'getActor',
+  const { isLoading, isError, data } = useQuery(
+    ['getActor', id],
     () => fetchActor({ authorization: `Bearer ${jwtToken}` }, id),
     {
-      onSuccess: (data: ActorModel) => {
-        setActor(data);
-      },
       onError: (error: HTTPError) => {
         // TODO #1
         setHttpError(error);
@@ -36,8 +40,7 @@ const Actor = ({ id }: { id: number }) => {
   );
 
   if (isLoading) {
-    // TODO spinner
-    return <p>Loading</p>;
+    return <SkeletonPerson />;
   }
 
   if (isError) {
@@ -45,27 +48,42 @@ const Actor = ({ id }: { id: number }) => {
   }
 
   return (
-    <Flex flexDirection={'column'}>
-      <StyledName>
-        {actor?.forename} {actor?.name}
-      </StyledName>
-      <Flex flexDirection={'column'}>
-        {actor?.movies.map((movie, index) => (
-          <Fragment key={`movie-${movie.id}`}>
-            <PersonMovie
-              movie={{
-                id: movie.id,
-                title: movie.title,
-                releaseDate: movie.releaseDate,
-                isToWatch: movie.shouldWatch,
-                isFavorite: movie.favorite
-              }}
-            />
-            {index !== actor.movies.length - 1 ? <Separator decorative /> : null}
-          </Fragment>
-        ))}
-      </Flex>
-    </Flex>
+    <>
+      {!isLoading && data && (
+        <StyledContent>
+          <StyledAssetContent>
+            {data.posterUrl ? (
+              <StyledResponsivePoster src={data.posterUrl} />
+            ) : (
+              <EmptyPoster width={'250px'} height={'375px'} iconSize={'50px'} />
+            )}
+          </StyledAssetContent>
+          <StyledTextContent>
+            <StyledName>
+              {data.forename} {data.name}
+            </StyledName>
+            <Separator decorative />
+            <StyledMovies>
+              {data.movies.map((movie, index) => (
+                <Fragment key={`movie-${movie.id}`}>
+                  <PersonMovie
+                    movie={{
+                      id: movie.id,
+                      title: movie.title,
+                      releaseDate: movie.releaseDate,
+                      isToWatch: movie.shouldWatch,
+                      isFavorite: movie.favorite
+                    }}
+                  />
+                  {index !== data.movies.length - 1 ? <Separator decorative /> : null}
+                </Fragment>
+              ))}
+            </StyledMovies>
+          </StyledTextContent>
+        </StyledContent>
+      )}
+      {!isLoading && !data && <NoData>No actor with id {id} found.</NoData>}
+    </>
   );
 };
 

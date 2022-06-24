@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { StyledSkeleton } from '../../../../primitives/Skeleton/style';
+import { StyledSkeleton } from '../../../primitives/Skeleton/style';
 
 const StyledSkeletonDynamicPoster = styled(StyledSkeleton)`
   width: 250px;

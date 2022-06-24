@@ -12,7 +12,7 @@ import PersonMovie from 'components/credits/PersonMovie';
 import { Separator } from 'components/primitives/Separator';
 import { NoData } from 'components/common/NoData';
 import EmptyPoster from 'components/common/Poster/EmptyPoster';
-import SkeletonPerson from 'components/credits/Director/SkeletonPerson';
+import SkeletonPerson from 'components/credits/SkeletonPerson';
 import { StyledResponsivePoster } from 'components/films/Film/style';
 
 import {
