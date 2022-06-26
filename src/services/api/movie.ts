@@ -18,36 +18,9 @@ export const fetchMovie = async (
 };
 
 export interface CreateMovieRequestBody {
-  title: string;
-  releaseDate: string;
   isFavorite: boolean;
   isToWatch: boolean;
-  actors: {
-    name: string;
-    forename: string;
-    tmdbId: number;
-    posterUrl?: string | null;
-  }[];
-  directors: {
-    name: string;
-    forename: string;
-    tmdbId: number;
-    posterUrl?: string | null;
-  }[];
-  genres: {
-    type: string;
-  }[];
-  metadata: {
-    tmdbId: number;
-    imdbId: string;
-    originalLanguage: string;
-    tagline: string;
-    overview: string;
-    budget: number;
-    revenue: number;
-    runtime: number;
-    posterUrl?: string | null;
-  };
+  tmdbId: number;
 }
 
 const CreateMovieResponseSchema = z.object({

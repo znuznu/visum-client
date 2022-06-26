@@ -101,8 +101,8 @@ const TmdbFilm = ({ id }: { id: number }) => {
   );
 
   const createMovieMutation = useMutation(
-    (movie: CreateMovieRequestBody) =>
-      createMovie({ authorization: `Bearer ${jwtToken}` }, movie),
+    (request: CreateMovieRequestBody) =>
+      createMovie({ authorization: `Bearer ${jwtToken}` }, request),
     {
       onError: (error) => {
         // TODO #1
@@ -157,40 +157,7 @@ const TmdbFilm = ({ id }: { id: number }) => {
                   }
 
                   createMovieMutation.mutate({
-                    title: movie.title,
-                    releaseDate: movie.releaseDate,
-                    actors: movie.actors.map((actor) => {
-                      return {
-                        name: actor.name,
-                        forename: actor.forename,
-                        tmdbId: actor.id,
-                        posterUrl: actor.posterUrl
-                      };
-                    }),
-                    directors: movie.directors.map((director) => {
-                      return {
-                        name: director.name,
-                        forename: director.forename,
-                        tmdbId: director.id,
-                        posterUrl: director.posterUrl
-                      };
-                    }),
-                    genres: movie.genres.map((genre) => {
-                      return {
-                        type: genre
-                      };
-                    }),
-                    metadata: {
-                      tmdbId: movie.metadata.tmdbId,
-                      imdbId: movie.metadata.imdbId,
-                      originalLanguage: movie.metadata.originalLanguage,
-                      tagline: movie.metadata.tagline,
-                      overview: movie.metadata.overview,
-                      budget: movie.metadata.budget,
-                      revenue: movie.metadata.revenue,
-                      runtime: movie.metadata.runtime,
-                      posterUrl: movie.metadata.posterUrl
-                    },
+                    tmdbId: movie.metadata.tmdbId,
                     isFavorite,
                     isToWatch
                   });
