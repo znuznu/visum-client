@@ -19,7 +19,9 @@ import { NoData } from 'components/common/NoData';
 import ReadonlyReview from 'components/films/Film/EditableReview/ReadonlyReview';
 import ReviewForm from 'components/films/Film/EditableReview/ReviewForm';
 
-import { CancelIcon, Edit2Icon, EditIcon, RemoveIcon, StyledTitle } from './style';
+import { SectionHeader, SectionTitle } from '../SectionHeader';
+
+import { CancelIcon, Edit2Icon, EditIcon, RemoveIcon } from './style';
 
 interface EditableReviewProps {
   // The Movie ID of the one we want to handle the Review
@@ -71,9 +73,9 @@ const EditableReview = ({ movieId }: EditableReviewProps) => {
 
   return (
     <Flex flexDirection={'column'} margin={'0 0 1rem 0'}>
-      <Flex justifyContent={'space-between'} margin={'0 0 0.8rem'}>
-        <StyledTitle>Review</StyledTitle>
-        <Flex>
+      <SectionHeader>
+        <SectionTitle title={'Review'} />
+        <Flex margin={'0 0 0 auto'}>
           {isEdited ? (
             <Button onClick={toggleEdit} margin={'0 0 0 auto'} variant={'ghost'}>
               <AccessibleIcon label="Cancel edit">
@@ -105,7 +107,7 @@ const EditableReview = ({ movieId }: EditableReviewProps) => {
             </Button>
           )}
         </Flex>
-      </Flex>
+      </SectionHeader>
       {isEdited ? (
         <ReviewForm review={review} movieId={movieId} onComplete={toggleEdit} />
       ) : review ? (

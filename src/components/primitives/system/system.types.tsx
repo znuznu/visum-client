@@ -22,6 +22,8 @@ interface FlexProps {
     | 'normal'
     | 'right'
     | 'center';
+  flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
+  alignItems?: 'normal' | 'stretch' | 'center' | 'start' | 'end';
 }
 
 interface GridProps {

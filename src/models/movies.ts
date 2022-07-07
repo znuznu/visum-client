@@ -4,6 +4,16 @@ import { GenreSchema } from './genre';
 import { PersonSchema } from './person';
 import { ReviewSchema } from './reviews';
 
+const CastMemberSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  forename: z.string(),
+  posterUrl: z.string().nullable(),
+  character: z.string().nullable(),
+  roleOrder: z.number()
+});
+export type CastMember = z.infer<typeof CastMemberSchema>;
+
 export interface MovieFromPage {
   id: number;
   title: string;
@@ -18,7 +28,7 @@ export interface MovieFromPage {
 
 const MovieMetadataSchema = z.object({
   tmdbId: z.number(),
-  imdbId: z.string().optional(),
+  imdbId: z.string().nullable().optional(),
   originalLanguage: z.string(),
   tagline: z.string(),
   overview: z.string(),
@@ -34,7 +44,7 @@ export const MovieSchema = z.object({
   title: z.string(),
   // TODO Date
   releaseDate: z.string(),
-  actors: z.array(PersonSchema),
+  actors: z.array(CastMemberSchema),
   directors: z.array(PersonSchema),
   genres: z.array(GenreSchema),
   // TODO
