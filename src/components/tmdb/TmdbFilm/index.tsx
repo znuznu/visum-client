@@ -26,7 +26,6 @@ import {
   StyledResponsivePoster,
   StyledSection,
   StyledSectionContent,
-  StyledSectionTitle,
   StyledTagline
 } from 'components/films/Film/style';
 import EmptyPoster from 'components/common/Poster/EmptyPoster';
@@ -37,6 +36,7 @@ import Checkbox from 'components/primitives/Checkbox';
 import Button from 'components/primitives/Button';
 import SkeletonFilm from 'components/films/Film/SkeletonFilm';
 import { AccessibleIcon } from 'components/primitives/AccessibleIcon';
+import { SectionHeader, SectionTitle } from 'components/films/Film/SectionHeader';
 
 import {
   AddIcon,
@@ -214,7 +214,9 @@ const TmdbFilm = ({ id }: { id: number }) => {
             <Separator decorative />
 
             <StyledSection>
-              <StyledSectionTitle>Cast</StyledSectionTitle>
+              <SectionHeader>
+                <SectionTitle title={'Cast'} />
+              </SectionHeader>
               <StyledSectionContent>
                 {movie?.actors.map((actor, index) => {
                   return (
@@ -241,7 +243,9 @@ const TmdbFilm = ({ id }: { id: number }) => {
             <Separator decorative />
 
             <StyledSection>
-              <StyledSectionTitle>Genres</StyledSectionTitle>
+              <SectionHeader>
+                <SectionTitle title={'Genres'} />
+              </SectionHeader>
               <StyledSectionContent>
                 {movie?.genres.map((genre, index) => {
                   return (

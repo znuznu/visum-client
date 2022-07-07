@@ -8,7 +8,9 @@ import { Flex } from 'components/primitives/Flex';
 import { Separator } from 'components/primitives/Separator';
 import Skeleton from 'components/primitives/Skeleton';
 import SkeletonText from 'components/primitives/Skeleton/SkeletonText';
-import { StyledSection, StyledSectionTitle } from 'components/films/Film/style';
+import { StyledSection } from 'components/films/Film/style';
+
+import { SectionHeader, SectionTitle } from '../SectionHeader';
 
 import { StyledSkeletonFilm, StyledSkeletonFilmContent } from './style';
 
@@ -43,21 +45,29 @@ const SkeletonFilm = ({ withWatchDates }: SkeletonFilmProps) => {
         <SkeletonText margin={'1rem 0'} lines={3} />
         <Separator decorative />
         <StyledSection>
-          <StyledSectionTitle>Cast</StyledSectionTitle>
+          <SectionHeader>
+            <SectionTitle title={'Cast'} />
+          </SectionHeader>
           <SkeletonText margin={'0.3rem 0'} width={'auto'} lines={5} />
         </StyledSection>
         <Separator decorative />
-        <StyledSectionTitle>Genres</StyledSectionTitle>
+        <SectionHeader>
+          <SectionTitle title={'Genres'} />
+        </SectionHeader>
         <SkeletonText margin={'0.3rem 0'} width={'auto'} lines={1} />
         <Separator decorative />
         {withWatchDates && (
           <>
-            <StyledSectionTitle>Watch dates</StyledSectionTitle>
+            <SectionHeader>
+              <SectionTitle title={'Watch dates'} />
+            </SectionHeader>
             <SkeletonText margin={'0.3rem 0'} width={'auto'} lines={5} />
             <Separator decorative />
           </>
         )}
-        <StyledSectionTitle>Details</StyledSectionTitle>
+        <SectionHeader>
+          <SectionTitle title={'Details'} />
+        </SectionHeader>
         <SkeletonText margin={'1rem 0'} lines={4} />
       </StyledSkeletonFilmContent>
     </StyledSkeletonFilm>

@@ -32,9 +32,10 @@ import {
   StyledResponsivePoster,
   StyledSection,
   StyledSectionContent,
-  StyledSectionTitle,
   StyledTagline
 } from './style';
+import Cast from './Cast';
+import { SectionHeader, SectionTitle } from './SectionHeader';
 
 interface FilmProps {
   movieId: number;
@@ -123,26 +124,14 @@ const Film = ({ movieId }: FilmProps) => {
 
             <Separator decorative />
 
-            <StyledSection>
-              <StyledSectionTitle>Cast</StyledSectionTitle>
-              <StyledSectionContent>
-                {movie?.actors.map((actor, index) => {
-                  return (
-                    <Fragment key={`actor-${actor.id}`}>
-                      <StyledLink to={`/actor/${actor.id}`}>
-                        {`${actor.forename} ${actor.name}`}
-                      </StyledLink>
-                      {index === movie.actors.length - 1 ? '' : ', '}
-                    </Fragment>
-                  );
-                })}
-              </StyledSectionContent>
-            </StyledSection>
+            {movie?.actors && <Cast actors={movie.actors} />}
 
             <Separator decorative />
 
             <StyledSection>
-              <StyledSectionTitle>Genres</StyledSectionTitle>
+              <SectionHeader>
+                <SectionTitle title={'Genres'} />
+              </SectionHeader>
               <StyledSectionContent>
                 {movie?.genres.map((genre, index) => {
                   return (

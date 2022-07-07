@@ -1,5 +1,6 @@
 import { Flex } from 'components/primitives/Flex';
-import { StyledSectionTitle } from 'components/films/Film/style';
+
+import { SectionHeader, SectionTitle } from '../SectionHeader';
 
 import {
   StyledDetailsBody,
@@ -31,7 +32,9 @@ const FilmDetails = ({
 }: FilmDetailsProps) => {
   return (
     <Flex flexDirection={'column'}>
-      <StyledSectionTitle>Details</StyledSectionTitle>
+      <SectionHeader>
+        <SectionTitle title={'Details'} />
+      </SectionHeader>
       <StyledDetailsTable>
         <StyledDetailsBody>
           <StyledDetailsRow>

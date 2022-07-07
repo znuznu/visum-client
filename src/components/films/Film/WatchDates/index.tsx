@@ -11,7 +11,8 @@ import { AccessibleIcon } from 'components/primitives/AccessibleIcon';
 import Button from 'components/primitives/Button';
 import { Flex } from 'components/primitives/Flex';
 import ErrorText from 'components/common/ErrorText';
-import { StyledSectionTitle } from 'components/films/Film/style';
+
+import { SectionHeader, SectionTitle } from '../SectionHeader';
 
 import { formatToVisumDate } from './helpers';
 import { AddIcon, RemoveIcon, StyledNoWatchDates, StyledWatchDate } from './style';
@@ -76,8 +77,8 @@ const WatchDates = ({ movieId }: WatchDatesProps) => {
 
   return (
     <Flex flexDirection={'column'}>
-      <Flex justifyContent={'space-between'}>
-        <StyledSectionTitle>Watch dates</StyledSectionTitle>
+      <SectionHeader>
+        <SectionTitle title={'Watch dates'} />
         <Button
           onClick={() => {
             addMutation.mutate({ viewingDate: formatToVisumDate(new Date()) });
@@ -89,11 +90,11 @@ const WatchDates = ({ movieId }: WatchDatesProps) => {
             <AddIcon />
           </AccessibleIcon>
         </Button>
-      </Flex>
+      </SectionHeader>
       {watchDates.length ? (
         watchDates.map((watchDate, index) => {
           return (
-            <Flex key={`watchDate-${watchDate.id}`}>
+            <Flex key={`watchDate-${watchDate.id}`} alignItems={'center'}>
               <StyledWatchDate>
                 {watchDate.viewingDate
                   ? new Intl.DateTimeFormat('locale', { dateStyle: 'full' }).format(

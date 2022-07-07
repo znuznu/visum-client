@@ -82,21 +82,6 @@ const StyledOverview = styled.p`
   margin: 0.9rem 0 0;
 `;
 
-const StyledCast = styled.p`
-  color: ${(props) => props.theme.colors.tertiary};
-  font-family: inherit;
-  font-size: inherit;
-`;
-
-const StyledSectionTitle = styled.h2`
-  color: ${(props) => props.theme.colors.tertiary};
-  font-family: inherit;
-  font-size: inherit;
-  text-transform: uppercase;
-  margin: 0 0 0.2rem 0;
-  padding: 0;
-`;
-
 const StyledSectionContent = styled.p`
   white-space: pre-wrap;
   margin: 0;
@@ -127,8 +112,6 @@ export {
   StyledReleaseDate,
   StyledTagline,
   StyledOverview,
-  StyledCast,
-  StyledSectionTitle,
   StyledMovieTextContent as StyledMovieContent,
   StyledSectionContent,
   StyledSection,
