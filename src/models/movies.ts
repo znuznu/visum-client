@@ -48,7 +48,7 @@ export const MovieSchema = z.object({
   directors: z.array(PersonSchema),
   genres: z.array(GenreSchema),
   // TODO
-  viewingHistory: z.array(z.any()),
+  viewingEntries: z.array(z.any()),
   metadata: MovieMetadataSchema,
   isFavorite: z.boolean(),
   isToWatch: z.boolean(),
