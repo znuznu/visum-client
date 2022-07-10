@@ -96,9 +96,9 @@ const WatchDates = ({ movieId }: WatchDatesProps) => {
           return (
             <Flex key={`watchDate-${watchDate.id}`} alignItems={'center'}>
               <StyledWatchDate>
-                {watchDate.viewingDate
+                {watchDate.date
                   ? new Intl.DateTimeFormat('locale', { dateStyle: 'full' }).format(
-                      new Date(watchDate.viewingDate)
+                      new Date(watchDate.date)
                     )
                   : 'No date'}{' '}
               </StyledWatchDate>

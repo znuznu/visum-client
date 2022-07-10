@@ -45,7 +45,9 @@ const DiaryPage = () => {
       headers: {
         authorization: 'Bearer ' + jwtToken
       }
-    }
+    },
+    // Blocking caching for now
+    fetchPolicy: 'no-cache'
   });
 
   const refetchNextYear = () => {

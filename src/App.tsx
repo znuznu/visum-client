@@ -38,7 +38,13 @@ const queryClient = new QueryClient({
 
 const apolloClient = new ApolloClient({
   uri: `${API_URL}/graphql`,
-  cache: new InMemoryCache()
+  cache: new InMemoryCache({
+    typePolicies: {
+      DiaryMovie: {
+        keyFields: ['id', 'isRewatch']
+      }
+    }
+  })
 });
 
 const App = () => {
