@@ -4,9 +4,9 @@ import MoviesToWatch from 'components/home/MoviesToWatch';
 
 import { StyledHome } from './style';
 
-const MOVIE_LIMIT = 18;
+const MOVIE_LIMIT = 24;
 const REVIEW_LIMIT = 8;
-const TO_WATCH_LIMIT = 18;
+const TO_WATCH_LIMIT = 24;
 
 const HomePage = () => {
   return (
