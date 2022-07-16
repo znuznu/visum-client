@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 export const WatchDateSchema = z.object({
   id: z.number(),
-  date: z.string(),
+  date: z.string().nullable(),
   movieId: z.number()
 });
 export const PromiseWatchDateSchema = z.promise(WatchDateSchema);
