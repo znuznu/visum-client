@@ -9,7 +9,8 @@ import {
   LineElement,
   LinearScale,
   PointElement,
-  Tooltip
+  Tooltip,
+  BarController
 } from 'chart.js';
 import { Chart } from 'react-chartjs-2';
 
@@ -22,6 +23,7 @@ import StatisticsSectionHeader from 'components/statistics/StatisticsSectionHead
 
 ChartJS.register(
   LineController,
+  BarController,
   LinearScale,
   CategoryScale,
   BarElement,
