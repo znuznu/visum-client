@@ -46,7 +46,7 @@ const AllTimeStatisticsPage = () => {
       />
 
       <YearCharts
-        averageRate={data!.averageRatePerYear}
+        averageRating={data!.averageRatingPerYear}
         movieCount={data!.movieCount.perYear}
       />
 
