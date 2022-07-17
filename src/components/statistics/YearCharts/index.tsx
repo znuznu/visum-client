@@ -20,11 +20,6 @@ import { Theme } from 'styles/theme';
 import { Flex } from 'components/primitives/Flex';
 import StatisticsSectionHeader from 'components/statistics/StatisticsSectionHeader';
 
-interface YearChartsProps {
-  averageRate: Pair<number, number>[];
-  movieCount: Pair<number, number>[];
-}
-
 ChartJS.register(
   LineController,
   LinearScale,
@@ -36,19 +31,19 @@ ChartJS.register(
   Tooltip
 );
 
-interface YearChartProps {
+type YearChartProps = {
   orderedYears: Pair<number, number>[];
-  orderedRate: Pair<number, number>[];
-}
+  averageRating: Pair<number, number | null>[];
+};
 
-const YearChart = ({ orderedYears, orderedRate }: YearChartProps) => {
+const YearChart = ({ orderedYears, averageRating }: YearChartProps) => {
   // @ts-ignore due to styled-components way to handle theme
   const theme: Theme = useTheme();
 
   // TODO fix responsive
   return (
     <Chart
-      type="line"
+      type="bar"
       data={{
         labels: orderedYears.map((pair) => pair.key),
         datasets: [
@@ -62,7 +57,7 @@ const YearChart = ({ orderedYears, orderedRate }: YearChartProps) => {
             label: 'Average rate',
             backgroundColor: theme.colors.tertiary,
             borderColor: theme.colors.tertiary,
-            data: orderedRate.map((pair) => pair.value)
+            data: averageRating.map((pair) => pair.value)
           }
         ]
       }}
@@ -70,47 +65,76 @@ const YearChart = ({ orderedYears, orderedRate }: YearChartProps) => {
   );
 };
 
-/**
- * TODO
- * Fill an ordered sparse timeline with pairs of years with 0 count.
- * This thing is inefficient, not safe at all and should be done server side.
- */
+const COMPARE_BY_YEAR = (a: Pair<number, number>, b: Pair<number, number>): number =>
+  a.key - b.key;
+
+/** Sort and add missing years with a default count of zero */
 const convertToFullTimeline = (
-  orderedSparseTimeline: Pair<number, number>[]
+  movieCountPerYear: Pair<number, number>[]
 ): Pair<number, number>[] => {
-  if (!orderedSparseTimeline.length) {
+  if (!movieCountPerYear.length) {
     return [];
   }
 
-  const minKey = orderedSparseTimeline[0].key;
-  const maxKey = orderedSparseTimeline[orderedSparseTimeline.length - 1].key;
+  if (movieCountPerYear.length === 1) {
+    return movieCountPerYear;
+  }
+
+  const ordered = [...movieCountPerYear].sort(COMPARE_BY_YEAR);
+
+  const minKey = ordered[0].key;
+  const maxKey = ordered[ordered.length - 1].key;
 
   const fullYearsRange = Array.from(new Array(maxKey - minKey + 1), (_, i) => i + minKey);
 
   return fullYearsRange.map((year) => {
-    const indexOfYear = orderedSparseTimeline.findIndex(
-      (sparseYear) => sparseYear.key === year
-    );
+    const indexOfYear = ordered.findIndex((sparseYear) => sparseYear.key === year);
 
-    return indexOfYear !== -1
-      ? orderedSparseTimeline[indexOfYear]
-      : { key: year, value: 0 };
+    return indexOfYear !== -1 ? ordered[indexOfYear] : { key: year, value: 0 };
   });
 };
 
-const yearComparator = (a: Pair<number, number>, b: Pair<number, number>): number =>
-  a.key - b.key;
+const completeBasedOnMovieCountYears = (
+  orderedMovieCount: Pair<number, number>[],
+  averageRatingPerYear: Pair<number, number | null>[]
+): Pair<number, number | null>[] => {
+  if (!averageRatingPerYear.length) {
+    return [];
+  }
 
-const YearCharts = ({ averageRate, movieCount }: YearChartsProps) => {
-  const [orderedYears] = useState([...movieCount].sort(yearComparator));
-  const [orderedRate] = useState([...averageRate].sort(yearComparator));
+  if (averageRatingPerYear.length === 1) {
+    return averageRatingPerYear;
+  }
+
+  // The complexity is O(over 9000) but it's okay since the array doesn't
+  // contain a lot of elements unless the user is an anormal human being watching
+  // 3278 movies/year, in wich case he should be using letterboxd instead
+  return orderedMovieCount.map((movieCountPair) => {
+    const averageRatingPairFound = averageRatingPerYear.find(
+      (averageRatingPair) => averageRatingPair.key === movieCountPair.key
+    );
+    if (averageRatingPairFound) {
+      return averageRatingPairFound;
+    }
+
+    return { key: movieCountPair.key, value: null };
+  });
+};
+
+type YearChartsProps = {
+  averageRating: Pair<number, number | null>[];
+  movieCount: Pair<number, number>[];
+};
+
+const YearCharts = ({ averageRating, movieCount }: YearChartsProps) => {
+  const [orderedYears] = useState(convertToFullTimeline(movieCount));
 
   return (
     <Flex flexDirection={'column'} margin={'0 0 1rem 0'}>
       <StatisticsSectionHeader title={'By release year, by average rate'} />
       <YearChart
-        orderedYears={convertToFullTimeline(orderedYears)}
-        orderedRate={convertToFullTimeline(orderedRate)}
+        orderedYears={orderedYears}
+        averageRating={completeBasedOnMovieCountYears(orderedYears, averageRating)}
       />
     </Flex>
   );

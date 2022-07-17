@@ -9,7 +9,7 @@ import { API_URL } from 'config';
 
 const FetchAllTimeStatisticsResponseSchema = z.object({
   totalRuntimeInHours: z.number(),
-  averageRatePerYear: z.array(getPairSchema(z.number(), z.number())),
+  averageRatingPerYear: z.array(getPairSchema(z.number(), z.number().nullable())),
   reviewCount: z.number(),
   movieCount: z.object({
     perYear: z.array(getPairSchema(z.number(), z.number())),
