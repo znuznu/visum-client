@@ -31,6 +31,7 @@ const StyledTooltipContent = styled(TooltipPrimitive.Content)`
   font-family: ${(props) => props.theme.fonts.main};
   padding: 0.4rem;
   width: auto;
+  z-index: 6000;
 
   @media (prefers-reduced-motion: no-preference) {
     animationduration: 400ms;
