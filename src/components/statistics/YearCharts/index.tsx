@@ -5,8 +5,6 @@ import {
   CategoryScale,
   Chart as ChartJS,
   Legend,
-  LineController,
-  LineElement,
   LinearScale,
   PointElement,
   Tooltip,
