@@ -10,6 +10,7 @@ import {
   StyledBarDetails,
   StyledBarLabel,
   StyledBarValue,
+  StyledBarContainer,
   StyledBreakdownCharts,
   StyledGrid
 } from './style';
@@ -23,11 +24,16 @@ export const getCeilPercentage = (max: number, x: number) => {
   return Math.ceil((x / max) * 100);
 };
 
-const BarValue = ({ count, percentage }: { count: number; percentage: number }) => {
+const CountBar = ({ count, percentage }: { count: number; percentage: number }) => {
   return (
-    <StyledBarValue widthPercentage={percentage}>
-      <StyledBarDetails>{count} films</StyledBarDetails>
-    </StyledBarValue>
+    <StyledBarContainer>
+      <StyledBarValue widthPercentage={percentage}>
+        <StyledBarDetails>
+          {count}
+          {count > 1 ? ' films' : ' film'}
+        </StyledBarDetails>
+      </StyledBarValue>
+    </StyledBarContainer>
   );
 };
 
@@ -41,7 +47,7 @@ const CountCharts = ({ movieCount }: { movieCount: Pair<string, number>[] }) => 
           // (eg: genre, language, production)
           <Fragment key={`${count.key}`}>
             <StyledBarLabel>{count.key}</StyledBarLabel>
-            <BarValue
+            <CountBar
               count={count.value}
               percentage={getCeilPercentage(movieCount[0].value, count.value)}
             />

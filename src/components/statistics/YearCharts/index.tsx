@@ -22,13 +22,11 @@ import { Flex } from 'components/primitives/Flex';
 import StatisticsSectionHeader from 'components/statistics/StatisticsSectionHeader';
 
 ChartJS.register(
-  LineController,
   BarController,
   LinearScale,
   CategoryScale,
   BarElement,
   PointElement,
-  LineElement,
   Legend,
   Tooltip
 );

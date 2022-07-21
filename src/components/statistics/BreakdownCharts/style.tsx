@@ -31,28 +31,32 @@ type StyledBarValueProps = {
   widthPercentage: number;
 };
 
+const StyledBarContainer = styled.div`
+  display: flex;
+
+  &:hover {
+    > span > span:only-child {
+      display: block;
+    }
+  }
+`;
+
 const StyledBarValue = styled.span<StyledBarValueProps>`
   border-radius: 4px;
   background-color: ${(props) => props.theme.colors.secondary};
   font-family: ${(props) => props.theme.fonts.main};
   font-size: ${(props) => props.theme.fontSizes.m};
   width: ${(props) => props.widthPercentage}%;
-  padding-left: 0.2rem;
-
-  & > span {
-    display: none;
-  }
-
-  &:hover {
-    & > span {
-      display: block;
-    }
-  }
 `;
 
 const StyledBarDetails = styled.span`
   position: absolute;
-  color: ${(props) => props.theme.colors.primary};
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0 0.3rem;
+  border-radius: 4px;
+
+  display: none;
 `;
 
 const StyledGrid = styled.div`
@@ -69,5 +73,6 @@ export {
   StyledBarLabel,
   StyledBarValue,
   StyledBarDetails,
-  StyledGrid
+  StyledGrid,
+  StyledBarContainer
 };
