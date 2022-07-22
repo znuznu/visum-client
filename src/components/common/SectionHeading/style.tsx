@@ -3,8 +3,6 @@ import styled from 'styled-components';
 
 import { Flex } from 'components/primitives/Flex';
 
-const StyledRecentMovies = styled.div``;
-
 const StyledTitle = styled.h2`
   color: ${(props) => props.theme.colors.tertiary};
   font-family: ${(props) => props.theme.fonts.main};
@@ -32,4 +30,4 @@ const StyledHeading = styled(Flex)`
   padding-bottom: 0.2rem;
 `;
 
-export { StyledTitle, StyledRecentMovies, StyledLink, StyledHeading };
+export { StyledTitle, StyledLink, StyledHeading };

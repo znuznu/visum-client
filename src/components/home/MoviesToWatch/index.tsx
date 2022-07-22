@@ -13,8 +13,9 @@ import { Grid } from 'components/primitives/Grid';
 import ErrorText from 'components/common/ErrorText';
 import { NoData } from 'components/common/NoData';
 import PosterTooltip from 'components/common/Poster/PosterTooltip';
-import HomeSectionHeading from 'components/home/HomeSectionHeading';
+import SectionHeading from 'components/common/SectionHeading';
 import SkeletonPosters from 'components/primitives/Skeleton/SkeletonPosters';
+import { StyledLink } from 'components/common/SectionHeading/style';
 
 type MoviesToWatchProps = {
   limit: number;
@@ -53,7 +54,9 @@ const MoviesToWatch = ({ limit }: MoviesToWatchProps) => {
 
   return (
     <div>
-      <HomeSectionHeading title={'To watch'} morePath={'/films?isToWatch=true'} />
+      <SectionHeading title={'To watch'}>
+        <StyledLink to={'/films?isToWatch=true'}>More</StyledLink>
+      </SectionHeading>
       {isLoading && <SkeletonPosters elements={9} variant={'standard'} />}
       {!isLoading &&
         (data?.content.length ? (

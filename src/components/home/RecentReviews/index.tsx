@@ -13,7 +13,7 @@ import PageReview from 'components/home/RecentReviews/PageReview';
 import { Separator } from 'components/primitives/Separator';
 import { NoData } from 'components/common/NoData';
 import ErrorText from 'components/common/ErrorText';
-import HomeSectionHeading from 'components/home/HomeSectionHeading';
+import SectionHeading from 'components/common/SectionHeading';
 import SkeletonRecentReview from 'components/home/RecentReviews/SkeletonRecentReview';
 
 import { StyledReviews } from './style';
@@ -56,7 +56,7 @@ const RecentReviews = ({ limit }: RecentReviewsProps) => {
   return (
     <div>
       {/* TODO MORE path */}
-      <HomeSectionHeading title={'Recent reviews'} />
+      <SectionHeading title={'Recent reviews'} />
       {isLoading &&
         [...Array(SKELETON_NUMBERS)].map((_, index) => (
           <Fragment key={`skeleton-${index}`}>

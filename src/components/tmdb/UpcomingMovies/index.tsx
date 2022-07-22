@@ -20,8 +20,9 @@ import ErrorText from 'components/common/ErrorText';
 import { NoData } from 'components/common/NoData';
 import PosterTooltip from 'components/common/Poster/PosterTooltip';
 import Skeleton from 'components/primitives/Skeleton/SkeletonPoster';
+import SectionHeading from 'components/common/SectionHeading';
 
-import { StyledScrollArea, StyledTitle, StyledUpcomingMovies } from './style';
+import { StyledScrollArea, StyledUpcomingMovies } from './style';
 
 const UpcomingMovies = () => {
   const { jwtToken } = useAuthentication();
@@ -56,7 +57,7 @@ const UpcomingMovies = () => {
 
   return (
     <>
-      <StyledTitle>Upcoming movies</StyledTitle>
+      <SectionHeading title={'Upcoming movies'} />
       <StyledScrollArea aria-orientation={'horizontal'}>
         <ScrollAreaViewport>
           <StyledUpcomingMovies>

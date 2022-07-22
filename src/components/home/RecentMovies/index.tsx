@@ -13,8 +13,9 @@ import { Grid } from 'components/primitives/Grid';
 import PosterTooltip from 'components/common/Poster/PosterTooltip';
 import { NoData } from 'components/common/NoData';
 import ErrorText from 'components/common/ErrorText';
-import HomeSectionHeading from 'components/home/HomeSectionHeading';
+import SectionHeading from 'components/common/SectionHeading';
 import SkeletonPosters from 'components/primitives/Skeleton/SkeletonPosters';
+import { StyledLink } from 'components/common/SectionHeading/style';
 
 export type RecentMoviesProps = {
   limit: number;
@@ -53,7 +54,9 @@ const RecentMovies = ({ limit }: RecentMoviesProps) => {
 
   return (
     <div>
-      <HomeSectionHeading title={'Recently added'} morePath={'/films'} />
+      <SectionHeading title={'Recently added'}>
+        <StyledLink to={'/films'}>More</StyledLink>
+      </SectionHeading>
       {isLoading && <SkeletonPosters elements={9} variant={'standard'} />}
       {!isLoading &&
         (data?.content.length ? (

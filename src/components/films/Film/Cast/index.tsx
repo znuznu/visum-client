@@ -10,7 +10,7 @@ import {
 } from 'components/primitives/Tooltip';
 
 import { SectionHeader, SectionTitle } from '../SectionHeader';
-import { StyledLink, StyledSection } from '../style';
+import { StyledSection } from '../style';
 
 import { StyledBadge, StyledUnknownCharacter } from './style';
 
