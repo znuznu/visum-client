@@ -13,17 +13,17 @@ import {
   TriggerIcon
 } from './style';
 
-export const Select = SelectPrimitive.Root;
-export const SelectValue = SelectPrimitive.Value;
-export const SelectIcon = TriggerIcon;
-export const SelectGroup = SelectPrimitive.Group;
-export const SelectItemText = SelectPrimitive.ItemText;
-export const SelectTrigger = StyledTrigger;
-export const SelectContent = StyledContent;
-export const SelectViewport = StyledViewport;
-export const SelectItem = StyledItem;
-export const SelectLabel = StyledLabel;
-export const SelectItemIndicator = StyledItemIndicator;
-export const SelectSeparator = StyledSeparator;
-export const SelectScrollUpButton = StyledScrollUpButton;
-export const SelectScrollDownButton = StyledScrollDownButton;
+export const Root = SelectPrimitive.Root;
+export const Value = SelectPrimitive.Value;
+export const Icon = TriggerIcon;
+export const Group = SelectPrimitive.Group;
+export const ItemText = SelectPrimitive.ItemText;
+export const Trigger = StyledTrigger;
+export const Content = StyledContent;
+export const Viewport = StyledViewport;
+export const Item = StyledItem;
+export const Label = StyledLabel;
+export const ItemIndicator = StyledItemIndicator;
+export const Separator = StyledSeparator;
+export const ScrollUpButton = StyledScrollUpButton;
+export const ScrollDownButton = StyledScrollDownButton;

@@ -19,22 +19,7 @@ import Paginator from 'components/primitives/Paginator';
 import ErrorText from 'components/common/ErrorText';
 import { NoData } from 'components/common/NoData';
 import PosterTooltip from 'components/common/Poster/PosterTooltip';
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectIcon,
-  SelectItem,
-  SelectItemIndicator,
-  SelectItemText,
-  SelectLabel,
-  SelectScrollDownButton,
-  SelectScrollUpButton,
-  SelectSeparator,
-  SelectTrigger,
-  SelectValue,
-  SelectViewport
-} from 'components/primitives/Select';
+import * as Select from 'components/primitives/Select';
 import {
   CheckIcon,
   ChevronDownIcon,
@@ -172,59 +157,59 @@ const FilmsPage = () => {
             <Label margin={'auto 0.4rem auto 0'} htmlFor={'sort-by'}>
               Sort by
             </Label>
-            <Select defaultValue="title,ASC" onValueChange={handleSelectChange}>
-              <SelectTrigger aria-label="Sort by" id={'sort-by'}>
-                <SelectValue />
-                <SelectIcon>
+            <Select.Root defaultValue="title,ASC" onValueChange={handleSelectChange}>
+              <Select.Trigger aria-label="Sort by" id={'sort-by'}>
+                <Select.Value />
+                <Select.Icon>
                   <ChevronDownIcon />
-                </SelectIcon>
-              </SelectTrigger>
-              <SelectContent>
-                <SelectScrollUpButton>
+                </Select.Icon>
+              </Select.Trigger>
+              <Select.Content>
+                <Select.ScrollUpButton>
                   <ChevronUpIcon />
-                </SelectScrollUpButton>
+                </Select.ScrollUpButton>
 
-                <SelectViewport>
-                  <SelectGroup>
-                    <SelectLabel>Title</SelectLabel>
-                    <SelectItem value="title,ASC">
-                      <SelectItemText>A-Z</SelectItemText>
-                      <SelectItemIndicator>
+                <Select.Viewport>
+                  <Select.Group>
+                    <Select.Label>Title</Select.Label>
+                    <Select.Item value="title,ASC">
+                      <Select.ItemText>A-Z</Select.ItemText>
+                      <Select.ItemIndicator>
                         <CheckIcon />
-                      </SelectItemIndicator>
-                    </SelectItem>
-                    <SelectItem value="title,DESC">
-                      <SelectItemText>Z-A</SelectItemText>
-                      <SelectItemIndicator>
+                      </Select.ItemIndicator>
+                    </Select.Item>
+                    <Select.Item value="title,DESC">
+                      <Select.ItemText>Z-A</Select.ItemText>
+                      <Select.ItemIndicator>
                         <CheckIcon />
-                      </SelectItemIndicator>
-                    </SelectItem>
-                  </SelectGroup>
+                      </Select.ItemIndicator>
+                    </Select.Item>
+                  </Select.Group>
 
-                  <SelectSeparator />
+                  <Select.Separator />
 
-                  <SelectGroup>
-                    <SelectLabel>Release date</SelectLabel>
-                    <SelectItem value="releaseDate,ASC">
-                      <SelectItemText>Oldest</SelectItemText>
-                      <SelectItemIndicator>
+                  <Select.Group>
+                    <Select.Label>Release date</Select.Label>
+                    <Select.Item value="releaseDate,ASC">
+                      <Select.ItemText>Oldest</Select.ItemText>
+                      <Select.ItemIndicator>
                         <CheckIcon />
-                      </SelectItemIndicator>
-                    </SelectItem>
-                    <SelectItem value="releaseDate,DESC">
-                      <SelectItemText>Newest</SelectItemText>
-                      <SelectItemIndicator>
+                      </Select.ItemIndicator>
+                    </Select.Item>
+                    <Select.Item value="releaseDate,DESC">
+                      <Select.ItemText>Newest</Select.ItemText>
+                      <Select.ItemIndicator>
                         <CheckIcon />
-                      </SelectItemIndicator>
-                    </SelectItem>
-                  </SelectGroup>
-                </SelectViewport>
+                      </Select.ItemIndicator>
+                    </Select.Item>
+                  </Select.Group>
+                </Select.Viewport>
 
-                <SelectScrollDownButton>
+                <Select.ScrollDownButton>
                   <ChevronDownIcon />
-                </SelectScrollDownButton>
-              </SelectContent>
-            </Select>
+                </Select.ScrollDownButton>
+              </Select.Content>
+            </Select.Root>
           </Flex>
         </StyledOptions>
       </StyledSearchBar>
