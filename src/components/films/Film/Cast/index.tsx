@@ -25,13 +25,11 @@ export const CastBadge = ({ id, name, forename, character }: CastBadgeProps) => 
   return (
     <Tooltip>
       <TooltipTrigger asChild>
-        <StyledLink to={`/actor/${id}`}>
-          <StyledBadge>
-            {character || (
-              <StyledUnknownCharacter>Unknown character</StyledUnknownCharacter>
-            )}
-          </StyledBadge>
-        </StyledLink>
+        <StyledBadge to={`/actor/${id}`}>
+          {character || (
+            <StyledUnknownCharacter>Unknown character</StyledUnknownCharacter>
+          )}
+        </StyledBadge>
       </TooltipTrigger>
       <TooltipContent side={'top'}>
         {name} {forename}
