@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 
-const StyledTabs = styled(TabsPrimitive.Root)``;
-
 const StyledTabsList = styled(TabsPrimitive.List)`
   color: ${(props) => props.theme.colors.primary};
   display: flex;
@@ -39,6 +37,4 @@ const StyledTabsTrigger = styled(TabsPrimitive.Trigger)`
   }
 `;
 
-const StyledTabsContent = styled(TabsPrimitive.Content)``;
-
-export { StyledTabs, StyledTabsList, StyledTabsTrigger, StyledTabsContent };
+export { StyledTabsList, StyledTabsTrigger };

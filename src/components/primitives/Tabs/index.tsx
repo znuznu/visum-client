@@ -1,11 +1,8 @@
-import {
-  StyledTabs,
-  StyledTabsContent,
-  StyledTabsList,
-  StyledTabsTrigger
-} from './style';
+import * as TabsPrimitive from '@radix-ui/react-tabs';
 
-export const Tabs = StyledTabs;
-export const TabsList = StyledTabsList;
-export const TabsTrigger = StyledTabsTrigger;
-export const TabsContent = StyledTabsContent;
+import { StyledTabsList, StyledTabsTrigger } from './style';
+
+export const Root = TabsPrimitive.Root;
+export const List = StyledTabsList;
+export const Trigger = StyledTabsTrigger;
+export const Content = TabsPrimitive.Content;
