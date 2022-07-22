@@ -19,7 +19,7 @@ import Button from 'components/primitives/Button';
 import { AccessibleIcon } from 'components/primitives/AccessibleIcon';
 import ThemeSwitcher from 'components/sidebar/ThemeSwitcher';
 
-import SidebarHeaderLogo from './SidebarHeaderLogo';
+import SidebarHeaderLogo from './SidebarHeader/SidebarHeaderLogo';
 import SidebarMenu from './SidebarMenu';
 import SidebarMenuSection from './SidebarMenuSection';
 import SidebarMenuSectionTitle from './SidebarMenuSectionTitle';
