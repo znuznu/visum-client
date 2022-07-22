@@ -1,7 +1,6 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const StyledTitle = styled(Link)`
+const StyledTitle = styled.h1`
   color: ${(props) => props.theme.colors.button.default.color};
   font-size: ${(props) => props.theme.fontSizes.xl};
   font-family: ${(props) => props.theme.fonts.logo};
@@ -9,10 +8,6 @@ const StyledTitle = styled(Link)`
   flex: 1;
   margin: 13px 0;
   text-decoration: none;
-
-  &:hover {
-    cursor: pointer;
-  }
 `;
 
 export default StyledTitle;

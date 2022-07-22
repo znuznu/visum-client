@@ -7,7 +7,7 @@ type SidebarHeaderProps = {
 };
 
 const SidebarHeader = ({ children }: SidebarHeaderProps) => {
-  return <StyledHeader>{children}</StyledHeader>;
+  return <StyledHeader to={'/'}>{children}</StyledHeader>;
 };
 
 export default SidebarHeader;
