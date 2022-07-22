@@ -73,14 +73,14 @@ const DiaryPage = () => {
       <Flex justifyContent={'center'}>
         {currentYear - 1 >= MIN_YEAR ? (
           <StyledLink to={`../${currentYear - 1}`}>
-            <Button margin={'auto 2rem auto 0'} onClick={refetchPreviousYear}>
+            <Button onClick={refetchPreviousYear}>
               <AccessibleIcon label="Previous year">
                 <PreviousIcon />
               </AccessibleIcon>
             </Button>
           </StyledLink>
         ) : (
-          <Button margin={'auto 2rem auto 0'} disabled>
+          <Button margin={'auto 0'} disabled>
             <AccessibleIcon label="Previous year">
               <PreviousIcon />
             </AccessibleIcon>
@@ -90,7 +90,7 @@ const DiaryPage = () => {
         <StyledYearTitle>{year}</StyledYearTitle>
 
         <StyledLink to={`../${currentYear + 1}`}>
-          <Button margin={'auto 0 auto 2rem'} onClick={refetchNextYear}>
+          <Button onClick={refetchNextYear}>
             <AccessibleIcon label="Next year">
               <NextIcon />
             </AccessibleIcon>

@@ -13,7 +13,7 @@ const StyledYearTitle = styled.h1`
   font-size: ${(props) => props.theme.fontSizes.xxxxl};
   font-weight: bold;
   text-align: center;
-  margin: 0;
+  margin: 0 2rem;
 `;
 
 const PreviousIcon = styled(ThickArrowLeftIcon)`
