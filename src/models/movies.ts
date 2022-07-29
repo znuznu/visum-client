@@ -14,14 +14,12 @@ const CastMemberSchema = z.object({
 });
 export type CastMember = z.infer<typeof CastMemberSchema>;
 
-export interface MovieFromPage {
+export interface PageMovie {
   id: number;
   title: string;
   releaseDate: string;
   creationDate: string;
-  metadata: {
-    posterUrl?: string;
-  };
+  posterUrl?: string;
   isFavorite: boolean;
   isToWatch: boolean;
 }

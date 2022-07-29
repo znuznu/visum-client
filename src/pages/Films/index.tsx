@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useQuery } from 'react-query';
 import { Link, useSearchParams } from 'react-router-dom';
 
-import { MovieFromPage } from 'models/movies';
+import { PageMovie } from 'models/movies';
 import { Page } from 'models/page';
 
 import { fetchPage } from 'services/api/page';
@@ -47,7 +47,7 @@ const buildSearchQuery = (title: string, isFavorite: boolean, isToWatch: boolean
 const FilmsPage = () => {
   const { jwtToken } = useAuthentication();
   const { setHttpError } = useGenericHttpError(undefined);
-  const [page, setPage] = useState<Page<MovieFromPage>>({
+  const [page, setPage] = useState<Page<PageMovie>>({
     current: 0,
     size: 25,
     totalElements: 0,
@@ -66,7 +66,7 @@ const FilmsPage = () => {
   const { isLoading, isError, data } = useQuery(
     ['getMovies', page.current, search, isFavorite, isToWatch, sort, offset],
     () => {
-      return fetchPage<MovieFromPage>(
+      return fetchPage<PageMovie>(
         'movies',
         { authorization: `Bearer ${jwtToken}` },
         {
@@ -90,7 +90,7 @@ const FilmsPage = () => {
     return <ErrorText />;
   }
 
-  const handlePageChange = (page: Page<MovieFromPage>) => {
+  const handlePageChange = (page: Page<PageMovie>) => {
     setPage(page);
     setSearchParams({
       isFavorite: String(isFavorite),
@@ -232,7 +232,7 @@ const FilmsPage = () => {
                     height={'150px'}
                     movie={{
                       title: movie.title,
-                      posterUrl: movie.metadata.posterUrl,
+                      posterUrl: movie.posterUrl,
                       releaseDate: movie.releaseDate,
                       isFavorite: movie.isFavorite,
                       isToWatch: movie.isToWatch

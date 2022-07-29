@@ -2,7 +2,7 @@ import { HTTPError } from 'ky';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 
-import { MovieFromPage } from 'models/movies';
+import { PageMovie } from 'models/movies';
 
 import { fetchPage } from 'services/api/page';
 
@@ -30,7 +30,7 @@ const MoviesToWatch = ({ limit }: MoviesToWatchProps) => {
   const { isLoading, isError, data } = useQuery(
     'getShouldWatchMovies',
     () =>
-      fetchPage<MovieFromPage>(
+      fetchPage<PageMovie>(
         'movies',
         { Authorization: `Bearer ${jwtToken}` },
         {
@@ -68,7 +68,7 @@ const MoviesToWatch = ({ limit }: MoviesToWatchProps) => {
                   height={'150px'}
                   movie={{
                     title: movie.title,
-                    posterUrl: movie.metadata.posterUrl,
+                    posterUrl: movie.posterUrl,
                     releaseDate: movie.releaseDate,
                     isFavorite: movie.isFavorite,
                     isToWatch: movie.isToWatch
