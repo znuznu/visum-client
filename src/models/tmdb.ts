@@ -21,7 +21,7 @@ const TmdbMovieSchema = z.object({
   genres: z.array(z.string()),
   metadata: z.object({
     tmdbId: z.number(),
-    imdbId: z.string(),
+    imdbId: z.string().nullable().optional(),
     originalLanguage: z.string(),
     tagline: z.string(),
     overview: z.string(),
