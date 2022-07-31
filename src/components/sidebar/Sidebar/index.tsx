@@ -76,6 +76,10 @@ const Sidebar = () => {
               }
               onClick={closeMenu}
             />
+          </SidebarMenuSection>
+          <Separator decorative />
+          <SidebarMenuSection>
+            <SidebarMenuSectionTitle value={'Content'} />
             <SidebarMenuItemLink
               to={'/diary'}
               text={'Diary'}
@@ -86,10 +90,6 @@ const Sidebar = () => {
               }
               onClick={closeMenu}
             />
-          </SidebarMenuSection>
-          <Separator decorative />
-          <SidebarMenuSection>
-            <SidebarMenuSectionTitle value={'Content'} />
             <SidebarMenuItemLink
               to={'/films'}
               text={'Films'}
